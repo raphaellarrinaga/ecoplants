@@ -1,0 +1,23 @@
+// Layout
+
+.page {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 2rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-flow: row wrap;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 1rem;
+  letter-spacing: .01em;
+  line-height: 1;
+  margin: .8rem 0;
+  text-transform: uppercase;
+}

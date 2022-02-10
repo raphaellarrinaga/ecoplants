@@ -1,0 +1,104 @@
+//
+//  Variables
+//
+
+// Colors
+//
+
+// Grays
+$black: #111;
+$gray25: lighten($black, 25%);
+$gray50: lighten($black, 50%);
+$gray75: lighten($black, 75%);
+$gray85: lighten($black, 85%);
+$gray90: lighten($black, 90%);
+$white : #fefefe;
+
+// Branding
+$brand-primary: #82BE43;
+$brand-primary-dark: #344D1B;
+$brand-primary-dusky: #2F3231;
+$brand-secondary: #2F3231;
+$brand-tertiary: #F5F5F5;
+
+// Global colors
+$primary-text-color: #333;
+$secondary-text-color: #555;
+$heading-text-color: $primary-text-color;
+$body-color: $white;
+$page-color: $white;
+$link-color: $brand-primary;
+$link-hover-color: lighten($link-color, 10%);
+$link-visited-color: darken($link-color, 20%);
+$selection-background: lightblue;
+$selection-foreground: $primary-text-color;
+$border-color: #C7DAD3;
+// Tested AAA colors on http://accessible-colors.com/
+$status-color-light: #DDF2C9;
+$status-color: #9FBD84;
+$status-color-dark: #234600;
+$warning-color-light: #f6f3d0;
+$warning-color: #F3A530;
+$warning-color-dark: #7F4100;
+$error-color-light: #FCE6E6;
+$error-color: #F09090;
+$error-color-dark: #8c2e0b;
+
+// Nav
+$tabs-bg-color: #f9f9f9;
+$tabs-bg-hover-color: #ececec;
+$tabs-text-color: #333;
+$tabs-border-color: #cacaca;
+
+// Fonts
+//
+$base-font-family: 'Nunito', $font-stack-helvetica;
+$header-font-family: 'Playfair Display', $font-stack-georgia;
+$monospace-font-family: $font-stack-consolas;
+
+// Define the global base font size
+// Since $px-base-font-size is defined on the <html> tag,
+// it will affect the way browsers and theme helpers calculate rem values
+// @see _html-elements.scss
+//
+$px-base-font-size: 18px !default;
+$px-base-font-size-mobile: 16px !default;
+$base-line-height: 1.5;
+$heading-line-height: 1.3;
+
+// Modular scale font-sizes
+// Use Bourbon helper or set custom values
+// @see https://bourbon.io/docs/#modular-scale
+// @see https://www.modularscale.com/
+//
+// $modular-scale-ratio: $minor-third;
+// $modular-scale-ratio: $major-second;
+$modular-scale-ratio: $perfect-fourth;
+// Bourbon rely on the font-size defined on the html tag
+$modular-scale-base: 1rem;
+$font-size-xxl: modular-scale(3);
+$font-size-xl: modular-scale(2);
+$font-size-lg: modular-scale(1);
+$font-size-normal: modular-scale(0);
+$font-size-md: modular-scale(-1);
+$font-size-sm: modular-scale(-2);
+$font-size-xs: modular-scale(-3);
+
+// Buttons global vars
+//
+$button-bg-color: $gray75;
+$button-bg-hover-color: $gray50;
+$button-font-family: $base-font-family;
+$button-prim-bg-color: $link-color;
+$button-prim-text-color: $white;
+$button-text-color: $gray25;
+
+// Forms global vars
+//
+$form-background-color: $white;
+$form-border-color: $gray75;
+$form-item-font: $base-font-family;
+$form-label-color: $secondary-text-color;
+$form-label-font: $header-font-family;
+$form-text-color: $primary-text-color;
+$form-text-size: $font-size-md;

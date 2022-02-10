@@ -1,0 +1,58 @@
+// Define custom layout values
+//
+
+// Values for the container max-width at specific media queries breakpoint
+// @example
+// max-width: $l-medium;
+$l-small: 100%;
+$l-medium: 90%;
+$l-big: rem(1160);
+// $l-wide: rem(1330);
+$l-wide: rem(1278); // = (12*(18*5))+(11*18)
+// $l-wide: rem(1040); // = (12*(18*5))+(11*18)
+
+// Values for default media queries breakpoints (mobile first)
+// They are used in mappy-bp $breakpoints map and shouldn't really be used across stylesheets
+$b-small-val: 480px;
+$b-medium-val: 769px;
+$b-big-val: 1220px;
+$b-wide-val: 1340px;
+
+// Define Mappy-bp values
+//
+
+// mappy-bp breakpoints settings used in $mappy-queries map
+$breakpoints: (
+  'small': $b-small-val,
+  'medium': $b-medium-val,
+  'big': $b-big-val,
+  'wide': $b-wide-val,
+);
+
+// mappy-bp settings
+// @example
+// @include mappy-query(b-medium) {}
+$mappy-queries: (
+  'b-small': mappy-bp(small, $type: screen),
+  'b-medium': mappy-bp(medium, $type: screen),
+  'b-big': mappy-bp(big, $type: screen),
+  'b-wide': mappy-bp(wide, $type: screen),
+);
+
+// Neat
+// Each neat settings for use on each breakpoint
+// @example
+// @include grid-media($neat-grid-big) {}
+//
+
+$neat-grid-big: (
+  columns: 12,
+  gutter: rem(20),
+  media: rem(1240),
+);
+
+$neat-grid-wide: (
+  columns: 12,
+  gutter: rem(20),
+  media: rem(1340),
+);

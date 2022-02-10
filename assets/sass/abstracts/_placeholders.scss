@@ -1,0 +1,31 @@
+//
+// Helpers
+//
+// Extendables Partials
+// Collect all silent extendables.
+//
+
+// Webkit-style focus
+//
+
+%tab-focus {
+  // Default
+  outline: thin dotted #333;
+  // Webkit
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// CSS image replacement
+//
+// @see https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+// use bourbon @include hide-text;
+//
+
+%hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}

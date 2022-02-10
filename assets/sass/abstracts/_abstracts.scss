@@ -1,0 +1,26 @@
+// Group abstracts to reuse accross sass files
+// Order is important
+
+// Import bourbon framework for mixin, vars, functions helpers
+@import "bourbon";
+
+// Import Neat grid system
+@import "neat";
+
+// Import Mappy breakpoints
+@import 'mappy-breakpoints';
+
+// All variables for layout, colors and fonts
+@import 'variables';
+
+// All helpers functions
+@import 'functions';
+
+// All helpers mixins
+@import 'mixins';
+
+// Custom layout value, mappy-bp and neat settings
+@import 'grid-settings';
+
+// All reusable @extend and classes
+@import 'placeholders';

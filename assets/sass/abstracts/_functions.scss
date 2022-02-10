@@ -1,0 +1,42 @@
+//
+//  Functions
+//
+
+// Strips the unit from a number.
+//
+
+@function strip-unit($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+// Convert pixels to rem
+// Rem values are based on the px value defined on the html tag
+// and that value is defined in $px-base-font-size
+// /!\ you cannot rely on this value if html font size changes
+// By default, $px-base-font-size-mobile is defined to decrease
+// all rem sizes on small screens
+// @see _html-elements.scss
+// @see _variables.scss
+// @see https://github.com/thoughtbot/bourbon/issues/691
+
+@function rem($pxval) {
+  @if not unitless($pxval) {
+    $pxval: strip-unit($pxval);
+  }
+
+  $base: $px-base-font-size;
+  @if not unitless($base) {
+    $base: strip-unit($base);
+  }
+
+  @return ($pxval / $base) * 1rem;
+}
+
+// Create vertical rhythm.
+// Can be used to define consistent margin and paddings
+// @see https://alwaystwisted.com/articles/2013-12-30-not-your-average-vertical-rhythm-sass-mixin
+// @example margin-bottom: rhythm(2, $font-size-sm, 1.2);
+
+@function rhythm($lines: 1, $font-size: 1rem, $line-height: $base-line-height) {
+  @return $lines * $font-size * $line-height;
+}

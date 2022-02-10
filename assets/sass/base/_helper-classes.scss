@@ -1,0 +1,92 @@
+//
+// Helper classes
+
+// .element-hidden {
+//   display: none;
+// }
+
+// //
+// // Clearfix
+// //
+
+// .clearfix {
+//   @include cf;
+// }
+
+// //
+// // Hide for desktop
+// //
+
+// .desktop-hidden{
+//   @include mappy-query(b-medium) {
+//     display: none;
+//   }
+// }
+
+// //
+// // Inline lists
+// //
+
+// .list-inline{
+//   padding-left: 0;
+//   margin-left: -1em;
+//   list-style: none;
+
+//   &>li{
+//     display: inline-block;
+//     padding-right: 1em;
+//     padding-left: 1em;
+//   }
+// }
+
+// // Section title
+
+// .section-title{
+//   font-size: $font-size-xxl;
+//   margin-bottom: rhythm(3/2);
+
+//   &:after{
+//     @include title-border;
+//     margin-left: 0;
+//   }
+// }
+
+// // Backgrounds
+
+// .bg-gray{
+//   background-color: $brand-tertiary;
+//   margin: 0 rem(20) rem(20);
+//   padding: rhythm(1) 0;
+// }
+
+// // Spaced content
+// .spaced{
+//   margin-bottom: rhythm(1);
+//   margin-top: rhythm(1);
+
+//   @include mappy-query(b-small) {
+//     margin-bottom: rhythm(3);
+//     margin-top: rhythm(3);
+//   }
+// }
+
+// .spaced-lg{
+//   margin-bottom: rhythm(2);
+//   margin-top: rhythm(2);
+
+//   @include mappy-query(b-small) {
+//     margin-bottom: rhythm(5);
+//     margin-top: rhythm(5);
+//   }
+// }
+
+// // Page title
+
+// .page__title{
+//   text-align: center;
+
+//   &:after{
+//     @include title-border;
+//     margin: rhythm(1) auto;
+//   }
+// }

@@ -1,0 +1,376 @@
+//
+// Mixins
+//
+// Snippets of reusable CSS to develop faster and keep code readable
+//
+
+// Utility mixins
+//
+
+// Reset filters for IE
+@mixin gradient-reset-filter() {
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+// IE rgba
+@mixin rgba-ie($color, $alpha) {
+  background-color: $color;
+  background-color: rgba($color, $alpha);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($color)}', endColorstr='#{ie-hex-str($color)}', GradientType=0); // IE9 and down, gets no color-stop at all for proper fallback
+}
+
+// Component mixins
+//
+
+// Horizontal dividers
+// Dividers (basically an hr) within dropdowns and nav lists
+@mixin nav-divider($top: #e5e5e5, $bottom: $white) {
+  // IE7 needs a set width since we gave a height. Restricting just
+  // to IE7 to keep the 1px left/right space in other browsers.
+  // It is unclear where IE is getting the extra space that we need
+  // to negative-margin away, but so it goes.
+  *width: 100%;
+  height: 1px;
+  margin: (($baseLineHeight / 2) - 1) 1px; // 8px 1px
+  *margin: -5px 0 5px;
+  overflow: hidden;
+  background-color: $top;
+  border-bottom: 1px solid $bottom;
+}
+
+// Navbar vertical align
+// Vertically center elements in the navbar.
+// Example: an element has a height of 30px, so write out `.navbarVerticalAlign(30px);`
+// to calculate the appropriate top margin.
+@mixin navbarVerticalAlign($elementHeight) {
+  margin-top: ($navbarHeight - $elementHeight) / 2;
+}
+
+// Generate sprite
+//
+// https://gist.github.com/3166895
+// http://compass-style.org/reference/compass/helpers/sprites/
+@mixin get-sprite($map, $sprite, $bg-color: transparent, $repeat: no-repeat, $height: true, $width: true) {
+
+  //http://compass-style.org/reference/compass/helpers/sprites/#sprite-file
+  $sprite-image: sprite-file($map, $sprite);
+  // http://compass-style.org/reference/compass/helpers/sprites/#sprite-url
+  $sprite-map: sprite-url($map);
+  // http://compass-style.org/reference/compass/helpers/sprites/#sprite-position
+  $sprite-position: sprite-position($map, $sprite);
+  // Returns background
+  background: $bg-color $sprite-map $sprite-position $repeat;
+  // http://compass-style.org/reference/compass/helpers/image-dimensions/
+  // Checks to see if the user wants height returned
+  @if $height == true {
+  // Gets the height of the sprite-image
+    $sprite-height: image-height($sprite-image);
+  // Returns the height
+    height: $sprite-height;
+  }
+
+  // http://compass-style.org/reference/compass/helpers/image-dimensions/
+  // Checks to see if the user wants height returned
+  @if $width == true {
+    // Gets the width of the sprite-image
+    $sprite-width: image-width($sprite-image);
+    // Returns the width
+    width: $sprite-width;
+  }
+}
+
+// A11Y-wise hiding
+@mixin cf {
+  zoom: 1;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Custom component mixins
+//
+
+// Triangle
+@mixin triangle($color: green, $orientation: top, $width: 10px, $height: 5px) {
+  border-style: solid;
+  height: 0;
+  width: 0;
+
+  @if $orientation == 'left' {
+    border-color: transparent $color transparent transparent;
+    border-width: $height/2 $width $height/2 0;
+  }
+  @else if $orientation == 'right' {
+    border-color: transparent transparent transparent $color;
+    border-width: $height/2 0 $height/2 $width;
+  }
+  @else if $orientation == 'top' {
+    border-color: transparent transparent $color transparent;
+    border-width: 0 $height/2 $width $height/2;
+  }
+  @else {
+    border-color: $color transparent transparent transparent;
+    border-width: $height $width/2 0 $width/2;
+  }
+}
+
+// Animation
+// Create an animation with vendor prefixes
+@mixin animation($value) {
+  -webkit-animation: $value;
+  -moz-animation: $value;
+  -ms-animation: $value;
+  -o-animation: $value;
+  animation: $value;
+}
+
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Image replacement
+//
+// Kellum Method
+// @see http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement
+// Additional helpers from http://html5boilerplate.com/docs/css/
+// This is also included as a SASS mixin, see: sass/custom.rb
+// @see http://css-tricks.com/examples/ImageReplacement/
+@mixin ir {
+  // Kellum Method
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  // Additional helpers
+  // border: 0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  background-color: transparent; // Hide the default background color on elements like <button>
+}
+
+// Pseudo element
+// Create an empty css pseudo element. Reusable for, e.g., icons
+@mixin el($width: 100%, $height: 20px, $display: block) {
+  content: '';
+  display: block;
+  height: $height;
+  width: $width;
+}
+
+// Stripes background
+@mixin stripes($color1: red, $color2: blue, $angle: -45deg) {
+  background: repeating-linear-gradient(
+    $angle,
+    $color1,
+    $color1 10px,
+    $color2 10px,
+    $color2 20px
+  );
+}
+
+// After applying mixin, inline elements will need the display property set to
+// block or inline-block.
+@mixin image-replace($width, $height) {
+  height: $height;
+  overflow: hidden;
+  width: $width;
+
+  &:before {
+    content: "";
+    display: block;
+    height: 150%;
+    width: 0;
+  }
+}
+
+// No child margin
+// Keep vrhthm consistent avoiding children margins
+// $direction : top or bottom. Default: bottom
+@mixin no-child-margin($direction : "bottom") {
+  &>*:last-child{
+    margin-#{$direction}: 0;
+
+    &>*:last-child{
+      margin-#{$direction}: 0;
+
+      &>*:last-child{
+        margin-#{$direction}: 0;
+      }
+    }
+  }
+}
+
+// Set css content
+@mixin css-content($display, $width, $height) {
+  content: "";
+  display: $display;
+
+  @if $height {
+    height: $height;
+  }
+  @if $width {
+    width: $width;
+  }
+}
+
+// Unstyle button
+@mixin button-unstyled($border: none, $background: transparent) {
+  background: $background;
+  border: $border;
+  box-shadow: none;
+  appearance: none;
+}
+
+// Buttons helper
+// Define simple button styles
+@mixin button($font-size: rem(16)) {
+  appearance: none;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $button-font-family;
+  font-size: $font-size;
+  font-weight: bold;
+  line-height: 1.3;
+  padding: .875em 2em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  // white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+
+  i, i:before{
+    transition: none;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+@mixin button--default($font-size: rem(16)) {
+  @include button($font-size);
+  background-color: $button-bg-color;
+  color: $button-text-color;
+
+  &:visited {
+    color: $button-text-color;
+  }
+
+  &:hover {
+    background-color: darken($button-bg-color, 8%);
+    color: $button-text-color;
+  }
+
+  &:focus{
+    box-shadow: lighten($link-color, 15%) 0 0 5px;
+    color: $button-text-color;
+    outline: 0;
+  }
+}
+
+@mixin button--primary($font-size: $font-size-md) {
+  background-color: $button-prim-bg-color;
+  color: $button-prim-text-color;
+
+  i{
+    margin-right: .35em;
+  }
+
+  &:hover{
+    background-color: darken($button-prim-bg-color, 4%);
+    color: $button-prim-text-color;
+    transform: translateX(2px);
+
+    i{
+      transform: translateX(1px);
+      transition: all .200s cubic-bezier(.15,0,.3,.8);
+    }
+    // &:before{
+    //   animation: anim-moema-2 0.6s forwards;
+    // }
+  }
+
+  &:focus {
+    box-shadow: lighten($link-color, 25%) 0 0 12px,
+    inset darken($link-color, 5%) 0 0 0 2px;
+    color: $button-prim-text-color;
+    outline: 0;
+  }
+
+  &:visited {
+    color: $button-prim-text-color;
+  }
+
+  // position: relative;
+  // z-index: 0;
+  // &:before{
+  //   box-sizing: border-box;
+  //   content: '';
+  //   position: absolute;
+  //   top: -12px;
+  //   left: -12px;
+  //   bottom: -12px;
+  //   right: -12px;
+  //   background: inherit;
+  //   border-radius: 50px;
+  //   z-index: -1;
+  //   opacity: 0.4;
+  //   transform: scale3d(0.8, 0.5, 1);
+  //   transition: all linear;
+  // }
+}
+
+// @keyframes anim-moema-2 {
+//   to {
+//     opacity: 0;
+//     transform: scale3d(1, 1, 1);
+//   }
+// }
+
+@mixin button--reverse($font-size: $font-size-md) {
+  color: $brand-primary;
+  background-color: $white;
+
+  &:hover{
+    box-shadow: inset $brand-primary 0 0 0 2px;
+    background-color: $white;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:visited {
+  color: $brand-primary;
+  }
+}
+
+// Custom border
+
+@mixin title-border($size: "normal", $height: 6px, $width: 52px, $color: $brand-primary) {
+  $top : rhythm(1);
+  @if $size == "small" {
+    $height : 3px;
+    $top : rhythm(1/3);
+  }
+  @include css-content(block, $width, $height);
+  background-color: $color;
+  border-radius: $height/2;
+  margin: $top auto;
+}
