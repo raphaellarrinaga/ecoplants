@@ -6,6 +6,10 @@ const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY
 const SHEET_DATA_SOURCE_URL = 'https://sheets.googleapis.com/v4/spreadsheets/19Pw8bkQBliB997SbT1BvDZiKay_H-_2jH8HNHbDEpLw/values/data!A1:I1000?key='+ GOOGLE_API_KEY
 
 export default {
+  // Required by Netlify to work
+  // @see https://nuxtjs.org/announcements/going-full-static/
+  target: 'static',
+
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
