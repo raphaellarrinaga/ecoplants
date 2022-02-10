@@ -22,12 +22,14 @@ export default {
   head: {
     title: 'Ecoplants',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'fr'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
+      { hid: 'og:description', property: 'og:description', content: process.env.npm_package_description || '' },
+      { hid: 'og:title', property: 'og:title', content: 'Ecoplants' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [

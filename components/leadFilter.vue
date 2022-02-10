@@ -223,8 +223,20 @@ export default {
 </script>
 
 <style>
-.form-filter {
-  display: flex;
+@media screen and (min-width: 420px) {
+  .form-filter {
+    display: flex;
+  }
+}
+
+.form-item {
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 420px) {
+  .form-item {
+    margin-bottom: 0;
+  }
 }
 
 .form-item:first-child {
@@ -240,16 +252,24 @@ export default {
 }
 
 .input-search {
-  border-radius: 15px;
+  border-radius: 20px;
   border: 1px solid #cae0f1;
+  display: block;
   line-height: 1.5;
   padding: .4rem .8rem;
+  width: 100%;
+}
+
+@media screen and (min-width: 420px) {
+  .input-search {
+    display: inline-block;
+    width: auto;
+  }
 }
 
 .button {
   background: #d7e0e7;
   border-radius: 5px;
-  /* border: 1px solid #7e7e7e; */
   border: none;
   color: #0a2336;
   font-size: .9rem;
@@ -257,9 +277,10 @@ export default {
   padding: .3rem .6rem .2rem;
   cursor: pointer;
 }
-  .button + .button {
-    margin-left: .5rem;
-  }
+
+.form-item--buttons .button {
+  margin: 0 .5rem .5rem 0;
+}
 
 .form-item--buttons .button:hover {
   background: #ced9e0;

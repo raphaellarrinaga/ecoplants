@@ -1,6 +1,5 @@
 <template>
   <div class="plant__inner">
-    <!-- <p class="plant__latin" v-if="lead.Nom">{{ lead.Nom }}</p> -->
     <p class="plant__latin">{{ lead.Nom }}</p>
     <p class="plant__vernaculaire">{{ lead.NomVernaculaire }}</p>
     <p class="plant__famille">{{ lead.Famille }}</p>
@@ -58,4 +57,8 @@ export default {
     margin-bottom: 0;
     margin-top: 0;
   }
+
+.plant__latin {
+  font-weight: bold;
+}
 </style>
