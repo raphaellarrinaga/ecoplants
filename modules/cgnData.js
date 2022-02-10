@@ -1,5 +1,5 @@
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY
-const SHEET_DATA_SOURCE_URL = 'https://sheets.googleapis.com/v4/spreadsheets/19Pw8bkQBliB997SbT1BvDZiKay_H-_2jH8HNHbDEpLw/values/Data!A1:I1000?key='+ GOOGLE_API_KEY
+const SHEET_DATA_SOURCE_URL = 'https://sheets.googleapis.com/v4/spreadsheets/19Pw8bkQBliB997SbT1BvDZiKay_H-_2jH8HNHbDEpLw/values/Data!A1:Z1000?key='+ GOOGLE_API_KEY
 const axios = require('axios')
 const _ = require('lodash')
 const { join, resolve } = require('path')

@@ -1,3 +1,8 @@
+// All abstracts from `abstracts/_abstracts` are imported via
+// the "style-resources" npm module.
+
+@import 'mappy-breakpoints';
+
 @import 'base/base';
 
 @import 'layout/layout';

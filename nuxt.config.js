@@ -8,7 +8,8 @@ const SHEET_DATA_SOURCE_URL = 'https://sheets.googleapis.com/v4/spreadsheets/19P
 export default {
   // Required by Netlify to work
   // @see https://nuxtjs.org/announcements/going-full-static/
-  target: 'static',
+  // @see https://nuxtjs.org/deployments/netlify/
+  // target: 'static',
 
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -30,10 +31,12 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
       { hid: 'og:description', property: 'og:description', content: process.env.npm_package_description || '' },
       { hid: 'og:title', property: 'og:title', content: 'Ecoplants' },
+      { hid: 'og:image', property: 'og:image', content: 'https://ecoplants.netlify.app/cgn-og-cover.png' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/png', sizes:"32x32", href: '/favicon-32x32.png' },
+      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap' }
     ]
   },
@@ -52,8 +55,15 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/style-resources',
     '@nuxtjs/google-fonts'
   ],
+
+  styleResources: {
+    scss: [
+      './assets/sass/abstracts/_abstracts.scss'
+    ]
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [

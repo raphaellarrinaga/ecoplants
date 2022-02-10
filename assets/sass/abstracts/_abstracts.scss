@@ -2,25 +2,38 @@
 // Order is important
 
 // Import bourbon framework for mixin, vars, functions helpers
-@import "bourbon";
+// @import "bourbon";
 
-// Import Neat grid system
-@import "neat";
+// // Import Neat grid system
+// @import "neat";
 
-// Import Mappy breakpoints
-@import 'mappy-breakpoints';
+// // Import Mappy breakpoints
+// @import 'mappy-breakpoints';
 
-// All variables for layout, colors and fonts
-@import 'variables';
+// // All variables for layout, colors and fonts
+// @import 'variables';
 
-// All helpers functions
-@import 'functions';
+// // All helpers functions
+// @import 'functions';
 
-// All helpers mixins
-@import 'mixins';
+// // All helpers mixins
+// @import 'mixins';
 
-// Custom layout value, mappy-bp and neat settings
-@import 'grid-settings';
+// // Custom layout value, mappy-bp and neat settings
+// @import 'grid-settings';
 
-// All reusable @extend and classes
-@import 'placeholders';
+// // All reusable @extend and classes
+// @import 'placeholders';
+
+// $breakpoints: (
+//   'small': 320px,
+//   'large': 920px
+// );
+
+// .desktop-hidden{
+//   // @include mappy-query(b-medium) {
+//   @include mappy-bp(small large) {
+//     display: none;
+//   }
+// }
+

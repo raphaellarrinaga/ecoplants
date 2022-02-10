@@ -1,12 +1,12 @@
 <template>
   <div class="form">
     <div class="form-filter">
-      <div class="form-item">
+      <div class="form-item form-item--search">
         <input
           :value="search"
           type="search"
           class="input-search"
-          placeholder="Entrer un nom"
+          placeholder="Nom latin ou vernaculaire"
           aria-label="Rechercher"
           @input="handleSearch"
         >
@@ -222,7 +222,7 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss">
 @media screen and (min-width: 420px) {
   .form-filter {
     display: flex;
@@ -251,17 +251,28 @@ export default {
   margin-bottom: 2em;
 }
 
+.form-item--search {
+  position: relative;
+
+  &:before {
+    // content: "🔎🔍";
+    content: "🔎";
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+  }
+}
+
 .input-search {
   border-radius: 20px;
   border: 1px solid #cae0f1;
   display: block;
   line-height: 1.5;
-  padding: .4rem .8rem;
+  padding: .4rem .8rem .4rem 2.4rem;
   width: 100%;
-}
 
-@media screen and (min-width: 420px) {
-  .input-search {
+  @media screen and (min-width: 420px) {
     display: inline-block;
     width: auto;
   }
