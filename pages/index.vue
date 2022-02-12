@@ -12,6 +12,7 @@
           <span class="plants__header-latin">Nom latin</span>
           <span class="plants__header-vernaculaire">Nom vernaculaire</span>
           <span class="plants__header-famille">Famille</span>
+          <span class="plants__header-cycle">Cycle</span>
           <span class="plants__header-semis">Semis</span>
           <span class="plants__header-floraison">Floraison</span>
         </div>
@@ -58,6 +59,7 @@ export default {
     await store.dispatch('leads/fetchAllLeads')
   },
   mounted () {
+    console.log(this.leads.length);
     if (!this.leads.length) {
       this.$store.dispatch('leads/fetchAllLeads')
     }

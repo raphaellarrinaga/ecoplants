@@ -3,6 +3,7 @@
     <p class="plant__latin">{{ lead.Nom }}</p>
     <p class="plant__vernaculaire">{{ lead.NomVernaculaire }}</p>
     <p class="plant__famille">{{ lead.Famille }}</p>
+    <p class="plant__cycle">{{ lead.Cycle }}</p>
     <p class="plant__semis">{{ lead.Semis }}</p>
     <p class="plant__floraison">{{ lead.Floraison }}</p>
     <p class="plant__comestible">{{ lead.Comestible }}</p>
@@ -10,22 +11,6 @@
 </template>
 
 <script>
-// Nom
-// NomVernaculaire
-// Famille
-// Frigo
-// Mois
-// Temperatures
-// Floraison
-// Semis
-// Fleur
-// Hauteur
-// Exposition
-// Biotope
-// Photo
-// Description
-// Observations
-// Remarques
 export default {
   props: {
     lead: {

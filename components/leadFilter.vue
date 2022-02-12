@@ -92,6 +92,14 @@
       <div class="form-item form-item--buttons">
         <button
           class="button"
+          :class="{ 'is-active' : status === 'Apiaceae' }"
+          @click="handleStatusFilter('Apiaceae')"
+        >
+          Apiaceae
+        </button>
+
+        <button
+          class="button"
           :class="{ 'is-active' : status === 'Asteraceae' }"
           @click="handleStatusFilter('Asteraceae')"
         >
@@ -151,6 +159,7 @@
           </li>
         </ul>
       </div>
+      <!-- <div class="plants__counter">Plantes affichées: <span>{{ leads.length }}</span></div> -->
     </div>
 
   </div>
@@ -340,5 +349,13 @@ export default {
   background: #fefefe;
   border: 1px solid #e9e9e9;
   margin: 0 3rem 0 0;
+}
+
+.plants__counter {
+  margin: 1rem 0;
+
+  span {
+    font-weight: bold;
+  }
 }
 </style>
