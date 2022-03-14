@@ -9,12 +9,14 @@
         <LeadFilter />
 
         <div class="plants__header">
-          <span class="plants__header-latin">Nom latin</span>
+          <span class="plants__header-latin">Nom scientifique</span>
           <span class="plants__header-vernaculaire">Nom vernaculaire</span>
           <span class="plants__header-famille">Famille</span>
           <span class="plants__header-cycle">Cycle</span>
+          <span class="plants__header-hauteur">Hauteur</span>
           <span class="plants__header-semis">Semis</span>
           <span class="plants__header-floraison">Floraison</span>
+          <span class="plants__header-actions"></span>
         </div>
         <div class="plants">
           <article
@@ -40,7 +42,48 @@ import { mapGetters } from 'vuex'
 import LeadFilter from '~/components/leadFilter'
 import IndexCard from '~/components/IndexCard'
 
+// import { google } from 'googleapis';
+
+// import fs = require('fs')
+// import readline = require('readline')
+// import {google} = require('googleapis')
+
 export default {
+  created: async function() {
+    // const scopes = [
+    //   'token' = '1234'
+    // ];
+    const scopes = {
+      'token': '1234'
+    }
+    // this.ExampleModule();
+    // const { google } = require('googleapis');
+
+    // const scopes = [
+    //   'https://www.googleapis.com/auth/drive'
+    // ];
+
+    // const credentials = require('./credentials.json');
+
+    // const auth = new google.auth.JWT(
+    //   credentials.client_email, null,
+    //   credentials.private_key, scopes
+    // );
+
+    // const drive = google.drive({ version: "v3", auth });
+
+    // drive.files.list({}, (err, res) => {
+    //   if (err) throw err;
+    //   const files = res.data.files;
+    //   if (files.length) {
+    //   files.map((file) => {
+    //     console.log(file);
+    //   });
+    //   } else {
+    //     console.log('No files found');
+    //   }
+    // });
+  },
   // async asyncData () {
   //   const cgnData = await axios.get('/cgnData.json').then(res => res.data)
   //   const plants = cgnData
@@ -59,7 +102,7 @@ export default {
     await store.dispatch('leads/fetchAllLeads')
   },
   mounted () {
-    console.log(this.leads.length);
+    // console.log(this.leads.length);
     if (!this.leads.length) {
       this.$store.dispatch('leads/fetchAllLeads')
     }

@@ -6,7 +6,7 @@
           :value="search"
           type="search"
           class="input-search"
-          placeholder="Nom latin ou vernaculaire"
+          placeholder="Nom scientifique ou vernaculaire"
           aria-label="Rechercher"
           @input="handleSearch"
         >
@@ -141,7 +141,7 @@
             :class="{ '' : order === 'Nom' }"
             @click="handleFilterOrder('Nom')"
           >
-            Nom
+            Nom scientifique
           </li>
           <li
             class=""
@@ -248,10 +248,6 @@ export default {
   }
 }
 
-.form-item:first-child {
-  margin-right: auto;
-}
-
 .form-filter {
   margin-bottom: 2em;
 }
@@ -261,6 +257,8 @@ export default {
 }
 
 .form-item--search {
+  flex: 1;
+  margin-right: 2rem;
   position: relative;
 
   &:before {
@@ -283,7 +281,6 @@ export default {
 
   @media screen and (min-width: 420px) {
     display: inline-block;
-    width: auto;
   }
 }
 

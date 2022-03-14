@@ -12,11 +12,25 @@ module.exports = async function (moduleOptions) {
     const rows = response.data.values
     const properties = rows.shift()
     const articles = []
+
     for (const i in rows) {
-      articles.push(_.zipObject(properties, rows[i]))
+      // Remove empty rows (= nested arrays).
+      if (Array.isArray(rows[i]) && rows[i].length) {
+        articles.push(_.zipObject(properties, rows[i]))
+      }
     }
-    const aReversed = articles.reverse();
-    const data = JSON.stringify(aReversed)
+
+    // Sort alphabetically.
+    // @see https://stackoverflow.com/a/6712080
+    articles.sort(function(a, b){
+      if(a.Nom < b.Nom) { return -1; }
+      if(a.Nom > b.Nom) { return 1; }
+      return 0;
+    })
+
+    // const aReversed = articles.reverse();
+    const data = JSON.stringify(articles)
+
     // const distGeneratePath = resolve(this.options.rootDir, join(this.options.generate.dir, '/cgnData.json'))
     const distGeneratePath = resolve(this.options.rootDir, join(this.options.alias.static, '/cgnData.json'))
     try { writeFileSync(distGeneratePath, data, 'utf-8'); }

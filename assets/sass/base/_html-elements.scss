@@ -3,6 +3,8 @@
 //
 
 *, *:before, *:after {
+  box-sizing: border-box;
+
   // Universal transitions
   transition-property:
     background-color,
