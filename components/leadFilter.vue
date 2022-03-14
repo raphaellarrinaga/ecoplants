@@ -259,10 +259,14 @@ export default {
 .form-item--search {
   flex: 1;
   margin-right: 2rem;
+  max-width: 28rem;
   position: relative;
 
+  & + div {
+    margin-left: auto;
+  }
+
   &:before {
-    // content: "🔎🔍";
     content: "🔎";
     position: absolute;
     top: 50%;

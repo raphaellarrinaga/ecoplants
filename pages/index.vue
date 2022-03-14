@@ -14,8 +14,8 @@
           <span class="plants__header-famille">Famille</span>
           <span class="plants__header-cycle">Cycle</span>
           <span class="plants__header-hauteur">Hauteur</span>
-          <span class="plants__header-semis">Semis</span>
           <span class="plants__header-floraison">Floraison</span>
+          <span class="plants__header-semis">Semis</span>
           <span class="plants__header-actions"></span>
         </div>
         <div class="plants">

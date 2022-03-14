@@ -4,16 +4,16 @@
     <p class="plant__latin">{{ lead.Nom }}</p>
     <h3>Nom vernaculaire</h3>
     <p class="plant__vernaculaire">{{ lead.NomVernaculaire }}</p>
-    <h3>Famille</h3>
+    <h3><span v-if="lead.hasOwnProperty('Famille') && lead['Famille']">Famille</span></h3>
     <p class="plant__famille">{{ lead.Famille }}</p>
-    <h3>Cycle</h3>
+    <h3><span v-if="lead.hasOwnProperty('Cycle') && lead['Cycle']">Cycle</span></h3>
     <p class="plant__cycle">{{ lead.Cycle }}</p>
-    <h3>Hauteur</h3>
+    <h3><span v-if="lead.hasOwnProperty('Hauteur') && lead['Hauteur']">Hauteur</span></h3>
     <p class="plant__hauteur">{{ lead.Hauteur }}</p>
-    <h3>Semis</h3>
-    <p class="plant__semis">{{ lead.Semis }}</p>
-    <h3>Floraison</h3>
+    <h3><span v-if="lead.hasOwnProperty('Floraison') && lead['Floraison']">Floraison</span></h3>
     <p class="plant__floraison">{{ lead.Floraison }}</p>
+    <h3><span v-if="lead.hasOwnProperty('Semis') && lead['Semis']">Semis</span></h3>
+    <p class="plant__semis">{{ lead.Semis }}</p>
     <p class="plant__actions">
       <button
         v-if="
@@ -85,36 +85,57 @@ export default {
 </script>
 
 <style lang="scss">
+.plant {
+  margin-bottom: 0;
+
+  @media screen and (max-width: 420px) {
+    background: #e8ecef;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+
+    &:nth-child(odd) {
+      background: #fefefe;
+    }
+  }
+}
+
 .plant__inner {
-  border-bottom: 1px solid #ececec;
-  padding-bottom: .5rem;
-  padding-top: .5rem;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  padding: 1rem 1rem .5rem;
 
   @media screen and (min-width: 421px) {
-    display: flex;
-    flex-flow: row wrap;
+    border-bottom: 1px solid #ececec;
+    border-radius: 0;
+    padding: .5rem 0;
   }
 
   p {
-    flex: 1;
-    padding-right: .5rem;
-    margin-bottom: 1rem;
+    flex: 0 0 60%;
     margin-top: 0;
+    margin-bottom: 1rem;
+
+    @media screen and (min-width: 421px) {
+      flex: 1;
+      margin-bottom: 0;
+      padding-right: .5rem;
+    }
   }
 
   h3 {
-    margin: 0 0 .5rem;
-    font-size: 1rem;
+    flex: 0 0 40%;
+    font-weight: 500;
+    font-size: .8rem;
+    line-height: 1.5;
+    margin: .25rem 0 1rem;
+    text-transform: uppercase;
 
     @media screen and (min-width: 421px) {
       display: none;
     }
   }
 }
-
-  .plant:nth-child(even) {
-    background-color: #fefefe;
-  }
 
 .plant__latin {
   font-weight: bold;
@@ -129,9 +150,13 @@ export default {
 //   }
 // }
 
-.plant__actions {
+p.plant__actions {
+  padding-right: 0;
+  flex: 1 0 100%;
+
   @media screen and (min-width: 421px) {
     text-align: right;
+    flex: 1;
   }
 
   .button {
@@ -145,20 +170,13 @@ export default {
   }
 }
 
-// Needs overcibling
-// @todo use global disabled class helper
-button.plants-toggle-disabled {
-  background-color: #dadada;
-  color: #a0a0a0;
-  cursor: default;
-}
-
 .plant__more {
-  background: #efefef;
-  flex: 1 0 100%;
-  margin-top: 1rem;
-  padding: .5rem 1rem;
+  background: #f1f2f3;
   border-radius: 5px;
+  flex: 1 0 100%;
+  margin-bottom: 1rem;
+  margin-top: .25rem;
+  padding: .5rem 1rem;
 
   // @todo refine behavior.
   display: none;
@@ -172,12 +190,31 @@ button.plants-toggle-disabled {
 
   dt {
     flex: 0 0 6rem;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: .8rem;
+    line-height: 1.5;
+    margin-top: .25rem;
     margin-right: .5rem;
+    text-transform: uppercase;
   }
 
   dd {
     margin: 0;
+  }
+}
+
+// Needs overcibling
+// @todo use global disabled class helper
+button.plants-toggle-disabled {
+  background-color: #dadada;
+  color: #a0a0a0;
+  cursor: default;
+}
+
+.plants-toggle {
+  .is-open & {
+    background: #f1f2f3;
+    box-shadow: inset 1px 1px 2px rgba(#111, .15);
   }
 }
 </style>
