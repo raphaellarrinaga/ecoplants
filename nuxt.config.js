@@ -1,9 +1,6 @@
 const env = require('dotenv').config()
 const axios = require('axios')
 const _ = require('lodash')
-const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY
-// const SHEET_DATA_SOURCE_URL = 'https://sheets.googleapis.com/v4/spreadsheets/14xi3-UP9TpUs6ZfxwhJiluJneqqpXHY27Me5b_NCDo4/values/Content!A1:I1000?key='+ GOOGLE_API_KEY
-const SHEET_DATA_SOURCE_URL = 'https://sheets.googleapis.com/v4/spreadsheets/19Pw8bkQBliB997SbT1BvDZiKay_H-_2jH8HNHbDEpLw/values/data!A1:I1000?key='+ GOOGLE_API_KEY
 
 export default {
   // Required by Netlify to work
@@ -69,6 +66,9 @@ export default {
   modules: [
     // Generate static JSON based on data fetched from source.
     '~/modules/cgnData.js',
+    // Get pictures from Google Drive.
+    // '~/modules/driveData.js',
+    // ['~/modules/driveData', { token: '123' }]
   ],
 
   googleFonts: {

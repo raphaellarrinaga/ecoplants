@@ -15,7 +15,7 @@
       <div class="form-item form-item--dropdown">
         <p
           v-click-outside="closeSowDropDown"
-          class="dropdown-toggle button"
+          class="dropdown-toggle button button--form"
           @click="sowOpen = !sowOpen"
         >
           <span class="mr-1">📆 Date de semis ▾</span>
@@ -89,7 +89,31 @@
         </ul>
       </div>
 
-      <div class="form-item form-item--buttons">
+      <div class="form-item form-item--dropdown">
+        <p
+          v-click-outside="closeFamilyDropDown"
+          class="dropdown-toggle button button--form"
+          @click="FamilyOpen = !FamilyOpen"
+        >
+          <span class="mr-1">🌼 Famille ▾</span>
+        </p>
+        <ul v-show="FamilyOpen" class="dropdown">
+          <li
+            @click="handleStatusFilter('all')"
+          >
+            Tout
+          </li>
+          <li
+            v-for="family in familyValues"
+            :key="family.id"
+            :class="{ 'is-active' : status === family }"
+            @click="handleStatusFilter(family)">
+            {{ family }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- <div class="form-item form-item--buttons">
         <button
           class="button"
           :class="{ 'is-active' : status === 'Apiaceae' }"
@@ -99,31 +123,17 @@
         </button>
 
         <button
-          class="button"
-          :class="{ 'is-active' : status === 'Asteraceae' }"
-          @click="handleStatusFilter('Asteraceae')"
-        >
-          Asteraceae
-        </button>
-
-        <button
-          class="button"
-          :class="{ 'is-active' : status === 'Brassicaceae' }"
-          @click="handleStatusFilter('Brassicaceae')"
-        >
-          Brassicaceae
-        </button>
-
-        <button
           class="button button-reset"
           @click="handleStatusFilter('all')"
         >
           🔄 Réinitialiser
         </button>
 
-      </div>
+      </div> -->
 
     </div>
+
+    <div class="form-count">{{ filteredLeads.length }} résultats</div>
 
     <div class="form-order">
       <div class="form-item form-item--dropdown">
@@ -159,15 +169,14 @@
           </li>
         </ul>
       </div>
-      <!-- <div class="plants__counter">Plantes affichées: <span>{{ leads.length }}</span></div> -->
     </div>
-
   </div>
 
 </template>
 
 <script>
 import { debounce } from '~/helpers/index'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'IndexPage',
@@ -176,7 +185,9 @@ export default {
       orderOpen: false,
       orderChanged: false,
       sowOpen: false,
-      sowChanged: false
+      sowChanged: false,
+      FamilyOpen: false,
+      familyValues: []
     }
   },
   computed: {
@@ -201,7 +212,11 @@ export default {
         default:
           return 'Nom'
       }
-    }
+    },
+    ...mapGetters({
+      'leads': 'leads/getLeads',
+      'filteredLeads': 'leads/getFilteredLeads',
+    })
   },
   methods: {
     handleStatusFilter (status) {
@@ -215,6 +230,9 @@ export default {
     closeSowDropDown (e) {
       this.sowOpen = false
     },
+    closeFamilyDropDown (e) {
+      this.familyOpen = false
+    },
     handleSearch: debounce(function (e) {
       this.$store.dispatch('leads/filterSearch', e.target.value)
     }, 500),
@@ -226,16 +244,49 @@ export default {
     closeOrderDropDown (e) {
       this.orderOpen = false
     }
+  },
+  async fetch ({ store }) {
+    await store.dispatch('leads/fetchAllLeads')
+  },
+  mounted () {
+    if (!this.leads.length) {
+      this.$store.dispatch('leads/fetchAllLeads')
+    }
+
+    // Set family filter.
+    // Fill new array with all Famille terms.
+    let allFamilyValues = this.leads.map((el)=> el.Famille);
+    // Remove duplicates, remove empty values and sort.
+    this.familyValues = [...new Set(allFamilyValues)].filter((a) => a).sort();
   }
 }
 
 </script>
 
 <style lang="scss">
-@media screen and (min-width: 420px) {
-  .form-filter {
+.form {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.form-filter {
+  flex: 1;
+
+  @media screen and (min-width: 420px) {
     display: flex;
   }
+}
+
+.form-count {
+  font-weight: 500;
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+.form-order {
+  flex: 1 0 100%;
+  margin-top: 2rem;
 }
 
 .form-item {
@@ -248,23 +299,11 @@ export default {
   }
 }
 
-.form-filter {
-  margin-bottom: 2em;
-}
-
-.form-order {
-  margin-bottom: 2em;
-}
-
 .form-item--search {
   flex: 1;
   margin-right: 2rem;
   max-width: 28rem;
   position: relative;
-
-  & + div {
-    margin-left: auto;
-  }
 
   &:before {
     content: "🔎";
@@ -277,11 +316,13 @@ export default {
 
 .input-search {
   border-radius: 20px;
-  border: 1px solid #cae0f1;
+  border: 1px solid #dbdbdb;
   display: block;
+  font-size: .88rem;
   line-height: 1.5;
-  padding: .4rem .8rem .4rem 2.4rem;
+  padding: .45rem .8rem .4rem 2.4rem;
   width: 100%;
+  box-shadow: rgba(#111, .06) 0 1px 1px;
 
   @media screen and (min-width: 420px) {
     display: inline-block;
@@ -289,14 +330,20 @@ export default {
 }
 
 .button {
-  background: #d7e0e7;
-  border-radius: 5px;
-  border: none;
+  background: #fcfcfc;
+  border-radius: 3px;
+  border: 1px solid #dbdbdb;
   color: #0a2336;
-  font-size: .9rem;
+  font-size: .88rem;
   line-height: 1.5;
   padding: .3rem .6rem .2rem;
   cursor: pointer;
+  box-shadow: rgba(#111, .06) 0 1px 1px;
+
+  &:hover {
+    border-color: darken(#dbdbdb, 10%);
+    box-shadow: rgba(#111, .06) 0 2px 2px;
+  }
 }
 
 .form-item--buttons .button {
@@ -346,17 +393,15 @@ export default {
   margin: 0;
 }
 
+.button--form {
+  padding-bottom: .4rem;
+  padding-top: .45rem;
+}
+
 .form-filter .dropdown-toggle {
   background: #fefefe;
   border: 1px solid #e9e9e9;
-  margin: 0 3rem 0 0;
+  margin: 0 1rem 0 0;
 }
 
-.plants__counter {
-  margin: 1rem 0;
-
-  span {
-    font-weight: bold;
-  }
-}
 </style>

@@ -1,61 +1,108 @@
 <template>
   <div class="plant__inner">
-    <h3>Nom</h3>
-    <p class="plant__latin">{{ lead.Nom }}</p>
-    <h3>Nom vernaculaire</h3>
-    <p class="plant__vernaculaire">{{ lead.NomVernaculaire }}</p>
-    <h3><span v-if="lead.hasOwnProperty('Famille') && lead['Famille']">Famille</span></h3>
-    <p class="plant__famille">{{ lead.Famille }}</p>
-    <h3><span v-if="lead.hasOwnProperty('Cycle') && lead['Cycle']">Cycle</span></h3>
-    <p class="plant__cycle">{{ lead.Cycle }}</p>
-    <h3><span v-if="lead.hasOwnProperty('Hauteur') && lead['Hauteur']">Hauteur</span></h3>
-    <p class="plant__hauteur">{{ lead.Hauteur }}</p>
-    <h3><span v-if="lead.hasOwnProperty('Floraison') && lead['Floraison']">Floraison</span></h3>
-    <p class="plant__floraison">{{ lead.Floraison }}</p>
-    <h3><span v-if="lead.hasOwnProperty('Semis') && lead['Semis']">Semis</span></h3>
-    <p class="plant__semis">{{ lead.Semis }}</p>
-    <p class="plant__actions">
+    <div
+      class="plant__item plant__item-name has-value">
+      <picture
+        class="plant__thumb"
+        v-if="lead.hasOwnProperty('thumbUrl') && lead['thumbUrl']">
+        <img :src="lead.thumbUrl">
+      </picture>
+      <div v-else class="plant__thumb-placeholder"></div>
+      <div class="plant__header">
+        <p class="plant__latin">
+          {{ lead.Nom }}
+        </p>
+        <p class="plant__vernaculaire">{{ lead.NomVernaculaire }}</p>
+      </div>
+    </div>
+    <div
+      class="plant__item has-value">
+      <h3><span v-if="lead.hasOwnProperty('Famille') && lead['Famille']">Famille</span></h3>
+      <p class="plant__famille">{{ lead.Famille }}</p>
+    </div>
+    <div
+      :class="{ 'has-value' : lead.hasOwnProperty('Cycle') && lead['Cycle'] }"
+      class="plant__item">
+      <h3>Cycle</h3>
+      <p class="plant__cycle">{{ lead.Cycle }}</p>
+    </div>
+    <div
+      :class="{ 'has-value' : lead.hasOwnProperty('Hauteur') && lead['Hauteur'] }"
+      class="plant__item">
+      <h3>Hauteur</h3>
+      <p class="plant__hauteur">{{ lead.Hauteur }}</p>
+    </div>
+    <div
+      :class="{ 'has-value' : lead.hasOwnProperty('Floraison') && lead['Floraison'] }"
+      class="plant__item">
+      <h3>Floraison</h3>
+      <p class="plant__floraison">{{ lead.Floraison }}</p>
+    </div>
+    <div
+      :class="{ 'has-value' : lead.hasOwnProperty('Semis') && lead['Semis'] }"
+      class="plant__item">
+      <h3>Semis</h3>
+      <p class="plant__semis">{{ lead.Semis }}</p>
+    </div>
+    <div class="plant__item plant__actions">
       <button
         v-if="
+          lead.hasOwnProperty('imageUrl') && lead['imageUrl'] ||
           lead.hasOwnProperty('Exposition') && lead['Exposition'] ||
           lead.hasOwnProperty('Biotope') && lead['Biotope'] ||
           lead.hasOwnProperty('Fleur') && lead['Fleur'] ||
           lead.hasOwnProperty('Remarques') && lead['Remarques'] ||
           lead.hasOwnProperty('Comestible') && lead['Comestible']"
         @click="toggleMore"
-        class="button plants-toggle">Détail</button>
+        class="button plants-toggle">Détail ▾</button>
       <button
         v-else
-        class="button plants-toggle-disabled">Détail</button>
-      </p>
+        class="button plants-toggle-disabled">Détail ▾</button>
+    </div>
     <div
       v-if="
+        lead.hasOwnProperty('imageUrl') && lead['imageUrl'] ||
         lead.hasOwnProperty('Exposition') && lead['Exposition'] ||
         lead.hasOwnProperty('Biotope') && lead['Biotope'] ||
         lead.hasOwnProperty('Fleur') && lead['Fleur'] ||
         lead.hasOwnProperty('Remarques') && lead['Remarques'] ||
         lead.hasOwnProperty('Comestible') && lead['Comestible']"
       class="plant__more">
-      <dl v-if="lead.hasOwnProperty('Exposition') && lead['Exposition']">
-        <dt>Exposition</dt>
-        <dd class="plant__exposition">{{ lead.Exposition }}</dd>
-      </dl>
-      <dl v-if="lead.hasOwnProperty('Biotope') && lead['Biotope']">
-        <dt>Biotope</dt>
-        <dd class="plant__biotope">{{ lead.Biotope }}</dd>
-      </dl>
-      <dl v-if="lead.hasOwnProperty('Fleur') && lead['Fleur']">
-        <dt>Fleur</dt>
-        <dd class="plant__fleur">{{ lead.Fleur }}</dd>
-      </dl>
-      <dl v-if="lead.hasOwnProperty('Remarques') && lead['Remarques']">
-        <dt>Remarques</dt>
-        <dd class="plant__remarques">{{ lead.Remarques }}</dd>
-      </dl>
-      <dl v-if="lead.hasOwnProperty('Comestible') && lead['Comestible']">
-        <dt>Comestible</dt>
-        <dd class="plant__comestible">{{ lead.Comestible }}</dd>
-      </dl>
+      <picture
+        class="plant__image"
+        v-if="lead.hasOwnProperty('imageUrl') && lead['imageUrl']">
+        <img :src="lead.imageUrl">
+      </picture>
+      <div
+        v-if="lead.hasOwnProperty('Exposition') && lead['Exposition']"
+        class="plant__more-item">
+        <h3>Exposition</h3>
+        <p class="plant__exposition">{{ lead.Exposition }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Biotope') && lead['Biotope']"
+        class="plant__more-item">
+        <h3>Biotope</h3>
+        <p class="plant__biotope">{{ lead.Biotope }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Fleur') && lead['Fleur']"
+        class="plant__more-item">
+        <h3>Fleur</h3>
+        <p class="plant__fleur">{{ lead.Fleur }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Remarques') && lead['Remarques']"
+        class="plant__more-item">
+        <h3>Remarques</h3>
+        <p class="plant__remarques">{{ lead.Remarques }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Comestible') && lead['Comestible']"
+        class="plant__more-item">
+        <h3>Comestible</h3>
+        <p class="plant__comestible">{{ lead.Comestible }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -70,14 +117,6 @@ export default {
   },
   methods: {
     toggleMore: function(el) {
-      // @todo refactor.
-      // document.getElementsByClassName('is-open').classList.remove('is-open')
-      // let elems = document.querySelectorAll(".is-open");
-
-      // [].forEach.call(elems, function(el) {
-      //   el.classList.remove("is-open");
-      // });
-
       this.$el.closest(".plant").classList.toggle('is-open')
     }
   }
@@ -87,43 +126,42 @@ export default {
 <style lang="scss">
 .plant {
   margin-bottom: 0;
+  position: relative;
 
-  @media screen and (max-width: 420px) {
-    background: #e8ecef;
-    border-radius: 3px;
-    margin-bottom: 1rem;
+  &.is-open {
+    &:before {
+      background: #F5F5F5;
+      border-radius: 3px;
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -1rem;
+      right: -1rem;
+      top: -1px;
+      z-index: -1;
 
-    &:nth-child(odd) {
-      background: #fefefe;
+      @media screen and (min-width: 421px) {
+        left: -10px;
+        right: -10px;
+      }
     }
   }
 }
 
 .plant__inner {
+  border-bottom: 1px solid #eaeaea;
+  padding: 1rem 0;
   display: flex;
-  flex-flow: row wrap;
-  align-items: flex-start;
-  padding: 1rem 1rem .5rem;
+  flex-flow: column wrap;
 
   @media screen and (min-width: 421px) {
-    border-bottom: 1px solid #ececec;
-    border-radius: 0;
-    padding: .5rem 0;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    padding: .8rem 0;
   }
 
-  p {
-    flex: 0 0 60%;
-    margin-top: 0;
-    margin-bottom: 1rem;
-
-    @media screen and (min-width: 421px) {
-      flex: 1;
-      margin-bottom: 0;
-      padding-right: .5rem;
-    }
-  }
-
-  h3 {
+  > h3 {
     flex: 0 0 40%;
     font-weight: 500;
     font-size: .8rem;
@@ -135,28 +173,118 @@ export default {
       display: none;
     }
   }
+
+  .plant__latin {
+    font-weight: bold;
+    margin-bottom: .2rem;
+  }
+
+  .plant__vernaculaire {
+    font-size: .9rem;
+    margin-bottom: 0;
+
+    @media screen and (min-width: 421px) {
+      flex-basis: 3rem;
+    }
+  }
 }
 
-.plant__latin {
-  font-weight: bold;
-}
+.plant__item {
+  & + .plant__item {
+    // All items after the head/name.
+    @media screen and (max-width: 420px) {
+      display: none;
 
-// .plant__comestible {
-//   color: rgb(124, 124, 124);
-//   font-size: .8rem;
+      &.is-open {
+        display: block;
+      }
+    }
+  }
 
-//   @media screen and (min-width: 421px) {
-//     display: none;
-//   }
-// }
-
-p.plant__actions {
-  padding-right: 0;
-  flex: 1 0 100%;
+  @media screen and (max-width: 420px) {
+    display: flex;
+  }
 
   @media screen and (min-width: 421px) {
+    flex: 1 0 10%;
+  }
+
+  &:not(.has-value) {
+    @media screen and (max-width: 420px) {
+      display: none;
+    }
+  }
+
+  h3 {
+    color: #777;
+    flex: 0 0 40%;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1.5;
+    margin: .25rem 0 1rem;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 421px) {
+      display: none;
+    }
+  }
+
+  p {
+    flex: 0 0 60%;
+    margin-top: 0;
+    margin-bottom: 1rem;
+
+    @media screen and (min-width: 421px) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.plant__header {
+  padding-left: 15px;
+}
+
+.plant__item-name {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  order: -1;
+
+  @media screen and (min-width: 421px) {
+    flex-basis: 40%;
+    order: initial;
+  }
+}
+
+.plant__thumb {
+  border-radius: 4px;
+  flex: 0 0 auto;
+  overflow: hidden;
+  height: 60px;
+  width: 50px;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.plant__thumb-placeholder {
+  background: #e5e5e5;
+  border-radius: 4px;
+  flex: 0 0 auto;
+  height: 60px;
+  width: 50px;
+}
+
+.plant__item.plant__actions {
+  display: block;
+  order: -1;
+  margin-top: 1rem;
+
+  @media screen and (min-width: 421px) {
+    order: initial;
     text-align: right;
-    flex: 1;
+    margin-top: 0;
   }
 
   .button {
@@ -171,35 +299,59 @@ p.plant__actions {
 }
 
 .plant__more {
-  background: #f1f2f3;
-  border-radius: 5px;
-  flex: 1 0 100%;
   margin-bottom: 1rem;
-  margin-top: .25rem;
-  padding: .5rem 1rem;
+  margin-top: 1rem;
+
+  @media screen and (min-width: 421px) {
+    margin-bottom: 0;
+    margin-top: .25rem;
+    flex: 1 0 100%;
+    padding: 1rem 1rem 0;
+  }
 
   // @todo refine behavior.
   display: none;
   .is-open & {
     display: block;
   }
+}
 
-  dl {
-    display: flex;
-  }
+.plant__more-item {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
 
-  dt {
-    flex: 0 0 6rem;
+  h3 {
+    color: #777;
+    flex: 0 0 40%;
     font-weight: 500;
-    font-size: .8rem;
+    font-size: 10px;
     line-height: 1.5;
-    margin-top: .25rem;
-    margin-right: .5rem;
+    margin: .25rem 0 1rem;
     text-transform: uppercase;
+
+    @media screen and (min-width: 421px) {
+      flex-basis: 8rem;
+    }
   }
 
-  dd {
-    margin: 0;
+  p {
+    flex: 0 0 60%;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+.plant__image {
+  margin-bottom: 1rem;
+
+  img {
+    max-width: 200px;
+    height: auto;
+  }
+
+  @media screen and (min-width: 421px) {
+    float: right;
   }
 }
 
@@ -213,8 +365,8 @@ button.plants-toggle-disabled {
 
 .plants-toggle {
   .is-open & {
-    background: #f1f2f3;
-    box-shadow: inset 1px 1px 2px rgba(#111, .15);
+    background: #ececec;
+    box-shadow: inset 1px 1px 1px rgba(#111, .14);
   }
 }
 </style>
