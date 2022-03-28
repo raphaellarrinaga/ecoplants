@@ -79,7 +79,7 @@ export default {
   padding-bottom: .5rem;
   display: none;
 
-  @media screen and (min-width: 421px) {
+  @media screen and (min-width: 361px) {
     display: flex;
   }
 
@@ -93,7 +93,7 @@ export default {
   }
 
   .plants__header-latin {
-    @media screen and (min-width: 421px) {
+    @media screen and (min-width: 361px) {
       flex-basis: 40%;
     }
   }

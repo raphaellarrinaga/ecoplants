@@ -52,7 +52,10 @@
           lead.hasOwnProperty('Biotope') && lead['Biotope'] ||
           lead.hasOwnProperty('Fleur') && lead['Fleur'] ||
           lead.hasOwnProperty('Remarques') && lead['Remarques'] ||
-          lead.hasOwnProperty('Comestible') && lead['Comestible']"
+          lead.hasOwnProperty('Comestible') && lead['Comestible'] ||
+          lead.hasOwnProperty('Medicinale') && lead['Medicinale'] ||
+          lead.hasOwnProperty('Description') && lead['Description'] ||
+          lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
         @click="toggleMore"
         class="button plants-toggle">Détail ▾</button>
       <button
@@ -66,7 +69,10 @@
         lead.hasOwnProperty('Biotope') && lead['Biotope'] ||
         lead.hasOwnProperty('Fleur') && lead['Fleur'] ||
         lead.hasOwnProperty('Remarques') && lead['Remarques'] ||
-        lead.hasOwnProperty('Comestible') && lead['Comestible']"
+        lead.hasOwnProperty('Comestible') && lead['Comestible'] ||
+        lead.hasOwnProperty('Medicinale') && lead['Medicinale'] ||
+        lead.hasOwnProperty('Description') && lead['Description'] ||
+        lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
       class="plant__more">
       <picture
         class="plant__image"
@@ -75,33 +81,51 @@
       </picture>
       <div
         v-if="lead.hasOwnProperty('Exposition') && lead['Exposition']"
-        class="plant__more-item">
+        class="plant__more-item plant__more-item--exposition">
         <h3>Exposition</h3>
         <p class="plant__exposition">{{ lead.Exposition }}</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Biotope') && lead['Biotope']"
-        class="plant__more-item">
+        class="plant__more-item plant__more-item--biotope">
         <h3>Biotope</h3>
         <p class="plant__biotope">{{ lead.Biotope }}</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Fleur') && lead['Fleur']"
-        class="plant__more-item">
+        class="plant__more-item plant__more-item--fleur">
         <h3>Fleur</h3>
         <p class="plant__fleur">{{ lead.Fleur }}</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Remarques') && lead['Remarques']"
-        class="plant__more-item">
+        class="plant__more-item plant__more-item--remarques">
         <h3>Remarques</h3>
         <p class="plant__remarques">{{ lead.Remarques }}</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Comestible') && lead['Comestible']"
-        class="plant__more-item">
+        class="plant__more-item plant__more-item--comestible">
         <h3>Comestible</h3>
         <p class="plant__comestible">{{ lead.Comestible }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Medicinale') && lead['Medicinale']"
+        class="plant__more-item plant__more-item--medicinale">
+        <h3>Medicinale</h3>
+        <p class="plant__medicinale">{{ lead.Medicinale }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Description') && lead['Description']"
+        class="plant__more-item plant__more-item--description">
+        <h3>Description</h3>
+        <p class="plant__description">{{ lead.Description }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
+        class="plant__more-item plant__more-item--utilisation">
+        <h3>Utilisation</h3>
+        <p class="plant__utilisation">{{ lead.Utilisation }}</p>
       </div>
     </div>
   </div>
@@ -141,7 +165,7 @@ export default {
       top: -1px;
       z-index: -1;
 
-      @media screen and (min-width: 421px) {
+      @media screen and (min-width: 361px) {
         left: -10px;
         right: -10px;
       }
@@ -151,13 +175,14 @@ export default {
 
 .plant__inner {
   border-bottom: 1px solid #eaeaea;
-  padding: 1rem 0;
   display: flex;
   flex-flow: column wrap;
+  padding: 1rem 0;
+  position: relative;
 
-  @media screen and (min-width: 421px) {
-    flex-flow: row wrap;
+  @media screen and (min-width: 361px) {
     align-items: flex-start;
+    flex-flow: row wrap;
     padding: .8rem 0;
   }
 
@@ -169,7 +194,7 @@ export default {
     margin: .25rem 0 1rem;
     text-transform: uppercase;
 
-    @media screen and (min-width: 421px) {
+    @media screen and (min-width: 361px) {
       display: none;
     }
   }
@@ -183,7 +208,7 @@ export default {
     font-size: .9rem;
     margin-bottom: 0;
 
-    @media screen and (min-width: 421px) {
+    @media screen and (min-width: 361px) {
       flex-basis: 3rem;
     }
   }
@@ -205,7 +230,7 @@ export default {
     display: flex;
   }
 
-  @media screen and (min-width: 421px) {
+  @media screen and (min-width: 361px) {
     flex: 1 0 10%;
   }
 
@@ -224,7 +249,7 @@ export default {
     margin: .25rem 0 1rem;
     text-transform: uppercase;
 
-    @media screen and (min-width: 421px) {
+    @media screen and (min-width: 361px) {
       display: none;
     }
   }
@@ -234,7 +259,7 @@ export default {
     margin-top: 0;
     margin-bottom: 1rem;
 
-    @media screen and (min-width: 421px) {
+    @media screen and (min-width: 361px) {
       margin-bottom: 0;
     }
   }
@@ -248,11 +273,11 @@ export default {
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
-  order: -1;
+  // order: -1;
 
-  @media screen and (min-width: 421px) {
+  @media screen and (min-width: 361px) {
     flex-basis: 40%;
-    order: initial;
+    // order: initial;
   }
 }
 
@@ -278,20 +303,26 @@ export default {
 
 .plant__item.plant__actions {
   display: block;
+  // margin-top: 1rem;
   order: -1;
-  margin-top: 1rem;
 
-  @media screen and (min-width: 421px) {
+  @media screen and (min-width: 361px) {
+    margin-top: 0;
     order: initial;
     text-align: right;
-    margin-top: 0;
   }
 
   .button {
-    display: block;
-    width: 100%;
+    @media screen and (max-width: 360px) {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      opacity: 0;
+      position: absolute;
+    }
 
-    @media screen and (min-width: 421px) {
+    @media screen and (min-width: 361px) {
       display: inline-block;
       width: auto;
     }
@@ -302,7 +333,7 @@ export default {
   margin-bottom: 1rem;
   margin-top: 1rem;
 
-  @media screen and (min-width: 421px) {
+  @media screen and (min-width: 361px) {
     margin-bottom: 0;
     margin-top: .25rem;
     flex: 1 0 100%;
@@ -318,7 +349,7 @@ export default {
 
 .plant__more-item {
   display: flex;
-  flex-flow: row wrap;
+  // flex-flow: row wrap;
   align-items: flex-start;
 
   h3 {
@@ -330,7 +361,7 @@ export default {
     margin: .25rem 0 1rem;
     text-transform: uppercase;
 
-    @media screen and (min-width: 421px) {
+    @media screen and (min-width: 361px) {
       flex-basis: 8rem;
     }
   }
@@ -342,6 +373,15 @@ export default {
   }
 }
 
+.plant__more-item--remarques,
+.plant__more-item--comestible,
+.plant__more-item--medicinale,
+.plant__more-item--description {
+  @media screen and (max-width: 360px) {
+    display: block;
+  }
+}
+
 .plant__image {
   margin-bottom: 1rem;
 
@@ -350,7 +390,7 @@ export default {
     height: auto;
   }
 
-  @media screen and (min-width: 421px) {
+  @media screen and (min-width: 361px) {
     float: right;
   }
 }

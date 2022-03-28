@@ -265,16 +265,19 @@ export default {
 
 <style lang="scss">
 .form {
-  display: flex;
-  align-items: center;
-  flex-flow: row wrap;
+  @media screen and (min-width: 361px) {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+  }
 }
 
 .form-filter {
+  display: flex;
+  flex-flow: row wrap;
   flex: 1;
 
-  @media screen and (min-width: 420px) {
-    display: flex;
+  @media screen and (min-width: 361px) {
   }
 }
 
@@ -291,19 +294,21 @@ export default {
 
 .form-item {
   margin-bottom: 1rem;
-}
 
-@media screen and (min-width: 420px) {
-  .form-item {
+  @media screen and (min-width: 361px) {
     margin-bottom: 0;
   }
 }
 
 .form-item--search {
-  flex: 1;
-  margin-right: 2rem;
+  flex: 1 0 100%;
   max-width: 28rem;
   position: relative;
+
+  @media screen and (min-width: 361px) {
+    flex: 1;
+    margin-right: 2rem;
+  }
 
   &:before {
     content: "🔎";
@@ -324,7 +329,7 @@ export default {
   width: 100%;
   box-shadow: rgba(#111, .06) 0 1px 1px;
 
-  @media screen and (min-width: 420px) {
+  @media screen and (min-width: 361px) {
     display: inline-block;
   }
 }
