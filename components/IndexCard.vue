@@ -2,8 +2,18 @@
   <div class="plant__inner">
     <div
       class="plant__item plant__item-name has-value">
+      <client-only
+        v-if="lead.hasOwnProperty('imageUrl') && lead['imageUrl']">
+        <LightGallery
+          :images="images"
+          :index="index"
+          :disable-scroll="true"
+          @close="index = null"
+        />
+      </client-only>
       <picture
         class="plant__thumb"
+        @click="index = 0"
         v-if="lead.hasOwnProperty('thumbUrl') && lead['thumbUrl']">
         <img :src="lead.thumbUrl">
       </picture>
@@ -16,35 +26,35 @@
       </div>
     </div>
     <div
-      class="plant__item has-value">
+      class="plant__item plant__item-famille">
       <h3><span v-if="lead.hasOwnProperty('Famille') && lead['Famille']">Famille</span></h3>
       <p class="plant__famille">{{ lead.Famille }}</p>
     </div>
     <div
       :class="{ 'has-value' : lead.hasOwnProperty('Cycle') && lead['Cycle'] }"
-      class="plant__item">
+      class="plant__item plant__item-cycle">
       <h3>Cycle</h3>
       <p class="plant__cycle">{{ lead.Cycle }}</p>
     </div>
     <div
       :class="{ 'has-value' : lead.hasOwnProperty('Hauteur') && lead['Hauteur'] }"
-      class="plant__item">
+      class="plant__item plant__item-hauteur">
       <h3>Hauteur</h3>
       <p class="plant__hauteur">{{ lead.Hauteur }}</p>
     </div>
     <div
       :class="{ 'has-value' : lead.hasOwnProperty('Floraison') && lead['Floraison'] }"
-      class="plant__item">
+      class="plant__item plant__item-floraison">
       <h3>Floraison</h3>
       <p class="plant__floraison">{{ lead.Floraison }}</p>
     </div>
     <div
       :class="{ 'has-value' : lead.hasOwnProperty('Semis') && lead['Semis'] }"
-      class="plant__item">
+      class="plant__item plant__item-semis">
       <h3>Semis</h3>
       <p class="plant__semis">{{ lead.Semis }}</p>
     </div>
-    <div class="plant__item plant__actions">
+    <div class="plant__item plant__item-actions">
       <button
         v-if="
           lead.hasOwnProperty('imageUrl') && lead['imageUrl'] ||
@@ -74,11 +84,6 @@
         lead.hasOwnProperty('Description') && lead['Description'] ||
         lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
       class="plant__more">
-      <picture
-        class="plant__image"
-        v-if="lead.hasOwnProperty('imageUrl') && lead['imageUrl']">
-        <img :src="lead.imageUrl">
-      </picture>
       <div
         v-if="lead.hasOwnProperty('Exposition') && lead['Exposition']"
         class="plant__more-item plant__more-item--exposition">
@@ -133,6 +138,12 @@
 
 <script>
 export default {
+  data() {
+    return {
+      images: [],
+      index: null,
+    };
+  },
   props: {
     lead: {
       type: Object,
@@ -142,6 +153,13 @@ export default {
   methods: {
     toggleMore: function(el) {
       this.$el.closest(".plant").classList.toggle('is-open')
+    }
+  },
+  mounted() {
+    if (this.lead.imageUrl) {
+      this.images = [
+        { alt:'Image 1', url: this.lead.imageUrl }
+      ]
     }
   }
 }
@@ -165,7 +183,7 @@ export default {
       top: -1px;
       z-index: -1;
 
-      @media screen and (min-width: 361px) {
+      @media screen and (min-width: 821px) {
         left: -10px;
         right: -10px;
       }
@@ -180,24 +198,24 @@ export default {
   padding: 1rem 0;
   position: relative;
 
-  @media screen and (min-width: 361px) {
+  @media screen and (min-width: 821px) {
     align-items: flex-start;
     flex-flow: row wrap;
     padding: .8rem 0;
   }
 
-  > h3 {
-    flex: 0 0 40%;
-    font-weight: 500;
-    font-size: .8rem;
-    line-height: 1.5;
-    margin: .25rem 0 1rem;
-    text-transform: uppercase;
+  // > h3 {
+  //   flex: 0 0 40%;
+  //   font-weight: 500;
+  //   font-size: .8rem;
+  //   line-height: 1.5;
+  //   margin: .25rem 0 1rem;
+  //   text-transform: uppercase;
 
-    @media screen and (min-width: 361px) {
-      display: none;
-    }
-  }
+  //   @media screen and (min-width: 821px) {
+  //     display: none;
+  //   }
+  // }
 
   .plant__latin {
     font-weight: bold;
@@ -208,34 +226,37 @@ export default {
     font-size: .9rem;
     margin-bottom: 0;
 
-    @media screen and (min-width: 361px) {
+    @media screen and (min-width: 421px) {
       flex-basis: 3rem;
     }
   }
 }
 
 .plant__item {
+  @media screen and (max-width: 821px) {
+    display: flex;
+  }
+
+  // All items after the head/name.
   & + .plant__item {
-    // All items after the head/name.
-    @media screen and (max-width: 420px) {
+    p {
+      hyphens: auto;
+      word-break: break-all;
+      word-wrap: break-word;
+    }
+
+    @media screen and (max-width: 821px) {
       display: none;
 
-      &.is-open {
-        display: block;
+      .is-open &.has-value {
+        display: flex;
+        align-items: flex-start;
       }
     }
   }
 
-  @media screen and (max-width: 420px) {
-    display: flex;
-  }
-
-  @media screen and (min-width: 361px) {
-    flex: 1 0 10%;
-  }
-
   &:not(.has-value) {
-    @media screen and (max-width: 420px) {
+    @media screen and (max-width: 821px) {
       display: none;
     }
   }
@@ -249,7 +270,11 @@ export default {
     margin: .25rem 0 1rem;
     text-transform: uppercase;
 
-    @media screen and (min-width: 361px) {
+    @media screen and (min-width: 421px) {
+      flex-basis: 8rem;
+    }
+
+    @media screen and (min-width: 821px) {
       display: none;
     }
   }
@@ -259,25 +284,73 @@ export default {
     margin-top: 0;
     margin-bottom: 1rem;
 
-    @media screen and (min-width: 361px) {
+    @media screen and (min-width: 821px) {
       margin-bottom: 0;
+      margin-right: 1rem;
     }
   }
-}
-
-.plant__header {
-  padding-left: 15px;
 }
 
 .plant__item-name {
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
-  // order: -1;
 
-  @media screen and (min-width: 361px) {
+  @media screen and (min-width: 821px) {
+    flex-basis: 41%;
+  }
+
+  @media screen and (min-width: 1021px) {
     flex-basis: 40%;
-    // order: initial;
+  }
+
+  .is-open & {
+    @media screen and (max-width: 821px) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.plant__item-famille,
+.plant__item-cycle {
+  @media screen and (min-width: 821px) {
+    flex: 0 0 16%;
+  }
+
+  @media screen and (min-width: 1021px) {
+    flex-basis: 14%;
+  }
+}
+
+.plant__item-hauteur,
+.plant__item-floraison,
+.plant__item-semis {
+  @media screen and (min-width: 821px) {
+    flex: 0 0 9%;
+  }
+
+  @media screen and (min-width: 1021px) {
+    flex-basis: 8%;
+  }
+}
+
+.plant__item.plant__item-actions {
+  display: block;
+  flex: 0 1 0%;
+
+  @media screen and (min-width: 1021px) {
+    flex: 0 0 8%;
+    margin-top: 0;
+    text-align: right;
+  }
+}
+
+
+.plant__header {
+  padding-left: 15px;
+
+  @media screen and (min-width: 821px) {
+    margin-right: 1rem;
   }
 }
 
@@ -287,6 +360,12 @@ export default {
   overflow: hidden;
   height: 60px;
   width: 50px;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    box-shadow: 0 0 0 2px #007aff;
+  }
 
   img {
     max-width: 100%;
@@ -301,31 +380,36 @@ export default {
   width: 50px;
 }
 
-.plant__item.plant__actions {
-  display: block;
-  // margin-top: 1rem;
-  order: -1;
+// Needs overcibling
+// @todo use global disabled class helper
+button.plants-toggle-disabled {
+  background-color: #dadada;
+  color: #a0a0a0;
+  cursor: default;
 
-  @media screen and (min-width: 361px) {
-    margin-top: 0;
-    order: initial;
-    text-align: right;
+  @media screen and (max-width: 1020px) {
+    display: none;
+  }
+}
+
+.plants-toggle {
+  @media screen and (max-width: 1020px) {
+    bottom: 0;
+    left: 4rem;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    position: absolute;
   }
 
-  .button {
-    @media screen and (max-width: 360px) {
-      bottom: 0;
-      left: 0;
-      right: 0;
-      top: 0;
-      opacity: 0;
-      position: absolute;
-    }
+  @media screen and (min-width: 1021px) {
+    display: inline-block;
+    width: auto;
+  }
 
-    @media screen and (min-width: 361px) {
-      display: inline-block;
-      width: auto;
-    }
+  .is-open & {
+    background: #ececec;
+    box-shadow: inset 1px 1px 1px rgba(#111, .14);
   }
 }
 
@@ -333,10 +417,10 @@ export default {
   margin-bottom: 1rem;
   margin-top: 1rem;
 
-  @media screen and (min-width: 361px) {
+  @media screen and (min-width: 821px) {
+    flex: 1 0 100%;
     margin-bottom: 0;
     margin-top: .25rem;
-    flex: 1 0 100%;
     padding: 1rem 1rem 0;
   }
 
@@ -349,7 +433,6 @@ export default {
 
 .plant__more-item {
   display: flex;
-  // flex-flow: row wrap;
   align-items: flex-start;
 
   h3 {
@@ -361,7 +444,7 @@ export default {
     margin: .25rem 0 1rem;
     text-transform: uppercase;
 
-    @media screen and (min-width: 361px) {
+    @media screen and (min-width: 421px) {
       flex-basis: 8rem;
     }
   }
@@ -377,7 +460,7 @@ export default {
 .plant__more-item--comestible,
 .plant__more-item--medicinale,
 .plant__more-item--description {
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 821px) {
     display: block;
   }
 }
@@ -390,23 +473,8 @@ export default {
     height: auto;
   }
 
-  @media screen and (min-width: 361px) {
+  @media screen and (min-width: 421px) {
     float: right;
-  }
-}
-
-// Needs overcibling
-// @todo use global disabled class helper
-button.plants-toggle-disabled {
-  background-color: #dadada;
-  color: #a0a0a0;
-  cursor: default;
-}
-
-.plants-toggle {
-  .is-open & {
-    background: #ececec;
-    box-shadow: inset 1px 1px 1px rgba(#111, .14);
   }
 }
 </style>

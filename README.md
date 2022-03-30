@@ -4,22 +4,17 @@ WIP app build with [Nuxt](https://nuxtjs.org/) to browse plants from a belgian n
 
 ## Roadmap
 
-- send to git/netlify
-- get images from google drive
+- use global sass helpers
+- Fix sort : alphabetical order, default state
+- zoom picture, gallery
+- picture legend
 - set grid/list display
-- set list display width a more dropdown
 - Filter
-  - name: text
-  - month: select
-- Sort ? (each column)
-- Change view
-  - list
+  - mois de semis: select, range
+- Change display
   - cart
   - short info
   - long info
-- mobile
-- read more
-- detail page ?
 
 ## Build Setup
 

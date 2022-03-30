@@ -79,13 +79,13 @@ export default {
   padding-bottom: .5rem;
   display: none;
 
-  @media screen and (min-width: 361px) {
+  @media screen and (min-width: 821px) {
     display: flex;
   }
 
   span {
     color: #777;
-    flex: 1 0 10%;
+    flex: 0 0 12%;
     font-size: 10px;
     font-weight: 500;
     padding-right: 1rem;
@@ -93,14 +93,46 @@ export default {
   }
 
   .plants__header-latin {
-    @media screen and (min-width: 361px) {
+    @media screen and (min-width: 821px) {
+      flex-basis: 41%;
+    }
+    @media screen and (min-width: 1021px) {
       flex-basis: 40%;
     }
   }
+
+  .plants__header-famille,
+  .plants__header-cycle {
+    @media screen and (min-width: 821px) {
+      flex: 0 0 16%;
+    }
+
+    @media screen and (min-width: 1021px) {
+      flex-basis: 14%;
+    }
+  }
+
+  .plants__header-hauteur,
+  .plants__header-floraison,
+  .plants__header-semis {
+    @media screen and (min-width: 821px) {
+      flex: 0 0 9%;
+    }
+
+    @media screen and (min-width: 1021px) {
+      flex-basis: 8%;
+    }
+  }
+
 }
 
 span.plants__header-actions {
+  flex-basis: 0%;
   padding-right: 0;
+
+  @media screen and (min-width: 1021px) {
+    flex-basis: 10%;
+  }
 }
 
 .plants {

@@ -27,64 +27,11 @@
             Tout
           </li>
           <li
-            @click="handleSowFilter('Janvier')"
-          >
-            Janvier
-          </li>
-          <li
-            @click="handleSowFilter('Février')"
-          >
-            Février
-          </li>
-          <li
-            @click="handleSowFilter('Mars')"
-          >
-            Mars
-          </li>
-          <li
-            @click="handleSowFilter('Avril')"
-          >
-            Avril
-          </li>
-          <li
-            @click="handleSowFilter('Mai')"
-          >
-            Mai
-          </li>
-          <li
-            @click="handleSowFilter('Juin')"
-          >
-            Juin
-          </li>
-          <li
-            @click="handleSowFilter('Juillet')"
-          >
-            Juillet
-          </li>
-          <li
-            @click="handleSowFilter('Août')"
-          >
-            Août
-          </li>
-          <li
-            @click="handleSowFilter('Septembre')"
-          >
-            Septembre
-          </li>
-          <li
-            @click="handleSowFilter('Octobre')"
-          >
-            Octobre
-          </li>
-          <li
-            @click="handleSowFilter('Novembre')"
-          >
-            Novembre
-          </li>
-          <li
-            @click="handleSowFilter('Décembre')"
-          >
-            Décembre
+            v-for="month in months"
+            :key="month.id"
+            :class="{ 'is-active' : status === month }"
+            @click="handleSowFilter(month)">
+            {{ month }}
           </li>
         </ul>
       </div>
@@ -187,6 +134,7 @@ export default {
       sowOpen: false,
       sowChanged: false,
       FamilyOpen: false,
+      months: ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"],
       familyValues: []
     }
   },
@@ -210,7 +158,7 @@ export default {
         case 'Famille':
           return 'Famille'
         default:
-          return 'Nom'
+          return 'Nom scientifique'
       }
     },
     ...mapGetters({
@@ -265,7 +213,7 @@ export default {
 
 <style lang="scss">
 .form {
-  @media screen and (min-width: 361px) {
+  @media screen and (min-width: 821px) {
     display: flex;
     align-items: center;
     flex-flow: row wrap;
@@ -276,9 +224,6 @@ export default {
   display: flex;
   flex-flow: row wrap;
   flex: 1;
-
-  @media screen and (min-width: 361px) {
-  }
 }
 
 .form-count {
@@ -295,19 +240,19 @@ export default {
 .form-item {
   margin-bottom: 1rem;
 
-  @media screen and (min-width: 361px) {
+  @media screen and (min-width: 821px) {
     margin-bottom: 0;
   }
 }
 
 .form-item--search {
   flex: 1 0 100%;
-  max-width: 28rem;
   position: relative;
 
-  @media screen and (min-width: 361px) {
+  @media screen and (min-width: 821px) {
     flex: 1;
     margin-right: 2rem;
+    max-width: 28rem;
   }
 
   &:before {
@@ -329,7 +274,7 @@ export default {
   width: 100%;
   box-shadow: rgba(#111, .06) 0 1px 1px;
 
-  @media screen and (min-width: 361px) {
+  @media screen and (min-width: 821px) {
     display: inline-block;
   }
 }
@@ -368,13 +313,15 @@ export default {
 }
 
 .dropdown {
-  position: absolute;
-  top: 60%;
-  left: 0;
   background: white;
   border-radius: 3px;
+  position: absolute;
   list-style: none;
-  margin-left: 0;
+  left: 0;
+  top: 100%;
+  margin: .5rem 0 0;
+  max-height: 75vh;
+  overflow: scroll;
   padding: .2rem;
   z-index: 10;
   box-shadow: rgba(33, 0, 153, 0.144) 1px 1px 3px;

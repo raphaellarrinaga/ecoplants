@@ -45,6 +45,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/lightGallery.client.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -64,6 +65,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    'nuxt-lazy-load',
     // Generate static JSON based on data fetched from source.
     '~/modules/cgnData.js',
     // Get pictures from Google Drive.
