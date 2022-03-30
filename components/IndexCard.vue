@@ -338,13 +338,20 @@ export default {
   display: block;
   flex: 0 1 0%;
 
+  @media screen and (max-width: 1020px) {
+    bottom: 0;
+    left: 4rem;
+    right: 0;
+    top: 0;
+    position: absolute;
+  }
+
   @media screen and (min-width: 1021px) {
     flex: 0 0 8%;
     margin-top: 0;
     text-align: right;
   }
 }
-
 
 .plant__header {
   padding-left: 15px;
@@ -395,9 +402,9 @@ button.plants-toggle-disabled {
 .plants-toggle {
   @media screen and (max-width: 1020px) {
     bottom: 0;
-    left: 4rem;
-    right: 0;
+    left: 0;
     top: 0;
+    width: 100%;
     opacity: 0;
     position: absolute;
   }
