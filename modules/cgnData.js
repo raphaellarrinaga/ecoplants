@@ -20,15 +20,26 @@ module.exports = async function (moduleOptions) {
   this.nuxt.hook('generate:before', async () => {
 
     // Push to array if key exist.
-    function add(arr, name, key, val) {
+    function pushImageToArray(arr, name, key, val) {
       const found = arr.some(el => el.Nom === name);
+      const legend = key.substring(key.indexOf('-0')).replace(/-|_/g,' ');
       if (!found) {
-        arr.push({ Nom: name, [key]: val })
+        arr.push({
+          Nom: name,
+          images: {
+            [key]: {
+              legend: legend,
+              url: val
+            }
+          }
+         })
       } else {
         const index = arr.findIndex(el => el.Nom === name);
-        arr[index][key] = val;
+        arr[index].images[key] = {
+          legend: legend,
+          url: val
+        };
       }
-      return arr;
     }
 
     //
@@ -50,7 +61,6 @@ module.exports = async function (moduleOptions) {
     // const map1 = articles.map((x) => {
     //   console.log(x);
     // });
-
 
     // const aReversed = articles.reverse();
     // const data = JSON.stringify(articles)
@@ -83,7 +93,6 @@ module.exports = async function (moduleOptions) {
       const files = res.data.files;
 
       if (files.length) {
-        // const map1 = files.map((file) => {
         const map1 = files.forEach((file) => {
           if (file.mimeType === 'image/jpeg') {
             const sourceUrl = "https://drive.google.com/uc?id=" + file.id;
@@ -91,15 +100,14 @@ module.exports = async function (moduleOptions) {
 
             // Format the image name.
             // Remove what comes after "-", replace "_" by " ".
-            // const newName = name.substring(0, name.indexOf('-')).replace("_", " ");
             if (name.includes("-thumb")) {
               const newName = name.substring(0, name.indexOf('-thumb')).replace("_", " ");
-              add(images, newName, "thumbUrl", sourceUrl);
+              pushImageToArray(images, newName, "thumb", sourceUrl);
             } else {
               const newName = name.substring(0, name.indexOf('-')).replace("_", " ");
-              add(images, newName, "imageUrl", sourceUrl);
+              const id = name.substring(name.indexOf('-0') + 1).replace(".jpg", "")
+              pushImageToArray(images, newName, id, sourceUrl);
             }
-
           }
         });
       } else {

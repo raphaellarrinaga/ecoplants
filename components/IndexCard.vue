@@ -3,7 +3,7 @@
     <div
       class="plant__item plant__item-name has-value">
       <client-only
-        v-if="lead.hasOwnProperty('imageUrl') && lead['imageUrl']">
+        v-if="images.length">
         <LightGallery
           :images="images"
           :index="index"
@@ -14,8 +14,8 @@
       <picture
         class="plant__thumb"
         @click="index = 0"
-        v-if="lead.hasOwnProperty('thumbUrl') && lead['thumbUrl']">
-        <img :src="lead.thumbUrl">
+        v-if="thumbUrl.length">
+        <img :src="thumbUrl">
       </picture>
       <div v-else class="plant__thumb-placeholder"></div>
       <div class="plant__header">
@@ -57,7 +57,6 @@
     <div class="plant__item plant__item-actions">
       <button
         v-if="
-          lead.hasOwnProperty('imageUrl') && lead['imageUrl'] ||
           lead.hasOwnProperty('Exposition') && lead['Exposition'] ||
           lead.hasOwnProperty('Biotope') && lead['Biotope'] ||
           lead.hasOwnProperty('Fleur') && lead['Fleur'] ||
@@ -74,7 +73,6 @@
     </div>
     <div
       v-if="
-        lead.hasOwnProperty('imageUrl') && lead['imageUrl'] ||
         lead.hasOwnProperty('Exposition') && lead['Exposition'] ||
         lead.hasOwnProperty('Biotope') && lead['Biotope'] ||
         lead.hasOwnProperty('Fleur') && lead['Fleur'] ||
@@ -140,6 +138,7 @@
 export default {
   data() {
     return {
+      thumbUrl: [],
       images: [],
       index: null,
     };
@@ -153,13 +152,22 @@ export default {
   methods: {
     toggleMore: function(el) {
       this.$el.closest(".plant").classList.toggle('is-open')
-    }
+    },
   },
   mounted() {
-    if (this.lead.imageUrl) {
-      this.images = [
-        { alt:'Image 1', url: this.lead.imageUrl }
-      ]
+
+    if (this.lead.images) {
+      for (const i in this.lead.images) {
+        // Poplate thumb url.
+        if (i === "thumb") {
+          this.thumbUrl = this.lead.images["thumb"].url
+        } else {
+        // Poplate other images.
+          this.images.push(
+            { title: this.lead.images[i].legend, url: this.lead.images[i].url }
+          )
+        }
+      }
     }
   }
 }
