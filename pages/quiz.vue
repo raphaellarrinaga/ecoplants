@@ -4,12 +4,14 @@
       <main>
         <div v-if="items.length">
           <agile
+            ref="carousel"
             @after-change="afterChangeCustomEvent($event)"
             :dots="false"
-            :swipeDistance="150"
+            :swipeDistance="100"
             :infinite="true">
-            <!-- <template slot="caption"><button @click="resetSlide">Reset</button></template> -->
-            <template slot="caption">{{ currentSlide + "/" + items.length }}</template>
+            <template slot="caption">
+              <button class="button-quiz-reset" @click="resetSlide">{{ currentSlide + "/" + items.length }}</button>
+            </template>
             <div
               v-for="item in items"
               :key="item.id"
@@ -222,19 +224,16 @@ export default {
       });
     },
     resetSlide: function(e) {
-      // console.log(e);
-      console.log(this.$refs);
+      this.$refs.carousel.goTo(0)
     }
-  },
-  // mounted() {
-  // },
+  }
 }
 </script>
 
 <style lang="scss">
 .quiz-item {
   position: relative;
-  height: 70vh;
+  height: 60vh;
   width: 100vw;
 }
 
@@ -305,9 +304,9 @@ export default {
 .quiz-item__solution-toggle {
   position: absolute;
   top: -80px;
-  left: 0;
+  left: calc(20% + .5rem);
   right: 0;
-  width: 50%;
+  width: calc(30% - .5rem);
   height: 70px;
   z-index: 3;
 
@@ -323,11 +322,31 @@ export default {
   }
 }
 
-.agile {
-}
-
 .agile__list {
   padding-top: 100px;
+}
+
+.agile__caption {
+  margin: 0;
+  position: absolute;
+  top: 20px;
+  height: 70px;
+  left: 0;
+  width: 20%;
+}
+
+.button-quiz-reset {
+  box-sizing: border-box;
+  background: #e7e7e7;
+  border: 3px solid darken(#e7e7e7, 10%);
+  border-radius: 3px;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+
+  &:hover {
+    background: darken(#e7e7e7, 5%);
+  }
 }
 
 .agile__actions {
@@ -350,9 +369,5 @@ export default {
   &:hover {
     background: darken(#e7e7e7, 5%);
   }
-}
-
-.agile__caption {
-  margin-top: 1rem;
 }
 </style>
