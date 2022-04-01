@@ -7,7 +7,7 @@
       <main>
         <div v-if="items.length">
           <agile
-            :swipeDistance="4300"
+            :swipeDistance="300"
             :infinite="true">
             <div
               v-for="item in items"
