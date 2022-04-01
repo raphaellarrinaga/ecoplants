@@ -6,9 +6,9 @@
           <agile
             @after-change="afterChangeCustomEvent($event)"
             :dots="false"
-            :swipeDistance="300"
+            :swipeDistance="150"
             :infinite="true">
-            <template slot="caption"><button @click="resetSlide">Reset</button></template>
+            <!-- <template slot="caption"><button @click="resetSlide">Reset</button></template> -->
             <template slot="caption">{{ currentSlide + "/" + items.length }}</template>
             <div
               v-for="item in items"
