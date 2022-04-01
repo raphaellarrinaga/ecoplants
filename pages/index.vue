@@ -123,7 +123,6 @@ export default {
       flex-basis: 8%;
     }
   }
-
 }
 
 span.plants__header-actions {

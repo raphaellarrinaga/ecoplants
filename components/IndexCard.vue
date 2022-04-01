@@ -155,7 +155,6 @@ export default {
     },
   },
   mounted() {
-
     if (this.lead.images) {
       for (const i in this.lead.images) {
         // Poplate thumb url.
@@ -211,19 +210,6 @@ export default {
     flex-flow: row wrap;
     padding: .8rem 0;
   }
-
-  // > h3 {
-  //   flex: 0 0 40%;
-  //   font-weight: 500;
-  //   font-size: .8rem;
-  //   line-height: 1.5;
-  //   margin: .25rem 0 1rem;
-  //   text-transform: uppercase;
-
-  //   @media screen and (min-width: 821px) {
-  //     display: none;
-  //   }
-  // }
 
   .plant__latin {
     font-weight: bold;
