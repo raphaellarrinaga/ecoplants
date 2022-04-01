@@ -8,6 +8,7 @@
             :dots="false"
             :swipeDistance="300"
             :infinite="true">
+            <template slot="caption"><button @click="resetSlide">Reset</button></template>
             <template slot="caption">{{ currentSlide + "/" + items.length }}</template>
             <div
               v-for="item in items"
@@ -85,6 +86,120 @@ export default {
           "familiarName": "Tournesol",
           "cycle": "Annuelle",
           "imageUrl": "https://jardinage.lemonde.fr/images/dossiers/historique/tournesol-175148.jpg"
+        },
+        {
+          "botanicalName":"Impatiens x walleriana",
+          "familiarName":"Impatiens",
+          "cycle":"Annuelle",
+          "imageUrl": "https://www.matelma.com/img/tuinadvies/uploads/1371578348.jpg"
+        },
+        {
+          "botanicalName":"Lobelia erinus",
+          "familiarName":"Lobélie érine",
+          "cycle":"Annuelle",
+          "imageUrl": "https://media.gerbeaud.net/2013/11/640/lobelia-erinus-2.jpg"
+        },
+        {
+          "botanicalName":"Nicotiana x sanderae",
+          "familiarName":"Tabac ornemental",
+          "cycle":"Annuelle",
+          "imageUrl": "https://gardenseedsmarket.com/images/watermarked/5/detailed/60/tyton-ozdobny-karlowy.jpg"
+        },
+        {
+          "botanicalName":"Pelargonium zonale",
+          "familiarName":"Géranium zonale",
+          "cycle":"Annuelle",
+          "imageUrl": "https://plandejardin-jardinbiologique.com/wa_images/g%C3%A9ranium%20zonale%20sur%20une%20fen%C3%AAtre.jpg?v=1g0671c"
+        },
+        {
+          "botanicalName":"Petunia hybrida",
+          "familiarName":"Pétunia",
+          "cycle":"Annuelle",
+          "imageUrl": "https://static.aujardin.info/cache/th/img9/petunia-fuchsia-600x450.jpg"
+        },
+        {
+          "botanicalName":"Salvia splendens",
+          "familiarName":"Sauge rouge",
+          "cycle":"Annuelle",
+          "imageUrl": "https://www.matelma.com/img/tuinadvies/uploads/1372102824.jpg"
+        },
+        {
+          "botanicalName":"Salvia farinacea",
+          "familiarName":"Sauge farineuse",
+          "cycle":"Annuelle",
+          "imageUrl": "https://c8.alamy.com/compfr/2an08tx/salvia-farinacea-evolution-2an08tx.jpg"
+        },
+        {
+          "botanicalName":"Tagetes sp",
+          "familiarName":"Œillet d'Inde",
+          "cycle":"Annuelle",
+          "imageUrl": "https://c8.alamy.com/compfr/b21ekg/oeillet-d-inde-queen-sophia-tagetes-sp-dans-un-recipient-dans-le-new-jersey-b21ekg.jpg"
+        },
+        {
+          "botanicalName":"Verbena hybrida",
+          "familiarName":"Verveine des jardins",
+          "cycle":"Annuelle",
+          "imageUrl": "https://www.ducrettet.com/media/600/6712.jpg"
+        },
+        {
+          "botanicalName":"Bidens ferulifolia",
+          "familiarName":"Biden à feuilles de férule",
+          "cycle":"Annuelle",
+          "imageUrl": "https://www.barrault-plantes-jardins.com/532/bidens-jaune.jpg"
+        },
+        {
+          "botanicalName":"Fuchsia hybride",
+          "familiarName":"Fuchsia (formes retombantes)",
+          "cycle":"Annuelle",
+          "imageUrl": "https://hausinfo.ch/content/dam/gini/hausinfo/bilder/garten/fuchsie.jpg.gini-transform/original/fuchsie.1622118798474.jpeg"
+        },
+        {
+          "botanicalName":"Helichrysum petiolare",
+          "familiarName":"Immortelle laineuse",
+          "cycle":"Annuelle",
+          "imageUrl": "https://dessertadvisor.com/wp-content/uploads/2021/04/Licorice-plant-Helichrysum-petiolare-Dessert-Advisor.jpg"
+        },
+        {
+          "botanicalName":"Bacopa caroliniana",
+          "familiarName":"Bacopa de Caroline",
+          "cycle":"Annuelle",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Bacopa_caroliniana_BotGardBln07122011D.JPG"
+        },
+        {
+          "botanicalName":"Pelargonium peltatum",
+          "familiarName":"Géranium lierre",
+          "cycle":"Annuelle",
+          "imageUrl": "https://www.jmflora.com/wp-content/uploads/sites/48/2020/02/Geranium-lierre-Pelargonium-peltatum.jpg"
+        },
+        {
+          "botanicalName":"Portulaca grandiflora",
+          "familiarName":"Pourpier à grandes fleurs",
+          "cycle":"Annuelle",
+          "imageUrl": "https://media.gerbeaud.net/2014/04/640/portulaca-grandiflora.jpg"
+        },
+        {
+          "botanicalName":"Surfinia",
+          "familiarName":"Surfinia",
+          "cycle":"Annuelle",
+          "imageUrl": "https://jardin-secrets.com/img/10288/photo-surfinia_domaine-public.jpg"
+        },
+        {
+          "botanicalName":"Sanvitalia procumbens",
+          "familiarName":"Sanvitalie",
+          "cycle":"Annuelle",
+          "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sanvitalia_procumbens_-_plants_%28aka%29.jpg/1200px-Sanvitalia_procumbens_-_plants_%28aka%29.jpg"
+        },
+        {
+          "botanicalName":"Lathyrus odoratus",
+          "familiarName":"Pois de senteur",
+          "cycle":"Annuelle",
+          "imageUrl": "https://media-srag-live.saatec.de/media/catalog/product/cache/1b8f60cb7c11172c9e8d369ea19e612a/b/1/b155_shop_1638523726.jpg"
+        },
+        {
+          "botanicalName":"Tropaeolum minus/majus",
+          "familiarName":"Capucine",
+          "cycle":"Annuelle",
+          "imageUrl": "https://c8.alamy.com/compfr/t6agdf/capucine-tropaeolum-majus-t6agdf.jpg"
         }
       ],
     }
@@ -105,8 +220,14 @@ export default {
       [].forEach.call(elems, function(el) {
           el.classList.remove("is-revealed");
       });
+    },
+    resetSlide: function(e) {
+      // console.log(e);
+      console.log(this.$refs);
     }
   },
+  // mounted() {
+  // },
 }
 </script>
 
