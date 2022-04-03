@@ -10,7 +10,12 @@
             :swipeDistance="100"
             :infinite="true">
             <template slot="caption">
-              <button class="button-quiz-reset" @click="resetSlide">{{ currentSlide + "/" + items.length }}</button>
+              <button class="button-quiz-reset button-quiz" @click="resetSlide">{{ currentSlide + "/" + items.length }}</button>
+             <button
+                @click="slidesJump"
+                class="quiz-item__slide-jump button-quiz">
+                +10
+              </button>
             </template>
             <div
               v-for="item in items"
@@ -18,7 +23,7 @@
               class="slide quiz-item">
              <button
                 @click="toggleName"
-                class="quiz-item__solution-toggle">
+                class="quiz-item__solution-toggle button-quiz">
                 Reveal
               </button>
               <div class="quiz-item__front">
@@ -361,6 +366,15 @@ export default {
       this.items.forEach(el => {
         console.log(el.images.val);
       })
+    },
+    slidesJump: function(e) {
+      const total = this.items.length;
+
+      if (this.currentSlide + 10 <= total) {
+        this.$refs.carousel.goTo(this.currentSlide + 10)
+      } else {
+        this.$refs.carousel.goTo(0)
+      }
     }
   }
 }
@@ -380,6 +394,22 @@ export default {
   height: 100%;
   width: 100%;
   z-index: 0;
+}
+
+.button-quiz {
+  box-sizing: border-box;
+  background: #e7e7e7;
+  border: 3px solid darken(#e7e7e7, 10%);
+  border-radius: 3px;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  cursor: pointer;
+  // height: 100%;
+  // width: 100%;
+
+  &:hover {
+    background: darken(#e7e7e7, 5%);
+  }
 }
 
 .quiz-item__image-toggle {
@@ -456,22 +486,12 @@ export default {
 .quiz-item__solution-toggle {
   position: absolute;
   top: -80px;
-  left: calc(20% + .5rem);
+  left: calc(30% + .5rem);
   right: 0;
-  width: calc(30% - .5rem);
-  height: 70px;
-  z-index: 3;
-
-  box-sizing: border-box;
-  background: #e7e7e7;
-  border: 3px solid darken(#e7e7e7, 10%);
-  border-radius: 3px;
-  cursor: pointer;
   margin-right: .5rem;
-
-  &:hover {
-    background: darken(#e7e7e7, 5%);
-  }
+  height: 70px;
+  width: calc(20% - .5rem);
+  z-index: 3;
 }
 
 .agile__list {
@@ -479,26 +499,20 @@ export default {
 }
 
 .agile__caption {
+  display: flex;
+  flex-flow: row nowrap;
   margin: 0;
   position: absolute;
   top: 20px;
   height: 70px;
   left: 0;
-  width: 20%;
+  width: 30%;
 }
 
 .button-quiz-reset {
-  box-sizing: border-box;
-  background: #e7e7e7;
-  border: 3px solid darken(#e7e7e7, 10%);
-  border-radius: 3px;
-  cursor: pointer;
+  flex: 1;
   height: 100%;
-  width: 100%;
-
-  &:hover {
-    background: darken(#e7e7e7, 5%);
-  }
+  // width: 100%;
 }
 
 .agile__actions {
@@ -521,5 +535,15 @@ export default {
   &:hover {
     background: darken(#e7e7e7, 5%);
   }
+}
+
+.quiz-item__slide-jump {
+  // position: absolute;
+  // top: 0;
+  // left: calc(20% + .5rem);
+  // right: 0;
+  // width: calc(10% - .5rem);
+  height: 70px;
+  margin-left: .5rem;
 }
 </style>
