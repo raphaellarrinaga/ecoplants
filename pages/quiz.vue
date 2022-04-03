@@ -11,20 +11,20 @@
             :infinite="true">
             <template slot="caption">
               <button class="button-quiz-reset button-quiz" @click="resetSlide">{{ currentSlide + "/" + items.length }}</button>
-             <button
+              <button
                 @click="slidesJump"
                 class="quiz-item__slide-jump button-quiz">
                 +10
               </button>
             </template>
             <div
-              v-for="item in items"
-              :key="item.id"
-              class="slide quiz-item">
+              v-for="(item, index) in items"
+              class="slide quiz-item"
+              :key="item.id">
              <button
                 @click="toggleName"
                 class="quiz-item__solution-toggle button-quiz">
-                Reveal
+                👀
               </button>
               <div class="quiz-item__front">
                 <button
@@ -359,6 +359,14 @@ export default {
       [].forEach.call(elems, function(el) {
           el.classList.remove("is-revealed");
       });
+
+      // Load hidden image on the current item.
+      // @todo fire after class has been set.
+      // setTimeout(function() {
+      //   let activeElem = document.getElementsByClassName("agile__slide--active")[0]
+      //   let media = activeElem.querySelectorAll('.quiz-item__image');
+      //   [...media].forEach(m => this.$lazyLoad(m))
+      // }, 200);
     },
     resetSlide: function(e) {
       this.$refs.carousel.goTo(0)
@@ -375,12 +383,35 @@ export default {
       } else {
         this.$refs.carousel.goTo(0)
       }
-    }
+    },
   }
 }
 </script>
 
 <style lang="scss">
+html {
+  background-color: #f8f9fd;
+}
+
+.button-quiz {
+  box-sizing: border-box;
+  background: #fefefe;
+  border: 1px solid #dee1ed;
+  border-left: none;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  cursor: pointer;
+
+  &:active,
+  &:focus {
+    background: #fefefe;
+  }
+
+  &:hover {
+    background: darken(#fefefe, 6%);
+  }
+}
+
 .quiz-item {
   position: relative;
   height: 60vh;
@@ -388,28 +419,12 @@ export default {
 }
 
 .quiz-item__front {
-  border-radius: 1rem;
+  border-radius: 6px;
   overflow: hidden;
   position: relative;
   height: 100%;
   width: 100%;
   z-index: 0;
-}
-
-.button-quiz {
-  box-sizing: border-box;
-  background: #e7e7e7;
-  border: 3px solid darken(#e7e7e7, 10%);
-  border-radius: 3px;
-  padding-left: .5rem;
-  padding-right: .5rem;
-  cursor: pointer;
-  // height: 100%;
-  // width: 100%;
-
-  &:hover {
-    background: darken(#e7e7e7, 5%);
-  }
 }
 
 .quiz-item__image-toggle {
@@ -439,17 +454,20 @@ export default {
 
 .quiz-item__back {
   display: block;
-  background: white;
-  padding: 2rem;
+  background: #f5f6fb;
+  padding: 1rem;
   overflow: hidden;
 
   opacity: 0;
   visibility: hidden;
   position: absolute;
   top: 50%;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: .75rem;
+  right: .75rem;
+  bottom: .75rem;
+  border-radius: 4px;
+  // border-bottom-left-radius: 4px;
+  // border-bottom-right-radius: 4px;
   z-index: 1;
 
   transition: none;
@@ -463,13 +481,14 @@ export default {
 .quiz-item__botanical {
   font-size: 1.75rem;
   line-height: 1.2;
-  margin-bottom: .75em;
+  margin-bottom: .25em;
   margin-top: 0;
 }
 
 .quiz-item__familiar {
-  color: rgb(28, 80, 136);
+  color: #4f4f4f;
   font-size: 1.5rem;
+  font-weight: normal;
   line-height: 1.2;
   margin-bottom: 1.2em;
   margin-top: 0;
@@ -478,20 +497,22 @@ export default {
 .quiz-item__cycle {
   color: #333;
   font-size: 1rem;
-  font-weight: bold;
+  // font-weight: bold;
   line-height: 1.2;
-  margin-top: 0;
+  margin: 0;
 }
 
 .quiz-item__solution-toggle {
+  font-size: 1.5rem;
+  height: 70px;
+  left: 0;
+  border-left: 1px solid #dee1ed;
+  // border-right: 1px solid #dee1ed;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
   position: absolute;
   top: -80px;
-  left: calc(30% + .5rem);
-  right: 0;
-  margin-right: .5rem;
-  height: 70px;
-  width: calc(20% - .5rem);
-  z-index: 3;
+  width: calc(25%);
 }
 
 .agile__list {
@@ -499,51 +520,57 @@ export default {
 }
 
 .agile__caption {
-  display: flex;
-  flex-flow: row nowrap;
   margin: 0;
   position: absolute;
   top: 20px;
   height: 70px;
-  left: 0;
-  width: 30%;
+  left: calc(25%);
+  width: 35%;
 }
 
 .button-quiz-reset {
-  flex: 1;
+  position: absolute;
   height: 100%;
-  // width: 100%;
+  width: 60%;
+}
+
+.quiz-item__slide-jump {
+  position: absolute;
+  top: 0;
+  left: 60%;
+  height: 70px;
+  width: 40%;
 }
 
 .agile__actions {
+  height: 70px;
+  left: 60%;
   position: absolute;
   top: 20px;
-  height: 70px;
-  right: 0;
-  width: 50%;
+  width: 40%;
 }
 
 .agile__nav-button {
   box-sizing: border-box;
-  background: #e7e7e7;
-  border: 3px solid darken(#e7e7e7, 10%);
-  border-radius: 3px;
+  background: #fefefe;
   cursor: pointer;
-  margin-left: .5rem;
+  border-right: 1px solid #dee1ed;
+  border: 1px solid #dee1ed;
+  border-left: none;
   width: 50%;
 
-  &:hover {
-    background: darken(#e7e7e7, 5%);
+  &--next {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
   }
-}
 
-.quiz-item__slide-jump {
-  // position: absolute;
-  // top: 0;
-  // left: calc(20% + .5rem);
-  // right: 0;
-  // width: calc(10% - .5rem);
-  height: 70px;
-  margin-left: .5rem;
+  &:active,
+  &:focus {
+    background: #fefefe;
+  }
+
+  &:hover {
+    background: darken(#fefefe, 6%);
+  }
 }
 </style>
