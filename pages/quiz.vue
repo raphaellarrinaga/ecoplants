@@ -461,15 +461,13 @@ html {
   opacity: 0;
   visibility: hidden;
   position: absolute;
-  top: 50%;
+  bottom: 0;
+  min-height: 50%;
   left: .75rem;
   right: .75rem;
   bottom: .75rem;
   border-radius: 4px;
-  // border-bottom-left-radius: 4px;
-  // border-bottom-right-radius: 4px;
   z-index: 1;
-
   transition: none;
 
   .is-revealed & {
