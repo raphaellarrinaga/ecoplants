@@ -318,7 +318,74 @@ export default {
             "https://c8.alamy.com/compfr/t6agdf/capucine-tropaeolum-majus-t6agdf.jpg",
             "https://plantaefelinaehome.files.wordpress.com/2019/08/capucine.png",
           ]
-        }
+        },
+        {
+          "botanicalName":"Bellis perennis",
+          "familiarName":"Pâquerette",
+          "cycle":"Bisannuelle",
+          "images": [
+            "https://jardinage.lemonde.fr/images/dossiers/historique/paquerette-145338.jpg",
+            "https://static.wixstatic.com/media/a9b708_1c0c5181c88d4c1c8ed1423a3b48912d~mv2.jpg/v1/fill/w_1000,h_759,al_c,q_90,usm_0.66_1.00_0.01/a9b708_1c0c5181c88d4c1c8ed1423a3b48912d~mv2.jpg",
+          ]
+        },
+        {
+          "botanicalName":"Digitalis purpurea",
+          "familiarName":"Digitale pourpre",
+          "cycle":"Bisannuelle",
+          "images": [
+            "https://jardinage.lemonde.fr/images/dossiers/historique/digitales-185606.jpg",
+            "https://i.ebayimg.com/00/s/NjgzWDEwMjQ=/z/pUsAAOSwxWtiNBxc/$_84.JPG",
+          ]
+        },
+        {
+          "botanicalName":"Lunaria annua",
+          "familiarName":"Lunaire annuelle",
+          "cycle":"Bisannuelle",
+          "images": [
+            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.plantes-shopping.fr%2Farticles%2Flunaria-annua-2355.html%3Fm%3D1&psig=AOvVaw0COV9_1tjUAsvvcJDen3Fn&ust=1649137418758000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCGh-bZ-fYCFQAAAAAdAAAAABAD",
+            "https://img-3.journaldesfemmes.fr/IDbnGaNRMMWgv1sqX3mOiiqE6sY=/1500x/smart/1cfd241a6cc44049a65125c3105feb92/ccmcms-jdf/16208615.jpg",
+            "https://theoriginalgarden.com/Argazkiak/Fotos/LUNARIAANNUALunariaHierbadelaplata_1.jpg",
+          ]
+        },
+        {
+          "botanicalName":"Myosotis alpestris",
+          "familiarName":"Myosotis alpestris",
+          "cycle":"Bisannuelle",
+          "images": [
+            "https://jardinage.lemonde.fr/images/dossiers/historique/myosotis1-192306.jpg",
+            "https://www.infoflora.ch/assets/db_doc/taxa_images/2017/11/07/20171107123201-ded6edd8.jpg",
+          ]
+        },
+        {
+          "botanicalName":"Viola wittrockiana",
+          "familiarName":"Pensée des jardins",
+          "cycle":"Bisannuelle",
+          "images": [
+            "https://www.aquaportail.com/aquabdd/photos/viola-wittrockiana.jpg",
+            "https://cdn.hornbach.ch/data/shop/D04/001/780/491/727/546/DV_8_10240363_01_4c_CH_20200122051700.jpg",
+            "https://www.aquaportail.com/pictures1711/assortiment-mix-viola-wittrockiana-cornuta.jpg",
+          ]
+        },
+        {
+          "botanicalName":"Achillea sp.",
+          "familiarName":"Achillée",
+          "cycle":"Vivace",
+          "images": [
+            "https://upload.wikimedia.org/wikipedia/commons/1/17/Achillea_millefolium1.jpg",
+            "https://d2j6dbq0eux0bg.cloudfront.net/images/20233137/1192720362.jpg",
+            "https://gd.eppo.int/media/data/taxon/A/ACHSS/pics/1024x0/10984.jpg",
+          ]
+        },
+        {
+          "botanicalName":"Aconitum sp.",
+          "familiarName":"Aconit",
+          "cycle":"Vivace",
+          "images": [
+            "https://booksofdante.files.wordpress.com/2021/08/aconit_napl_fleur_danny_s.jpg?w=440",
+            "https://farm4.static.flickr.com/3263/2869797705_1e407048fa_b.jpg",
+            "https://s3.amazonaws.com/farreaches/Volusion+Loaded/aconitum-sp-pmd1.jpg",
+          ]
+        },
       ],
     }
   },
