@@ -55,9 +55,7 @@ export default {
   buildModules: [
     '@nuxtjs/style-resources',
     '@nuxtjs/google-fonts',
-    ['@nuxtjs/google-analytics', {
-      id: 'G-L3N79FK740'
-    }]
+    '@nuxtjs/google-analytics',
   ],
 
   styleResources: {
@@ -81,6 +79,10 @@ export default {
     families: {
       Roboto: [400, 500, 700],
     }
+  },
+
+  googleAnalytics: {
+    id: 'G-L3N79FK740'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
