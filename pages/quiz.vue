@@ -10,7 +10,7 @@
             :swipeDistance="100"
             :infinite="true">
             <template slot="caption">
-              <button class="button-quiz-reset button-quiz" @click="resetSlide">{{ currentSlide + "/" + items.length }}</button>
+              <button class="button-quiz-reset button-quiz" @click="resetSlide">{{ (currentSlide + 1) + "/" + items.length }}</button>
               <button
                 @click="slidesJump"
                 class="quiz-item__slide-jump button-quiz">
@@ -342,7 +342,7 @@ export default {
           "familiarName":"Lunaire annuelle",
           "cycle":"Bisannuelle",
           "images": [
-            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.plantes-shopping.fr%2Farticles%2Flunaria-annua-2355.html%3Fm%3D1&psig=AOvVaw0COV9_1tjUAsvvcJDen3Fn&ust=1649137418758000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCGh-bZ-fYCFQAAAAAdAAAAABAD",
+            "https://www.magicgardenseeds.fr/pics/mgs/LUN01/1000/Lunaire-annuelle-(Lunaria-annua).jpg",
             "https://img-3.journaldesfemmes.fr/IDbnGaNRMMWgv1sqX3mOiiqE6sY=/1500x/smart/1cfd241a6cc44049a65125c3105feb92/ccmcms-jdf/16208615.jpg",
             "https://theoriginalgarden.com/Argazkiak/Fotos/LUNARIAANNUALunariaHierbadelaplata_1.jpg",
           ]

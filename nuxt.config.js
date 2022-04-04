@@ -54,7 +54,10 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/style-resources',
-    '@nuxtjs/google-fonts'
+    '@nuxtjs/google-fonts',
+    ['@nuxtjs/google-analytics', {
+      id: 'G-L3N79FK740'
+    }]
   ],
 
   styleResources: {
