@@ -60,23 +60,14 @@
         </ul>
       </div>
 
-      <!-- <div class="form-item form-item--buttons">
-        <button
-          class="button"
-          :class="{ 'is-active' : status === 'Apiaceae' }"
-          @click="handleStatusFilter('Apiaceae')"
-        >
-          Apiaceae
-        </button>
-
-        <button
-          class="button button-reset"
-          @click="handleStatusFilter('all')"
-        >
-          🔄 Réinitialiser
-        </button>
-
+      <!-- <div class="form-item form-item--checkbox">
+        <input
+          id="comestible"
+          type="checkbox"
+          name="comestible">
+        <label for="comestible">Comestible</label>
       </div> -->
+
 
     </div>
 

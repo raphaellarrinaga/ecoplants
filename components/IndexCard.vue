@@ -2,22 +2,29 @@
   <div class="plant__inner">
     <div
       class="plant__item plant__item-name has-value">
-      <client-only
-        v-if="images.length">
-        <LightGallery
-          :images="images"
-          :index="index"
-          :disable-scroll="true"
-          @close="index = null"
-        />
-      </client-only>
-      <picture
-        class="plant__thumb"
-        @click="index = 0"
-        v-if="thumbUrl.length">
-        <img :src="thumbUrl">
-      </picture>
-      <div v-else class="plant__thumb-placeholder"></div>
+      <div class="plant__item-image">
+        <div
+          class="plant__images-count"
+          v-if="lead.images">
+          {{ Object.keys(lead.images).length }}
+        </div>
+        <client-only
+          v-if="lead.images">
+          <LightGallery
+            :images="Object.values(lead.images)"
+            :index="index"
+            :disable-scroll="true"
+            @close="index = null"
+          />
+        </client-only>
+        <picture
+          class="plant__thumb"
+          @click="index = 0"
+          v-if="lead.thumb">
+          <img :src="lead.thumb">
+        </picture>
+        <div v-else class="plant__thumb-placeholder"></div>
+      </div>
       <div class="plant__header">
         <p class="plant__latin">
           {{ lead.Nom }}
@@ -138,8 +145,6 @@
 export default {
   data() {
     return {
-      thumbUrl: [],
-      images: [],
       index: null,
     };
   },
@@ -154,21 +159,6 @@ export default {
       this.$el.closest(".plant").classList.toggle('is-open')
     },
   },
-  mounted() {
-    if (this.lead.images) {
-      for (const i in this.lead.images) {
-        // Poplate thumb url.
-        if (i === "thumb") {
-          this.thumbUrl = this.lead.images["thumb"].url
-        } else {
-        // Poplate other images.
-          this.images.push(
-            { title: this.lead.images[i].legend, url: this.lead.images[i].url }
-          )
-        }
-      }
-    }
-  }
 }
 </script>
 
@@ -355,12 +345,32 @@ export default {
   }
 }
 
-.plant__thumb {
-  border-radius: 4px;
+.plant__item-image {
+  position: relative;
   flex: 0 0 auto;
-  overflow: hidden;
   height: 60px;
   width: 50px;
+}
+
+.plant__images-count {
+  background: rgba(#111, .5);
+  border-radius: 3px;
+  bottom: 3px;
+  color: rgba(#fefefe, .8);
+  font-size: .875rem;
+  right: 3px;
+  line-height: 1;
+  padding: .1rem .3rem;
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+
+.plant__thumb {
+  display: block;
+  line-height: 0;
+  border-radius: 4px;
+  overflow: hidden;
 
   &:hover,
   &:focus {
@@ -376,9 +386,11 @@ export default {
 .plant__thumb-placeholder {
   background: #e5e5e5;
   border-radius: 4px;
-  flex: 0 0 auto;
-  height: 60px;
-  width: 50px;
+  // flex: 0 0 auto;
+  height: 100%;
+  width: 100%;
+  // height: 60px;
+  // width: 50px;
 }
 
 // Needs overcibling
@@ -463,19 +475,6 @@ button.plants-toggle-disabled {
 .plant__more-item--description {
   @media screen and (max-width: 821px) {
     display: block;
-  }
-}
-
-.plant__image {
-  margin-bottom: 1rem;
-
-  img {
-    max-width: 200px;
-    height: auto;
-  }
-
-  @media screen and (min-width: 421px) {
-    float: right;
   }
 }
 </style>

@@ -130,7 +130,7 @@ span.plants__header-actions {
   padding-right: 0;
 
   @media screen and (min-width: 1021px) {
-    flex-basis: 10%;
+    flex: 0 0 8%;
   }
 }
 

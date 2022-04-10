@@ -66,6 +66,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/axios',
     'nuxt-lazy-load',
     // Generate static JSON based on data fetched from source.
     '~/modules/cgnData.js',

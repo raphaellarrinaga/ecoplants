@@ -1,7 +1,7 @@
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY
-const SHEET_DATA_SOURCE_URL = 'https://sheets.googleapis.com/v4/spreadsheets/19Pw8bkQBliB997SbT1BvDZiKay_H-_2jH8HNHbDEpLw/values/Data!A1:Z1000?key='+ GOOGLE_API_KEY
+const GOOGLE_SHEET_URL = process.env.GOOGLE_SHEET_URL
+const SHEET_DATA_SOURCE_URL = GOOGLE_SHEET_URL + GOOGLE_API_KEY
 const GDRIVE_CLIENT_EMAIL = process.env.GDRIVE_CLIENT_EMAIL
-// const GDRIVE_PRIVATE_KEY = process.env.GDRIVE_PRIVATE_KEY
 // @see https://github.com/auth0/node-jsonwebtoken/issues/642#issuecomment-585173594
 const GDRIVE_PRIVATE_KEY = process.env.GDRIVE_PRIVATE_KEY.replace(/\\n/gm, '\n')
 const axios = require('axios')
@@ -19,26 +19,65 @@ const scopes = [
 module.exports = async function (moduleOptions) {
   this.nuxt.hook('generate:before', async () => {
 
-    // Push to array if key exist.
-    function pushImageToArray(arr, name, key, val) {
+    //
+    // Push to array if a key exist.
+    //
+    function pushImageToArray(arr, name, val, key) {
       const found = arr.some(el => el.Nom === name);
-      const legend = key.substring(key.indexOf('-0')).replace(/-|_/g,' ');
+      const title = key.substring(key.indexOf('-0')).replace(/-|_/g,' ');
+
+      // Ex: "Achillea ptarmica" does not exist, create all subtree.
       if (!found) {
         arr.push({
           Nom: name,
           images: {
-            [key]: {
-              legend: legend,
+            0: {
+              title: title,
               url: val
             }
           }
-         })
+        })
+      } else {
+        // Ex: "Achillea ptarmica" exist.
+        const keyName = arr.findIndex(el => el.Nom === name);
+
+        // Images does exist.
+        if (arr[keyName]["images"]) {
+          const elem = {"title": title, "url": val};
+
+          // Kind of dirty way to use integers as keys to push images.
+          // @todo see best best practice.
+          const lastKey = Object.keys(arr[keyName]["images"]).pop();
+          const newKey = parseInt(lastKey) + 1;
+
+          arr[keyName].images[newKey] = {
+            title: title,
+            url: val
+          };
+
+        // Images does NOT exist.
+        } else {
+          arr[keyName]["images"] = {
+            0: {
+              title: title,
+              url: val
+            }
+          };
+        }
+      }
+    }
+
+    function pushThumbToArray(arr, name, val) {
+      const found = arr.some(el => el.Nom === name);
+
+      if (!found) {
+        arr.push({
+          Nom: name,
+          thumb: val
+        })
       } else {
         const index = arr.findIndex(el => el.Nom === name);
-        arr[index].images[key] = {
-          legend: legend,
-          url: val
-        };
+        arr[index]["thumb"] = val;
       }
     }
 
@@ -57,37 +96,20 @@ module.exports = async function (moduleOptions) {
       }
     }
 
-    // const map1 = articles.map(x => x * 2);
-    // const map1 = articles.map((x) => {
-    //   console.log(x);
-    // });
-
-    // const aReversed = articles.reverse();
-    // const data = JSON.stringify(articles)
-
-    // const distGeneratePath = resolve(this.options.rootDir, join(this.options.generate.dir, '/cgnData.json'))
-
-    // const distGeneratePath = resolve(this.options.rootDir, join(this.options.alias.static, '/cgnData.json'))
-    // try { writeFileSync(distGeneratePath, data, 'utf-8'); }
-    // catch(e) { console.log('Failed to save cgnData.json'); }
-
     //
     // Get Google Drive data.
     //
-    // const auth = new google.auth.JWT(
-    //   credentials.client_email, null,
-    //   credentials.private_key, scopes
-    // );
     const auth = new google.auth.JWT(
       GDRIVE_CLIENT_EMAIL, null,
       GDRIVE_PRIVATE_KEY, scopes
     );
 
     const drive = google.drive({ version: "v3", auth });
-
     let images = []
 
+    //
     // List files.
+    //
     drive.files.list({}, (err, res) => {
       if (err) throw err;
       const files = res.data.files;
@@ -102,11 +124,11 @@ module.exports = async function (moduleOptions) {
             // Remove what comes after "-", replace "_" by " ".
             if (name.includes("-thumb")) {
               const newName = name.substring(0, name.indexOf('-thumb')).replace("_", " ");
-              pushImageToArray(images, newName, "thumb", sourceUrl);
+              pushThumbToArray(images, newName, sourceUrl);
             } else {
               const newName = name.substring(0, name.indexOf('-')).replace("_", " ");
               const id = name.substring(name.indexOf('-0') + 1).replace(".jpg", "")
-              pushImageToArray(images, newName, id, sourceUrl);
+              pushImageToArray(images, newName, sourceUrl, id);
             }
           }
         });
@@ -114,10 +136,9 @@ module.exports = async function (moduleOptions) {
         console.log('No files found');
       }
 
-      // var unmatched = [],
-      //   matched = [];
-      // images.every(x=> test.map(e=> e.name).includes(x.name) ? matched.push(x) : unmatched.push(x))
-      // matched = matched.map(x=> Object.assign(x, test.find(e=> e.name ===x.name )))
+      //
+      // Map images with sheet Object.
+      //
       let unmatched = [],
         matched = [];
       articles.every(x => images.map(e => e.Nom).includes(x.Nom) ? matched.push(x) : unmatched.push(x))
@@ -125,17 +146,21 @@ module.exports = async function (moduleOptions) {
 
       const mergeResult = [...matched, ...unmatched];
 
+      //
       // Sort alphabetically.
+      //
       // @see https://stackoverflow.com/a/6712080
+      //
       mergeResult.sort(function(a, b){
         if(a.Nom < b.Nom) { return -1; }
         if(a.Nom > b.Nom) { return 1; }
         return 0;
       })
 
+      //
       // Generate JSON.
+      //
       const data = JSON.stringify(mergeResult)
-
       const distGeneratePath = resolve(this.options.rootDir, join(this.options.alias.static, '/cgnData.json'))
       try { writeFileSync(distGeneratePath, data, 'utf-8'); }
       catch(e) { console.log('Failed to save cgnData.json'); }
