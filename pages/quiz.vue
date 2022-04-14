@@ -3,13 +3,6 @@
     <div class="page">
       <main>
         <div v-if="plants.length">
-          <!-- {{ plants }} -->
-          <!-- <div
-            v-for="elem in plants"
-            :key="elem.id">
-            <p>{{ elem.botanicalName }}</p>
-          {{ elem}}
-          </div> -->
           <agile
             ref="carousel"
             @after-change="afterChangeCustomEvent($event)"
@@ -66,6 +59,7 @@
 
 // @see https://github.com/lukaszflorczak/vue-agile/tree/legacy/vue-v2
 import { VueAgile } from 'vue-agile'
+const axios = require('axios')
 
 export default {
   name: 'Quiz',
@@ -75,8 +69,8 @@ export default {
       plants: [],
     }
   },
-  async asyncData ({ $axios }) {
-    const plants = await $axios.get('/quizData.json').then(res => res.data)
+  async asyncData () {
+    const plants = await axios.get('/quizData.json').then(res => res.data)
     return { plants }
   },
   components: {
