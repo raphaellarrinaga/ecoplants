@@ -7,6 +7,7 @@ export const state = () => ({
   filteredLeads: [],
   lead: {},
   filter: {
+    comestible: 'false',
     search: '',
     status: 'all',
     sow: 'all',
@@ -46,6 +47,10 @@ export const actions = {
     await commit('setFilterSearch', search)
     dispatch('filterLeads')
   },
+  async filterComestible ({ commit, dispatch }, comestible) {
+    await commit('setFilterComestible', comestible)
+    dispatch('filterLeads')
+  },
   // Since we want to make all of our filters be maintained no matter which
   // value we change the final filterLeads action will first narrow down
   // our list to what we want and then order our new list.
@@ -59,8 +64,6 @@ export const mutations = {
   setLeads (state, leads) { state.leads = leads },
   // setFilteredLeads (state, leads) { state.filteredLeads = leads },
   setLead (state, lead) { state.lead = lead },
-  // setFilterStatus (state, status) { state.filter.status = status },
-  // setFilterSearch (state, search) { state.filter.search = search },
 
   // setFilteredLeads gets called after applying a new filter
   // so our Vue component shows only the leads we want to see, without losing our initial list.
@@ -71,6 +74,7 @@ export const mutations = {
   setFilterStatus (state, status) { state.filter.status = status },
   setFilterSow (state, sow) { state.filter.sow = sow },
   setFilterSearch (state, search) { state.filter.search = search },
+  setFilterComestible (state, comestible) { state.filter.comestible = comestible },
   setOrder (state, order) { state.filter.order = order },
 
   // filterLeads first makes a local copy of all leads. We reset our filteredLeads

@@ -33,6 +33,7 @@
       </div>
     </div>
     <div
+      :class="{ 'has-value' : lead.hasOwnProperty('Famille') && lead['Famille'] }"
       class="plant__item plant__item-famille">
       <h3><span v-if="lead.hasOwnProperty('Famille') && lead['Famille']">Famille</span></h3>
       <p class="plant__famille">{{ lead.Famille }}</p>

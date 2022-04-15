@@ -60,15 +60,16 @@
         </ul>
       </div>
 
-      <!-- <div class="form-item form-item--checkbox">
+      <div class="form-item form-item--checkbox button button--form">
         <input
-          id="comestible"
           type="checkbox"
-          name="comestible">
-        <label for="comestible">Comestible</label>
-      </div> -->
-
-
+          value="isComestible"
+          id="isComestible"
+          v-model="comestibleChecked"
+          @change="handleComestibleFilter(comestibleChecked)"
+        >
+        <label for="isComestible">Comestible</label>
+      </div>
     </div>
 
     <div class="form-count">{{ filteredLeads.length }} résultats</div>
@@ -120,6 +121,8 @@ export default {
   name: 'IndexPage',
   data () {
     return {
+      comestibleChecked: false,
+      // comestible: false,
       orderOpen: false,
       orderChanged: false,
       sowOpen: false,
@@ -130,6 +133,9 @@ export default {
     }
   },
   computed: {
+    comestible () {
+      return this.$store.state.leads.filter.comestible
+    },
     search () {
       return this.$store.state.leads.filter.search
     },
@@ -158,6 +164,9 @@ export default {
     })
   },
   methods: {
+    handleComestibleFilter (comestible) {
+      this.$store.dispatch('leads/filterComestible', comestible)
+    },
     handleStatusFilter (status) {
       this.$store.dispatch('leads/filterStatus', status)
     },
@@ -182,7 +191,7 @@ export default {
     },
     closeOrderDropDown (e) {
       this.orderOpen = false
-    }
+    },
   },
   async fetch ({ store }) {
     await store.dispatch('leads/fetchAllLeads')
@@ -287,16 +296,23 @@ export default {
   }
 }
 
-.form-item--buttons .button {
-  margin: 0 .5rem .5rem 0;
+.form-item--buttons {
+  button {
+    margin: 0 .5rem .5rem 0;
+
+    &:hover {
+      background: #ced9e0;
+    }
+
+    &.is-active {
+      background: #a2b4c2;
+    }
+  }
 }
 
-.form-item--buttons .button:hover {
-  background: #ced9e0;
-}
-
-.form-item--buttons .button.is-active {
-  background: #a2b4c2;
+.form-item--checkbox {
+  background: #fefefe;
+  border: 1px solid #e9e9e9;
 }
 
 .form-item--dropdown {
@@ -311,20 +327,22 @@ export default {
   left: 0;
   top: 100%;
   margin: .5rem 0 0;
-  max-height: 75vh;
+  max-height: 50vh;
   overflow: scroll;
   padding: .2rem;
   z-index: 10;
   box-shadow: rgba(33, 0, 153, 0.144) 1px 1px 3px;
-}
-  .dropdown li {
+
+  li {
     cursor: pointer;
     padding: .5rem .8rem;
     border-radius: 3px;
+
+    &:hover {
+      background: #f1f1f1;
+    }
   }
-  .dropdown li:hover {
-    background: #f1f1f1;
-  }
+}
 
 .dropdown__current {
   font-weight: bold;
@@ -334,17 +352,16 @@ export default {
   display: inline-block;
   cursor: pointer;
   margin: 0;
+
+  .form-filter & {
+    background: #fefefe;
+    border: 1px solid #e9e9e9;
+    margin: 0 1rem 0 0;
+  }
 }
 
 .button--form {
   padding-bottom: .4rem;
   padding-top: .45rem;
 }
-
-.form-filter .dropdown-toggle {
-  background: #fefefe;
-  border: 1px solid #e9e9e9;
-  margin: 0 1rem 0 0;
-}
-
 </style>

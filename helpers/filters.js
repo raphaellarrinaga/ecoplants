@@ -11,9 +11,6 @@ export function filterLeads (filter, leads) {
 
 
   function filterMonthRange(obj, obj2) {
-    console.log(obj.Semis);
-    console.log(obj2);
-    // const range = obj.Semis;
     const range = "2-5";
     const start = range.substring(0, range.indexOf('-'));
     const end = range.substring(range.indexOf('-') + 1);
@@ -29,7 +26,6 @@ export function filterLeads (filter, leads) {
     }
 
     const monthsText = months.map((month) => {
-      // return month == 2 ? 8 : month;
       switch (month) {
         case 1:
           return "Janvier";
@@ -157,6 +153,12 @@ export function filterLeads (filter, leads) {
       }
     }
     filteredList = searchList
+  }
+
+  // Filter comestible.
+  if (filter.comestible) {
+    const filtered = filteredList.filter(lead => lead.Comestible !== undefined)
+    filteredList = filtered
   }
 
   return filteredList

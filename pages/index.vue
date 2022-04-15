@@ -46,11 +46,6 @@ import LeadFilter from '~/components/leadFilter'
 import IndexCard from '~/components/IndexCard'
 
 export default {
-  // async asyncData () {
-  //   const cgnData = await axios.get('/cgnData.json').then(res => res.data)
-  //   const plants = cgnData
-  //   return { plants }
-  // },
   name: 'IndexPage',
   components: { IndexCard, LeadFilter },
   computed: {
