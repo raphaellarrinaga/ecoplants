@@ -60,7 +60,9 @@
         </ul>
       </div>
 
-      <div class="form-item form-item--checkbox button button--form">
+      <div
+        :class="{ 'is-active' : comestibleChecked === true }"
+        class="form-item form-item--checkbox button">
         <input
           type="checkbox"
           value="isComestible"
@@ -311,8 +313,65 @@ export default {
 }
 
 .form-item--checkbox {
-  background: #fefefe;
-  border: 1px solid #e9e9e9;
+  border-color: #e9e9e9;
+  padding: 0;
+  position: relative;
+
+  &:hover {
+    background: #fefefe;
+    border: 1px solid #e9e9e9;
+  }
+
+  label {
+    display: block;
+    padding: .45rem .55rem .4rem 1.8rem;
+    cursor: pointer;
+  }
+
+  input {
+    border: 1px solid #e9e9e9;
+    border-radius: 2px;
+    display: block;
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    left: .6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    user-select: none;
+    appearance: none;
+    -webkit-appearance: none;
+
+    display: grid;
+    place-content: center;
+
+    &::before {
+      content: "";
+      width: 0.55em;
+      height: 0.55em;
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      transform: scale(0);
+      transform-origin: bottom left;
+      transition: 120ms transform ease-in-out;
+      /* Windows High Contrast Mode */
+      background-color: rgb(237, 238, 253);
+    }
+
+
+    &:checked {
+      background: rgb(78, 87, 188);
+
+      &::before {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &.is-active {
+    border-color: rgb(78, 87, 188);
+    background: rgb(237, 238, 253);
+  }
 }
 
 .form-item--dropdown {
