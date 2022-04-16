@@ -72,6 +72,19 @@
         >
         <label for="isComestible">Comestible</label>
       </div>
+
+      <div
+        :class="{ 'is-active' : medicinaleChecked === true }"
+        class="form-item form-item--checkbox button">
+        <input
+          type="checkbox"
+          value="isMedicinale"
+          id="isMedicinale"
+          v-model="medicinaleChecked"
+          @change="handleMedicinaleFilter(medicinaleChecked)"
+        >
+        <label for="isMedicinale">Medicinale</label>
+      </div>
     </div>
 
     <div class="form-count">{{ filteredLeads.length }} résultats</div>
@@ -123,8 +136,8 @@ export default {
   name: 'IndexPage',
   data () {
     return {
+      medicinaleChecked: false,
       comestibleChecked: false,
-      // comestible: false,
       orderOpen: false,
       orderChanged: false,
       sowOpen: false,
@@ -135,6 +148,9 @@ export default {
     }
   },
   computed: {
+    medicinale () {
+      return this.$store.state.leads.filter.medicinale
+    },
     comestible () {
       return this.$store.state.leads.filter.comestible
     },
@@ -168,6 +184,9 @@ export default {
   methods: {
     handleComestibleFilter (comestible) {
       this.$store.dispatch('leads/filterComestible', comestible)
+    },
+    handleMedicinaleFilter (medicinale) {
+      this.$store.dispatch('leads/filterMedicinale', medicinale)
     },
     handleStatusFilter (status) {
       this.$store.dispatch('leads/filterStatus', status)
@@ -314,6 +333,7 @@ export default {
 
 .form-item--checkbox {
   border-color: #e9e9e9;
+  margin-right: 1rem;
   padding: 0;
   position: relative;
 

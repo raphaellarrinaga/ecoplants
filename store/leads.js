@@ -7,6 +7,7 @@ export const state = () => ({
   filteredLeads: [],
   lead: {},
   filter: {
+    medicinale: 'false',
     comestible: 'false',
     search: '',
     status: 'all',
@@ -16,12 +17,6 @@ export const state = () => ({
 })
 
 export const actions = {
-  // async fetchAllLeads ({ commit, rootState }) {
-  //   const userId = await rootState.users.uid
-  //   const leads = await FireStore.list(userId)
-  //   await commit('setLeads', leads)
-  //   await commit('setFilteredLeads', leads)
-  // },
   async fetchAllLeads ({ commit }) {
     const leads = await axios.get('/cgnData.json').then(res => res.data)
     await commit('setLeads', leads)
@@ -51,6 +46,10 @@ export const actions = {
     await commit('setFilterComestible', comestible)
     dispatch('filterLeads')
   },
+  async filterMedicinale ({ commit, dispatch }, medicinale) {
+    await commit('setFilterMedicinale', medicinale)
+    dispatch('filterLeads')
+  },
   // Since we want to make all of our filters be maintained no matter which
   // value we change the final filterLeads action will first narrow down
   // our list to what we want and then order our new list.
@@ -75,6 +74,7 @@ export const mutations = {
   setFilterSow (state, sow) { state.filter.sow = sow },
   setFilterSearch (state, search) { state.filter.search = search },
   setFilterComestible (state, comestible) { state.filter.comestible = comestible },
+  setFilterMedicinale (state, medicinale) { state.filter.medicinale = medicinale },
   setOrder (state, order) { state.filter.order = order },
 
   // filterLeads first makes a local copy of all leads. We reset our filteredLeads

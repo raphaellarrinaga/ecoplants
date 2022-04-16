@@ -156,8 +156,18 @@ export function filterLeads (filter, leads) {
   }
 
   // Filter comestible.
-  if (filter.comestible) {
-    const filtered = filteredList.filter(lead => lead.Comestible !== undefined)
+  if (filter.comestible === true) {
+    const filtered = filteredList.filter(
+      lead => lead.Comestible !== undefined && lead.Comestible !== ""
+    )
+    filteredList = filtered
+  }
+
+  // Filter medicinale.
+  if (filter.medicinale === true) {
+    const filtered = filteredList.filter(
+      lead => lead.Medicinale !== undefined && lead.Medicinale !== ""
+    )
     filteredList = filtered
   }
 
