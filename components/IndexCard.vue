@@ -181,22 +181,21 @@ export default {
       top: -1px;
       z-index: -1;
 
-      @media screen and (min-width: 821px) {
-        left: -10px;
-        right: -10px;
-      }
+      // @media screen and (min-width: 821px) {
+      //   left: -10px;
+      //   right: -10px;
+      // }
     }
   }
 }
 
 .plant__inner {
   border-bottom: 1px solid #eaeaea;
-  display: flex;
-  flex-flow: column wrap;
   padding: 1rem 0;
   position: relative;
 
   @media screen and (min-width: 821px) {
+    display: flex;
     align-items: flex-start;
     flex-flow: row wrap;
     padding: .8rem 0;
@@ -387,11 +386,8 @@ export default {
 .plant__thumb-placeholder {
   background: #e5e5e5;
   border-radius: 4px;
-  // flex: 0 0 auto;
   height: 100%;
   width: 100%;
-  // height: 60px;
-  // width: 50px;
 }
 
 // Needs overcibling
@@ -429,13 +425,14 @@ button.plants-toggle-disabled {
 
 .plant__more {
   margin-bottom: 1rem;
-  margin-top: 1rem;
 
   @media screen and (min-width: 821px) {
     flex: 1 0 100%;
     margin-bottom: 0;
     margin-top: .25rem;
-    padding: 1rem 1rem 0;
+    // padding: 1rem .5rem 0;
+    padding-top: 1rem;
+    padding-left: 65px;
   }
 
   // @todo refine behavior.

@@ -9,7 +9,6 @@ export function filterLeads (filter, leads) {
     filteredList = filtered
   }
 
-
   function filterMonthRange(obj, obj2) {
     const range = "2-5";
     const start = range.substring(0, range.indexOf('-'));

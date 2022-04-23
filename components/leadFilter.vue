@@ -60,6 +60,30 @@
         </ul>
       </div>
 
+      <!-- <div class="form-item form-item--dropdown">
+        <p
+          v-click-outside="closeColorDropDown"
+          class="dropdown-toggle button button--form"
+          @click="ColorOpen = !ColorOpen"
+        >
+          <span class="mr-1">🌈 Couleur ▾</span>
+        </p>
+        <ul v-show="ColorOpen" class="dropdown">
+          <li
+            @click="handleStatusFilter('all')"
+          >
+            Tout
+          </li>
+          <li
+            v-for="color in colorValues"
+            :key="color.id"
+            :class="{ 'is-active' : status === color }"
+            @click="handleStatusFilter(color)">
+            {{ color }}
+          </li>
+        </ul>
+      </div> -->
+
       <div
         :class="{ 'is-active' : comestibleChecked === true }"
         class="form-item form-item--checkbox button">
@@ -143,8 +167,10 @@ export default {
       sowOpen: false,
       sowChanged: false,
       FamilyOpen: false,
-      months: ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"],
-      familyValues: []
+      familyValues: [],
+      ColorOpen: false,
+      colorValues: [],
+      months: ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
     }
   },
   computed: {
@@ -202,6 +228,9 @@ export default {
     closeFamilyDropDown (e) {
       this.familyOpen = false
     },
+    closeColorDropDown (e) {
+      this.colorOpen = false
+    },
     handleSearch: debounce(function (e) {
       this.$store.dispatch('leads/filterSearch', e.target.value)
     }, 500),
@@ -227,6 +256,13 @@ export default {
     let allFamilyValues = this.leads.map((el)=> el.Famille);
     // Remove duplicates, remove empty values and sort.
     this.familyValues = [...new Set(allFamilyValues)].filter((a) => a).sort();
+
+    // Set color filter.
+    // Fill new array with all Fleur terms.
+    let allColorValues = this.leads.map((el)=> el.Fleur);
+    // Remove duplicates, remove empty values and sort.
+    this.colorValues = [...new Set(allColorValues)].filter((a) => a).sort();
+    console.log(this.colorValues);
   }
 }
 
@@ -411,6 +447,8 @@ export default {
   padding: .2rem;
   z-index: 10;
   box-shadow: rgba(33, 0, 153, 0.144) 1px 1px 3px;
+  width: auto;
+  min-width: 9rem;
 
   li {
     cursor: pointer;
