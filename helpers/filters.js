@@ -170,6 +170,14 @@ export function filterLeads (filter, leads) {
     filteredList = filtered
   }
 
+  // Filter ecotype.
+  if (filter.ecotype === true) {
+    const filtered = filteredList.filter(
+      lead => lead.Ecotype !== undefined && lead.Ecotype !== ""
+    )
+    filteredList = filtered
+  }
+
   return filteredList
 }
 

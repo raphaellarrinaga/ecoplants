@@ -109,6 +109,19 @@
         >
         <label for="isMedicinale">Medicinale</label>
       </div>
+
+      <div
+        :class="{ 'is-active' : ecotypeChecked === true }"
+        class="form-item form-item--checkbox button">
+        <input
+          type="checkbox"
+          value="isEcotype"
+          id="isEcotype"
+          v-model="ecotypeChecked"
+          @change="handleEcotypeFilter(ecotypeChecked)"
+        >
+        <label for="isEcotype">Ecotype</label>
+      </div>
     </div>
 
     <div class="form-count">{{ filteredLeads.length }} résultats</div>
@@ -160,6 +173,7 @@ export default {
   name: 'IndexPage',
   data () {
     return {
+      ecotypeChecked: false,
       medicinaleChecked: false,
       comestibleChecked: false,
       orderOpen: false,
@@ -174,6 +188,9 @@ export default {
     }
   },
   computed: {
+    ecotype () {
+      return this.$store.state.leads.filter.ecotype
+    },
     medicinale () {
       return this.$store.state.leads.filter.medicinale
     },
@@ -213,6 +230,9 @@ export default {
     },
     handleMedicinaleFilter (medicinale) {
       this.$store.dispatch('leads/filterMedicinale', medicinale)
+    },
+    handleEcotypeFilter (ecotype) {
+      this.$store.dispatch('leads/filterEcotype', ecotype)
     },
     handleStatusFilter (status) {
       this.$store.dispatch('leads/filterStatus', status)

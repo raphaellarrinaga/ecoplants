@@ -71,6 +71,7 @@
           lead.hasOwnProperty('Remarques') && lead['Remarques'] ||
           lead.hasOwnProperty('Comestible') && lead['Comestible'] ||
           lead.hasOwnProperty('Medicinale') && lead['Medicinale'] ||
+          lead.hasOwnProperty('Ecotype') && lead['Ecotype'] ||
           lead.hasOwnProperty('Description') && lead['Description'] ||
           lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
         @click="toggleMore"
@@ -87,6 +88,7 @@
         lead.hasOwnProperty('Remarques') && lead['Remarques'] ||
         lead.hasOwnProperty('Comestible') && lead['Comestible'] ||
         lead.hasOwnProperty('Medicinale') && lead['Medicinale'] ||
+        lead.hasOwnProperty('Ecotype') && lead['Ecotype'] ||
         lead.hasOwnProperty('Description') && lead['Description'] ||
         lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
       class="plant__more">
@@ -107,6 +109,12 @@
         class="plant__more-item plant__more-item--fleur">
         <h3>Fleur</h3>
         <p class="plant__fleur">{{ lead.Fleur }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Ecotype') && lead['Ecotype']"
+        class="plant__more-item plant__more-item--ecotype">
+        <h3>Ecotype</h3>
+        <p class="plant__ecotype">Oui</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Remarques') && lead['Remarques']"

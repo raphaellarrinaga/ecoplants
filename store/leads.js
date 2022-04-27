@@ -50,6 +50,10 @@ export const actions = {
     await commit('setFilterMedicinale', medicinale)
     dispatch('filterLeads')
   },
+  async filterEcotype ({ commit, dispatch }, ecotype) {
+    await commit('setFilterEcotype', ecotype)
+    dispatch('filterLeads')
+  },
   // Since we want to make all of our filters be maintained no matter which
   // value we change the final filterLeads action will first narrow down
   // our list to what we want and then order our new list.
@@ -75,6 +79,7 @@ export const mutations = {
   setFilterSearch (state, search) { state.filter.search = search },
   setFilterComestible (state, comestible) { state.filter.comestible = comestible },
   setFilterMedicinale (state, medicinale) { state.filter.medicinale = medicinale },
+  setFilterEcotype (state, ecotype) { state.filter.ecotype = ecotype },
   setOrder (state, order) { state.filter.order = order },
 
   // filterLeads first makes a local copy of all leads. We reset our filteredLeads
