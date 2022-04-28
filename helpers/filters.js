@@ -20,8 +20,6 @@ export function filterLeads (filter, leads) {
       for (var i = start; i <= end; i++) {
         months.push(parseInt(i));
       }
-    } else {
-
     }
 
     const monthsText = months.map((month) => {
@@ -68,6 +66,86 @@ export function filterLeads (filter, leads) {
     });
   }
 
+  // Filter bloom/flowering
+  if (filter.bloom !== 'all') {
+    const filtered = filteredList.filter(lead => {
+
+      if (lead.Floraison !== undefined && lead.Floraison !== '') {
+
+        const range = lead.Floraison;
+        const start = parseInt(range.substring(0, range.indexOf('-')));
+        const end = parseInt(range.substring(range.indexOf('-') + 1));
+
+        const months = [];
+
+        if (!start) {
+          // start is NaN if this is not a range but a month only.
+          months.push(end);
+        } else if (start < end) {
+          for (var i = start; i <= end; i++) {
+            months.push(parseInt(i));
+          }
+        } else {
+          for (var i = start; i <= 12; i++) {
+            months.push(parseInt(i));
+          }
+          for (var i = 1; i <= end; i++) {
+            months.push(parseInt(i));
+          }
+        }
+
+        const monthsText = months.map((month) => {
+          switch (month) {
+            case 1:
+              return "Janvier";
+              break;
+            case 2:
+              return "Février";
+              break;
+            case 3:
+              return "Mars";
+              break;
+            case 4:
+              return "Avril"
+              break;
+            case 5:
+              return "Mai";
+              break;
+            case 6:
+              return "Juin";
+              break;
+            case 7:
+              return "Juillet";
+              break;
+            case 8:
+              return "Août";
+              break;
+            case 9:
+              return "Septembre";
+              break;
+            case 10:
+              return "Octobre";
+              break;
+            case 11:
+              return "Novembre";
+              break;
+            case 12:
+              return "Décembre";
+              break;
+            default:
+              break;
+          }
+        });
+
+        return monthsText.includes(filter.bloom)
+      }
+
+    })
+
+    filteredList = filtered
+
+  }
+
   // Filter status
   if (filter.sow !== 'all') {
     const filtered = filteredList.filter(lead => {
@@ -75,12 +153,15 @@ export function filterLeads (filter, leads) {
       if (lead.Semis !== undefined && lead.Semis !== '') {
 
         const range = lead.Semis;
-        const start = range.substring(0, range.indexOf('-'));
-        const end = range.substring(range.indexOf('-') + 1);
+        const start = parseInt(range.substring(0, range.indexOf('-')));
+        const end = parseInt(range.substring(range.indexOf('-') + 1));
 
         const months = [];
 
-        if (start < end) {
+        if (!start) {
+          // start is NaN if this is not a range but a month only.
+          months.push(end);
+        } else if (start < end) {
           for (var i = start; i <= end; i++) {
             months.push(parseInt(i));
           }
@@ -138,7 +219,6 @@ export function filterLeads (filter, leads) {
 
         return monthsText.includes(filter.sow)
       }
-
 
     })
 

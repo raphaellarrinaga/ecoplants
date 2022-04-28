@@ -12,6 +12,7 @@ export const state = () => ({
     search: '',
     status: 'all',
     sow: 'all',
+    bloom: 'all',
     order: 'createdAt'
   }
 })
@@ -36,6 +37,10 @@ export const actions = {
   },
   async filterSow ({ commit, dispatch }, sow) {
     await commit('setFilterSow', sow)
+    dispatch('filterLeads')
+  },
+  async filterBloom ({ commit, dispatch }, bloom) {
+    await commit('setFilterBloom', bloom)
     dispatch('filterLeads')
   },
   async filterSearch ({ commit, dispatch }, search) {
@@ -76,6 +81,7 @@ export const mutations = {
   // for changing the respective value on the filter object.
   setFilterStatus (state, status) { state.filter.status = status },
   setFilterSow (state, sow) { state.filter.sow = sow },
+  setFilterBloom (state, bloom) { state.filter.bloom = bloom },
   setFilterSearch (state, search) { state.filter.search = search },
   setFilterComestible (state, comestible) { state.filter.comestible = comestible },
   setFilterMedicinale (state, medicinale) { state.filter.medicinale = medicinale },

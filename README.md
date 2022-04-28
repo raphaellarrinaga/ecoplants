@@ -15,6 +15,7 @@ WIP app build with [Nuxt](https://nuxtjs.org/) to browse plants from a belgian n
   - cart
   - short info
   - long info
+- Set vernaculaire as first title in the view when it is sorted as it?
 
 ## SASS
 

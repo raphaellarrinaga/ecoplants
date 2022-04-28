@@ -123,8 +123,6 @@ module.exports = async function (moduleOptions) {
       // @see https://stackoverflow.com/questions/66208433/google-drive-api-files-list-size-100-when-specify-fields-parameter
 
       if (files.length) {
-        // console.log(files);
-
         const map1 = files.forEach((file) => {
           if (file.mimeType === 'image/jpeg') {
             const sourceUrl = "https://drive.google.com/uc?id=" + file.id;

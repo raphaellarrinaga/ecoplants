@@ -38,11 +38,35 @@
 
       <div class="form-item form-item--dropdown">
         <p
+          v-click-outside="closeBloomDropDown"
+          class="dropdown-toggle button button--form"
+          @click="bloomOpen = !bloomOpen"
+        >
+          <span class="mr-1">🌼 Date de floraison ▾</span>
+        </p>
+        <ul v-show="bloomOpen" class="dropdown">
+          <li
+            @click="handleBloomFilter('all')"
+          >
+            Tout
+          </li>
+          <li
+            v-for="month in months"
+            :key="month.id"
+            :class="{ 'is-active' : status === month }"
+            @click="handleBloomFilter(month)">
+            {{ month }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-item form-item--dropdown">
+        <p
           v-click-outside="closeFamilyDropDown"
           class="dropdown-toggle button button--form"
           @click="FamilyOpen = !FamilyOpen"
         >
-          <span class="mr-1">🌼 Famille ▾</span>
+          <span class="mr-1">💐 Famille ▾</span>
         </p>
         <ul v-show="FamilyOpen" class="dropdown">
           <li
@@ -180,6 +204,8 @@ export default {
       orderChanged: false,
       sowOpen: false,
       sowChanged: false,
+      bloomOpen: false,
+      bloomChanged: false,
       FamilyOpen: false,
       familyValues: [],
       ColorOpen: false,
@@ -205,6 +231,9 @@ export default {
     },
     sow () {
       return this.$store.state.leads.filter.sow
+    },
+    bloom () {
+      return this.$store.state.leads.filter.bloom
     },
     order () {
       return this.$store.state.leads.filter.order
@@ -245,6 +274,14 @@ export default {
     closeSowDropDown (e) {
       this.sowOpen = false
     },
+    handleBloomFilter (bloom) {
+      this.bloomOpen = false
+      this.bloomChanged = true
+      this.$store.dispatch('leads/filterBloom', bloom)
+    },
+    closeBloomDropDown (e) {
+      this.bloomOpen = false
+    },
     closeFamilyDropDown (e) {
       this.familyOpen = false
     },
@@ -282,7 +319,7 @@ export default {
     let allColorValues = this.leads.map((el)=> el.Fleur);
     // Remove duplicates, remove empty values and sort.
     this.colorValues = [...new Set(allColorValues)].filter((a) => a).sort();
-    console.log(this.colorValues);
+    // console.log(this.colorValues);
   }
 }
 
