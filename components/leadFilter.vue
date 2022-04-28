@@ -188,14 +188,14 @@ export default {
     }
   },
   computed: {
-    ecotype () {
-      return this.$store.state.leads.filter.ecotype
-    },
     medicinale () {
       return this.$store.state.leads.filter.medicinale
     },
     comestible () {
       return this.$store.state.leads.filter.comestible
+    },
+    ecotype () {
+      return this.$store.state.leads.filter.ecotype
     },
     search () {
       return this.$store.state.leads.filter.search

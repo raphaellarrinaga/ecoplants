@@ -110,11 +110,21 @@ module.exports = async function (moduleOptions) {
     //
     // List files.
     //
-    drive.files.list({}, (err, res) => {
+    drive.files.list({pageSize: 1000}, (err, res) => {
       if (err) throw err;
       const files = res.data.files;
 
+      // There is a limit for the amount of images loaded from drive.
+      // 1000 is the limit and currently enough but the problem could
+      // come back if we upload more than 1000 (one day).
+      //
+      // pageSize -> The maximum number of files to return per page. Partial or empty result pages are possible even before the end of the files list has been reached. Acceptable values are 1 to 1000, inclusive. (Default: 100)
+      //
+      // @see https://stackoverflow.com/questions/66208433/google-drive-api-files-list-size-100-when-specify-fields-parameter
+
       if (files.length) {
+        // console.log(files);
+
         const map1 = files.forEach((file) => {
           if (file.mimeType === 'image/jpeg') {
             const sourceUrl = "https://drive.google.com/uc?id=" + file.id;

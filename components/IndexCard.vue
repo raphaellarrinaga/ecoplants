@@ -28,6 +28,7 @@
       <div class="plant__header">
         <p class="plant__latin">
           {{ lead.Nom }}
+          <span v-if="lead.Toxique">☠️</span>
         </p>
         <p class="plant__vernaculaire">{{ lead.NomVernaculaire }}</p>
       </div>
@@ -68,12 +69,13 @@
           lead.hasOwnProperty('Exposition') && lead['Exposition'] ||
           lead.hasOwnProperty('Biotope') && lead['Biotope'] ||
           lead.hasOwnProperty('Fleur') && lead['Fleur'] ||
+          lead.hasOwnProperty('Ecotype') && lead['Ecotype'] ||
+          lead.hasOwnProperty('Utilisation') && lead['Utilisation'] ||
           lead.hasOwnProperty('Remarques') && lead['Remarques'] ||
           lead.hasOwnProperty('Comestible') && lead['Comestible'] ||
           lead.hasOwnProperty('Medicinale') && lead['Medicinale'] ||
-          lead.hasOwnProperty('Ecotype') && lead['Ecotype'] ||
-          lead.hasOwnProperty('Description') && lead['Description'] ||
-          lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
+          lead.hasOwnProperty('Toxique') && lead['Toxique'] ||
+          lead.hasOwnProperty('Description') && lead['Description']"
         @click="toggleMore"
         class="button plants-toggle">Détail ▾</button>
       <button
@@ -85,12 +87,13 @@
         lead.hasOwnProperty('Exposition') && lead['Exposition'] ||
         lead.hasOwnProperty('Biotope') && lead['Biotope'] ||
         lead.hasOwnProperty('Fleur') && lead['Fleur'] ||
+        lead.hasOwnProperty('Ecotype') && lead['Ecotype'] ||
         lead.hasOwnProperty('Remarques') && lead['Remarques'] ||
+        lead.hasOwnProperty('Utilisation') && lead['Utilisation'] ||
         lead.hasOwnProperty('Comestible') && lead['Comestible'] ||
         lead.hasOwnProperty('Medicinale') && lead['Medicinale'] ||
-        lead.hasOwnProperty('Ecotype') && lead['Ecotype'] ||
-        lead.hasOwnProperty('Description') && lead['Description'] ||
-        lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
+        lead.hasOwnProperty('Toxique') && lead['Toxique'] ||
+        lead.hasOwnProperty('Description') && lead['Description']"
       class="plant__more">
       <div
         v-if="lead.hasOwnProperty('Exposition') && lead['Exposition']"
@@ -117,6 +120,12 @@
         <p class="plant__ecotype">Oui</p>
       </div>
       <div
+        v-if="lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
+        class="plant__more-item plant__more-item--utilisation">
+        <h3>Utilisation</h3>
+        <p class="plant__utilisation">{{ lead.Utilisation }}</p>
+      </div>
+      <div
         v-if="lead.hasOwnProperty('Remarques') && lead['Remarques']"
         class="plant__more-item plant__more-item--remarques">
         <h3>Remarques</h3>
@@ -135,16 +144,16 @@
         <p class="plant__medicinale">{{ lead.Medicinale }}</p>
       </div>
       <div
+        v-if="lead.hasOwnProperty('Toxique') && lead['Toxique']"
+        class="plant__more-item plant__more-item--toxique">
+        <h3>Toxique</h3>
+        <p class="plant__toxique">{{ lead.Toxique }}</p>
+      </div>
+      <div
         v-if="lead.hasOwnProperty('Description') && lead['Description']"
         class="plant__more-item plant__more-item--description">
         <h3>Description</h3>
         <p class="plant__description">{{ lead.Description }}</p>
-      </div>
-      <div
-        v-if="lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
-        class="plant__more-item plant__more-item--utilisation">
-        <h3>Utilisation</h3>
-        <p class="plant__utilisation">{{ lead.Utilisation }}</p>
       </div>
     </div>
   </div>
