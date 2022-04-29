@@ -14,25 +14,28 @@
 
       <div class="form-item form-item--dropdown">
         <p
-          v-click-outside="closeSowDropDown"
+          v-click-outside="closeFamilyDropDown"
           class="dropdown-toggle button button--form"
-          :class="{ 'is-active' : sow !== 'all' }"
-          @click="sowOpen = !sowOpen"
+          :class="{ 'is-active' : status !== 'all' }"
+          @click="FamilyOpen = !FamilyOpen"
         >
-          <span class="mr-1">📆 Semis ▾</span>
+          💐
+          <span v-if="status === 'all'">Famille</span>
+          <span v-else>{{ status }}</span>
+          ▾
         </p>
-        <ul v-show="sowOpen" class="dropdown">
+        <ul v-show="FamilyOpen" class="dropdown">
           <li
-            @click="handleSowFilter('all')"
+            @click="handleStatusFilter('all')"
           >
             Tout
           </li>
           <li
-            v-for="month in months"
-            :key="month.id"
-            :class="{ 'is-active' : sow === month }"
-            @click="handleSowFilter(month)">
-            {{ month }}
+            v-for="family in familyValues"
+            :key="family.id"
+            :class="{ 'is-active' : status === family }"
+            @click="handleStatusFilter(family)">
+            {{ family }}
           </li>
         </ul>
       </div>
@@ -44,7 +47,10 @@
           :class="{ 'is-active' : bloom !== 'all' }"
           @click="bloomOpen = !bloomOpen"
         >
-          <span class="mr-1">🌼 Floraison ▾</span>
+          🌼
+          <span v-if="bloom === 'all'">Floraison</span>
+          <span v-else>{{ bloom }}</span>
+          ▾
         </p>
         <ul v-show="bloomOpen" class="dropdown">
           <li
@@ -64,24 +70,28 @@
 
       <div class="form-item form-item--dropdown">
         <p
-          v-click-outside="closeFamilyDropDown"
+          v-click-outside="closeSowDropDown"
           class="dropdown-toggle button button--form"
-          @click="FamilyOpen = !FamilyOpen"
+          :class="{ 'is-active' : sow !== 'all' }"
+          @click="sowOpen = !sowOpen"
         >
-          <span class="mr-1">💐 Famille ▾</span>
+          📆
+          <span v-if="sow === 'all'">Semis</span>
+          <span v-else>{{ sow }}</span>
+          ▾
         </p>
-        <ul v-show="FamilyOpen" class="dropdown">
+        <ul v-show="sowOpen" class="dropdown">
           <li
-            @click="handleStatusFilter('all')"
+            @click="handleSowFilter('all')"
           >
             Tout
           </li>
           <li
-            v-for="family in familyValues"
-            :key="family.id"
-            :class="{ 'is-active' : status === family }"
-            @click="handleStatusFilter(family)">
-            {{ family }}
+            v-for="month in months"
+            :key="month.id"
+            :class="{ 'is-active' : sow === month }"
+            @click="handleSowFilter(month)">
+            {{ month }}
           </li>
         </ul>
       </div>
@@ -92,7 +102,7 @@
           class="dropdown-toggle button button--form"
           @click="ColorOpen = !ColorOpen"
         >
-          <span class="mr-1">🌈 Couleur ▾</span>
+          <span>🌈 Couleur ▾</span>
         </p>
         <ul v-show="ColorOpen" class="dropdown">
           <li
@@ -160,7 +170,8 @@
           @click="orderOpen = !orderOpen"
         >
           <span class="dropdown__label">⩦ Trier par</span>
-          <span v-show="orderChanged" class="dropdown__current">{{ orderText }}</span>
+          <!-- <span v-show="orderChanged" class="dropdown__current">{{ orderText }}</span> -->
+          <span class="dropdown__current">{{ orderText }}</span>
         </p>
         <ul v-show="orderOpen" class="dropdown">
           <li
