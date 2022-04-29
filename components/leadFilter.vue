@@ -16,6 +16,7 @@
         <p
           v-click-outside="closeSowDropDown"
           class="dropdown-toggle button button--form"
+          :class="{ 'is-active' : sow !== 'all' }"
           @click="sowOpen = !sowOpen"
         >
           <span class="mr-1">📆 Date de semis ▾</span>
@@ -29,7 +30,7 @@
           <li
             v-for="month in months"
             :key="month.id"
-            :class="{ 'is-active' : status === month }"
+            :class="{ 'is-active' : sow === month }"
             @click="handleSowFilter(month)">
             {{ month }}
           </li>
@@ -40,6 +41,7 @@
         <p
           v-click-outside="closeBloomDropDown"
           class="dropdown-toggle button button--form"
+          :class="{ 'is-active' : bloom !== 'all' }"
           @click="bloomOpen = !bloomOpen"
         >
           <span class="mr-1">🌼 Date de floraison ▾</span>
@@ -53,7 +55,7 @@
           <li
             v-for="month in months"
             :key="month.id"
-            :class="{ 'is-active' : status === month }"
+            :class="{ 'is-active' : bloom === month }"
             @click="handleBloomFilter(month)">
             {{ month }}
           </li>
@@ -515,6 +517,10 @@ export default {
     &:hover {
       background: #f1f1f1;
     }
+
+    &.is-active {
+      font-weight: bold;
+    }
   }
 }
 
@@ -531,6 +537,11 @@ export default {
     background: #fefefe;
     border: 1px solid #e9e9e9;
     margin: 0 1rem 0 0;
+  }
+
+  &.is-active {
+    border-color: rgb(78, 87, 188);
+    background: rgb(237, 238, 253);
   }
 }
 
