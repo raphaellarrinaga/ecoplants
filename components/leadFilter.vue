@@ -19,7 +19,7 @@
           :class="{ 'is-active' : sow !== 'all' }"
           @click="sowOpen = !sowOpen"
         >
-          <span class="mr-1">📆 Date de semis ▾</span>
+          <span class="mr-1">📆 Semis ▾</span>
         </p>
         <ul v-show="sowOpen" class="dropdown">
           <li
@@ -44,7 +44,7 @@
           :class="{ 'is-active' : bloom !== 'all' }"
           @click="bloomOpen = !bloomOpen"
         >
-          <span class="mr-1">🌼 Date de floraison ▾</span>
+          <span class="mr-1">🌼 Floraison ▾</span>
         </p>
         <ul v-show="bloomOpen" class="dropdown">
           <li
