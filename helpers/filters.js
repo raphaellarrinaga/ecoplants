@@ -284,6 +284,12 @@ export function orderLeads (order, leads) {
       const unixB = moment(b.createdAt).unix()
       return unixA < unixB ? -1 : 1
     })
+  } else if (order === 'gsheetNom') {
+    orderedList.sort(function (a, b) {
+      if(a.Nom < b.Nom) { return -1; }
+      if(a.Nom > b.Nom) { return 1; }
+      return 0;
+    })
   } else {
     orderedList.sort(function (a, b) {
       const nameA = a[order] ? a[order].toLowerCase() : 'zzz'

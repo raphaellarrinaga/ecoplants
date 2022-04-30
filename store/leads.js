@@ -13,7 +13,7 @@ export const state = () => ({
     status: 'all',
     sow: 'all',
     bloom: 'all',
-    order: 'createdAt'
+    order: 'gsheetNom' // Default is createdAt.
   }
 })
 
