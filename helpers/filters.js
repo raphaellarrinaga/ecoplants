@@ -264,6 +264,14 @@ export function filterLeads (filter, leads) {
     filteredList = filtered
   }
 
+  // Filter hasPhoto.
+  if (filter.hasPhoto === true) {
+    const filtered = filteredList.filter(
+      lead => lead.hasOwnProperty('images') && lead.images
+    )
+    filteredList = filtered
+  }
+
   return filteredList
 }
 

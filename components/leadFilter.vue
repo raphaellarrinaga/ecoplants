@@ -158,6 +158,19 @@
         >
         <label for="isEcotype">Ecotype</label>
       </div>
+
+      <div
+        :class="{ 'is-active' : hasPhotoChecked === true }"
+        class="form-item form-item--checkbox button">
+        <input
+          type="checkbox"
+          value="hasPhoto"
+          id="hasPhoto"
+          v-model="hasPhotoChecked"
+          @change="handlePhotoFilter(hasPhotoChecked)"
+        >
+        <label for="hasPhoto">Photo</label>
+      </div>
     </div>
 
     <div class="form-count">{{ filteredLeads.length }} résultats</div>
@@ -210,6 +223,7 @@ export default {
   name: 'IndexPage',
   data () {
     return {
+      hasPhotoChecked: false,
       ecotypeChecked: false,
       medicinaleChecked: false,
       comestibleChecked: false,
@@ -235,6 +249,9 @@ export default {
     },
     ecotype () {
       return this.$store.state.leads.filter.ecotype
+    },
+    hasPhoto () {
+      return this.$store.state.leads.filter.hasPhoto
     },
     search () {
       return this.$store.state.leads.filter.search
@@ -275,6 +292,9 @@ export default {
     },
     handleEcotypeFilter (ecotype) {
       this.$store.dispatch('leads/filterEcotype', ecotype)
+    },
+    handlePhotoFilter (hasPhoto) {
+      this.$store.dispatch('leads/filterPhoto', hasPhoto)
     },
     handleStatusFilter (status) {
       this.$store.dispatch('leads/filterStatus', status)
