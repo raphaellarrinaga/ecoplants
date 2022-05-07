@@ -42,6 +42,34 @@
 
       <div class="form-item form-item--dropdown">
         <p
+          v-click-outside="closeColorDropDown"
+          class="dropdown-toggle button button--form"
+          :class="{ 'is-active' : color !== 'all' }"
+          @click="ColorOpen = !ColorOpen"
+        >
+          🌈
+          <span v-if="color === 'all'">Fleur</span>
+          <span v-else>{{ color }}</span>
+          ▾
+        </p>
+        <ul v-show="ColorOpen" class="dropdown">
+          <li
+            @click="handleColorFilter('all')"
+          >
+            Tout
+          </li>
+          <li
+            v-for="colorValue in colorValues"
+            :key="colorValue.id"
+            :class="{ 'is-active' : color === colorValue }"
+            @click="handleColorFilter(colorValue)">
+            {{ colorValue }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-item form-item--dropdown">
+        <p
           v-click-outside="closeBloomDropDown"
           class="dropdown-toggle button button--form"
           :class="{ 'is-active' : bloom !== 'all' }"
@@ -95,30 +123,6 @@
           </li>
         </ul>
       </div>
-
-      <!-- <div class="form-item form-item--dropdown">
-        <p
-          v-click-outside="closeColorDropDown"
-          class="dropdown-toggle button button--form"
-          @click="ColorOpen = !ColorOpen"
-        >
-          <span>🌈 Couleur ▾</span>
-        </p>
-        <ul v-show="ColorOpen" class="dropdown">
-          <li
-            @click="handleStatusFilter('all')"
-          >
-            Tout
-          </li>
-          <li
-            v-for="color in colorValues"
-            :key="color.id"
-            :class="{ 'is-active' : status === color }"
-            @click="handleStatusFilter(color)">
-            {{ color }}
-          </li>
-        </ul>
-      </div> -->
 
       <div
         :class="{ 'is-active' : comestibleChecked === true }"
@@ -259,6 +263,9 @@ export default {
     status () {
       return this.$store.state.leads.filter.status
     },
+    color () {
+      return this.$store.state.leads.filter.color
+    },
     sow () {
       return this.$store.state.leads.filter.sow
     },
@@ -321,6 +328,9 @@ export default {
     closeColorDropDown (e) {
       this.colorOpen = false
     },
+    handleColorFilter (color) {
+      this.$store.dispatch('leads/filterColor', color)
+    },
     handleSearch: debounce(function (e) {
       this.$store.dispatch('leads/filterSearch', e.target.value)
     }, 500),
@@ -349,10 +359,16 @@ export default {
 
     // Set color filter.
     // Fill new array with all Fleur terms.
-    let allColorValues = this.leads.map((el)=> el.Fleur);
-    // Remove duplicates, remove empty values and sort.
-    this.colorValues = [...new Set(allColorValues)].filter((a) => a).sort();
-    // console.log(this.colorValues);
+    const colors = []
+    for (let i = 0; i < this.leads.length; i++) {
+      const colorString = this.leads[i].Fleur;
+      if (colorString !== undefined && colorString !== '') {
+        colors.push(...colorString.split(","));
+      }
+    }
+
+    // Remove duplicates, remove spaces and sort.
+    this.colorValues = [...new Set(colors.map(a => a.trim()).sort())];
   }
 }
 

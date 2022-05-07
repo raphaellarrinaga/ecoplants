@@ -11,6 +11,7 @@ export const state = () => ({
     comestible: 'false',
     search: '',
     status: 'all',
+    color: 'all',
     sow: 'all',
     bloom: 'all',
     order: 'gsheetNom' // Default is createdAt.
@@ -33,6 +34,10 @@ export const actions = {
   },
   async filterStatus ({ commit, dispatch }, status) {
     await commit('setFilterStatus', status)
+    dispatch('filterLeads')
+  },
+  async filterColor ({ commit, dispatch }, color) {
+    await commit('setFilterColor', color)
     dispatch('filterLeads')
   },
   async filterSow ({ commit, dispatch }, sow) {
@@ -84,6 +89,7 @@ export const mutations = {
   // setFilterStatus, setFilterSearch, and setOrder are only responsible
   // for changing the respective value on the filter object.
   setFilterStatus (state, status) { state.filter.status = status },
+  setFilterColor (state, color) { state.filter.color = color },
   setFilterSow (state, sow) { state.filter.sow = sow },
   setFilterBloom (state, bloom) { state.filter.bloom = bloom },
   setFilterSearch (state, search) { state.filter.search = search },

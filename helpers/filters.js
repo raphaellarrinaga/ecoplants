@@ -9,62 +9,75 @@ export function filterLeads (filter, leads) {
     filteredList = filtered
   }
 
-  function filterMonthRange(obj, obj2) {
-    const range = "2-5";
-    const start = range.substring(0, range.indexOf('-'));
-    const end = range.substring(range.indexOf('-') + 1);
-
-    const months = [];
-
-    if (start < end) {
-      for (var i = start; i <= end; i++) {
-        months.push(parseInt(i));
+  // Filter color
+  if (filter.color !== 'all') {
+    const filtered = filteredList.filter(lead => {
+      if (lead.Fleur !== undefined && lead.Fleur !== '') {
+        if (lead.Fleur.toLowerCase().includes(filter.color.toLowerCase())) {
+          return lead.Fleur;
+        }
       }
-    }
+    })
 
-    const monthsText = months.map((month) => {
-      switch (month) {
-        case 1:
-          return "Janvier";
-          break;
-        case 2:
-          return "Février";
-          break;
-        case 3:
-          return "Mars";
-          break;
-        case 4:
-          return "Avril"
-          break;
-        case 5:
-          return "Mai";
-          break;
-        case 6:
-          return "Juin";
-          break;
-        case 7:
-          return "Juillet";
-          break;
-        case 8:
-          return "Août";
-          break;
-        case 9:
-          return "Septembre";
-          break;
-        case 10:
-          return "Octobre";
-          break;
-        case 11:
-          return "Novembre";
-          break;
-        case 12:
-          return "Décembre";
-          break;
-        default:
-          break;
-      }
-    });
+    filteredList = filtered
   }
+
+  // function filterMonthRange(obj, obj2) {
+  //   const range = "2-5";
+  //   const start = range.substring(0, range.indexOf('-'));
+  //   const end = range.substring(range.indexOf('-') + 1);
+
+  //   const months = [];
+
+  //   if (start < end) {
+  //     for (var i = start; i <= end; i++) {
+  //       months.push(parseInt(i));
+  //     }
+  //   }
+
+  //   const monthsText = months.map((month) => {
+  //     switch (month) {
+  //       case 1:
+  //         return "Janvier";
+  //         break;
+  //       case 2:
+  //         return "Février";
+  //         break;
+  //       case 3:
+  //         return "Mars";
+  //         break;
+  //       case 4:
+  //         return "Avril"
+  //         break;
+  //       case 5:
+  //         return "Mai";
+  //         break;
+  //       case 6:
+  //         return "Juin";
+  //         break;
+  //       case 7:
+  //         return "Juillet";
+  //         break;
+  //       case 8:
+  //         return "Août";
+  //         break;
+  //       case 9:
+  //         return "Septembre";
+  //         break;
+  //       case 10:
+  //         return "Octobre";
+  //         break;
+  //       case 11:
+  //         return "Novembre";
+  //         break;
+  //       case 12:
+  //         return "Décembre";
+  //         break;
+  //       default:
+  //         break;
+  //     }
+  //   });
+  // }
 
   // Filter bloom/flowering
   if (filter.bloom !== 'all') {
@@ -146,7 +159,7 @@ export function filterLeads (filter, leads) {
 
   }
 
-  // Filter status
+  // Filter sow
   if (filter.sow !== 'all') {
     const filtered = filteredList.filter(lead => {
 
