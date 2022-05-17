@@ -4,18 +4,19 @@ WIP app build with [Nuxt](https://nuxtjs.org/) to browse plants from a belgian n
 
 ## Roadmap
 
+- cache image/all
+- fix multiple "nom scientifiques" display & image matching
+- fix "Lychnis flos-cuculi" structure & image matching
 - use global sass helpers
-- Fix sort : alphabetical order, default state
-- zoom picture, gallery
-- picture legend
-- set grid/list display
+- gallery page
 - Filter
+  - hauteur
   - mois de semis: select, range
 - Change display
-  - cart
-  - short info
-  - long info
+  - cart (grid)
+  - short info x long info x detail page (list/table)
 - Set vernaculaire as first title in the view when it is sorted as it?
+- cleanup data structure names (french, case…)
 
 ## SASS
 
