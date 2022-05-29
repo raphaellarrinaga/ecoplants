@@ -21,10 +21,11 @@
           class="plant__thumb"
           @click="index = 0"
           v-if="lead.thumb">
-          <nuxt-img
+          <!-- <nuxt-img
             loading="lazy"
             :src="lead.thumb"
-            />
+            /> -->
+          <img :src="lead.thumb" alt="">
         </picture>
         <div v-else class="plant__thumb-placeholder"></div>
       </div>
