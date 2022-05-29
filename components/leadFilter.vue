@@ -378,7 +378,7 @@ export default {
 .form {
   @media screen and (min-width: 821px) {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-flow: row wrap;
   }
 }
@@ -387,25 +387,26 @@ export default {
   display: flex;
   flex-flow: row wrap;
   flex: 1;
+  margin-bottom: 1rem;
 }
 
 .form-count {
   font-weight: 500;
   flex: 0 0 auto;
   margin-left: auto;
+  padding: 0.45rem 0 0.4rem;
+
+  @media screen and (max-width: 820px) {
+    margin-bottom: 1rem;
+  }
 }
 
 .form-order {
   flex: 1 0 100%;
-  margin-top: 2rem;
 }
 
 .form-item {
   margin-bottom: 1rem;
-
-  @media screen and (min-width: 821px) {
-    margin-bottom: 0;
-  }
 }
 
 .form-item--search {
@@ -413,9 +414,11 @@ export default {
   position: relative;
 
   @media screen and (min-width: 821px) {
-    flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 16rem;
     margin-right: 2rem;
-    max-width: 28rem;
+    max-width: 22rem;
   }
 
   &:before {

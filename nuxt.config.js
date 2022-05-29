@@ -57,6 +57,7 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/google-fonts',
     '@nuxtjs/google-analytics',
+    '@nuxt/image',
   ],
 
   styleResources: {
@@ -68,13 +69,19 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    'nuxt-lazy-load',
+    // 'nuxt-lazy-load',
     // Generate static JSON based on data fetched from source.
     '~/modules/cgnData.js',
     // Get pictures from Google Drive.
     // '~/modules/driveData.js',
     // ['~/modules/driveData', { token: '123' }]
   ],
+
+  // @see https://image.nuxtjs.org/getting-started/installation
+  image: {
+    // @see https://image.nuxtjs.org/api/options#domains
+    domains: ['drive.google.com']
+  },
 
   googleFonts: {
     display: 'swap',
