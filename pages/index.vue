@@ -2,7 +2,8 @@
   <div class="content">
     <div class="page">
       <header class="page-header">
-        <h1 class="page-title">Ecoplants</h1>
+        <h1 class="page-title"><a href="/">Ecoplants</a></h1>
+        <MainNavigation />
       </header>
 
       <div v-if="leads.length">
@@ -44,10 +45,11 @@
 import { mapGetters } from 'vuex'
 import LeadFilter from '~/components/leadFilter'
 import IndexCard from '~/components/IndexCard'
+import MainNavigation from '~/components/MainNavigation'
 
 export default {
   name: 'IndexPage',
-  components: { IndexCard, LeadFilter },
+  components: { IndexCard, LeadFilter, MainNavigation },
   computed: {
     ...mapGetters({
       'leads': 'leads/getLeads',
@@ -67,6 +69,13 @@ export default {
 </script>
 
 <style lang="scss">
+.page-title {
+  a {
+    color: #111;
+    text-decoration: none;
+  }
+}
+
 .plants__header {
   border-bottom: 1px solid #eaeaea;
   font-weight: bold;

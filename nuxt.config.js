@@ -69,10 +69,11 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    // 'nuxt-lazy-load',
+    'nuxt-lazy-load',
     // Generate static JSON based on data fetched from source.
-    '~/modules/cgnData.js',
     // Get pictures from Google Drive.
+    '~/modules/cgnData.js',
+    '~/modules/woodyData.js',
     // '~/modules/driveData.js',
     // ['~/modules/driveData', { token: '123' }]
   ],
