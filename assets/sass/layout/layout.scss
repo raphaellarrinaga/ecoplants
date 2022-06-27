@@ -14,7 +14,11 @@
   justify-content: space-between;
   align-items: flex-end;
   flex-flow: row wrap;
-  margin: 2rem 0;
+  margin: 1rem 0 2rem;
+
+  @media screen and (min-width: 421px) {
+    margin: 2rem 0;
+  }
 }
 
 .page-title {

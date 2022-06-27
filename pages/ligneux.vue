@@ -11,7 +11,7 @@
             v-for="plant in plants"
             :key="plant.id"
             class="woody">
-            <p class="woody-name-s">{{ plant.Nom }}</p>
+            <p class="woody-name-s"><span>{{ plant.Nom }}</span></p>
             <p class="woody-name-v">{{ plant.NomVernaculaire }}</p>
           </li>
         </ul>
@@ -43,13 +43,35 @@ export default {
 }
 
 .woody-list {
-  columns: 2;
+  list-style: none;
   margin: 0;
   padding: 0;
+
+  @media screen and (min-width: 421px) {
+    columns: 2;
+  }
 }
 
 .woody {
-  display: flex;
+  margin-bottom: 1rem;
+  position: relative;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    // background: green;
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    border-bottom: 1px dashed #cacaca;
+    z-index: -1;
+  }
+
+  @media screen and (min-width: 821px) {
+    display: flex;
+  }
 }
 
 .woody-name-v,
@@ -58,11 +80,19 @@ export default {
 }
 
 .woody-name-s {
-  flex: 1;
+  flex: 0 0 12rem;
   margin-right: 1rem;
+
+  span {
+    background: #f8f9fd;
+    display: inline-block;
+    padding-right: .3rem;
+  }
 }
 
 .woody-name-v {
+  background: #f8f9fd;
   color: #666;
+  flex: 1 1 auto;
 }
 </style>
