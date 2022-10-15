@@ -44,7 +44,7 @@
                 <h2 class="quiz-item__familiar">{{ item.familiarName }}</h2>
                 <div class="quiz-item__metas">
                   <p class="quiz-item__type">
-                    <span class="quiz-item__label">Type: </span>{{ item.type }} ({{ item.propagation }})</p>
+                    <span class="quiz-item__label">Type: </span>{{ item.type }}<span v-if="item.propagation"> ({{ item.propagation }})</span></p>
                   <p class="quiz-item__height">
                     <span class="quiz-item__label">Hauteur: </span>{{ item.height }}cm</p>
                   <p class="quiz-item__ground">

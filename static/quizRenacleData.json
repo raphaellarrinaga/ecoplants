@@ -142,5 +142,186 @@
       "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Shibataea_kumasaca3.jpg/800px-Shibataea_kumasaca3.jpg",
       "https://plantmaterials.files.wordpress.com/2014/11/shibataea-kumasasa1.jpg?w=425"
     ]
+  },
+  {
+    "botanicalName":"Asplenium scolopendrium",
+    "familiarName": "Scolopendre langue de boeuf",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "50-70",
+    "ground": "Riche, humifère, alcalin",
+    "exposition": "Mi-ombre, humide",
+    "usage": "Persistant",
+    "images": [
+      "https://jardinage.lemonde.fr/images/dossiers/2019-01/asplenium-scolopendrium-190427.jpg",
+      "https://media.gerbeaud.net/2015/01/640/asplenium-scolopendrium-fougere-scolopendre.jpg"
+    ]
+  },
+  {
+    "botanicalName":"Asplenium trichomanes",
+    "familiarName": "Capillaire des murailles",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "10-20",
+    "ground": "Riche, humifère, alcalin",
+    "exposition": "Mi-ombre, humide",
+    "usage": "Rocailles. Persistant",
+    "images": [
+      "https://media.s-bol.com/73L1ZOABVkEj/550x550.jpg",
+      "https://www.monaconatureencyclopedia.com/wp-content/uploads/2008/08/les_frondes-1.jpg"
+    ]
+  },
+  {
+    "botanicalName":"Athyrium filix-femina",
+    "familiarName": "Fougère femelle",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "40-120",
+    "ground": "Riche",
+    "exposition": "Mi-ombre, ombre",
+    "usage": "Caduc, habiller un massif en sol frais. Facile, peu d'entretien.",
+    "images": [
+      "https://www.bloemenhuis.be/files/images/webshop/athyrium-filix-femina-1625729381_l.jpg",
+      "https://swbiodiversity.org/imglib/h_seinet/seinet/genfield/palexander/set001/Athyrium_fif-cal_13Sep09_1575.jpg",
+      "https://www.lejardindeau.com/2460/athyrium-filix-femina.jpg"
+    ]
+  },
+  {
+    "botanicalName":"Blechnum spicant",
+    "familiarName": "Fougère pectinée",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "30-70",
+    "ground": "Riche, humifère, acide ou neutre",
+    "exposition": "Mi-ombre, ombre",
+    "usage": "Persistant, se renouvelle en hivers. Tire vers le bronze en été.",
+    "images": [
+      "https://cdn.shopify.com/s/files/1/1069/2032/products/Blechnum_spicant_2_nbrcg_wi_1024x1024.jpg?v=1573473153",
+      "https://assets.pelckmans.net/article/image/?height=505&width=555&scale=canvas&bgcolor=white&filename=blechnum-spicant-107604.jpeg&format=webp",
+      "https://img.crocdn.co.uk/images/products2/pl/00/00/00/18/pl0000001816.jpg?width=440&height=440"
+    ]
+  },
+  {
+    "botanicalName":"Cyrtomium falcatum",
+    "familiarName": "Fougère-houx, aspidie en faux",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "50-90",
+    "ground": "Humifère, frais, bien drainé",
+    "exposition": "Mi-ombre, ombre",
+    "usage": "",
+    "images": [
+      "https://media.gerbeaud.net/2015/09/640/diaporama-fougeres-4.jpg",
+      "https://www.fleurproshop.com/media/img/pics/original/fleur/product/CYRTFAL01_G998_01.JPG?type=resize&w=610",
+      "https://www.matelma.com/img/tuinadvies/uploads/1577369191-732146-600.jpg"
+    ]
+  },
+  {
+    "botanicalName":"Dryopteris filix mas",
+    "familiarName": "Fougère mâle",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "100-120",
+    "ground": "Humifère, frais, riche",
+    "exposition": "Mi-ombre, abri des vents violents",
+    "usage": "",
+    "images": [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0Q4ssx0CnlK6_CeNLvTpxU8I6Voq4e9xjTw0RdAsHQ5jFcTPerTDQxT4GGF70QIO_dfE&usqp=CAU",
+      "https://pepiniereezavin.com/wp-content/uploads/2021/12/Dryopteris_filix_mas-2-copie.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCAmwAMqrK-50V1FFMgce3QCYMhh_wLFs0ug&usqp=CAU"
+    ]
+  },
+  {
+    "botanicalName":"Matteuccia struthiopteris",
+    "familiarName": "Fougère allemande",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "30-80",
+    "ground": "Humide",
+    "exposition": "Mi-ombre, Ombre",
+    "usage": "Majestueuse et rustique, atypique. Très dressée",
+    "images": [
+      "https://www.jardins-du-monde.be/3480-large_default/fougere-plume-d-autruche.jpg?v=2",
+      "https://www.andre-briant.fr/media/matteuccia_struthiopteris_1__064476700_0948_01052018.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Matteuccia_struthiopteris_fiddleheads.jpg/640px-Matteuccia_struthiopteris_fiddleheads.jpg"
+    ]
+  },
+  {
+    "botanicalName":"Osmunda cinnamomea",
+    "familiarName": "",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName":"Osmunda regalis",
+    "familiarName": "",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName":"Polypodium vulgare",
+    "familiarName": "",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName":"Polytichum polyblepharum",
+    "familiarName": "",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName":"Pteridium aquilinum",
+    "familiarName": "",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName":"Woodwardia fimbriata",
+    "familiarName": "",
+    "type": "Fougère",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "images": [
+      ""
+    ]
   }
 ]
