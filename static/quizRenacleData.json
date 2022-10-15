@@ -248,67 +248,77 @@
   },
   {
     "botanicalName":"Osmunda cinnamomea",
-    "familiarName": "",
+    "familiarName": "Osmonde cannelle",
     "type": "Fougère",
     "propagation": "",
-    "height": "",
-    "ground": "",
-    "exposition": "",
+    "height": "50-150",
+    "ground": "Drainé, riche, acide",
+    "exposition": "Mi-ombre, Ombre",
     "usage": "",
     "images": [
-      ""
+      "https://isteam.wsimg.com/ip/7c1b851a-fa9b-49ff-938e-d5a5bfb9bb63/ols/1581_original/:/rs=w:600,h:600",
+      "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Osmunda-cinnamomea--Nicholas-A-Tonelli-3--CC-BY.jpg",
+      "https://cdn.shopify.com/s/files/1/0672/8825/products/Osmunda_cinnamomea.jpg?v=1632335220&width=1445"
     ]
   },
   {
     "botanicalName":"Osmunda regalis",
-    "familiarName": "",
+    "familiarName": "Osmonde royale, fougère royale",
     "type": "Fougère",
     "propagation": "",
-    "height": "",
-    "ground": "",
-    "exposition": "",
-    "usage": "",
+    "height": "200",
+    "ground": "Acide à neutre. Calcifuge",
+    "exposition": "Tout",
+    "usage": "La plus grande de nos région, forme un tronc",
     "images": [
-      ""
+      "http://www.jacksonsnurseries.co.uk/images/detailed/1/Osmunda_Regalis.jpg",
+      "https://www.gardenia.net/storage/app/public/uploads/images/detail/HlCfyycJxMe5fIDoDnRAod7tdNJ11DzzlfczroNN.webp",
+      "https://www.willaert.be/websites/1/uploads/image/PRODUCTIMAGES/OSMUNDA_REGALIS_3.jpg"
     ]
   },
   {
     "botanicalName":"Polypodium vulgare",
-    "familiarName": "",
+    "familiarName": "Réglisse des bois",
     "type": "Fougère",
     "propagation": "",
-    "height": "",
-    "ground": "",
-    "exposition": "",
-    "usage": "",
+    "height": "25",
+    "ground": "Riche ou pauvre, léger. Acide à neutre. Frais, filtrant (rocailles)",
+    "exposition": "Mi-ombre, ombre",
+    "usage": "Persistant. Massif, talus. Feuilles larges.",
     "images": [
-      ""
+      "https://www.promessedefleurs.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/P/o/Polypodium-vulgare-81172-1.jpg",
+      "https://www.bloemenhuis.be/files/images/webshop/polypodium-vulgare-1599210036_l.jpg",
+      "https://www.thebigplantnursery.com/wp-content/uploads/2022/04/PE-POLV-7L-1.jpg"
     ]
   },
   {
     "botanicalName":"Polytichum polyblepharum",
-    "familiarName": "",
+    "familiarName": "Aspidie du Japon, pattes d'ours",
     "type": "Fougère",
     "propagation": "",
-    "height": "",
-    "ground": "",
-    "exposition": "",
-    "usage": "",
+    "height": "60",
+    "ground": "Humifère, léger. Acide/neutre/calcaire",
+    "exposition": "Mi-ombre, ombre",
+    "usage": "Persistant. Talus.",
     "images": [
-      ""
+      "https://m.media-amazon.com/images/I/514jaW4VnmL._AC_.jpg",
+      "https://www.matelma.com/img/tuinadvies/uploads/1470597914-94626.jpg",
+      "https://www.bloemenhuis.be/files/images/webshop/polystichum-polyblepharum-1629360046_src.jpg"
     ]
   },
   {
     "botanicalName":"Pteridium aquilinum",
-    "familiarName": "",
+    "familiarName": "Fougère aigle",
     "type": "Fougère",
     "propagation": "",
-    "height": "",
-    "ground": "",
-    "exposition": "",
-    "usage": "",
+    "height": "60-125",
+    "ground": "Toutes conditions",
+    "exposition": "Soleil",
+    "usage": "Envahissante en terrain peu fertile car peu de concurrence.",
     "images": [
-      ""
+      "https://newfs.s3.amazonaws.com/taxon-images-1000s1000/Dennstaedtiaceae/pteridium-aquilinum-latiusculum-ha-dkausen-a.jpg",
+      "https://www.gardenia.net/storage/app/public/uploads/images/DqfADXZYN3EZ7qIWr5c2mJtR0jzZr5ZuxXII0opd.webp",
+      "https://www.vetlexicon.com/vetstream/media/images/equis/21_167381.jpg"
     ]
   },
   {
@@ -316,12 +326,14 @@
     "familiarName": "",
     "type": "Fougère",
     "propagation": "",
-    "height": "",
-    "ground": "",
-    "exposition": "",
-    "usage": "",
+    "height": "150",
+    "ground": "Riche, profond. Acide à neutre",
+    "exposition": "Mi-ombre, ombre",
+    "usage": "Résiste bien aux maladies",
     "images": [
-      ""
+      "https://www.mypalmshop.fr//Files/10/233000/233234/ProductPhotos/800/1870840437.jpg",
+      "https://calscape.com/ExtData/allimages/Photos/Woodwardia_fimbriata_image2.jpg",
+      "https://plants.gardenworks.ca/Content/Images/Photos/G370-20.jpg"
     ]
   }
 ]
