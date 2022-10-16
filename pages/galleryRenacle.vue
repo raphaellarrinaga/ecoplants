@@ -3,35 +3,46 @@
     <div class="page">
       <main>
         <div v-if="plants.length" class="gallery">
+            <!-- v-for="(item, index) in plants" -->
           <div
-            v-for="(item, index) in plants"
+            v-for="item in plants"
             class="gallery-item"
             :key="item.id">
             <button
               @click="toggleName"
-              class="quiz-item__solution-toggle button-quiz">
+              class="gallery-item__solution-toggle button-gallery">
               👀
             </button>
             <div class="gallery-item__infos">
               <!-- <p class="gallery-item__number">{{ index }}</p> -->
-              <h1 class="quiz-item__botanical">{{ item.botanicalName }}</h1>
-              <h2 class="quiz-item__familiar">{{ item.familiarName }}</h2>
-              <div class="quiz-item__metas">
-                <p class="quiz-item__type">
-                  <span class="quiz-item__label">Type: </span>{{ item.type }}<span v-if="item.propagation"> ({{ item.propagation }})</span></p>
-                <p class="quiz-item__height">
-                  <span class="quiz-item__label">Hauteur: </span>{{ item.height }}cm</p>
-                <p class="quiz-item__ground">
-                  <span class="quiz-item__label">Sol: </span>{{ item.ground }}</p>
-                <p class="quiz-item__exposition">
-                  <span class="quiz-item__label">Exposition: </span>{{ item.exposition }}</p>
-                <p class="quiz-item__usage">
-                  <span class="quiz-item__label">Intérêt: </span>{{ item.usage }}</p>
+              <h1 class="gallery-item__botanical">{{ item.botanicalName }}</h1>
+              <h2 class="gallery-item__familiar">{{ item.familiarName }}</h2>
+              <div class="gallery-item__metas">
+                <p class="gallery-item__type">
+                  <span class="gallery-item__label">Type: </span>{{ item.type }}<span v-if="item.propagation"> ({{ item.propagation }})</span></p>
+                <p class="gallery-item__height">
+                  <span class="gallery-item__label">Hauteur: </span>{{ item.height }}cm</p>
+                <p class="gallery-item__ground">
+                  <span class="gallery-item__label">Sol: </span>{{ item.ground }}</p>
+                <p class="gallery-item__exposition">
+                  <span class="gallery-item__label">Exposition: </span>{{ item.exposition }}</p>
+                <p class="gallery-item__usage">
+                  <span class="gallery-item__label">Intérêt: </span>{{ item.usage }}</p>
               </div>
             </div>
-            <img
-              class="gallery-item__image"
-              :src="item.images[0]">
+            <div class="gallery-item__front">
+              <button
+                @click="toggleImage"
+                class="gallery-item__image-toggle">
+                Change image
+              </button>
+              <img
+                v-for="(image, index) in item.images"
+                class="gallery-item__image"
+                :class="{ 'is-active': index === 0 }"
+                :src="image"
+                :key="image.id">
+            </div>
           </div>
         </div>
         <div v-else>
@@ -48,7 +59,7 @@ import { VueAgile } from 'vue-agile'
 const axios = require('axios')
 
 export default {
-  name: 'Quiz',
+  name: 'Gallery',
   data () {
     return {
       currentSlide: null,
@@ -67,9 +78,9 @@ export default {
       el.target.closest(".gallery-item").classList.toggle('is-revealed')
     },
     toggleImage: function(el) {
-      let parent = el.target.closest(".quiz-item__front")
-      let images = parent.querySelectorAll(".quiz-item__image")
-      let activeItem = parent.querySelectorAll(".quiz-item__image.is-active")
+      let parent = el.target.closest(".gallery-item__front")
+      let images = parent.querySelectorAll(".gallery-item__image")
+      let activeItem = parent.querySelectorAll(".gallery-item__image.is-active")
 
       if (images.length > 1) {
         for (let index = 0; index < images.length; index++) {
@@ -87,28 +98,6 @@ export default {
         }
       }
     },
-    afterChangeCustomEvent: function(e) {
-      // Set current slide number.
-      this.currentSlide = e.currentSlide
-
-      // Hide solution when switching panel.
-      let elems = document.querySelectorAll(".quiz-item");
-      [].forEach.call(elems, function(el) {
-          el.classList.remove("is-revealed");
-      });
-    },
-    resetSlide: function(e) {
-      this.$refs.carousel.goTo(0)
-    },
-    slidesJump: function(e) {
-      const total = this.plants.length;
-
-      if (this.currentSlide + 10 <= total) {
-        this.$refs.carousel.goTo(this.currentSlide + 10)
-      } else {
-        this.$refs.carousel.goTo(0)
-      }
-    },
   }
 }
 </script>
@@ -118,7 +107,7 @@ html {
   background-color: #f8f9fd;
 }
 
-.button-quiz {
+.button-gallery {
   box-sizing: border-box;
   background: #fefefe;
   border: 1px solid #dee1ed;
@@ -137,7 +126,7 @@ html {
   }
 }
 
-.quiz-item__solution-toggle {
+.gallery-item__solution-toggle {
   border: 1px solid #dee1ed;
   border-radius: 6px;
   font-size: 1rem;
@@ -185,10 +174,46 @@ html {
   }
 }
 
-.gallery-item__image {
-  width: 100%;
+.gallery-item__front {
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
   height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+.gallery-item__image-toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 4;
+  opacity: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.gallery-item__image {
+  // width: 100%;
+  // height: 100%;
+  // object-fit: cover;
+
+  pointer-events: none;
+  user-select: none;
+  // object-fit: contain;
   object-fit: cover;
+  height: 100%;
+  width: 100%;
+
+  // opacity: 0;
+  display: none;
+  &.is-active {
+    display: block;
+  }
 }
 
 .gallery-item__infos {
@@ -216,14 +241,14 @@ html {
   }
 }
 
-.quiz-item__botanical {
+.gallery-item__botanical {
   font-size: 1.2rem;
   line-height: 1.2;
   margin-bottom: .25em;
   margin-top: 0;
 }
 
-.quiz-item__familiar {
+.gallery-item__familiar {
   color: #4f4f4f;
   font-size: 1rem;
   font-weight: normal;
@@ -232,14 +257,14 @@ html {
   margin-top: 0;
 }
 
-.quiz-item__metas {
+.gallery-item__metas {
   p {
     font-size: .7rem;
     margin: 0;
   }
 }
 
-.quiz-item__label {
+.gallery-item__label {
   font-weight: bold;
 }
 </style>
