@@ -3,7 +3,13 @@
     <div class="page">
       <main>
         <div v-if="plants.length" class="gallery">
+          <button
+            @click="randomize"
+            class="random-button">
+            🎁
+          </button>
             <!-- v-for="(item, index) in plants" -->
+            <!-- v-for="item in randomList(plants)" -->
           <div
             v-for="item in plants"
             class="gallery-item"
@@ -74,6 +80,9 @@ export default {
     agile: VueAgile
   },
   methods: {
+    randomize: function(){
+      return this.plants.sort(function(){return 0.5 - Math.random()});
+    },
     toggleName: function(el) {
       el.target.closest(".gallery-item").classList.toggle('is-revealed')
     },
@@ -105,6 +114,23 @@ export default {
 <style lang="scss">
 html {
   background-color: #f8f9fd;
+}
+
+.random-button {
+  background-color: rgba(#f8f9fd, .8);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 1.5rem;
+  font-size: 1.8rem;
+  right: 1rem;
+  padding: 1rem;
+  z-index: 3;
+
+  &:hover {
+    background-color: #f8f9fd;
+  }
 }
 
 .button-gallery {
@@ -144,6 +170,7 @@ html {
 }
 
 .gallery {
+  margin-bottom: .5rem;
   margin-top: .5rem;
 
   @media screen and (min-width: 460px) {
@@ -198,18 +225,12 @@ html {
 }
 
 .gallery-item__image {
-  // width: 100%;
-  // height: 100%;
-  // object-fit: cover;
-
   pointer-events: none;
   user-select: none;
-  // object-fit: contain;
   object-fit: cover;
   height: 100%;
   width: 100%;
 
-  // opacity: 0;
   display: none;
   &.is-active {
     display: block;
