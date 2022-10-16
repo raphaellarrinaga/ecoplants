@@ -159,7 +159,7 @@ html {
 
   @media screen and (min-width: 460px) {
     display: grid;
-    grid-auto-rows: 200px;
+    grid-auto-rows: 220px;
     grid-template-columns: 1fr 1fr 1fr;
     gap: .5rem;
   }
@@ -185,9 +185,6 @@ html {
   }
 }
 
-.gallery-item__number {
-}
-
 .gallery-item__image {
   width: 100%;
   height: 100%;
@@ -198,7 +195,8 @@ html {
   display: block;
   background: #f5f6fb;
   padding: 1rem;
-  overflow: hidden;
+  // overflow: hidden;
+  overflow: scroll;
 
   opacity: 0;
   visibility: hidden;
@@ -236,7 +234,7 @@ html {
 
 .quiz-item__metas {
   p {
-    font-size: .8rem;
+    font-size: .7rem;
     margin: 0;
   }
 }
