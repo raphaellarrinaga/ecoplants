@@ -8,6 +8,11 @@
             class="random-button">
             🎁
           </button>
+          <button
+            @click="toggleNames"
+            class="toggle-names-button">
+            👀
+          </button>
             <!-- v-for="(item, index) in plants" -->
             <!-- v-for="item in randomList(plants)" -->
           <div
@@ -70,6 +75,7 @@ export default {
     return {
       currentSlide: null,
       plants: [],
+      solutionShown: false,
     }
   },
   async asyncData () {
@@ -82,6 +88,24 @@ export default {
   methods: {
     randomize: function(){
       return this.plants.sort(function(){return 0.5 - Math.random()});
+    },
+    toggleNames: function(){
+      let elems = document.querySelectorAll('.gallery-item');
+
+      if (this.solutionShown) {
+        this.solutionShown = false;
+
+        elems.forEach(function (elem) {
+          elem.classList.remove('is-revealed');
+        });
+      } else {
+        this.solutionShown = true;
+
+        elems.forEach(function (elem) {
+          elem.classList.add('is-revealed');
+        });
+      }
+
     },
     toggleName: function(el) {
       el.target.closest(".gallery-item").classList.toggle('is-revealed')
@@ -116,21 +140,30 @@ html {
   background-color: #f8f9fd;
 }
 
+.toggle-names-button,
 .random-button {
   background-color: rgba(#f8f9fd, .8);
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  position: fixed;
-  bottom: 1.5rem;
   font-size: 1.8rem;
-  right: 1rem;
   padding: 1rem;
+  position: fixed;
   z-index: 3;
 
   &:hover {
     background-color: #f8f9fd;
   }
+}
+
+.random-button {
+  bottom: 1.5rem;
+  right: 1rem;
+}
+
+.toggle-names-button {
+  bottom: 1.5rem;
+  right: 5rem;
 }
 
 .button-gallery {
@@ -186,8 +219,8 @@ html {
   }
 
   @media screen and (min-width: 1400px) {
-    // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-auto-rows: 340px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 380px;
   }
 
 }
