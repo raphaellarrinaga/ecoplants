@@ -39,6 +39,8 @@
                   <span class="gallery-item__label">Exposition: </span>{{ item.exposition }}</p>
                 <p class="gallery-item__usage">
                   <span class="gallery-item__label">Intérêt: </span>{{ item.usage }}</p>
+                <p class="gallery-item__density">
+                  <span class="gallery-item__label">Densité: </span>{{ item.density }}</p>
               </div>
             </div>
             <div class="gallery-item__front">
