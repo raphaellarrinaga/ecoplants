@@ -80,7 +80,7 @@ export default {
     }
   },
   async asyncData () {
-    const plants = await axios.get('/quizRenacleData.json').then(res => res.data)
+    const plants = await axios.get('/quizRenacData.json').then(res => res.data)
     return { plants }
   },
   components: {
