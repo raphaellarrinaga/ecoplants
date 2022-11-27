@@ -31,6 +31,8 @@
               <div class="gallery-item__metas">
                 <p class="gallery-item__type">
                   <span class="gallery-item__label">Type: </span>{{ item.type }}<span v-if="item.propagation"> ({{ item.propagation }})</span></p>
+                <p class="gallery-item__season">
+                  <span class="gallery-item__label">Saison: </span>{{ item.season }}<span v-if="item.propagation"> ({{ item.propagation }})</span></p>
                 <p class="gallery-item__height">
                   <span class="gallery-item__label">Hauteur: </span>{{ item.height }}cm</p>
                 <p class="gallery-item__ground">

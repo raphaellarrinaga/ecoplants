@@ -45,6 +45,8 @@
                 <div class="quiz-item__metas">
                   <p class="quiz-item__type">
                     <span class="quiz-item__label">Type: </span>{{ item.type }}<span v-if="item.propagation"> ({{ item.propagation }})</span></p>
+                  <p class="quiz-item__season">
+                    <span class="quiz-item__label">Saison: </span>{{ item.season }}<span v-if="item.propagation"> ({{ item.propagation }})</span></p>
                   <p class="quiz-item__height">
                     <span class="quiz-item__label">Hauteur: </span>{{ item.height }}cm</p>
                   <p class="quiz-item__ground">
