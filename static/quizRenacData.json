@@ -1,7 +1,7 @@
 [
   {
     "botanicalName": "Helleborus niger",
-    "familiarName": "",
+    "familiarName": "Ellebore noire, rose de Noel",
     "season": "Hivers",
     "type": "Vivace",
     "propagation": "",
@@ -20,7 +20,7 @@
   },
   {
     "botanicalName": "Achillea millefolium",
-    "familiarName": "",
+    "familiarName": "Achillée millefeuille",
     "season": "Printemps",
     "type": "Vivace",
     "propagation": "",
@@ -39,7 +39,7 @@
   },
   {
     "botanicalName": "Ajuga reptans",
-    "familiarName": "",
+    "familiarName": "Bugle rampante",
     "season": "Printemps",
     "type": "Vivace",
     "propagation": "",
@@ -58,7 +58,7 @@
   },
   {
     "botanicalName": "Aquilegia vulgaris",
-    "familiarName": "",
+    "familiarName": "Ancolie commune",
     "season": "Printemps",
     "type": "Vivace",
     "propagation": "",
@@ -78,7 +78,7 @@
   },
   {
     "botanicalName": "Campanula persicifolia",
-    "familiarName": "",
+    "familiarName": "Campanule à feuilles de pêcher",
     "season": "Printemps",
     "type": "Vivace",
     "propagation": "",
@@ -97,7 +97,7 @@
   },
   {
     "botanicalName": "Euphorbia griffithii",
-    "familiarName": "",
+    "familiarName": "Euphorbe de Griffith",
     "season": "Printemps",
     "type": "Vivace",
     "propagation": "",
@@ -115,7 +115,7 @@
   },
   {
     "botanicalName": "Euphorbia Blackbird",
-    "familiarName": "",
+    "familiarName": "Euphorbe oiseau noir",
     "season": "Printemps",
     "type": "Vivace",
     "propagation": "",
@@ -135,7 +135,7 @@
   },
   {
     "botanicalName": "Hosta sieboldiana",
-    "familiarName": "",
+    "familiarName": "Hosta de Siebold",
     "season": "Printemps",
     "type": "Vivace",
     "propagation": "",
@@ -154,7 +154,7 @@
   },
   {
     "botanicalName": "Paeonia officinalis",
-    "familiarName": "",
+    "familiarName": "Pivoine officinale",
     "season": "Printemps",
     "type": "Vivace",
     "propagation": "",
@@ -171,7 +171,7 @@
   },
   {
     "botanicalName": "Primula algida",
-    "familiarName": "",
+    "familiarName": "Primevère glacée",
     "season": "Printemps",
     "type": "Vivace",
     "propagation": "",
@@ -188,7 +188,7 @@
   },
   {
     "botanicalName": "Alcea rosea 'Nigra'",
-    "familiarName": "",
+    "familiarName": "Rose trémière noire",
     "season": "Été",
     "type": "Vivace",
     "propagation": "",
@@ -207,7 +207,7 @@
   },
   {
     "botanicalName": "Campanula takesimana",
-    "familiarName": "",
+    "familiarName": "Campanule de Corée",
     "season": "Été",
     "type": "Vivace",
     "propagation": "",
@@ -226,7 +226,7 @@
   },
   {
     "botanicalName": "Crocosmia 'Lucifer",
-    "familiarName": "",
+    "familiarName": "Montbrétia",
     "season": "Été",
     "type": "Vivace",
     "propagation": "",
@@ -245,7 +245,7 @@
   },
   {
     "botanicalName": "Delphinium grandiflorum",
-    "familiarName": "",
+    "familiarName": "Pied d'alouette",
     "season": "Été",
     "type": "Vivace",
     "propagation": "",
@@ -263,7 +263,7 @@
   },
   {
     "botanicalName": "Echinacea purpurea",
-    "familiarName": "",
+    "familiarName": "Rudbeckia pourpre",
     "season": "Été",
     "type": "Vivace",
     "propagation": "",
@@ -283,7 +283,7 @@
   },
   {
     "botanicalName": "Geranium macrorrhizum 'Spessart'",
-    "familiarName": "",
+    "familiarName": "Geranium vivace rhizomateux",
     "season": "Été",
     "type": "Vivace",
     "propagation": "",
@@ -301,7 +301,7 @@
   },
   {
     "botanicalName": "Hemerocallis fulva",
-    "familiarName": "",
+    "familiarName": "Lys d'un jour",
     "season": "Été",
     "type": "Vivace",
     "propagation": "",
@@ -316,7 +316,7 @@
   },
   {
     "botanicalName": "Nepeta mussini 'Pacific Giants'",
-    "familiarName": "",
+    "familiarName": "Herbe à chat",
     "season": "Été",
     "type": "Vivace",
     "propagation": "",
@@ -333,7 +333,7 @@
   },
   {
     "botanicalName": "Salvia officinalis 'Purpurascens'",
-    "familiarName": "",
+    "familiarName": "Sauge pourpre",
     "season": "Été",
     "type": "Vivace",
     "propagation": "",
@@ -351,7 +351,7 @@
   },
   {
     "botanicalName": "Actaea racemosa ou Cimicifuga",
-    "familiarName": "",
+    "familiarName": "Actée à grappes",
     "season": "Automne",
     "type": "Vivace",
     "propagation": "",
@@ -370,7 +370,7 @@
   },
   {
     "botanicalName": "Anemone japonica",
-    "familiarName": "",
+    "familiarName": "Anémone du Japon",
     "season": "Automne",
     "type": "Vivace",
     "propagation": "",
@@ -389,7 +389,7 @@
   },
   {
     "botanicalName": "Aster novi-Belgii",
-    "familiarName": "",
+    "familiarName": "Aster de la nouvelle Belgique",
     "season": "Automne",
     "type": "Vivace",
     "propagation": "",
@@ -405,7 +405,7 @@
   },
   {
     "botanicalName": "Astilbe japonica 'Diamant'",
-    "familiarName": "",
+    "familiarName": "Astilbe d'Arends",
     "season": "Automne",
     "type": "Vivace",
     "propagation": "",
@@ -422,7 +422,7 @@
   },
   {
     "botanicalName": "Campanula glomerata",
-    "familiarName": "",
+    "familiarName": "Campanule à bouquet",
     "season": "Automne",
     "type": "Vivace",
     "propagation": "",
@@ -441,7 +441,7 @@
   },
   {
     "botanicalName": "Chelone obliqua",
-    "familiarName": "",
+    "familiarName": "Galant oblique, tête de tortue",
     "season": "Automne",
     "type": "Vivace",
     "propagation": "",
@@ -460,7 +460,7 @@
   },
   {
     "botanicalName": "Eupatorium maculatum",
-    "familiarName": "",
+    "familiarName": "Eupatoire pourpre",
     "season": "Automne",
     "type": "Vivace",
     "propagation": "",
@@ -479,7 +479,7 @@
   },
   {
     "botanicalName": "Sedum spectabile",
-    "familiarName": "",
+    "familiarName": "Orpin d'automne",
     "season": "Automne",
     "type": "Vivace",
     "propagation": "",
