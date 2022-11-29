@@ -43,6 +43,8 @@
                   <span class="gallery-item__label">Intérêt: </span>{{ item.usage }}</p>
                 <p class="gallery-item__density">
                   <span class="gallery-item__label">Densité: </span>{{ item.density }}</p>
+                <p class="gallery-item__bloom">
+                  <span class="gallery-item__label">Floraison: </span>{{ item.bloom }}</p>
               </div>
             </div>
             <div class="gallery-item__front">
