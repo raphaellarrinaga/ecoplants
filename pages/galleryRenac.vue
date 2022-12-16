@@ -16,7 +16,7 @@
             <!-- v-for="(item, index) in plants" -->
             <!-- v-for="item in randomList(plants)" -->
           <div
-            v-for="item in plants"
+            v-for="(item, index) in plants"
             class="gallery-item"
             :key="item.id">
             <button
@@ -26,7 +26,7 @@
             </button>
             <div class="gallery-item__infos">
               <!-- <p class="gallery-item__number">{{ index }}</p> -->
-              <h1 class="gallery-item__botanical">{{ item.botanicalName }}</h1>
+              <h1 class="gallery-item__botanical">{{ item.botanicalName }} ({{ index + 1 }}/{{ plants.length }})</h1>
               <h2 class="gallery-item__familiar">{{ item.familiarName }}</h2>
               <div class="gallery-item__metas">
                 <p class="gallery-item__type">
@@ -79,7 +79,6 @@ export default {
   name: 'Gallery',
   data () {
     return {
-      currentSlide: null,
       plants: [],
       solutionShown: false,
     }

@@ -161,42 +161,6 @@
     ]
   },
   {
-    "botanicalName": "Paeonia officinalis",
-    "familiarName": "Pivoine officinale",
-    "season": "Printemps",
-    "type": "Vivace",
-    "propagation": "",
-    "height": "50-70",
-    "ground": "Tout",
-    "exposition": "Soleil",
-    "usage": "",
-    "density": "3-5",
-    "bloom": "5",
-    "images": [
-      "https://ik.imagekit.io/mmj8qcw1h/image-271_Ojq_uBhER.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-281_1L_CVNOmr.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-284_UpEWKiI55.jpg"
-    ]
-  },
-  {
-    "botanicalName": "Primula algida",
-    "familiarName": "Primevère glacée",
-    "season": "Printemps",
-    "type": "Vivace",
-    "propagation": "",
-    "height": "25",
-    "ground": "Humide frais (gourmande)",
-    "exposition": "Soleil",
-    "usage": "",
-    "density": "4-5",
-    "bloom": "5-6",
-    "images": [
-      "https://ik.imagekit.io/mmj8qcw1h/image-294_AJAWYcW1I.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-304_ACSUMPi8S.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-307_R-0JreS5U.jpg"
-    ]
-  },
-  {
     "botanicalName": "Alcea rosea 'Nigra'",
     "familiarName": "Rose trémière noire",
     "season": "Été",
@@ -214,26 +178,6 @@
       "https://ik.imagekit.io/mmj8qcw1h/image-340_Wwosos3ce.jpg",
       "https://ik.imagekit.io/mmj8qcw1h/image-343_cVG2_kB2w.jpg",
       "https://ik.imagekit.io/mmj8qcw1h/image-346_ZAS1pUeRh.jpg"
-    ]
-  },
-  {
-    "botanicalName": "Campanula takesimana",
-    "familiarName": "Campanule de Corée",
-    "season": "Été",
-    "type": "Vivace",
-    "propagation": "",
-    "height": "50",
-    "ground": "Humifère neutre à alcalin",
-    "exposition": "Soleil à mi-ombre",
-    "usage": "",
-    "density": "4-6",
-    "bloom": "5-6",
-    "images": [
-      "https://ik.imagekit.io/mmj8qcw1h/image-356_RrLpIw8mj.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-359_dOY7PTvz-.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-369_VUn0uzUfY.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-372_3SK6n2ALy.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-375_2XW1raFJ_.jpg"
     ]
   },
   {
@@ -313,40 +257,6 @@
       "https://ik.imagekit.io/mmj8qcw1h/image-475_W97i_mTUX.jpg",
       "https://ik.imagekit.io/mmj8qcw1h/image-485_8Lb0BQ27q.jpg",
       "https://ik.imagekit.io/mmj8qcw1h/image-488_wTxdcKtDQ.jpg"
-    ]
-  },
-  {
-    "botanicalName": "Hemerocallis fulva",
-    "familiarName": "Lys d'un jour",
-    "season": "Été",
-    "type": "Vivace",
-    "propagation": "",
-    "height": "100-150",
-    "ground": "Humide, riche, toute acidité",
-    "exposition": "Soleil, mi-ombre",
-    "usage": "",
-    "density": "5-7",
-    "bloom": "5-8",
-    "images": [
-
-    ]
-  },
-  {
-    "botanicalName": "Nepeta mussini 'Pacific Giants'",
-    "familiarName": "Herbe à chat",
-    "season": "Été",
-    "type": "Vivace",
-    "propagation": "",
-    "height": "20-45",
-    "ground": "Frais léger",
-    "exposition": "Soleil",
-    "usage": "",
-    "density": "4-6",
-    "bloom": "6-10",
-    "images": [
-      "https://ik.imagekit.io/mmj8qcw1h/image-498_1h108S67E.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-508_VgxWk9H-f6.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-511_GKUyLzikn.jpg"
     ]
   },
   {
@@ -441,26 +351,6 @@
       "https://ik.imagekit.io/mmj8qcw1h/image-628_sbbvE8owk.jpg",
       "https://ik.imagekit.io/mmj8qcw1h/image-638_akRAFUacN.jpg",
       "https://ik.imagekit.io/mmj8qcw1h/image-641_N50iwMuGo.jpg"
-    ]
-  },
-  {
-    "botanicalName": "Campanula glomerata",
-    "familiarName": "Campanule à bouquet",
-    "season": "Automne",
-    "type": "Vivace",
-    "propagation": "",
-    "height": "60",
-    "ground": "Tout. Bien drainé. Accepte calcaire.",
-    "exposition": "Soleil, mi-ombre",
-    "usage": "",
-    "density": "4-6",
-    "bloom": "6-7",
-    "images": [
-      "https://ik.imagekit.io/mmj8qcw1h/image-651_tCrTOWBJN.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-654_RQ8_NxTJJ.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-664_--e3H8yyx.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-667_LJ7vkWfUG.jpg",
-      "https://ik.imagekit.io/mmj8qcw1h/image-670_VVJlxGiGb.jpg"
     ]
   },
   {

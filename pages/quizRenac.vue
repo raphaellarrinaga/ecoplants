@@ -40,7 +40,7 @@
                   :key="image.id">
               </div>
               <div class="quiz-item__back">
-                <h1 class="quiz-item__botanical">{{ item.botanicalName }}</h1>
+                <h1 class="quiz-item__botanical">{{ item.botanicalName }} ({{ currentSlide + 1 }}/{{ plants.length }})</h1>
                 <h2 class="quiz-item__familiar">{{ item.familiarName }}</h2>
                 <div class="quiz-item__metas">
                   <p class="quiz-item__type">
@@ -240,7 +240,7 @@ html {
 }
 
 .quiz-item__botanical {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   line-height: 1.2;
   margin-bottom: .25em;
   margin-top: 0;
@@ -248,7 +248,7 @@ html {
 
 .quiz-item__familiar {
   color: #4f4f4f;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: normal;
   line-height: 1.2;
   margin-bottom: 1.2em;
