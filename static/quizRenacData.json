@@ -8,7 +8,7 @@
     "height": "30-40",
     "ground": "Humifère",
     "exposition": "Mi-ombre, ombre",
-    "usage": "",
+    "usage": "En avant plan de massif, au pied de rhodos. Richesse de ses colorations. Pas bcp de vivaces au feuillage persistant. Conseillé d'enlever les feuilles (esthétiquement). Se resème bien. Très gourmand niveau fertilisation. Très toxique. ",
     "density": "4-5",
     "bloom": "11-3",
     "images": [
@@ -28,7 +28,7 @@
     "height": "15-100",
     "ground": "Léger",
     "exposition": "Soleil, mi-ombre",
-    "usage": "",
+    "usage": "Cicatrisant, mellifère",
     "density": "4-5",
     "bloom": "6-11",
     "images": [
@@ -48,7 +48,7 @@
     "height": "15",
     "ground": "Tout (frais, humide, drainé). Supporte calcaire.",
     "exposition": "Mi-ombre, ombre",
-    "usage": "",
+    "usage": "En avant plan, bucolique, pas trop contemporain. Assez florifère, couvre sol. Supporte tous les sols.",
     "density": "5-7",
     "bloom": "5-8",
     "images": [
@@ -68,7 +68,7 @@
     "height": "60-90",
     "ground": "Drainé, humifère, riche (=acide)",
     "exposition": "Mi-ombre, ombre",
-    "usage": "",
+    "usage": "Nectarifère. Eviter le soleil pour griller les fleurs.",
     "density": "4",
     "bloom": "5-6",
     "images": [
@@ -89,7 +89,7 @@
     "height": "80",
     "ground": "Neutre à calcaire (éviter acide)",
     "exposition": "Plein soleil, ombre",
-    "usage": "",
+    "usage": "Intérêt floraison (tâches). Combiner avec l'ail. Fleurit bien à l'ombre",
     "density": "4-5",
     "bloom": "5-6",
     "images": [
@@ -109,7 +109,7 @@
     "height": "50-80",
     "ground": "Léger, sablonneux. Pas argileux mais supporte beaucoup. Pousse dans la rocaille.",
     "exposition": "Mi-ombre",
-    "usage": "",
+    "usage": "Pas à l'ombre total, sinon perd la couleur.",
     "density": "3-5",
     "bloom": "4-7",
     "images": [
@@ -128,7 +128,7 @@
     "height": "40",
     "ground": "Drainé & rocailleux",
     "exposition": "Soleil à mi-ombre",
-    "usage": "",
+    "usage": "Donne du contraste avec sa couleur foncée. Belle structure surtout. Luminosité. Par points.",
     "density": "3-4",
     "bloom": "4-5",
     "images": [
@@ -149,7 +149,7 @@
     "height": "60",
     "ground": "Neutre, semi-humide",
     "exposition": "Mi-ombre, ombre",
-    "usage": "",
+    "usage": "Feuillage unique.",
     "density": "6-9",
     "bloom": "7-9",
     "images": [
@@ -169,7 +169,7 @@
     "height": "250",
     "ground": "Tout même calcaire. Riche. Frais aussi mais bien drainé.",
     "exposition": "Soleil à mi-ombre",
-    "usage": "",
+    "usage": "A tuteurer, comme fond de scène",
     "density": "3-5",
     "bloom": "6-9",
     "images": [
@@ -189,7 +189,7 @@
     "height": "80-100",
     "ground": "Drainant et léger neutre",
     "exposition": "Soleil à mi-ombre",
-    "usage": "",
+    "usage": "Jolie fructification. Très graphique en automne. Tonalités très vives. Campagnol les mange",
     "density": "6-9",
     "bloom": "6-10",
     "images": [
@@ -209,7 +209,7 @@
     "height": "50 à 120",
     "ground": "Drainé",
     "exposition": "Soleil",
-    "usage": "",
+    "usage": "A tuteurer, très florifère",
     "density": "4-5",
     "bloom": "5-6",
     "images": [
@@ -228,7 +228,7 @@
     "height": "50 à 120",
     "ground": "Drainé sec",
     "exposition": "Soleil à mi-ombre",
-    "usage": "",
+    "usage": "Nectarifère, laisser fleurs séchée en hiver. Très florifère.",
     "density": "3-4",
     "bloom": "8-9",
     "images": [
@@ -242,14 +242,14 @@
   },
   {
     "botanicalName": "Geranium macrorrhizum 'Spessart'",
-    "familiarName": "Geranium vivace rhizomateux",
+    "familiarName": "Géranium vivace rhizomateux",
     "season": "Été",
     "type": "Vivace",
     "propagation": "",
     "height": "20",
     "ground": "Drainant",
     "exposition": "Soleil à mi-ombre",
-    "usage": "",
+    "usage": "Couvre-sol rosé, feuillage découpé",
     "density": "3-5",
     "bloom": "5-6",
     "images": [
@@ -268,7 +268,7 @@
     "height": "40",
     "ground": "Calcaire, sec",
     "exposition": "Soleil",
-    "usage": "",
+    "usage": "Comestible, resistante, odorante",
     "density": "5-7",
     "bloom": "6-8",
     "images": [
@@ -280,14 +280,14 @@
   },
   {
     "botanicalName": "Actaea racemosa ou Cimicifuga",
-    "familiarName": "Actée à grappes",
+    "familiarName": "Cierges d'argent, Actée à grappes",
     "season": "Automne",
     "type": "Vivace",
     "propagation": "",
     "height": "120",
     "ground": "Frais",
     "exposition": "Ombre",
-    "usage": "",
+    "usage": "Feuillage très ornemental, port élégant",
     "density": "3-4",
     "bloom": "7",
     "images": [
@@ -307,7 +307,7 @@
     "height": "80-120",
     "ground": "Drainé, non-calcaire, évite humidité en hivers",
     "exposition": "Soleil à mi-ombre",
-    "usage": "",
+    "usage": "Peut être envahissante",
     "density": "3-5",
     "bloom": "8-10",
     "images": [
@@ -327,7 +327,7 @@
     "height": "70-120",
     "ground": "Drainant, fertile, humide",
     "exposition": "Soleil, mi-ombre",
-    "usage": "",
+    "usage": "A planter en gd nb et impair, longue floraison",
     "density": "4",
     "bloom": "9-10",
     "images": [
@@ -344,7 +344,7 @@
     "height": "60",
     "ground": "Neutre",
     "exposition": "Mi-ombre",
-    "usage": "",
+    "usage": "Illumine les coins d'ombre, rustique, vit longtemps au meme endroit",
     "density": "4-5",
     "bloom": "7",
     "images": [
@@ -362,7 +362,7 @@
     "height": "100",
     "ground": "Alcalin, neutre",
     "exposition": "Tout",
-    "usage": "",
+    "usage": "Robuste, rustique, superbe floraison d'arrière-saison, touche naturelle au jardin.",
     "density": "4-5",
     "bloom": "8-9",
     "images": [
@@ -382,7 +382,7 @@
     "height": "200",
     "ground": "Frais, humide",
     "exposition": "Tout",
-    "usage": "",
+    "usage": "Près de pieces d'eau. Nectarifère, florifère",
     "density": "3",
     "bloom": "7-9",
     "images": [
@@ -402,7 +402,7 @@
     "height": "40-60",
     "ground": "Bien drainé, même pauvre. Adapté argileux.",
     "exposition": "Soleil à mi-ombre",
-    "usage": "",
+    "usage": "Longue floraison.",
     "density": "4",
     "bloom": "6-11",
     "images": [
