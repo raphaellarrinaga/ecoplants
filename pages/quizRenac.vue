@@ -55,6 +55,10 @@
                     <span class="quiz-item__label">Exposition: </span>{{ item.exposition }}</p>
                   <p class="quiz-item__usage">
                     <span class="quiz-item__label">Intérêt: </span>{{ item.usage }}</p>
+                  <p class="quiz-item__density">
+                    <span class="quiz-item__label">Densité: </span>{{ item.density }}</p>
+                  <p class="quiz-item__bloom">
+                    <span class="quiz-item__label">Floraison: </span>{{ item.bloom }}</p>
                 </div>
               </div>
             </div>
