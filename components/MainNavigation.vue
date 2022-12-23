@@ -35,5 +35,10 @@
 
 .nav-list__link {
   color: #111;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 </style>
