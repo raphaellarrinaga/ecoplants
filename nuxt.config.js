@@ -76,6 +76,8 @@ export default {
     '~/modules/woodyData.js',
     // '~/modules/driveData.js',
     // ['~/modules/driveData', { token: '123' }]
+    // If using ssr: false with production mode without nuxt generate, you have to use modules instead of buildModules.
+    '@nuxtjs/pwa',
   ],
 
   // @see https://image.nuxtjs.org/getting-started/installation
