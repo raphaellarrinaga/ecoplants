@@ -52,7 +52,7 @@
     <div
       :class="{ 'has-value' : lead.hasOwnProperty('Hauteur') && lead['Hauteur'] }"
       class="plant__item plant__item-hauteur">
-      <h3>Hauteur</h3>
+      <h3>Taille</h3>
       <p class="plant__hauteur">{{ lead.Hauteur }}</p>
     </div>
     <div
@@ -62,11 +62,17 @@
       <p class="plant__floraison">{{ lead.Floraison }}</p>
     </div>
     <div
+      :class="{ 'has-value' : lead.hasOwnProperty('Fleur') && lead['Fleur'] }"
+      class="plant__item plant__item-color">
+      <h3>Fleur</h3>
+      <p class="plant__color">{{ lead.Fleur }}</p>
+    </div>
+    <!-- <div
       :class="{ 'has-value' : lead.hasOwnProperty('Semis') && lead['Semis'] }"
       class="plant__item plant__item-semis">
       <h3>Semis</h3>
       <p class="plant__semis">{{ lead.Semis }}</p>
-    </div>
+    </div> -->
     <div class="plant__item plant__item-actions">
       <button
         v-if="
@@ -74,6 +80,7 @@
           lead.hasOwnProperty('Biotope') && lead['Biotope'] ||
           lead.hasOwnProperty('Fleur') && lead['Fleur'] ||
           lead.hasOwnProperty('Ecotype') && lead['Ecotype'] ||
+          lead.hasOwnProperty('Semis') && lead['Semis'] ||
           lead.hasOwnProperty('Utilisation') && lead['Utilisation'] ||
           lead.hasOwnProperty('Remarques') && lead['Remarques'] ||
           lead.hasOwnProperty('Comestible') && lead['Comestible'] ||
@@ -92,6 +99,7 @@
         lead.hasOwnProperty('Biotope') && lead['Biotope'] ||
         lead.hasOwnProperty('Fleur') && lead['Fleur'] ||
         lead.hasOwnProperty('Ecotype') && lead['Ecotype'] ||
+        lead.hasOwnProperty('Semis') && lead['Semis'] ||
         lead.hasOwnProperty('Remarques') && lead['Remarques'] ||
         lead.hasOwnProperty('Utilisation') && lead['Utilisation'] ||
         lead.hasOwnProperty('Comestible') && lead['Comestible'] ||
@@ -112,10 +120,10 @@
         <p class="plant__biotope">{{ lead.Biotope }}</p>
       </div>
       <div
-        v-if="lead.hasOwnProperty('Fleur') && lead['Fleur']"
-        class="plant__more-item plant__more-item--fleur">
-        <h3>Fleur</h3>
-        <p class="plant__fleur">{{ lead.Fleur }}</p>
+        v-if="lead.hasOwnProperty('Semis') && lead['Semis']"
+        class="plant__more-item plant__more-item--semis">
+        <h3>Semis</h3>
+        <p class="plant__semis">{{ lead.Semis }}</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Ecotype') && lead['Ecotype']"
@@ -329,7 +337,7 @@ export default {
 
 .plant__item-hauteur,
 .plant__item-floraison,
-.plant__item-semis {
+.plant__item-color {
   @media screen and (min-width: 821px) {
     flex: 0 0 9%;
   }

@@ -22,6 +22,31 @@ export function filterLeads (filter, leads) {
     filteredList = filtered
   }
 
+  // Filter height.
+  if (filter.height !== 'all') {
+    const rangeFilter = filter.height;
+
+    const filtered = filteredList.filter(lead => {
+
+      if (lead.Hauteur !== undefined && lead.Hauteur !== '') {
+        const range = lead.Hauteur;
+        const start = parseInt(range.substring(0, range.indexOf('-')));
+        const end = parseInt(range.substring(range.indexOf('-') + 1));
+
+        if (
+          (start >= rangeFilter[0] && start <= rangeFilter[1]) ||
+          (end >= rangeFilter[0] && end <= rangeFilter[1])) {
+          return true;
+        }
+
+      } else {
+        return true
+      }
+    })
+
+    filteredList = filtered
+  }
+
   // function filterMonthRange(obj, obj2) {
   //   const range = "2-5";
   //   const start = range.substring(0, range.indexOf('-'));

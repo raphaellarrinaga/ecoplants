@@ -9,6 +9,7 @@ export const state = () => ({
   filter: {
     medicinale: 'false',
     comestible: 'false',
+    height: 'all',
     search: '',
     status: 'all',
     color: 'all',
@@ -56,6 +57,10 @@ export const actions = {
     await commit('setFilterComestible', comestible)
     dispatch('filterLeads')
   },
+  async filterHeight ({ commit, dispatch }, height) {
+    await commit('setFilterHeight', height)
+    dispatch('filterLeads')
+  },
   async filterMedicinale ({ commit, dispatch }, medicinale) {
     await commit('setFilterMedicinale', medicinale)
     dispatch('filterLeads')
@@ -94,6 +99,7 @@ export const mutations = {
   setFilterBloom (state, bloom) { state.filter.bloom = bloom },
   setFilterSearch (state, search) { state.filter.search = search },
   setFilterComestible (state, comestible) { state.filter.comestible = comestible },
+  setFilterHeight (state, height) { state.filter.height = height },
   setFilterMedicinale (state, medicinale) { state.filter.medicinale = medicinale },
   setFilterEcotype (state, ecotype) { state.filter.ecotype = ecotype },
   setFilterPhoto (state, hasPhoto) { state.filter.hasPhoto = hasPhoto },

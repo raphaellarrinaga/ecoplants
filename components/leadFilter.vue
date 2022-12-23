@@ -12,168 +12,200 @@
         >
       </div>
 
-      <div class="form-item form-item--dropdown">
-        <p
-          v-click-outside="closeFamilyDropDown"
-          class="dropdown-toggle button button--form"
-          :class="{ 'is-active' : status !== 'all' }"
-          @click="FamilyOpen = !FamilyOpen"
-        >
-          💐
-          <span v-if="status === 'all'">Famille</span>
-          <span v-else>{{ status }}</span>
-          ▾
-        </p>
-        <ul v-show="FamilyOpen" class="dropdown">
-          <li
-            @click="handleStatusFilter('all')"
-          >
-            Tout
-          </li>
-          <li
-            v-for="family in familyValues"
-            :key="family.id"
-            :class="{ 'is-active' : status === family }"
-            @click="handleStatusFilter(family)">
-            {{ family }}
-          </li>
-        </ul>
-      </div>
+      <div class="form-group">
+        <div class="form-group__inner">
+          <div class="form-item form-item--dropdown">
+            <p
+              v-click-outside="closeFamilyDropDown"
+              class="dropdown-toggle button button--form"
+              :class="{ 'is-active' : status !== 'all' }"
+              @click="FamilyOpen = !FamilyOpen"
+            >
+              💐
+              <span v-if="status === 'all'">Famille</span>
+              <span v-else>{{ status }}</span>
+              ▾
+            </p>
+            <ul v-show="FamilyOpen" class="dropdown">
+              <li
+                @click="handleStatusFilter('all')"
+              >
+                Tout
+              </li>
+              <li
+                v-for="family in familyValues"
+                :key="family.id"
+                :class="{ 'is-active' : status === family }"
+                @click="handleStatusFilter(family)">
+                {{ family }}
+              </li>
+            </ul>
+          </div>
 
-      <div class="form-item form-item--dropdown">
-        <p
-          v-click-outside="closeColorDropDown"
-          class="dropdown-toggle button button--form"
-          :class="{ 'is-active' : color !== 'all' }"
-          @click="ColorOpen = !ColorOpen"
-        >
-          🌈
-          <span v-if="color === 'all'">Fleur</span>
-          <span v-else>{{ color }}</span>
-          ▾
-        </p>
-        <ul v-show="ColorOpen" class="dropdown">
-          <li
-            @click="handleColorFilter('all')"
-          >
-            Tout
-          </li>
-          <li
-            v-for="colorValue in colorValues"
-            :key="colorValue.id"
-            :class="{ 'is-active' : color === colorValue }"
-            @click="handleColorFilter(colorValue)">
-            {{ colorValue }}
-          </li>
-        </ul>
-      </div>
+          <div class="form-item form-item--dropdown">
+            <p
+              v-click-outside="closeColorDropDown"
+              class="dropdown-toggle button button--form"
+              :class="{ 'is-active' : color !== 'all' }"
+              @click="ColorOpen = !ColorOpen"
+            >
+              🌈
+              <span v-if="color === 'all'">Fleur</span>
+              <span v-else>{{ color }}</span>
+              ▾
+            </p>
+            <ul v-show="ColorOpen" class="dropdown">
+              <li
+                @click="handleColorFilter('all')"
+              >
+                Tout
+              </li>
+              <li
+                v-for="colorValue in colorValues"
+                :key="colorValue.id"
+                :class="{ 'is-active' : color === colorValue }"
+                @click="handleColorFilter(colorValue)">
+                {{ colorValue }}
+              </li>
+            </ul>
+          </div>
 
-      <div class="form-item form-item--dropdown">
-        <p
-          v-click-outside="closeBloomDropDown"
-          class="dropdown-toggle button button--form"
-          :class="{ 'is-active' : bloom !== 'all' }"
-          @click="bloomOpen = !bloomOpen"
-        >
-          🌼
-          <span v-if="bloom === 'all'">Floraison</span>
-          <span v-else>{{ bloom }}</span>
-          ▾
-        </p>
-        <ul v-show="bloomOpen" class="dropdown">
-          <li
-            @click="handleBloomFilter('all')"
-          >
-            Tout
-          </li>
-          <li
-            v-for="month in months"
-            :key="month.id"
-            :class="{ 'is-active' : bloom === month }"
-            @click="handleBloomFilter(month)">
-            {{ month }}
-          </li>
-        </ul>
-      </div>
+          <div class="form-item form-item--dropdown">
+            <p
+              v-click-outside="closeBloomDropDown"
+              class="dropdown-toggle button button--form"
+              :class="{ 'is-active' : bloom !== 'all' }"
+              @click="bloomOpen = !bloomOpen"
+            >
+              🌼
+              <span v-if="bloom === 'all'">Floraison</span>
+              <span v-else>{{ bloom }}</span>
+              ▾
+            </p>
+            <ul v-show="bloomOpen" class="dropdown">
+              <li
+                @click="handleBloomFilter('all')"
+              >
+                Tout
+              </li>
+              <li
+                v-for="month in months"
+                :key="month.id"
+                :class="{ 'is-active' : bloom === month }"
+                @click="handleBloomFilter(month)">
+                {{ month }}
+              </li>
+            </ul>
+          </div>
 
-      <div class="form-item form-item--dropdown">
-        <p
-          v-click-outside="closeSowDropDown"
-          class="dropdown-toggle button button--form"
-          :class="{ 'is-active' : sow !== 'all' }"
-          @click="sowOpen = !sowOpen"
-        >
-          📆
-          <span v-if="sow === 'all'">Semis</span>
-          <span v-else>{{ sow }}</span>
-          ▾
-        </p>
-        <ul v-show="sowOpen" class="dropdown">
-          <li
-            @click="handleSowFilter('all')"
-          >
-            Tout
-          </li>
-          <li
-            v-for="month in months"
-            :key="month.id"
-            :class="{ 'is-active' : sow === month }"
-            @click="handleSowFilter(month)">
-            {{ month }}
-          </li>
-        </ul>
-      </div>
+          <div class="form-item form-item--dropdown">
+            <p
+              v-click-outside="closeHeightDropDown"
+              class="dropdown-toggle button button--form"
+              :class="{ 'is-active' : status !== 'all' }"
+              @click="HeightOpen = !HeightOpen"
+            >
+              ⬆️
+              <span v-if="status === 'all'">Taille</span>
+              <span v-else>{{ status }}</span>
+              ▾
+            </p>
+            <div v-show="HeightOpen" class="dropdown dropdown--large">
+              <div class="dropdown__content">
+                <vue-slider
+                  :min="0"
+                  :max="heightMax"
+                  :interval="10"
+                  :duration="0.2"
+                  :enableCross="false"
+                  :tooltipPlacement="'bottom'"
+                  :tooltip-formatter="'{value}cm'"
+                  @change="handleHeightFilter(height)"
+                  v-model="height"></vue-slider>
+              </div>
+            </div>
+          </div>
 
-      <div
-        :class="{ 'is-active' : comestibleChecked === true }"
-        class="form-item form-item--checkbox button">
-        <input
-          type="checkbox"
-          value="isComestible"
-          id="isComestible"
-          v-model="comestibleChecked"
-          @change="handleComestibleFilter(comestibleChecked)"
-        >
-        <label for="isComestible">Comestible</label>
-      </div>
+          <!-- <div class="form-item form-item--dropdown">
+            <p
+              v-click-outside="closeSowDropDown"
+              class="dropdown-toggle button button--form"
+              :class="{ 'is-active' : sow !== 'all' }"
+              @click="sowOpen = !sowOpen"
+            >
+              📆
+              <span v-if="sow === 'all'">Semis</span>
+              <span v-else>{{ sow }}</span>
+              ▾
+            </p>
+            <ul v-show="sowOpen" class="dropdown">
+              <li
+                @click="handleSowFilter('all')"
+              >
+                Tout
+              </li>
+              <li
+                v-for="month in months"
+                :key="month.id"
+                :class="{ 'is-active' : sow === month }"
+                @click="handleSowFilter(month)">
+                {{ month }}
+              </li>
+            </ul>
+          </div> -->
 
-      <div
-        :class="{ 'is-active' : medicinaleChecked === true }"
-        class="form-item form-item--checkbox button">
-        <input
-          type="checkbox"
-          value="isMedicinale"
-          id="isMedicinale"
-          v-model="medicinaleChecked"
-          @change="handleMedicinaleFilter(medicinaleChecked)"
-        >
-        <label for="isMedicinale">Medicinale</label>
-      </div>
+          <div
+            :class="{ 'is-active' : comestibleChecked === true }"
+            class="form-item form-item--checkbox button">
+            <input
+              type="checkbox"
+              value="isComestible"
+              id="isComestible"
+              v-model="comestibleChecked"
+              @change="handleComestibleFilter(comestibleChecked)"
+            >
+            <label for="isComestible">Comestible</label>
+          </div>
 
-      <div
-        :class="{ 'is-active' : ecotypeChecked === true }"
-        class="form-item form-item--checkbox button">
-        <input
-          type="checkbox"
-          value="isEcotype"
-          id="isEcotype"
-          v-model="ecotypeChecked"
-          @change="handleEcotypeFilter(ecotypeChecked)"
-        >
-        <label for="isEcotype">Ecotype</label>
-      </div>
+          <div
+            :class="{ 'is-active' : medicinaleChecked === true }"
+            class="form-item form-item--checkbox button">
+            <input
+              type="checkbox"
+              value="isMedicinale"
+              id="isMedicinale"
+              v-model="medicinaleChecked"
+              @change="handleMedicinaleFilter(medicinaleChecked)"
+            >
+            <label for="isMedicinale">Medicinale</label>
+          </div>
 
-      <div
-        :class="{ 'is-active' : hasPhotoChecked === true }"
-        class="form-item form-item--checkbox button">
-        <input
-          type="checkbox"
-          value="hasPhoto"
-          id="hasPhoto"
-          v-model="hasPhotoChecked"
-          @change="handlePhotoFilter(hasPhotoChecked)"
-        >
-        <label for="hasPhoto">Photo</label>
+          <div
+            :class="{ 'is-active' : ecotypeChecked === true }"
+            class="form-item form-item--checkbox button">
+            <input
+              type="checkbox"
+              value="isEcotype"
+              id="isEcotype"
+              v-model="ecotypeChecked"
+              @change="handleEcotypeFilter(ecotypeChecked)"
+            >
+            <label for="isEcotype">Ecotype</label>
+          </div>
+
+          <div
+            :class="{ 'is-active' : hasPhotoChecked === true }"
+            class="form-item form-item--checkbox button">
+            <input
+              type="checkbox"
+              value="hasPhoto"
+              id="hasPhoto"
+              v-model="hasPhotoChecked"
+              @change="handlePhotoFilter(hasPhotoChecked)"
+            >
+            <label for="hasPhoto">Photo</label>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -222,9 +254,14 @@
 <script>
 import { debounce } from '~/helpers/index'
 import { mapGetters } from 'vuex'
+import VueSlider from 'vue-slider-component'
+import 'vue-slider-component/theme/default.css'
 
 export default {
   name: 'IndexPage',
+  components: {
+    VueSlider
+  },
   data () {
     return {
       hasPhotoChecked: false,
@@ -241,7 +278,10 @@ export default {
       familyValues: [],
       ColorOpen: false,
       colorValues: [],
-      months: ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
+      months: ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"],
+      HeightOpen: false,
+      height: [0, 200],
+      heightMax: 200,
     }
   },
   computed: {
@@ -328,6 +368,9 @@ export default {
     closeColorDropDown (e) {
       this.colorOpen = false
     },
+    closeHeightDropDown (e) {
+      this.heightOpen = false
+    },
     handleColorFilter (color) {
       this.$store.dispatch('leads/filterColor', color)
     },
@@ -342,6 +385,9 @@ export default {
     closeOrderDropDown (e) {
       this.orderOpen = false
     },
+    handleHeightFilter(height) {
+      this.$store.dispatch('leads/filterHeight', height)
+    }
   },
   async fetch ({ store }) {
     await store.dispatch('leads/fetchAllLeads')
@@ -369,6 +415,21 @@ export default {
 
     // Remove duplicates, remove spaces and sort.
     this.colorValues = [...new Set(colors.map(a => a.trim()).sort())];
+
+    // Set heights filter.
+    // Fill new array with all Fleur terms.
+    let heights = []
+    for (let i = 0; i < this.leads.length; i++) {
+      const heightString = this.leads[i].Hauteur;
+      if (heightString !== undefined && heightString !== '') {
+        heights.push(...heightString.split("-"));
+      }
+    }
+
+    // Set height filter defaults.
+    const heightMax = Math.max(...heights)
+    this.heightMax = heightMax
+    this.height = [0, heightMax]
   }
 }
 
@@ -387,11 +448,34 @@ export default {
   display: flex;
   flex-flow: row wrap;
   flex: 1;
-  margin-bottom: 1rem;
+
+  @media screen and (min-width: 421px) {
+    margin-bottom: 1rem;
+  }
+}
+
+.form-group {
+  // overflow-x: scroll;
+}
+
+.form-group__inner {
+  display: flex;
+  // overflow-y: visible;
+
+  @media screen and (min-width: 421px) {
+    flex-flow: row wrap;
+    // overflow-x: auto;
+  }
+
+  > * {
+    @media screen and (max-width: 420px) {
+      flex: 1 0 auto;
+    }
+  }
 }
 
 .form-count {
-  font-weight: 500;
+  // font-weight: 500;
   flex: 0 0 auto;
   margin-left: auto;
   padding: 0.45rem 0 0.4rem;
@@ -574,8 +658,18 @@ export default {
   }
 }
 
+.dropdown--large {
+  min-width: 12rem;
+  // Removed to make le slider tooltip visible.
+  overflow: visible;
+}
+
 .dropdown__current {
   font-weight: bold;
+}
+
+.dropdown__content {
+  padding: .25rem .5rem .25rem;
 }
 
 .dropdown-toggle {

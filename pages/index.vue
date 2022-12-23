@@ -13,9 +13,9 @@
           <span class="plants__header-latin"></span>
           <span class="plants__header-famille">Famille</span>
           <span class="plants__header-cycle">Cycle</span>
-          <span class="plants__header-hauteur">Hauteur</span>
+          <span class="plants__header-hauteur">Taille</span>
           <span class="plants__header-floraison">Floraison</span>
-          <span class="plants__header-semis">Semis</span>
+          <span class="plants__header-couleur">Fleur</span>
           <span class="plants__header-actions"></span>
         </div>
         <div class="plants">
@@ -118,7 +118,7 @@ export default {
 
   .plants__header-hauteur,
   .plants__header-floraison,
-  .plants__header-semis {
+  .plants__header-couleur {
     @media screen and (min-width: 821px) {
       flex: 0 0 9%;
     }

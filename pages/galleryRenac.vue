@@ -2,6 +2,11 @@
   <div class="content">
     <div class="page">
       <main>
+        <div class="gallery-nav">
+          <button class="gallery-nav__button" @click="setAll">Tout</button>
+          <button class="gallery-nav__button" @click="setBfg">BFG</button>
+          <button class="gallery-nav__button" @click="setVivaces">Vivaces</button>
+        </div>
         <div v-if="plants.length" class="gallery">
           <button
             @click="randomize"
@@ -13,8 +18,6 @@
             class="toggle-names-button">
             👀
           </button>
-            <!-- v-for="(item, index) in plants" -->
-            <!-- v-for="item in randomList(plants)" -->
           <div
             v-for="(item, index) in plants"
             class="gallery-item"
@@ -25,7 +28,6 @@
               👀
             </button>
             <div class="gallery-item__infos">
-              <!-- <p class="gallery-item__number">{{ index }}</p> -->
               <h1 class="gallery-item__botanical">{{ item.botanicalName }} ({{ index + 1 }}/{{ plants.length }})</h1>
               <h2 class="gallery-item__familiar">{{ item.familiarName }}</h2>
               <div class="gallery-item__metas">
@@ -80,21 +82,36 @@ export default {
   data () {
     return {
       plants: [],
+      allPlants: [],
+      bfg: [],
+      vivaces: [],
       solutionShown: false,
     }
   },
   async asyncData () {
-    const plants = await axios.get('/quizRenacData.json').then(res => res.data)
-    return { plants }
+    const allPlants = await axios.get('/quizRenacData.json').then(res => res.data)
+    const bfg = await axios.get('/quizRenacData-bfg.json').then(res => res.data)
+    const vivaces = await axios.get('/quizRenacData-vivaces.json').then(res => res.data)
+    const plants = allPlants
+    return { plants, bfg, vivaces, allPlants }
   },
   components: {
     agile: VueAgile
   },
   methods: {
-    randomize: function(){
+    setAll: function() {
+      this.plants = this.allPlants;
+    },
+    setBfg: function() {
+      this.plants = this.bfg;
+    },
+    setVivaces: function() {
+      this.plants = this.vivaces;
+    },
+    randomize: function() {
       return this.plants.sort(function(){return 0.5 - Math.random()});
     },
-    toggleNames: function(){
+    toggleNames: function() {
       let elems = document.querySelectorAll('.gallery-item');
 
       if (this.solutionShown) {
@@ -325,5 +342,21 @@ html {
 
 .gallery-item__label {
   font-weight: bold;
+}
+
+.gallery-nav {
+  margin: .5rem 0;
+}
+
+.gallery-nav__button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: .5rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 </style>
