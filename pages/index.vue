@@ -2,8 +2,12 @@
   <div class="content">
     <div class="page">
       <header class="page-header">
-        <h1 class="page-title"><a href="/">Ecoplants</a></h1>
-        <MainNavigation />
+        <h1 class="page-title">
+          <NuxtLink to="/" class="nav-list__link">
+            <span class="page-title__text">Ecoplants</span>
+            <img src="~/assets/images/logo.svg" data-not-lazy />
+          </NuxtLink>
+        </h1>
       </header>
 
       <div v-if="leads.length">
@@ -69,13 +73,6 @@ export default {
 </script>
 
 <style lang="scss">
-.page-title {
-  a {
-    color: #111;
-    text-decoration: none;
-  }
-}
-
 .plants__header {
   border-bottom: 1px solid #eaeaea;
   font-weight: bold;

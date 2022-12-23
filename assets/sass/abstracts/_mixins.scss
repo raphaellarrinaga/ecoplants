@@ -148,11 +148,22 @@
   white-space: nowrap;
   overflow: hidden;
   // Additional helpers
-  // border: 0;
+  border: 0;
   font: 0/0 a;
   text-shadow: none;
   color: transparent;
   background-color: transparent; // Hide the default background color on elements like <button>
+}
+
+// Only readable for screen readers.
+@mixin sr {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 // Pseudo element

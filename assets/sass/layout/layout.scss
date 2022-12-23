@@ -10,21 +10,27 @@
 }
 
 .page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  flex-flow: row wrap;
-  margin: 1rem 0 2rem;
-
-  @media screen and (min-width: 421px) {
-    margin: 2rem 0;
-  }
+  margin: 1rem 0;
 }
 
 .page-title {
-  font-size: 1rem;
-  letter-spacing: .01em;
-  line-height: 1.5;
   margin: 0;
-  text-transform: uppercase;
+
+  a {
+    text-decoration: none;
+    background-color: $brand-primary;
+    border-radius: 50%;
+    display: inline-flex;
+    padding: 2px;
+    box-shadow: 0 0 0 0 $brand-primary;
+
+    &:hover {
+      text-decoration: none;
+      box-shadow: 0 0 0 2px $brand-primary;
+    }
+  }
+}
+
+.page-title__text {
+  @include sr;
 }

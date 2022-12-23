@@ -12,7 +12,15 @@
         >
       </div>
 
-      <div class="form-group">
+      <div class="form-group-toggle">
+        <button
+          @click="ToggleFilter = !ToggleFilter"
+          class="button button--form">Filtrer ▾</button>
+      </div>
+
+      <div
+        :class="{ 'js-open' : ToggleFilter }"
+        class="form-group">
         <div class="form-group__inner">
           <div class="form-item form-item--dropdown">
             <p
@@ -264,6 +272,7 @@ export default {
   },
   data () {
     return {
+      ToggleFilter: false,
       hasPhotoChecked: false,
       ecotypeChecked: false,
       medicinaleChecked: false,
@@ -454,8 +463,21 @@ export default {
   }
 }
 
+.form-group-toggle {
+  @media screen and (min-width: 421px) {
+    display: none;
+  }
+}
+
 .form-group {
   // overflow-x: scroll;
+  @media screen and (max-width: 420px) {
+    display: none;
+
+    &.js-open {
+      display: block;
+    }
+  }
 }
 
 .form-group__inner {
@@ -483,8 +505,13 @@ export default {
 }
 
 .form-item--search {
-  flex: 1 0 100%;
+  flex: 1 0;
+  margin-right: 1rem;
   position: relative;
+
+  @media screen and (min-width: 421px) {
+    flex: 1 0 100%;
+  }
 
   @media screen and (min-width: 821px) {
     flex-grow: 1;
