@@ -46,7 +46,9 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/directives.js',
-    '~/plugins/lightGallery.client.js'
+    '~/plugins/lightGallery.client.js',
+    // @see https://dev.to/alejandroakbal/how-to-detect-and-update-to-the-latest-version-with-nuxt-pwa-1845
+    { src: '~/plugins/pwa-update.js', mode: 'client' },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -79,6 +81,16 @@ export default {
     // If using ssr: false with production mode without nuxt generate, you have to use modules instead of buildModules.
     '@nuxtjs/pwa',
   ],
+
+  pwa: {
+    manifest: {
+      "icons": [
+        {
+          "purpose": "maskable"
+        }
+      ]
+    }
+  },
 
   // @see https://image.nuxtjs.org/getting-started/installation
   image: {
