@@ -460,18 +460,7 @@ export default {
 
 .form-group__inner {
   display: flex;
-  // overflow-y: visible;
-
-  @media screen and (min-width: 421px) {
-    flex-flow: row wrap;
-    // overflow-x: auto;
-  }
-
-  > * {
-    @media screen and (max-width: 420px) {
-      flex: 1 0 auto;
-    }
-  }
+  flex-flow: row wrap;
 }
 
 .form-count {
