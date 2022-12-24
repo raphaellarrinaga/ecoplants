@@ -83,20 +83,20 @@ export default {
   ],
 
   pwa: {
-    icon: {
-      source: 'static/icon.png',
-      filename: 'icon.png'
-    }
-    // manifest: {
-    //   'icons': [
-    //     {
-    //       'src': '~/static/icon.png',
-    //       'sizes': [64, 120, 144, 152, 192, 384, 512],
-    //       'type': 'image/png',
-    //       'purpose': 'maskable'
-    //     }
-    //   ]
+    // icon: {
+    //   source: 'static/icon.png',
+    //   filename: 'icon.png'
     // }
+    manifest: {
+      'icons': [
+        {
+          'src': 'static/app-icon.png',
+          'sizes': [64, 120, 144, 152, 192, 384, 512],
+          'type': 'image/png',
+          'purpose': 'maskable'
+        }
+      ]
+    }
   },
 
   // @see https://image.nuxtjs.org/getting-started/installation
