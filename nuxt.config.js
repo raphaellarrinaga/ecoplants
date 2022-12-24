@@ -6,7 +6,7 @@ export default {
   // Required by Netlify to work
   // @see https://nuxtjs.org/announcements/going-full-static/
   // @see https://nuxtjs.org/deployments/netlify/
-  // target: 'static',
+  target: 'static',
 
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -83,20 +83,20 @@ export default {
   ],
 
   pwa: {
-    // icon: {
-    //   source: 'static/icon.png',
-    //   filename: 'icon.png'
-    // }
-    manifest: {
-      'icons': [
-        {
-          'src': 'static/app-icon.png',
-          'sizes': [64, 120, 144, 152, 192, 384, 512],
-          'type': 'image/png',
-          'purpose': 'maskable'
-        }
-      ]
+    icon: {
+      source: 'static/app-icon.png',
+      filename: 'app-icon.png'
     }
+    // manifest: {
+    //   'icons': [
+    //     {
+    //       'src': 'static/app-icon.png',
+    //       'sizes': [64, 120, 144, 152, 192, 384, 512],
+    //       'type': 'image/png',
+    //       'purpose': 'maskable'
+    //     }
+    //   ]
+    // }
   },
 
   // @see https://image.nuxtjs.org/getting-started/installation
