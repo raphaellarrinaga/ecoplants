@@ -63,6 +63,10 @@ const axios = require('axios')
 
 export default {
   name: 'Quiz',
+  // middleware: cacheControl({
+  //   'max-age': 60,
+  //   'stale-when-revalidate': 5
+  // }),
   data () {
     return {
       currentSlide: null,

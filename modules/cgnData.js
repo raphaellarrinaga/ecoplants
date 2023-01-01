@@ -23,7 +23,7 @@ module.exports = async function (moduleOptions) {
     // Push to array if a key exist.
     //
     function pushImageToArray(arr, name, val, key) {
-      const found = arr.some(el => el.Nom === name);
+      const found = arr.some(el => el.Nom.includes(name));
       const title = key.substring(key.indexOf('-0')).replace(/-|_/g,' ');
 
       // Ex: "Achillea ptarmica" does not exist, create all subtree.
@@ -39,7 +39,7 @@ module.exports = async function (moduleOptions) {
         })
       } else {
         // Ex: "Achillea ptarmica" exist.
-        const keyName = arr.findIndex(el => el.Nom === name);
+        const keyName = arr.findIndex(el => el.Nom.includes(name));
 
         // Images does exist.
         if (arr[keyName]["images"]) {
@@ -68,7 +68,7 @@ module.exports = async function (moduleOptions) {
     }
 
     function pushThumbToArray(arr, name, val) {
-      const found = arr.some(el => el.Nom === name);
+      const found = arr.some(el => el.Nom.includes(name));
 
       if (!found) {
         arr.push({
@@ -76,13 +76,16 @@ module.exports = async function (moduleOptions) {
           thumb: val
         })
       } else {
-        const index = arr.findIndex(el => el.Nom === name);
+        const index = arr.findIndex(el => el.Nom.includes(name));
         arr[index]["thumb"] = val;
       }
     }
 
     //
     // Get Google Sheet data.
+    //
+    // Note we set the rows lines in GOOGLE_SHEET_URL.
+    // So it limits the amount of items to fetch.
     //
     const response = await axios.get(SHEET_DATA_SOURCE_URL)
     const rows = response.data.values
@@ -116,7 +119,7 @@ module.exports = async function (moduleOptions) {
 
       // There is a limit for the amount of images loaded from drive.
       // 1000 is the limit and currently enough but the problem could
-      // come back if we upload more than 1000 (one day).
+      // come back if we upload more than 1000 (some day).
       //
       // pageSize -> The maximum number of files to return per page. Partial or empty result pages are possible even before the end of the files list has been reached. Acceptable values are 1 to 1000, inclusive. (Default: 100)
       //
@@ -134,7 +137,9 @@ module.exports = async function (moduleOptions) {
               const newName = name.substring(0, name.indexOf('-thumb')).replace("_", " ");
               pushThumbToArray(images, newName, sourceUrl);
             } else {
-              const newName = name.substring(0, name.indexOf('-')).replace("_", " ");
+              // Using -0 to filter since we can now have a - in the name.
+              // E.g. "Lychnis flos-cuculi"
+              const newName = name.substring(0, name.indexOf('-0')).replace("_", " ");
               const id = name.substring(name.indexOf('-0') + 1).replace(".jpg", "")
               pushImageToArray(images, newName, sourceUrl, id);
             }
@@ -149,8 +154,8 @@ module.exports = async function (moduleOptions) {
       //
       let unmatched = [],
         matched = [];
-      articles.every(x => images.map(e => e.Nom).includes(x.Nom) ? matched.push(x) : unmatched.push(x))
-      matched = matched.map(x => Object.assign(x, images.find(e => e.Nom === x.Nom )))
+      articles.every(x => images.map(e => e.Nom).some(r => x.Nom.split(',').map(element => element.trim()).indexOf(r) >= 0) ? matched.push(x) : unmatched.push(x))
+      matched = matched.map(x => Object.assign(images.find(e => x.Nom.includes(e.Nom)), x))
 
       const mergeResult = [...matched, ...unmatched];
 

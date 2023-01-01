@@ -189,19 +189,6 @@
           </div>
 
           <div
-            :class="{ 'is-active' : ecotypeChecked === true }"
-            class="form-item form-item--checkbox button">
-            <input
-              type="checkbox"
-              value="isEcotype"
-              id="isEcotype"
-              v-model="ecotypeChecked"
-              @change="handleEcotypeFilter(ecotypeChecked)"
-            >
-            <label for="isEcotype">Ecotype</label>
-          </div>
-
-          <div
             :class="{ 'is-active' : hasPhotoChecked === true }"
             class="form-item form-item--checkbox button">
             <input
@@ -274,7 +261,6 @@ export default {
     return {
       ToggleFilter: false,
       hasPhotoChecked: false,
-      ecotypeChecked: false,
       medicinaleChecked: false,
       comestibleChecked: false,
       orderOpen: false,
@@ -299,9 +285,6 @@ export default {
     },
     comestible () {
       return this.$store.state.leads.filter.comestible
-    },
-    ecotype () {
-      return this.$store.state.leads.filter.ecotype
     },
     hasPhoto () {
       return this.$store.state.leads.filter.hasPhoto
@@ -345,9 +328,6 @@ export default {
     },
     handleMedicinaleFilter (medicinale) {
       this.$store.dispatch('leads/filterMedicinale', medicinale)
-    },
-    handleEcotypeFilter (ecotype) {
-      this.$store.dispatch('leads/filterEcotype', ecotype)
     },
     handlePhotoFilter (hasPhoto) {
       this.$store.dispatch('leads/filterPhoto', hasPhoto)

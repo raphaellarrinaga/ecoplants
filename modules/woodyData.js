@@ -173,7 +173,7 @@ module.exports = async function (moduleOptions) {
         writeFileSync(distGeneratePath, data, 'utf-8');
         console.log('Generated woodyData.json');
       }
-      catch(e) { console.log('Failed to save cgnData.json'); }
+      catch(e) { console.log('Failed to save woodyData.json'); }
 
     });
 
