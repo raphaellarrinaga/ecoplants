@@ -153,6 +153,7 @@
         <h3>Feuillage</h3>
         <p class="plant__feuillage">{{ lead.Feuillage }}</p>
       </div>
+      <hr>
       <div
         v-if="lead.hasOwnProperty('Exposition') && lead['Exposition']"
         class="plant__more-item plant__more-item--exposition">
@@ -183,17 +184,12 @@
         <h3>Humidité</h3>
         <p class="plant__humidite">{{ lead.Humidite }}</p>
       </div>
+      <hr>
       <div
         v-if="lead.hasOwnProperty('Semis') && lead['Semis']"
         class="plant__more-item plant__more-item--semis">
         <h3>Semis</h3>
         <p class="plant__semis">{{ lead.Semis }}</p>
-      </div>
-      <div
-        v-if="lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
-        class="plant__more-item plant__more-item--utilisation">
-        <h3>Utilisation</h3>
-        <p class="plant__utilisation">{{ lead.Utilisation }}</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Remarques') && lead['Remarques']"
@@ -224,6 +220,12 @@
         class="plant__more-item plant__more-item--toxique">
         <h3>Toxique</h3>
         <p class="plant__toxique">{{ lead.Toxique }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
+        class="plant__more-item plant__more-item--utilisation">
+        <h3>Utilisation</h3>
+        <p class="plant__utilisation">{{ lead.Utilisation }}</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Description') && lead['Description']"
@@ -306,6 +308,13 @@ export default {
     @media screen and (min-width: 421px) {
       flex-basis: 3rem;
     }
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid $gray75;
+    margin: 0 0 1rem;
+    height: 1px;
   }
 }
 

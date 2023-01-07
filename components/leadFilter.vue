@@ -27,14 +27,14 @@
               v-click-outside="closeFamilyDropDown"
               class="dropdown-toggle button button--form"
               :class="{ 'is-active' : status !== 'all' }"
-              @click="FamilyOpen = !FamilyOpen"
+              @click="familyOpen = !familyOpen"
             >
               💐
               <span v-if="status === 'all'">Famille</span>
               <span v-else>{{ status }}</span>
               ▾
             </p>
-            <ul v-show="FamilyOpen" class="dropdown">
+            <ul v-show="familyOpen" class="dropdown">
               <li
                 @click="handleStatusFilter('all')"
               >
@@ -55,14 +55,14 @@
               v-click-outside="closeColorDropDown"
               class="dropdown-toggle button button--form"
               :class="{ 'is-active' : color !== 'all' }"
-              @click="ColorOpen = !ColorOpen"
+              @click="colorOpen = !colorOpen"
             >
               🌈
               <span v-if="color === 'all'">Fleur</span>
               <span v-else>{{ color }}</span>
               ▾
             </p>
-            <ul v-show="ColorOpen" class="dropdown">
+            <ul v-show="colorOpen" class="dropdown">
               <li
                 @click="handleColorFilter('all')"
               >
@@ -110,12 +110,12 @@
             <p
               v-click-outside="closeHeightDropDown"
               class="dropdown-toggle button button--form"
-              :class="{ 'is-active' : status !== 'all' }"
+              :class="{ 'is-active' : !arrayEquals(heightRange, heightRangeInitial) }"
               @click="HeightOpen = !HeightOpen"
             >
               ⬆️
-              <span v-if="status === 'all'">Taille</span>
-              <span v-else>{{ status }}</span>
+              <span v-if="arrayEquals(heightRange, heightRangeInitial)">Taille</span>
+              <span v-else>{{ heightRange }}</span>
               ▾
             </p>
             <div v-show="HeightOpen" class="dropdown dropdown--large">
@@ -128,11 +128,14 @@
                   :enableCross="false"
                   :tooltipPlacement="'bottom'"
                   :tooltip-formatter="'{value}cm'"
-                  @change="handleHeightFilter(height)"
-                  v-model="height"></vue-slider>
+                  :lazy="true"
+                  @change="handleHeightFilter(heightRange)"
+                  v-model="heightRange"></vue-slider>
               </div>
             </div>
           </div>
+                  <!-- @change="handleHeightFilter(height)"
+                  v-model="height"></vue-slider> -->
 
           <!-- <div class="form-item form-item--dropdown">
             <p
@@ -268,15 +271,15 @@ export default {
       sowOpen: false,
       sowChanged: false,
       bloomOpen: false,
-      bloomChanged: false,
-      FamilyOpen: false,
+      familyOpen: false,
       familyValues: [],
-      ColorOpen: false,
+      colorOpen: false,
       colorValues: [],
       months: ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"],
       HeightOpen: false,
-      height: [0, 200],
-      heightMax: 200,
+      heightRangeInitial: [],
+      heightRange: [0, 100],
+      heightMax: 10000,
     }
   },
   computed: {
@@ -304,6 +307,9 @@ export default {
     bloom () {
       return this.$store.state.leads.filter.bloom
     },
+    height () {
+      return this.$store.state.leads.filter.height
+    },
     order () {
       return this.$store.state.leads.filter.order
     },
@@ -323,17 +329,26 @@ export default {
     })
   },
   methods: {
-    handleComestibleFilter (comestible) {
-      this.$store.dispatch('leads/filterComestible', comestible)
-    },
-    handleMedicinaleFilter (medicinale) {
-      this.$store.dispatch('leads/filterMedicinale', medicinale)
-    },
-    handlePhotoFilter (hasPhoto) {
-      this.$store.dispatch('leads/filterPhoto', hasPhoto)
-    },
     handleStatusFilter (status) {
+      this.familyOpen = false
       this.$store.dispatch('leads/filterStatus', status)
+    },
+    closeFamilyDropDown (e) {
+      this.familyOpen = false
+    },
+    handleColorFilter (color) {
+      this.colorOpen = false
+      this.$store.dispatch('leads/filterColor', color)
+    },
+    closeColorDropDown (e) {
+      this.colorOpen = false
+    },
+    handleBloomFilter (bloom) {
+      this.bloomOpen = false
+      this.$store.dispatch('leads/filterBloom', bloom)
+    },
+    closeBloomDropDown (e) {
+      this.bloomOpen = false
     },
     handleSowFilter (sow) {
       this.sowOpen = false
@@ -343,25 +358,21 @@ export default {
     closeSowDropDown (e) {
       this.sowOpen = false
     },
-    handleBloomFilter (bloom) {
-      this.bloomOpen = false
-      this.bloomChanged = true
-      this.$store.dispatch('leads/filterBloom', bloom)
-    },
-    closeBloomDropDown (e) {
-      this.bloomOpen = false
-    },
-    closeFamilyDropDown (e) {
-      this.familyOpen = false
-    },
-    closeColorDropDown (e) {
-      this.colorOpen = false
+    handleHeightFilter(height) {
+      // setTimeout(() => { this.$store.dispatch('leads/filterHeight', height) }, 500);
+      this.$store.dispatch('leads/filterHeight', height)
     },
     closeHeightDropDown (e) {
       this.heightOpen = false
     },
-    handleColorFilter (color) {
-      this.$store.dispatch('leads/filterColor', color)
+    handleComestibleFilter (comestible) {
+      this.$store.dispatch('leads/filterComestible', comestible)
+    },
+    handleMedicinaleFilter (medicinale) {
+      this.$store.dispatch('leads/filterMedicinale', medicinale)
+    },
+    handlePhotoFilter (hasPhoto) {
+      this.$store.dispatch('leads/filterPhoto', hasPhoto)
     },
     handleSearch: debounce(function (e) {
       this.$store.dispatch('leads/filterSearch', e.target.value)
@@ -374,8 +385,11 @@ export default {
     closeOrderDropDown (e) {
       this.orderOpen = false
     },
-    handleHeightFilter(height) {
-      this.$store.dispatch('leads/filterHeight', height)
+    arrayEquals(a, b) {
+      return Array.isArray(a) &&
+        Array.isArray(b) &&
+        a.length === b.length &&
+        a.every((val, index) => val === b[index]);
     }
   },
   async fetch ({ store }) {
@@ -418,7 +432,14 @@ export default {
     // Set height filter defaults.
     const heightMax = Math.max(...heights)
     this.heightMax = heightMax
-    this.height = [0, heightMax]
+    // this.heightMax = 201
+    this.heightRange = [0, heightMax]
+    this.heightRangeInitial = [0, heightMax]
+    // this.heightRange = [0, 201]
+    // this.height = [0, heightMax]
+    // console.log(this.height);
+    console.log(this.heightRange);
+    console.log(this.heightRangeInitial);
   }
 }
 

@@ -83,12 +83,17 @@ export default {
   ],
 
   pwa: {
+    meta: {
+      theme_color: '#541E76',
+      name: 'Ecoplants',
+      lang: 'fr'
+    },
     // icon: {
     //   source: 'static/app-icon.png',
     //   filename: 'app-icon.png'
     // }
     manifest: {
-      'icons': [
+      icons: [
         {
           'src': 'static/icon.png',
           'sizes': [64, 120, 144, 152, 192, 384, 512],

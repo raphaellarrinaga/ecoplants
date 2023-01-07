@@ -9,12 +9,12 @@ export const state = () => ({
   filter: {
     medicinale: 'false',
     comestible: 'false',
-    height: 'all',
     search: '',
     status: 'all',
     color: 'all',
     sow: 'all',
     bloom: 'all',
+    height: 'all',
     order: 'gsheetNom' // Default is createdAt.
   }
 })
