@@ -38,10 +38,10 @@
       </div>
     </div>
     <div
-      :class="{ 'has-value' : lead.hasOwnProperty('Famille') && lead['Famille'] }"
-      class="plant__item plant__item-famille">
-      <h3><span v-if="lead.hasOwnProperty('Famille') && lead['Famille']">Famille</span></h3>
-      <p class="plant__famille">{{ lead.Famille }}</p>
+      :class="{ 'has-value' : lead.hasOwnProperty('Categorie') && lead['Categorie'] }"
+      class="plant__item plant__item-categorie">
+      <h3><span v-if="lead.hasOwnProperty('Categorie') && lead['Categorie']">Categorie</span></h3>
+      <p class="plant__categorie">{{ lead.Categorie }}</p>
     </div>
     <div
       :class="{ 'has-value' : lead.hasOwnProperty('Cycle') && lead['Cycle'] }"
@@ -77,6 +77,7 @@
       <button
         v-if="
           lead.hasOwnProperty('Type') && lead['Type'] ||
+          lead.hasOwnProperty('Famille') && lead['Famille'] ||
           lead.hasOwnProperty('Origine') && lead['Origine'] ||
           lead.hasOwnProperty('Cycle') && lead['Cycle'] ||
           lead.hasOwnProperty('Rusticite') && lead['Rusticite'] ||
@@ -104,6 +105,7 @@
     <div
       v-if="
         lead.hasOwnProperty('Type') && lead['Type'] ||
+        lead.hasOwnProperty('Famille') && lead['Famille'] ||
         lead.hasOwnProperty('Origine') && lead['Origine'] ||
         lead.hasOwnProperty('Cycle') && lead['Cycle'] ||
         lead.hasOwnProperty('Rusticite') && lead['Rusticite'] ||
@@ -128,6 +130,12 @@
         class="plant__more-item plant__more-item--type">
         <h3>Type</h3>
         <p class="plant__type">{{ lead.Type }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Famille') && lead['Famille']"
+        class="plant__more-item plant__more-item--famille">
+        <h3>Famille</h3>
+        <p class="plant__famille">{{ lead.Famille }}</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Origine') && lead['Origine']"
@@ -397,7 +405,7 @@ export default {
   }
 }
 
-.plant__item-famille,
+.plant__item-categorie,
 .plant__item-cycle {
   @media screen and (min-width: 821px) {
     flex: 0 0 16%;
