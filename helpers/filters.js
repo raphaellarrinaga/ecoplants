@@ -3,9 +3,15 @@ import moment from 'moment'
 export function filterLeads (filter, leads) {
   let filteredList = [...leads]
 
-  // Filter status
-  if (filter.status !== 'all') {
-    const filtered = filteredList.filter(lead => lead.Famille === filter.status)
+  // Filter category
+  if (filter.category !== 'all') {
+    const filtered = filteredList.filter(lead => lead.Categorie === filter.category)
+    filteredList = filtered
+  }
+
+  // Filter family
+  if (filter.family !== 'all') {
+    const filtered = filteredList.filter(lead => lead.Famille === filter.family)
     filteredList = filtered
   }
 

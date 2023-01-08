@@ -22,30 +22,59 @@
         :class="{ 'js-open' : ToggleFilter }"
         class="form-group">
         <div class="form-group__inner">
+
           <div class="form-item form-item--dropdown">
             <p
-              v-click-outside="closeFamilyDropDown"
+              v-click-outside="closeCategoryDropDown"
               class="dropdown-toggle button button--form"
-              :class="{ 'is-active' : status !== 'all' }"
-              @click="familyOpen = !familyOpen"
+              :class="{ 'is-active' : category !== 'all' }"
+              @click="categoryOpen = !categoryOpen"
             >
-              💐
-              <span v-if="status === 'all'">Famille</span>
-              <span v-else>{{ status }}</span>
+              🌴
+              <span v-if="category === 'all'">Catégorie</span>
+              <span v-else>{{ category }}</span>
               ▾
             </p>
-            <ul v-show="familyOpen" class="dropdown">
+            <ul v-show="categoryOpen" class="dropdown">
               <li
-                @click="handleStatusFilter('all')"
+                @click="handleCategoryFilter('all')"
               >
                 Tout
               </li>
               <li
-                v-for="family in familyValues"
-                :key="family.id"
-                :class="{ 'is-active' : status === family }"
-                @click="handleStatusFilter(family)">
-                {{ family }}
+                v-for="categoryValue in categoryValues"
+                :key="categoryValue.id"
+                :class="{ 'is-active' : category === categoryValue }"
+                @click="handleCategoryFilter(categoryValue)">
+                {{ categoryValue }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="form-item form-item--dropdown">
+            <p
+              v-click-outside="closeFamilyDropDown"
+              class="dropdown-toggle button button--form"
+              :class="{ 'is-active' : family !== 'all' }"
+              @click="familyOpen = !familyOpen"
+            >
+              💐
+              <span v-if="family === 'all'">Famille</span>
+              <span v-else>{{ family }}</span>
+              ▾
+            </p>
+            <ul v-show="familyOpen" class="dropdown">
+              <li
+                @click="handleFamilyFilter('all')"
+              >
+                Tout
+              </li>
+              <li
+                v-for="familyValue in familyValues"
+                :key="familyValue.id"
+                :class="{ 'is-active' : family === familyValue }"
+                @click="handleFamilyFilter(familyValue)">
+                {{ familyValue }}
               </li>
             </ul>
           </div>
@@ -301,6 +330,8 @@ export default {
       bloomOpen: false,
       familyOpen: false,
       familyValues: [],
+      categoryOpen: false,
+      categoryValues: [],
       colorOpen: false,
       colorValues: [],
       exposureOpen: false,
@@ -325,8 +356,11 @@ export default {
     search () {
       return this.$store.state.leads.filter.search
     },
-    status () {
-      return this.$store.state.leads.filter.status
+    category () {
+      return this.$store.state.leads.filter.category
+    },
+    family () {
+      return this.$store.state.leads.filter.family
     },
     color () {
       return this.$store.state.leads.filter.color
@@ -362,9 +396,16 @@ export default {
     })
   },
   methods: {
-    handleStatusFilter (status) {
+    handleCategoryFilter (category) {
+      this.categoryOpen = false
+      this.$store.dispatch('leads/filterCategory', category)
+    },
+    closeCategoryDropDown (e) {
+      this.categoryOpen = false
+    },
+    handleFamilyFilter (family) {
       this.familyOpen = false
-      this.$store.dispatch('leads/filterStatus', status)
+      this.$store.dispatch('leads/filterFamily', family)
     },
     closeFamilyDropDown (e) {
       this.familyOpen = false
@@ -439,6 +480,12 @@ export default {
     if (!this.leads.length) {
       this.$store.dispatch('leads/fetchAllLeads')
     }
+
+    // Set category filter.
+    // Fill new array with all Categorie terms.
+    let allCategoryValues = this.leads.map((el)=> el.Categorie);
+    // Remove duplicates, remove empty values and sort.
+    this.categoryValues = [...new Set(allCategoryValues)].filter((a) => a).sort();
 
     // Set family filter.
     // Fill new array with all Famille terms.

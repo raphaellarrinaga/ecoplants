@@ -10,6 +10,9 @@ const { join, resolve } = require('path')
 const { promisify } = require('util')
 const { writeFileSync } = require('fs')
 
+const GOOGLE_SHEET_WOODY = process.env.GOOGLE_SHEET_WOODY
+const WOODY_DATA_SOURCE_URL = GOOGLE_SHEET_WOODY + GOOGLE_API_KEY
+
 const { google } = require('googleapis');
 const scopes = [
   'https://www.googleapis.com/auth/drive'
@@ -90,14 +93,29 @@ module.exports = async function (moduleOptions) {
     const response = await axios.get(SHEET_DATA_SOURCE_URL)
     const rows = response.data.values
     const properties = rows.shift()
-    const articles = []
+    const ecoplants = []
 
     for (const i in rows) {
       // Remove empty rows (= nested arrays).
       if (Array.isArray(rows[i]) && rows[i].length) {
-        articles.push(_.zipObject(properties, rows[i]))
+        ecoplants.push(_.zipObject(properties, rows[i]))
       }
     }
+
+    // Get Google Sheet data.
+    const woody_response = await axios.get(WOODY_DATA_SOURCE_URL)
+    const woody_rows = woody_response.data.values
+    const woody_properties = woody_rows.shift()
+    const woody = []
+
+    for (const i in woody_rows) {
+      // Remove empty rows (= nested arrays).
+      if (Array.isArray(woody_rows[i]) && woody_rows[i].length) {
+        woody.push(_.zipObject(woody_properties, woody_rows[i]))
+      }
+    }
+
+    const articles = ecoplants.concat(woody);
 
     //
     // Get Google Drive data.

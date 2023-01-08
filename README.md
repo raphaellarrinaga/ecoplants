@@ -4,21 +4,13 @@ WIP app build with [Nuxt](https://nuxtjs.org/) to browse plants from a belgian n
 
 ## Roadmap
 
-- scrape infos à importer
-- afficher les datas d'autres types
-- prendre des photos libres pour les manquantes
-- fix multiple "nom scientifiques" display & image matching
-- fix "Lychnis flos-cuculi" structure & image matching
-- cache image/all
-- use global sass helpers
-- gallery page
-- Filter
-  - mois de semis: select, range
-- Change display
-  - cart (grid)
-  - short info x long info x detail page (list/table)
-- Set vernaculaire as first title in the view when it is sorted as it?
-- cleanup data structure names (french, case…)
+- add pictures
+- add reset filter button
+- fix image matching for plants with a "variété"
+- check image caching
+- check global sass helpers
+- add grid display
+- add short info x long info (list/table)
 
 ## SASS
 

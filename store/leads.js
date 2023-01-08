@@ -7,10 +7,11 @@ export const state = () => ({
   filteredLeads: [],
   lead: {},
   filter: {
+    category: 'all',
     medicinale: 'false',
     comestible: 'false',
     search: '',
-    status: 'all',
+    family: 'all',
     color: 'all',
     exposure: 'all',
     sow: 'all',
@@ -34,8 +35,12 @@ export const actions = {
     await commit('setOrder', order)
     await commit('orderLeads')
   },
-  async filterStatus ({ commit, dispatch }, status) {
-    await commit('setFilterStatus', status)
+  async filterCategory ({ commit, dispatch }, category) {
+    await commit('setFilterCategory', category)
+    dispatch('filterLeads')
+  },
+  async filterFamily ({ commit, dispatch }, family) {
+    await commit('setFilterFamily', family)
     dispatch('filterLeads')
   },
   async filterColor ({ commit, dispatch }, color) {
@@ -98,7 +103,8 @@ export const mutations = {
 
   // setFilterStatus, setFilterSearch, and setOrder are only responsible
   // for changing the respective value on the filter object.
-  setFilterStatus (state, status) { state.filter.status = status },
+  setFilterCategory (state, category) { state.filter.category = category },
+  setFilterFamily (state, family) { state.filter.family = family },
   setFilterColor (state, color) { state.filter.color = color },
   setFilterExposure (state, exposure) { state.filter.exposure = exposure },
   setFilterSow (state, sow) { state.filter.sow = sow },
