@@ -13,6 +13,9 @@ const { writeFileSync } = require('fs')
 const GOOGLE_SHEET_WOODY = process.env.GOOGLE_SHEET_WOODY
 const WOODY_DATA_SOURCE_URL = GOOGLE_SHEET_WOODY + GOOGLE_API_KEY
 
+const GOOGLE_SHEET_RENAC = process.env.GOOGLE_SHEET_RENAC
+const RENAC_DATA_SOURCE_URL = GOOGLE_SHEET_RENAC + GOOGLE_API_KEY
+
 const { google } = require('googleapis');
 const scopes = [
   'https://www.googleapis.com/auth/drive'
@@ -102,7 +105,7 @@ module.exports = async function (moduleOptions) {
       }
     }
 
-    // Get Google Sheet data.
+    // Get Woody tab.
     const woody_response = await axios.get(WOODY_DATA_SOURCE_URL)
     const woody_rows = woody_response.data.values
     const woody_properties = woody_rows.shift()
@@ -115,7 +118,21 @@ module.exports = async function (moduleOptions) {
       }
     }
 
-    const articles = ecoplants.concat(woody);
+    // Get Renac tab.
+    const renac_response = await axios.get(RENAC_DATA_SOURCE_URL)
+    const renac_rows = renac_response.data.values
+    const renac_properties = renac_rows.shift()
+    const renac = []
+
+    for (const i in renac_rows) {
+      // Remove empty rows (= nested arrays).
+      if (Array.isArray(renac_rows[i]) && renac_rows[i].length) {
+        renac.push(_.zipObject(renac_properties, renac_rows[i]))
+      }
+    }
+
+    // Merge all tabs
+    const articles = ecoplants.concat(woody, renac);
 
     //
     // Get Google Drive data.
