@@ -108,6 +108,34 @@
 
           <div class="form-item form-item--dropdown">
             <p
+              v-click-outside="closeExposureDropDown"
+              class="dropdown-toggle button button--form"
+              :class="{ 'is-active' : exposure !== 'all' }"
+              @click="exposureOpen = !exposureOpen"
+            >
+              ☀️
+              <span v-if="exposure === 'all'">Exposition</span>
+              <span v-else>{{ exposure }}</span>
+              ▾
+            </p>
+            <ul v-show="exposureOpen" class="dropdown">
+              <li
+                @click="handleExposureFilter('all')"
+              >
+                Tout
+              </li>
+              <li
+                v-for="exposureValue in exposureValues"
+                :key="exposureValue.id"
+                :class="{ 'is-active' : exposure === exposureValue }"
+                @click="handleExposureFilter(exposureValue)">
+                {{ exposureValue }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="form-item form-item--dropdown">
+            <p
               v-click-outside="closeHeightDropDown"
               class="dropdown-toggle button button--form"
               :class="{ 'is-active' : !arrayEquals(heightRange, heightRangeInitial) }"
@@ -275,6 +303,8 @@ export default {
       familyValues: [],
       colorOpen: false,
       colorValues: [],
+      exposureOpen: false,
+      exposureValues: [],
       months: ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"],
       HeightOpen: false,
       heightRangeInitial: [],
@@ -300,6 +330,9 @@ export default {
     },
     color () {
       return this.$store.state.leads.filter.color
+    },
+    exposure () {
+      return this.$store.state.leads.filter.exposure
     },
     sow () {
       return this.$store.state.leads.filter.sow
@@ -342,6 +375,13 @@ export default {
     },
     closeColorDropDown (e) {
       this.colorOpen = false
+    },
+    handleExposureFilter (exposure) {
+      this.exposureOpen = false
+      this.$store.dispatch('leads/filterExposure', exposure)
+    },
+    closeExposureDropDown (e) {
+      this.exposureOpen = false
     },
     handleBloomFilter (bloom) {
       this.bloomOpen = false
@@ -419,8 +459,20 @@ export default {
     // Remove duplicates, remove spaces and sort.
     this.colorValues = [...new Set(colors.map(a => a.trim()).sort())];
 
+    // Set exposure filter.
+    // Fill new array with all Exposition terms.
+    const exposures = []
+    for (let i = 0; i < this.leads.length; i++) {
+      const exposureString = this.leads[i].Exposition;
+      if (exposureString !== undefined && exposureString !== '') {
+        exposures.push(...exposureString.split(","));
+      }
+    }
+
+    // Remove duplicates, remove spaces and sort.
+    this.exposureValues = [...new Set(exposures.map(a => a.trim()).sort())];
+
     // Set heights filter.
-    // Fill new array with all Fleur terms.
     let heights = []
     for (let i = 0; i < this.leads.length; i++) {
       const heightString = this.leads[i].Hauteur;
@@ -432,14 +484,8 @@ export default {
     // Set height filter defaults.
     const heightMax = Math.max(...heights)
     this.heightMax = heightMax
-    // this.heightMax = 201
     this.heightRange = [0, heightMax]
     this.heightRangeInitial = [0, heightMax]
-    // this.heightRange = [0, 201]
-    // this.height = [0, heightMax]
-    // console.log(this.height);
-    console.log(this.heightRange);
-    console.log(this.heightRangeInitial);
   }
 }
 
@@ -499,6 +545,12 @@ export default {
 
 .form-order {
   flex: 1 0 100%;
+
+  .dropdown-toggle {
+    &:hover {
+      color: $link-color;
+    }
+  }
 }
 
 .form-item {

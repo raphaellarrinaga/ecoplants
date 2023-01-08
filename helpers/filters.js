@@ -22,6 +22,19 @@ export function filterLeads (filter, leads) {
     filteredList = filtered
   }
 
+  // Filter exposure
+  if (filter.exposure !== 'all') {
+    const filtered = filteredList.filter(lead => {
+      if (lead.Exposition !== undefined && lead.Exposition !== '') {
+        if (lead.Exposition.toLowerCase().includes(filter.exposure.toLowerCase())) {
+          return lead.Exposition;
+        }
+      }
+    })
+
+    filteredList = filtered
+  }
+
   // Filter height.
   if (filter.height !== 'all') {
     const rangeFilter = filter.height;

@@ -4,13 +4,15 @@ WIP app build with [Nuxt](https://nuxtjs.org/) to browse plants from a belgian n
 
 ## Roadmap
 
-- cache image/all
+- scrape infos à importer
+- afficher les datas d'autres types
+- prendre des photos libres pour les manquantes
 - fix multiple "nom scientifiques" display & image matching
 - fix "Lychnis flos-cuculi" structure & image matching
+- cache image/all
 - use global sass helpers
 - gallery page
 - Filter
-  - hauteur
   - mois de semis: select, range
 - Change display
   - cart (grid)
