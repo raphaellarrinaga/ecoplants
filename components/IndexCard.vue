@@ -132,16 +132,16 @@
         <p class="plant__type">{{ lead.Type }}</p>
       </div>
       <div
-        v-if="lead.hasOwnProperty('Famille') && lead['Famille']"
-        class="plant__more-item plant__more-item--famille">
-        <h3>Famille</h3>
-        <p class="plant__famille">{{ lead.Famille }}</p>
-      </div>
-      <div
         v-if="lead.hasOwnProperty('Origine') && lead['Origine']"
         class="plant__more-item plant__more-item--origine">
         <h3>Origine</h3>
         <p class="plant__origine">{{ lead.Origine }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Famille') && lead['Famille']"
+        class="plant__more-item plant__more-item--famille">
+        <h3>Famille</h3>
+        <p class="plant__famille">{{ lead.Famille }}</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Cycle') && lead['Cycle']"

@@ -9,6 +9,32 @@ export function filterLeads (filter, leads) {
     filteredList = filtered
   }
 
+  // Filter type
+  if (filter.type !== 'all') {
+    const filtered = filteredList.filter(lead => {
+      if (lead.Type !== undefined && lead.Type !== '') {
+        if (lead.Type.toLowerCase().includes(filter.type.toLowerCase())) {
+          return lead.Type;
+        }
+      }
+    })
+
+    filteredList = filtered
+  }
+
+  // Filter origin
+  if (filter.origin !== 'all') {
+    const filtered = filteredList.filter(lead => {
+      if (lead.Origine !== undefined && lead.Origine !== '') {
+        if (lead.Origine.toLowerCase().includes(filter.origin.toLowerCase())) {
+          return lead.Origine;
+        }
+      }
+    })
+
+    filteredList = filtered
+  }
+
   // Filter family
   if (filter.family !== 'all') {
     const filtered = filteredList.filter(lead => lead.Famille === filter.family)

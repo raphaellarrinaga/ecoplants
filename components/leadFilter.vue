@@ -35,7 +35,7 @@
               <span v-else>{{ category }}</span>
               ▾
             </p>
-            <ul v-show="categoryOpen" class="dropdown">
+            <ul v-show="categoryOpen" class="dropdown dropdown--large">
               <li
                 @click="handleCategoryFilter('all')"
               >
@@ -47,6 +47,34 @@
                 :class="{ 'is-active' : category === categoryValue }"
                 @click="handleCategoryFilter(categoryValue)">
                 {{ categoryValue }}
+              </li>
+            </ul>
+          </div>
+
+          <div class="form-item form-item--dropdown">
+            <p
+              v-click-outside="closeTypeDropDown"
+              class="dropdown-toggle button button--form"
+              :class="{ 'is-active' : type !== 'all' }"
+              @click="typeOpen = !typeOpen"
+            >
+              ☘️
+              <span v-if="type === 'all'">Type</span>
+              <span v-else>{{ type }}</span>
+              ▾
+            </p>
+            <ul v-show="typeOpen" class="dropdown dropdown--large">
+              <li
+                @click="handleTypeFilter('all')"
+              >
+                Tout
+              </li>
+              <li
+                v-for="typeValue in typeValues"
+                :key="typeValue.id"
+                :class="{ 'is-active' : type === typeValue }"
+                @click="handleTypeFilter(typeValue)">
+                {{ typeValue }}
               </li>
             </ul>
           </div>
@@ -191,8 +219,34 @@
               </div>
             </div>
           </div>
-                  <!-- @change="handleHeightFilter(height)"
-                  v-model="height"></vue-slider> -->
+
+          <div class="form-item form-item--dropdown">
+            <p
+              v-click-outside="closeOriginDropDown"
+              class="dropdown-toggle button button--form"
+              :class="{ 'is-active' : origin !== 'all' }"
+              @click="originOpen = !originOpen"
+            >
+              🇧🇪
+              <span v-if="origin === 'all'">Origine</span>
+              <span v-else>{{ origin }}</span>
+              ▾
+            </p>
+            <ul v-show="originOpen" class="dropdown">
+              <li
+                @click="handleOriginFilter('all')"
+              >
+                Tout
+              </li>
+              <li
+                v-for="originValue in originValues"
+                :key="originValue.id"
+                :class="{ 'is-active' : origin === originValue }"
+                @click="handleOriginFilter(originValue)">
+                {{ originValue }}
+              </li>
+            </ul>
+          </div>
 
           <!-- <div class="form-item form-item--dropdown">
             <p
@@ -332,6 +386,10 @@ export default {
       familyValues: [],
       categoryOpen: false,
       categoryValues: [],
+      typeOpen: false,
+      typeValues: [],
+      originOpen: false,
+      originValues: [],
       colorOpen: false,
       colorValues: [],
       exposureOpen: false,
@@ -358,6 +416,12 @@ export default {
     },
     category () {
       return this.$store.state.leads.filter.category
+    },
+    type () {
+      return this.$store.state.leads.filter.type
+    },
+    origin () {
+      return this.$store.state.leads.filter.origin
     },
     family () {
       return this.$store.state.leads.filter.family
@@ -402,6 +466,20 @@ export default {
     },
     closeCategoryDropDown (e) {
       this.categoryOpen = false
+    },
+    handleTypeFilter (type) {
+      this.typeOpen = false
+      this.$store.dispatch('leads/filterType', type)
+    },
+    closeTypeDropDown (e) {
+      this.typeOpen = false
+    },
+    handleOriginFilter (origin) {
+      this.originOpen = false
+      this.$store.dispatch('leads/filterOrigin', origin)
+    },
+    closeOriginDropDown (e) {
+      this.originOpen = false
     },
     handleFamilyFilter (family) {
       this.familyOpen = false
@@ -486,6 +564,32 @@ export default {
     let allCategoryValues = this.leads.map((el)=> el.Categorie);
     // Remove duplicates, remove empty values and sort.
     this.categoryValues = [...new Set(allCategoryValues)].filter((a) => a).sort();
+
+    // Set type filter.
+    // Fill new array with all Type terms.
+    const types = []
+    for (let i = 0; i < this.leads.length; i++) {
+      const typeString = this.leads[i].Type;
+      if (typeString !== undefined && typeString !== '') {
+        types.push(...typeString.split(","));
+      }
+    }
+
+    // Remove duplicates, remove spaces and sort.
+    this.typeValues = [...new Set(types.map(a => a.trim()).sort())];
+
+    // Set origin filter.
+    // Fill new array with all Fleur terms.
+    const origins = []
+    for (let i = 0; i < this.leads.length; i++) {
+      const originString = this.leads[i].Origine;
+      if (originString !== undefined && originString !== '') {
+        origins.push(...originString.split(","));
+      }
+    }
+
+    // Remove duplicates, remove spaces and sort.
+    this.originValues = [...new Set(origins.map(a => a.trim()).sort())];
 
     // Set family filter.
     // Fill new array with all Famille terms.
