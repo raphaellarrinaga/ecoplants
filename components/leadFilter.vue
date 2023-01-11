@@ -303,6 +303,19 @@
           </div>
 
           <div
+            :class="{ 'is-active' : invasiveChecked === true }"
+            class="form-item form-item--checkbox button">
+            <input
+              type="checkbox"
+              value="isInvasive"
+              id="isInvasive"
+              v-model="invasiveChecked"
+              @change="handleInvasiveFilter(invasiveChecked)"
+            >
+            <label for="isInvasive">Invasive</label>
+          </div>
+
+          <div
             :class="{ 'is-active' : hasPhotoChecked === true }"
             class="form-item form-item--checkbox button">
             <input
@@ -376,6 +389,7 @@ export default {
       ToggleFilter: false,
       hasPhotoChecked: false,
       medicinaleChecked: false,
+      invasiveChecked: false,
       comestibleChecked: false,
       orderOpen: false,
       orderChanged: false,
@@ -404,6 +418,9 @@ export default {
   computed: {
     medicinale () {
       return this.$store.state.leads.filter.medicinale
+    },
+    invasive () {
+      return this.$store.state.leads.filter.invasive
     },
     comestible () {
       return this.$store.state.leads.filter.comestible
@@ -529,6 +546,9 @@ export default {
     },
     handleMedicinaleFilter (medicinale) {
       this.$store.dispatch('leads/filterMedicinale', medicinale)
+    },
+    handleInvasiveFilter (invasive) {
+      this.$store.dispatch('leads/filterInvasive', invasive)
     },
     handlePhotoFilter (hasPhoto) {
       this.$store.dispatch('leads/filterPhoto', hasPhoto)

@@ -339,6 +339,14 @@ export function filterLeads (filter, leads) {
     filteredList = filtered
   }
 
+  // Filter invasive.
+  if (filter.invasive === true) {
+    const filtered = filteredList.filter(
+      lead => lead.Invasive !== undefined && lead.Invasive !== ""
+    )
+    filteredList = filtered
+  }
+
   // Filter ecotype.
   if (filter.ecotype === true) {
     const filtered = filteredList.filter(

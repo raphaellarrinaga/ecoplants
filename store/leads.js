@@ -11,6 +11,7 @@ export const state = () => ({
     type: 'all',
     origin: 'all',
     medicinale: 'false',
+    invasive: 'false',
     comestible: 'false',
     search: '',
     family: 'all',
@@ -85,6 +86,10 @@ export const actions = {
     await commit('setFilterMedicinale', medicinale)
     dispatch('filterLeads')
   },
+  async filterInvasive ({ commit, dispatch }, invasive) {
+    await commit('setFilterInvasive', invasive)
+    dispatch('filterLeads')
+  },
   async filterEcotype ({ commit, dispatch }, ecotype) {
     await commit('setFilterEcotype', ecotype)
     dispatch('filterLeads')
@@ -125,6 +130,7 @@ export const mutations = {
   setFilterComestible (state, comestible) { state.filter.comestible = comestible },
   setFilterHeight (state, height) { state.filter.height = height },
   setFilterMedicinale (state, medicinale) { state.filter.medicinale = medicinale },
+  setFilterInvasive (state, invasive) { state.filter.invasive = invasive },
   setFilterEcotype (state, ecotype) { state.filter.ecotype = ecotype },
   setFilterPhoto (state, hasPhoto) { state.filter.hasPhoto = hasPhoto },
   setOrder (state, order) { state.filter.order = order },

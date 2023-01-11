@@ -33,6 +33,10 @@
         <p class="plant__latin">
           {{ lead.Nom }}
           <span v-if="lead.Toxique">☠️</span>
+          <span v-if="lead.Invasive">⛔️</span>
+          <span v-if="lead.Comestible">😋</span>
+          <span v-if="lead.Mellifere">🐝</span>
+          <span v-if="lead.Origine === 'Indigène'">🇧🇪</span>
         </p>
         <p class="plant__vernaculaire">{{ lead.NomVernaculaire }}</p>
       </div>
@@ -94,6 +98,7 @@
           lead.hasOwnProperty('Comestible') && lead['Comestible'] ||
           lead.hasOwnProperty('Mellifere') && lead['Mellifere'] ||
           lead.hasOwnProperty('Medicinale') && lead['Medicinale'] ||
+          lead.hasOwnProperty('Invasive') && lead['Invasive'] ||
           lead.hasOwnProperty('Toxique') && lead['Toxique'] ||
           lead.hasOwnProperty('Description') && lead['Description']"
         @click="toggleMore"
@@ -122,6 +127,7 @@
         lead.hasOwnProperty('Comestible') && lead['Comestible'] ||
         lead.hasOwnProperty('Mellifere') && lead['Mellifere'] ||
         lead.hasOwnProperty('Medicinale') && lead['Medicinale'] ||
+        lead.hasOwnProperty('Invasive') && lead['Invasive'] ||
         lead.hasOwnProperty('Toxique') && lead['Toxique'] ||
         lead.hasOwnProperty('Description') && lead['Description']"
       class="plant__more">
@@ -216,6 +222,12 @@
         class="plant__more-item plant__more-item--medicinale">
         <h3>Medicinale</h3>
         <p class="plant__medicinale">{{ lead.Medicinale }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Invasive') && lead['Invasive']"
+        class="plant__more-item plant__more-item--invasive">
+        <h3>Invasive</h3>
+        <p class="plant__invasive">{{ lead.Invasive }}</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Mellifere') && lead['Mellifere']"
@@ -580,6 +592,7 @@ button.plants-toggle-disabled {
 .plant__more-item--remarques,
 .plant__more-item--comestible,
 .plant__more-item--medicinale,
+.plant__more-item--invasive,
 .plant__more-item--description {
   @media screen and (max-width: 821px) {
     display: block;
