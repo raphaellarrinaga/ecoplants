@@ -35,7 +35,7 @@
               <span v-else>{{ category }}</span>
               ▾
             </p>
-            <ul v-show="categoryOpen" class="dropdown dropdown--large">
+            <ul v-show="categoryOpen" class="dropdown">
               <li
                 @click="handleCategoryFilter('all')"
               >
@@ -63,7 +63,7 @@
               <span v-else>{{ type }}</span>
               ▾
             </p>
-            <ul v-show="typeOpen" class="dropdown dropdown--large">
+            <ul v-show="typeOpen" class="dropdown">
               <li
                 @click="handleTypeFilter('all')"
               >
