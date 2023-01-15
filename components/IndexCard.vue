@@ -48,10 +48,10 @@
       <p class="plant__categorie">{{ lead.Categorie }}</p>
     </div>
     <div
-      :class="{ 'has-value' : lead.hasOwnProperty('Cycle') && lead['Cycle'] }"
-      class="plant__item plant__item-cycle">
-      <h3>Cycle</h3>
-      <p class="plant__cycle">{{ lead.Cycle }}</p>
+      :class="{ 'has-value' : lead.hasOwnProperty('Type') && lead['Type'] }"
+      class="plant__item plant__item-type">
+      <h3>Type</h3>
+      <p class="plant__type">{{ lead.Type }}</p>
     </div>
     <div
       :class="{ 'has-value' : lead.hasOwnProperty('Hauteur') && lead['Hauteur'] }"
@@ -167,7 +167,7 @@
         <h3>Feuillage</h3>
         <p class="plant__feuillage">{{ lead.Feuillage }}</p>
       </div>
-      <hr>
+      <hr class="separator">
       <div
         v-if="lead.hasOwnProperty('Exposition') && lead['Exposition']"
         class="plant__more-item plant__more-item--exposition">
@@ -198,7 +198,7 @@
         <h3>Humidité</h3>
         <p class="plant__humidite">{{ lead.Humidite }}</p>
       </div>
-      <hr>
+      <hr class="separator">
       <div
         v-if="lead.hasOwnProperty('Semis') && lead['Semis']"
         class="plant__more-item plant__more-item--semis">
@@ -330,11 +330,16 @@ export default {
     }
   }
 
-  hr {
+  .separator {
+    // Mimic the hr to display it only when necessary.
     border: none;
-    border-top: 1px solid $gray75;
-    margin: 0 0 1rem;
-    height: 1px;
+    height: 0;
+    margin: 0;
+
+    & + .plant__more-item {
+      border-top: 1px solid #eaeaea;
+      padding-top: 1rem;
+    }
   }
 }
 
@@ -418,7 +423,7 @@ export default {
 }
 
 .plant__item-categorie,
-.plant__item-cycle {
+.plant__item-type {
   @media screen and (min-width: 821px) {
     flex: 0 0 16%;
   }

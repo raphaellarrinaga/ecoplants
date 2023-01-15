@@ -16,7 +16,7 @@
         <div class="plants__header">
           <span class="plants__header-latin"></span>
           <span class="plants__header-categorie">Categorie</span>
-          <span class="plants__header-cycle">Cycle</span>
+          <span class="plants__header-type">Type</span>
           <span class="plants__header-hauteur">Taille</span>
           <span class="plants__header-floraison">Floraison</span>
           <span class="plants__header-couleur">Fleur</span>
@@ -103,7 +103,7 @@ export default {
   }
 
   .plants__header-categorie,
-  .plants__header-cycle {
+  .plants__header-type {
     @media screen and (min-width: 821px) {
       flex: 0 0 16%;
     }
