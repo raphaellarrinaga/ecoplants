@@ -2,18 +2,8 @@
   <nav class="nav">
     <ul class="nav-list">
       <li class="nav-list__item">
-        <NuxtLink to="/" class="nav-list__link">
-          Ecoplants
-        </NuxtLink>
-      </li>
-      <li class="nav-list__item">
-        <NuxtLink to="/ligneux" class="nav-list__link">
-          Ligneux
-        </NuxtLink>
-      </li>
-      <li class="nav-list__item">
-        <NuxtLink to="/quiz" class="nav-list__link">
-          Quiz
+        <NuxtLink to="/infos" class="nav-list__link">
+          Infos
         </NuxtLink>
       </li>
     </ul>
@@ -35,10 +25,10 @@
 
 .nav-list__link {
   color: #111;
-  text-decoration: none;
+  text-decoration: underline;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 }
 </style>
