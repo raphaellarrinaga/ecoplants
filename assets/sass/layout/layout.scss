@@ -10,10 +10,17 @@
 }
 
 .page-header {
+  align-items: center;
+  display: flex;
   margin: 1rem 0;
+
+  .nav {
+    margin-left: auto;
+  }
 }
 
 .page-title {
+  font-size: 0;
   margin: 0;
 
   a {

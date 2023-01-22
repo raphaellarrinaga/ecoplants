@@ -8,6 +8,7 @@
             <img src="~/assets/images/logo.svg" data-not-lazy />
           </NuxtLink>
         </h1>
+        <MainNavigation/>
       </header>
 
       <div v-if="leads.length">

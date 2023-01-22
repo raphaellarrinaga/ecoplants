@@ -75,7 +75,7 @@ export default {
     // Generate static JSON based on data fetched from source.
     // Get pictures from Google Drive.
     '~/modules/cgnData.js',
-    '~/modules/woodyData.js',
+    // '~/modules/woodyData.js',
     // '~/modules/driveData.js',
     // ['~/modules/driveData', { token: '123' }]
     // If using ssr: false with production mode without nuxt generate, you have to use modules instead of buildModules.
