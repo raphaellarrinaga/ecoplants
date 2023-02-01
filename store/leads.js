@@ -16,7 +16,7 @@ export const state = () => ({
     comestible: 'false',
     search: '',
     family: 'all',
-    color: 'all',
+    colors: [],
     exposure: 'all',
     sow: 'all',
     bloom: 'all',
@@ -55,8 +55,8 @@ export const actions = {
     await commit('setFilterFamily', family)
     dispatch('filterLeads')
   },
-  async filterColor ({ commit, dispatch }, color) {
-    await commit('setFilterColor', color)
+  async filterColors ({ commit, dispatch }, colors) {
+    await commit('setFilterColors', colors)
     dispatch('filterLeads')
   },
   async filterExposure ({ commit, dispatch }, exposure) {
@@ -141,7 +141,16 @@ export const mutations = {
   },
   setFilterOrigin (state, origin) { state.filter.origin = origin },
   setFilterFamily (state, family) { state.filter.family = family },
-  setFilterColor (state, color) { state.filter.color = color },
+  setFilterColors (state, colors) { state.filter.colors = colors },
+  setColors (state, colors) {
+    state.filter.colors = colors
+  },
+  addColors (state, color) {
+    state.filter.colors.push(color)
+  },
+  removeColors (state, color) {
+    state.filter.colors = state.filter.colors.filter(c => c !== color)
+  },
   setFilterExposure (state, exposure) { state.filter.exposure = exposure },
   setFilterSow (state, sow) { state.filter.sow = sow },
   setFilterBloom (state, bloom) { state.filter.bloom = bloom },

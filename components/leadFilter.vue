@@ -149,15 +149,18 @@
             <p
               v-click-outside="closeColorDropDown"
               class="dropdown-toggle button button--form"
-              :class="{ 'is-active' : color !== 'all' }"
+              :class="{ 'is-active' : colors.length !== 0 }"
               @click="colorOpen = !colorOpen"
             >
               🌈
-              <span v-if="color === 'all'">Fleur</span>
-              <span v-else>{{ color }}</span>
+              <span v-if="colors.length === 0">Fleur</span>
+              <span v-else-if="colors.length === 1">
+                {{ colors[0] }}
+              </span>
+              <span v-else>Multiple</span>
               ▾
             </p>
-            <ul v-show="colorOpen" class="dropdown">
+            <ul v-show="colorOpen" class="dropdown dropdown--multiple">
               <li
                 @click="handleColorFilter('all')"
               >
@@ -166,7 +169,7 @@
               <li
                 v-for="colorValue in colorValues"
                 :key="colorValue.id"
-                :class="{ 'is-active' : color === colorValue }"
+                :class="{ 'is-active' : colors.includes(colorValue) }"
                 @click="handleColorFilter(colorValue)">
                 {{ colorValue }}
               </li>
@@ -483,8 +486,8 @@ export default {
     family () {
       return this.$store.state.leads.filter.family
     },
-    color () {
-      return this.$store.state.leads.filter.color
+    colors () {
+      return this.$store.state.leads.filter.colors
     },
     exposure () {
       return this.$store.state.leads.filter.exposure
@@ -564,9 +567,15 @@ export default {
     closeFamilyDropDown (e) {
       this.familyOpen = false
     },
-    handleColorFilter (color) {
-      this.colorOpen = false
-      this.$store.dispatch('leads/filterColor', color)
+    handleColorFilter (colorLast) {
+      if (colorLast === 'all') {
+        this.$store.commit('leads/setColors', [])
+      } else if(this.colors.includes(colorLast)) {
+        this.$store.commit('leads/removeColors', colorLast)
+      } else {
+        this.$store.commit('leads/addColors', colorLast)
+      }
+      this.$store.dispatch('leads/filterColors', this.colors)
     },
     closeColorDropDown (e) {
       this.colorOpen = false
@@ -653,6 +662,7 @@ export default {
 
     // Remove duplicates, remove spaces and sort.
     this.typeValues = [...new Set(types.map(a => a.trim()).sort())];
+    console.log(this.typeValues);
 
     // Set origin filter.
     // Fill new array with all Fleur terms.
@@ -675,16 +685,16 @@ export default {
 
     // Set color filter.
     // Fill new array with all Fleur terms.
-    const colors = []
+    const fieldsColors = []
     for (let i = 0; i < this.leads.length; i++) {
       const colorString = this.leads[i].Fleur;
       if (colorString !== undefined && colorString !== '') {
-        colors.push(...colorString.split(","));
+        fieldsColors.push(...colorString.split(","));
       }
     }
 
     // Remove duplicates, remove spaces and sort.
-    this.colorValues = [...new Set(colors.map(a => a.trim()).sort())];
+    this.colorValues = [...new Set(fieldsColors.map(a => a.trim()).sort())];
 
     // Set exposure filter.
     // Fill new array with all Exposition terms.

@@ -5,26 +5,21 @@ export function filterLeads (filter, leads) {
 
   // Filter category
   if (filter.category.length !== 0) {
-    const filtered = filteredList.filter(lead => filter.category.includes(lead.Categorie));
+    const filtered = filteredList.filter(str => {
+      return filter.category.some(val => str.Categorie.includes(val));
+    });
+
     filteredList = filtered
   }
 
   // Filter type
   if (filter.type.length !== 0) {
-    const filtered = filteredList.filter(lead => filter.type.includes(lead.Type));
+    const filtered = filteredList.filter(str => {
+      return filter.type.some(val => str.Type.includes(val));
+    });
+
     filteredList = filtered
   }
-  // if (filter.type !== 'all') {
-  //   const filtered = filteredList.filter(lead => {
-  //     if (lead.Type !== undefined && lead.Type !== '') {
-  //       if (lead.Type.toLowerCase().includes(filter.type.toLowerCase())) {
-  //         return lead.Type;
-  //       }
-  //     }
-  //   })
-
-  //   filteredList = filtered
-  // }
 
   // Filter origin
   if (filter.origin !== 'all') {
@@ -45,13 +40,11 @@ export function filterLeads (filter, leads) {
     filteredList = filtered
   }
 
-  // Filter color
-  if (filter.color !== 'all') {
-    const filtered = filteredList.filter(lead => {
-      if (lead.Fleur !== undefined && lead.Fleur !== '') {
-        if (lead.Fleur.toLowerCase().includes(filter.color.toLowerCase())) {
-          return lead.Fleur;
-        }
+  // Filter colors
+  if (filter.colors.length !== 0) {
+    const filtered = filteredList.filter(str => {
+      if (str.Fleur !== undefined && str.Fleur !== '') {
+        return filter.colors.some(val => str.Fleur.includes(val));
       }
     })
 
