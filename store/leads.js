@@ -7,8 +7,9 @@ export const state = () => ({
   filteredLeads: [],
   lead: {},
   filter: {
-    category: 'all',
-    type: 'all',
+    // category: 'all',
+    category: [],
+    type: [],
     origin: 'all',
     medicinale: 'false',
     invasive: 'false',
@@ -119,7 +120,25 @@ export const mutations = {
   // setFilterStatus, setFilterSearch, and setOrder are only responsible
   // for changing the respective value on the filter object.
   setFilterCategory (state, category) { state.filter.category = category },
+  setCategory (state, categories) {
+    state.filter.category = categories
+  },
+  addCategory (state, category) {
+    state.filter.category.push(category)
+  },
+  removeCategory (state, category) {
+    state.filter.category = state.filter.category.filter(c => c !== category)
+  },
   setFilterType (state, type) { state.filter.type = type },
+  setType (state, types) {
+    state.filter.type = types
+  },
+  addType (state, type) {
+    state.filter.type.push(type)
+  },
+  removeType (state, type) {
+    state.filter.type = state.filter.type.filter(c => c !== type)
+  },
   setFilterOrigin (state, origin) { state.filter.origin = origin },
   setFilterFamily (state, family) { state.filter.family = family },
   setFilterColor (state, color) { state.filter.color = color },

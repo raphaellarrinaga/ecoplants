@@ -4,23 +4,27 @@ export function filterLeads (filter, leads) {
   let filteredList = [...leads]
 
   // Filter category
-  if (filter.category !== 'all') {
-    const filtered = filteredList.filter(lead => lead.Categorie === filter.category)
+  if (filter.category.length !== 0) {
+    const filtered = filteredList.filter(lead => filter.category.includes(lead.Categorie));
     filteredList = filtered
   }
 
   // Filter type
-  if (filter.type !== 'all') {
-    const filtered = filteredList.filter(lead => {
-      if (lead.Type !== undefined && lead.Type !== '') {
-        if (lead.Type.toLowerCase().includes(filter.type.toLowerCase())) {
-          return lead.Type;
-        }
-      }
-    })
-
+  if (filter.type.length !== 0) {
+    const filtered = filteredList.filter(lead => filter.type.includes(lead.Type));
     filteredList = filtered
   }
+  // if (filter.type !== 'all') {
+  //   const filtered = filteredList.filter(lead => {
+  //     if (lead.Type !== undefined && lead.Type !== '') {
+  //       if (lead.Type.toLowerCase().includes(filter.type.toLowerCase())) {
+  //         return lead.Type;
+  //       }
+  //     }
+  //   })
+
+  //   filteredList = filtered
+  // }
 
   // Filter origin
   if (filter.origin !== 'all') {

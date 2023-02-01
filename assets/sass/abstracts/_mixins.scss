@@ -170,7 +170,7 @@
 // Create an empty css pseudo element. Reusable for, e.g., icons
 @mixin el($width: 100%, $height: 20px, $display: block) {
   content: '';
-  display: block;
+  display: $display;
   height: $height;
   width: $width;
 }

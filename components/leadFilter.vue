@@ -23,7 +23,41 @@
         class="form-group">
         <div class="form-group__inner">
 
-          <div class="form-item form-item--dropdown">
+          <div
+            v-click-outside="closeCategoryDropDown"
+            class="form-item form-item--dropdown">
+            <p
+              class="dropdown-toggle button button--form"
+              :class="{ 'is-active' : category.length !== 0 }"
+              @click="categoryOpen = !categoryOpen"
+            >
+              🌴
+              <span v-if="category.length === 0">Catégorie</span>
+              <span v-else-if="category.length === 1">
+                {{ category[0] }}
+              </span>
+              <span v-else>Multiple</span>
+              ▾
+            </p>
+           <ul v-show="categoryOpen" class="dropdown dropdown--multiple">
+              <li
+                @click="handleCategoryFilter('all')"
+                :class="{ 'is-active' : category.length === 0 }"
+              >
+                Tout
+              </li>
+              <li
+                v-for="categoryValue in categoryValues"
+                :key="categoryValue.id"
+                :class="{ 'is-active' : category.includes(categoryValue) }"
+                @click="handleCategoryFilter(categoryValue)"
+              >
+                {{ categoryValue }}
+              </li>
+            </ul>
+          </div>
+
+          <!-- <div class="form-item form-item--dropdown">
             <p
               v-click-outside="closeCategoryDropDown"
               class="dropdown-toggle button button--form"
@@ -49,30 +83,34 @@
                 {{ categoryValue }}
               </li>
             </ul>
-          </div>
+          </div> -->
 
           <div class="form-item form-item--dropdown">
             <p
               v-click-outside="closeTypeDropDown"
               class="dropdown-toggle button button--form"
-              :class="{ 'is-active' : type !== 'all' }"
+              :class="{ 'is-active' : type.length !== 0 }"
               @click="typeOpen = !typeOpen"
             >
               ☘️
-              <span v-if="type === 'all'">Type</span>
-              <span v-else>{{ type }}</span>
+              <span v-if="type.length === 0">Type</span>
+              <span v-else-if="type.length === 1">
+                {{ type[0] }}
+              </span>
+              <span v-else>Multiple</span>
               ▾
             </p>
-            <ul v-show="typeOpen" class="dropdown">
+            <ul v-show="typeOpen" class="dropdown dropdown--multiple">
               <li
                 @click="handleTypeFilter('all')"
+                :class="{ 'is-active' : type.length === 0 }"
               >
                 Tout
               </li>
               <li
                 v-for="typeValue in typeValues"
                 :key="typeValue.id"
-                :class="{ 'is-active' : type === typeValue }"
+                :class="{ 'is-active' : type.includes(typeValue) }"
                 @click="handleTypeFilter(typeValue)">
                 {{ typeValue }}
               </li>
@@ -400,6 +438,8 @@ export default {
       familyValues: [],
       categoryOpen: false,
       categoryValues: [],
+      categoryValuesSelected: [],
+      selectedCategories: [],
       typeOpen: false,
       typeValues: [],
       originOpen: false,
@@ -476,17 +516,36 @@ export default {
       'filteredLeads': 'leads/getFilteredLeads',
     })
   },
+  async fetch ({ store }) {
+    await store.dispatch('leads/fetchAllLeads')
+  },
   methods: {
-    handleCategoryFilter (category) {
-      this.categoryOpen = false
-      this.$store.dispatch('leads/filterCategory', category)
+    handleCategoryFilter(categoryLast) {
+      if (categoryLast === 'all') {
+        this.$store.commit('leads/setCategory', [])
+      } else if(this.category.includes(categoryLast)) {
+        this.$store.commit('leads/removeCategory', categoryLast)
+      } else {
+        this.$store.commit('leads/addCategory', categoryLast)
+      }
+      this.$store.dispatch('leads/filterCategory', this.category)
+    //   this.categoryOpen = false
+    //   this.$store.dispatch('leads/filterCategory', category)
     },
     closeCategoryDropDown (e) {
       this.categoryOpen = false
     },
-    handleTypeFilter (type) {
-      this.typeOpen = false
-      this.$store.dispatch('leads/filterType', type)
+    handleTypeFilter (typeLast) {
+      if (typeLast === 'all') {
+        this.$store.commit('leads/setType', [])
+      } else if(this.type.includes(typeLast)) {
+        this.$store.commit('leads/removeType', typeLast)
+      } else {
+        this.$store.commit('leads/addType', typeLast)
+      }
+      this.$store.dispatch('leads/filterType', this.type)
+      // this.typeOpen = false
+      // this.$store.dispatch('leads/filterType', type)
     },
     closeTypeDropDown (e) {
       this.typeOpen = false
@@ -570,9 +629,6 @@ export default {
         a.length === b.length &&
         a.every((val, index) => val === b[index]);
     }
-  },
-  async fetch ({ store }) {
-    await store.dispatch('leads/fetchAllLeads')
   },
   mounted () {
     if (!this.leads.length) {
@@ -885,7 +941,7 @@ export default {
 
   li {
     cursor: pointer;
-    padding: .5rem .8rem;
+    padding: .5rem .6rem;
     border-radius: 3px;
 
     &:hover {
@@ -896,12 +952,6 @@ export default {
       font-weight: bold;
     }
   }
-}
-
-.dropdown--large {
-  min-width: 12rem;
-  // Removed to make le slider tooltip visible.
-  overflow: visible;
 }
 
 .dropdown__current {
@@ -926,6 +976,35 @@ export default {
   &.is-active {
     border-color: rgb(78, 87, 188);
     background: rgb(237, 238, 253);
+  }
+}
+
+.dropdown--large {
+  min-width: 12rem;
+  // Removed to make le slider tooltip visible.
+  overflow: visible;
+}
+
+.dropdown--multiple {
+  li {
+    display: flex;
+    align-items: center;
+
+    &.is-active {
+      &:before {
+        border-color: $link-color;
+        background: $link-color;
+        box-shadow: inset 0 0 0 1px $white;
+      }
+    }
+
+    &:before {
+      @include el(.7rem, .7rem, inline-block);
+      border: 1px solid $gray75;
+      border-radius: 2px;
+      margin-right: .5rem;
+      vertical-align: middle;
+    }
   }
 }
 
