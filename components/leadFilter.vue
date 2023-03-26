@@ -163,6 +163,7 @@
             <ul v-show="colorOpen" class="dropdown dropdown--multiple">
               <li
                 @click="handleColorFilter('all')"
+                :class="{ 'is-active' : colors.length === 0 }"
               >
                 Tout
               </li>
