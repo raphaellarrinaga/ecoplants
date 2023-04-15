@@ -2,12 +2,15 @@
   <div class="content">
     <div class="page">
       <main>
-        <div class="gallery-nav">
-          <button class="gallery-nav__button" @click="setAll">Tout</button>
-          <button class="gallery-nav__button" @click="setBfg">BFG</button>
-          <button class="gallery-nav__button" @click="setVivaces">Vivaces</button>
-          <button class="gallery-nav__button" @click="setAromatiques">Aro</button>
-        </div>
+        <header class="page-header">
+          <div class="gallery-nav">
+            <button class="gallery-nav__button" @click="setAll">Tout</button>
+            <button class="gallery-nav__button" @click="setBfg">BFG</button>
+            <button class="gallery-nav__button" @click="setVivaces">Vivaces</button>
+            <button class="gallery-nav__button" @click="setAromatiques">Aro</button>
+          </div>
+          <MainNavigation/>
+        </header>
         <div v-if="plants.length" class="gallery">
           <button
             @click="randomize"
@@ -166,6 +169,13 @@ export default {
 <style lang="scss">
 html {
   background-color: #f8f9fd;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  align-items: baseline;
 }
 
 .toggle-names-button,
@@ -351,7 +361,7 @@ html {
 }
 
 .gallery-nav {
-  margin: .5rem 0;
+  margin: .5rem 0 0;
 }
 
 .gallery-nav__button {
