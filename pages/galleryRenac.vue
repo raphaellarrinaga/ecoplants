@@ -39,6 +39,8 @@
                   <span class="gallery-item__label">Type: </span>{{ item.type }}<span v-if="item.propagation"> ({{ item.propagation }})</span></p>
                 <p class="gallery-item__season">
                   <span class="gallery-item__label">Saison: </span>{{ item.season }}<span v-if="item.propagation"> ({{ item.propagation }})</span></p>
+                <p class="gallery-item__density">
+                  <span class="gallery-item__label">Densité: </span>{{ item.density }}</p>
                 <p class="gallery-item__height">
                   <span class="gallery-item__label">Hauteur: </span>{{ item.height }}cm</p>
                 <p class="gallery-item__ground">
@@ -47,8 +49,6 @@
                   <span class="gallery-item__label">Exposition: </span>{{ item.exposition }}</p>
                 <p class="gallery-item__usage">
                   <span class="gallery-item__label">Intérêt: </span>{{ item.usage }}</p>
-                <p class="gallery-item__density">
-                  <span class="gallery-item__label">Densité: </span>{{ item.density }}</p>
                 <p class="gallery-item__bloom">
                   <span class="gallery-item__label">Floraison: </span>{{ item.bloom }}</p>
               </div>
@@ -171,12 +171,12 @@ html {
   background-color: #f8f9fd;
 }
 
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  align-items: baseline;
-}
+// .page-header {
+//   display: flex;
+//   justify-content: space-between;
+//   margin: 0;
+//   align-items: baseline;
+// }
 
 .toggle-names-button,
 .random-button {
