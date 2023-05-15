@@ -82,9 +82,17 @@ export default {
 
 <style lang="scss">
 .plants-layout-grid {
+  > * {
+    margin-bottom: 1rem;
+
+    @media screen and (min-width: 460px) {
+      margin-bottom: 0;
+    }
+  }
+
   @media screen and (min-width: 460px) {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
 
