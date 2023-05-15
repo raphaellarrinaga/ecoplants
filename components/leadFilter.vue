@@ -375,42 +375,57 @@
 
     <div class="form-count">{{ filteredLeads.length }} résultats</div>
 
-    <div class="form-order">
-      <div class="form-item form-item--dropdown">
-        <p
-          v-click-outside="closeOrderDropDown"
-          class="dropdown-toggle"
-          @click="orderOpen = !orderOpen"
-        >
-          <span class="dropdown__label">⩦ Trier par</span>
-          <!-- <span v-show="orderChanged" class="dropdown__current">{{ orderText }}</span> -->
-          <span class="dropdown__current">{{ orderText }}</span>
-        </p>
-        <ul v-show="orderOpen" class="dropdown">
-          <li
-            class=""
-            :class="{ '' : order === 'Nom' }"
-            @click="handleFilterOrder('Nom')"
+    <div class="form-order-group">
+      <div class="form-order">
+        <div class="form-item form-item--dropdown">
+          <p
+            v-click-outside="closeOrderDropDown"
+            class="dropdown-toggle"
+            @click="orderOpen = !orderOpen"
           >
-            Nom scientifique
-          </li>
-          <li
-            class=""
-            :class="{ '' : order === 'NomVernaculaire' }"
-            @click="handleFilterOrder('NomVernaculaire')"
-          >
-            Nom vernaculaire
-          </li>
-          <li
-            class=""
-            :class="{ '' : order === 'Famille' }"
-            @click="handleFilterOrder('Famille')"
-          >
-            Famille
-          </li>
-        </ul>
+            <span class="dropdown__label">⩦ Trier par</span>
+            <!-- <span v-show="orderChanged" class="dropdown__current">{{ orderText }}</span> -->
+            <span class="dropdown__current">{{ orderText }}</span>
+          </p>
+          <ul v-show="orderOpen" class="dropdown">
+            <li
+              class=""
+              :class="{ '' : order === 'Nom' }"
+              @click="handleFilterOrder('Nom')"
+            >
+              Nom scientifique
+            </li>
+            <li
+              class=""
+              :class="{ '' : order === 'NomVernaculaire' }"
+              @click="handleFilterOrder('NomVernaculaire')"
+            >
+              Nom vernaculaire
+            </li>
+            <li
+              class=""
+              :class="{ '' : order === 'Famille' }"
+              @click="handleFilterOrder('Famille')"
+            >
+              Famille
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="form-layout">
+        <!-- ⧻⫢⧄≡⊞⊟⊠ -->
+        <a
+          class="button"
+          :class="{ 'button--unchecked' : layout === 'grid' }"
+          @click="handleLayoutChange('table')">⫢ Tableau</a>
+        <a
+          class="button"
+          :class="{ 'button--unchecked' : layout === 'table' }"
+          @click="handleLayoutChange('grid')">⊞ Grille</a>
       </div>
     </div>
+
   </div>
 
 </template>
@@ -505,6 +520,9 @@ export default {
     order () {
       return this.$store.state.leads.filter.order
     },
+    layout () {
+      return this.$store.state.leads.layout
+    },
     orderText () {
       switch (this.order) {
         case 'NomVernaculaire':
@@ -524,6 +542,9 @@ export default {
     await store.dispatch('leads/fetchAllLeads')
   },
   methods: {
+    handleLayoutChange(layoutView) {
+      this.$store.commit('leads/setLayout', layoutView);
+    },
     handleCategoryFilter(categoryLast) {
       if (categoryLast === 'all') {
         this.$store.commit('leads/setCategory', [])
@@ -663,7 +684,6 @@ export default {
 
     // Remove duplicates, remove spaces and sort.
     this.typeValues = [...new Set(types.map(a => a.trim()).sort())];
-    console.log(this.typeValues);
 
     // Set origin filter.
     // Fill new array with all Fleur terms.
@@ -781,7 +801,10 @@ export default {
   }
 }
 
-.form-order {
+.form-order-group {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
   flex: 1 0 100%;
 
   .dropdown-toggle {
@@ -789,6 +812,10 @@ export default {
       color: $link-color;
     }
   }
+}
+
+.form-layout {
+  margin-bottom: 1rem;
 }
 
 .form-item {
@@ -833,23 +860,6 @@ export default {
 
   @media screen and (min-width: 821px) {
     display: inline-block;
-  }
-}
-
-.button {
-  background: #fcfcfc;
-  border-radius: 3px;
-  border: 1px solid #dbdbdb;
-  color: #0a2336;
-  font-size: .88rem;
-  line-height: 1.5;
-  padding: .3rem .6rem .2rem;
-  cursor: pointer;
-  box-shadow: rgba(#111, .06) 0 1px 1px;
-
-  &:hover {
-    border-color: darken(#dbdbdb, 10%);
-    box-shadow: rgba(#111, .06) 0 2px 2px;
   }
 }
 

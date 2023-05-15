@@ -72,3 +72,28 @@
 //     margin: rhythm(1) auto;
 //   }
 // }
+
+.button {
+  background: #fcfcfc;
+  border-radius: 3px;
+  border: 1px solid #dbdbdb;
+  color: #0a2336;
+  font-size: .88rem;
+  line-height: 1.5;
+  padding: .3rem .6rem .2rem;
+  cursor: pointer;
+  box-shadow: rgba(#111, .06) 0 1px 1px;
+
+  &:hover {
+    border-color: darken(#dbdbdb, 10%);
+    box-shadow: rgba(#111, .06) 0 2px 2px;
+  }
+}
+
+.button--unstyled {
+  @include button-unstyled;
+}
+
+.button--unchecked {
+  @include button-unchecked;
+}

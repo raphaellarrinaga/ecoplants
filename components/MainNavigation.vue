@@ -3,7 +3,7 @@
     <ul class="nav-list">
       <li class="nav-list__item">
         <NuxtLink to="/galleryrenac" class="nav-list__link">
-          Gallery
+          Galerie
         </NuxtLink>
       </li>
       <li class="nav-list__item">

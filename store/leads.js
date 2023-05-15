@@ -6,6 +6,7 @@ export const state = () => ({
   leads: [],
   filteredLeads: [],
   lead: {},
+  layout: 'table',
   filter: {
     // category: 'all',
     category: [],
@@ -38,6 +39,9 @@ export const actions = {
   async filterOrder ({ commit }, order) {
     await commit('setOrder', order)
     await commit('orderLeads')
+  },
+  async filterLayout ({ commit }, layout) {
+    await commit('setLayout', layout)
   },
   async filterCategory ({ commit, dispatch }, category) {
     await commit('setFilterCategory', category)
@@ -162,6 +166,7 @@ export const mutations = {
   setFilterEcotype (state, ecotype) { state.filter.ecotype = ecotype },
   setFilterPhoto (state, hasPhoto) { state.filter.hasPhoto = hasPhoto },
   setOrder (state, order) { state.filter.order = order },
+  setLayout (state, layout) { state.layout = layout },
 
   // filterLeads first makes a local copy of all leads. We reset our filteredLeads
   // list to include all leads. Finally, we call our filter method and store this new list on the state.

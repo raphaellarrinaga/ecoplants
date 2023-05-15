@@ -14,7 +14,7 @@
       <div v-if="leads.length">
         <LeadFilter />
 
-        <div class="plants__header">
+        <div v-if="layout === 'table'" class="plants__header">
           <span class="plants__header-latin"></span>
           <span class="plants__header-categorie">Categorie</span>
           <span class="plants__header-type">Type</span>
@@ -23,13 +23,17 @@
           <span class="plants__header-couleur">Fleur</span>
           <span class="plants__header-actions"></span>
         </div>
+
         <div class="plants">
-          <div v-if="filteredLeads.length">
+          <div
+            :class="{ 'plants-layout-grid': layout === 'grid' }"
+            v-if="filteredLeads.length">
             <article
               v-for="lead in filteredLeads"
               :key="lead.id"
+              :class="{ 'plant--table': layout === 'table', 'plant--grid': layout === 'grid' }"
               class="plant">
-              <IndexCard :lead="lead" />
+              <IndexTableItem :lead="lead" />
             </article>
           </div>
           <div v-if="!filteredLeads.length">
@@ -49,13 +53,16 @@
 <script>
 import { mapGetters } from 'vuex'
 import LeadFilter from '~/components/leadFilter'
-import IndexCard from '~/components/IndexCard'
+import IndexTableItem from '~/components/IndexTableItem'
 import MainNavigation from '~/components/MainNavigation'
 
 export default {
   name: 'IndexPage',
-  components: { IndexCard, LeadFilter, MainNavigation },
+  components: { IndexTableItem, LeadFilter, MainNavigation },
   computed: {
+    layout () {
+      return this.$store.state.leads.layout
+    },
     ...mapGetters({
       'leads': 'leads/getLeads',
       'filteredLeads': 'leads/getFilteredLeads',
@@ -74,6 +81,22 @@ export default {
 </script>
 
 <style lang="scss">
+.plants-layout-grid {
+  @media screen and (min-width: 460px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media screen and (min-width: 1000px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @media screen and (min-width: 1400px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
 .plants__header {
   border-bottom: 1px solid #eaeaea;
   font-weight: bold;

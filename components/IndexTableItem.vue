@@ -102,10 +102,10 @@
           lead.hasOwnProperty('Toxique') && lead['Toxique'] ||
           lead.hasOwnProperty('Description') && lead['Description']"
         @click="toggleMore"
-        class="button plants-toggle">Détail ▾</button>
+        class="button plants-toggle">Détail <i>▾</i></button>
       <button
         v-else
-        class="button plants-toggle-disabled">Détail ▾</button>
+        class="button plants-toggle-disabled">Détail <i>▾</i></button>
     </div>
     <div
       v-if="
@@ -279,7 +279,162 @@ export default {
 </script>
 
 <style lang="scss">
-.plant {
+.plant__images-count {
+  background: rgba(#111, .5);
+  border-radius: 3px;
+  bottom: 3px;
+  color: rgba(#fefefe, .8);
+  font-size: .875rem;
+  right: 3px;
+  line-height: 1;
+  padding: .1rem .3rem;
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  transition: none;
+}
+
+.plant__thumb-placeholder {
+  background: #e5e5e5;
+  border-radius: 4px;
+  height: 100%;
+  width: 100%;
+}
+
+.plant__more {
+  // @todo refine behavior.
+  display: none;
+  .is-open & {
+    display: block;
+  }
+}
+
+.plant--grid {
+  background: $white;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  // padding: 0 1rem;
+
+  .plant__item-image {
+    position: relative;
+    // margin: 0 -1rem;
+    display: block;
+    height: 12rem;
+    width: 100%;
+  }
+
+  .plant__thumb {
+    img {
+      object-fit: cover;
+      object-position: center center;
+      height: 100%;
+      width: 100%;
+    }
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      // box-shadow: 0 0 0 2px #007aff;
+    }
+
+  }
+
+  .plant__header {
+    padding: 0 1rem;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: .5rem;
+    transition: none;
+  }
+
+  .plant__latin {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: .1rem;
+    margin-top: .5rem;
+  }
+
+  .plant__vernaculaire {
+    margin-top: 0;
+    margin-bottom: .5rem;
+
+    @media screen and (min-width: 421px) {
+      flex-basis: 3rem;
+    }
+  }
+
+  .plant__item {
+    &:not(.plant__item-actions):not(.plant__item-name) {
+      display: flex;
+      margin-bottom: .5rem;
+      padding: 0 1rem;
+
+      &:not(.has-value) {
+        display: none;
+      }
+
+      h3 {
+        margin-right: .5rem;
+      }
+
+      h3, p {
+        font-size: 1rem;
+        line-height: 1.2;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+    }
+  }
+
+  &:hover {
+    .plant__item-actions {
+      display: block;
+    }
+  }
+
+  .plant__item-actions {
+    display: none;
+    // bottom: 1rem;
+    top: 1rem;
+    position: absolute;
+    right: 1rem;
+    z-index: 2;
+
+    .button {
+      i {
+        display: none;
+      }
+    }
+  }
+
+  .plant__more {
+    background: $white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    overflow: scroll;
+  }
+
+  .plant__more-item {
+    display: flex;
+
+    h3 {
+      margin-right: .5rem;
+    }
+
+    h3, p {
+      font-size: 1rem;
+      line-height: 1.2;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+}
+
+.plant--table {
   margin-bottom: 0;
   position: relative;
 
@@ -304,303 +459,278 @@ export default {
   }
 }
 
-.plant__inner {
-  border-bottom: 1px solid #eaeaea;
-  padding: 1rem 0;
-  position: relative;
+.plant--table {
+  .plant__inner {
+    border-bottom: 1px solid #eaeaea;
+    padding: 1rem 0;
+    position: relative;
+    transition: none;
 
-  @media screen and (min-width: 821px) {
-    display: flex;
-    align-items: flex-start;
-    flex-flow: row wrap;
-    padding: .8rem 0;
-  }
-
-  .plant__latin {
-    font-weight: bold;
-    margin-bottom: .2rem;
-  }
-
-  .plant__vernaculaire {
-    font-size: .9rem;
-    margin-bottom: 0;
-
-    @media screen and (min-width: 421px) {
-      flex-basis: 3rem;
-    }
-  }
-
-  .separator {
-    // Mimic the hr to display it only when necessary.
-    border: none;
-    height: 0;
-    margin: 0;
-
-    & + .plant__more-item {
-      border-top: 1px solid #eaeaea;
-      padding-top: 1rem;
-    }
-  }
-}
-
-.plant__item {
-  @media screen and (max-width: 821px) {
-    display: flex;
-  }
-
-  // All items after the head/name.
-  & + .plant__item {
-    p {
-      hyphens: auto;
-      word-break: break-all;
-      word-wrap: break-word;
+    @media screen and (min-width: 821px) {
+      display: flex;
+      align-items: flex-start;
+      flex-flow: row wrap;
+      padding: .8rem 0;
     }
 
-    @media screen and (max-width: 821px) {
-      display: none;
+    .plant__latin {
+      font-weight: bold;
+      margin-bottom: .2rem;
+    }
 
-      .is-open &.has-value {
-        display: flex;
-        align-items: flex-start;
+    .plant__vernaculaire {
+      font-size: .9rem;
+      margin-bottom: 0;
+
+      @media screen and (min-width: 421px) {
+        flex-basis: 3rem;
+      }
+    }
+
+    .separator {
+      // Mimic the hr to display it only when necessary.
+      border: none;
+      height: 0;
+      margin: 0;
+
+      & + .plant__more-item {
+        border-top: 1px solid #eaeaea;
+        padding-top: 1rem;
       }
     }
   }
 
-  &:not(.has-value) {
+  .plant__item {
     @media screen and (max-width: 821px) {
-      display: none;
+      display: flex;
+    }
+
+    // All items after the head/name.
+    & + .plant__item {
+      p {
+        hyphens: auto;
+        word-break: break-all;
+        word-wrap: break-word;
+      }
+
+      @media screen and (max-width: 821px) {
+        display: none;
+
+        .is-open &.has-value {
+          display: flex;
+          align-items: flex-start;
+        }
+      }
+    }
+
+    &:not(.has-value) {
+      @media screen and (max-width: 821px) {
+        display: none;
+      }
+    }
+
+    h3 {
+      color: #777;
+      flex: 0 0 40%;
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 1.5;
+      margin: .25rem 0 1rem;
+      text-transform: uppercase;
+
+      @media screen and (min-width: 421px) {
+        flex-basis: 8rem;
+      }
+
+      @media screen and (min-width: 821px) {
+        display: none;
+      }
+    }
+
+    p {
+      flex: 0 0 60%;
+      margin-top: 0;
+      margin-bottom: 1rem;
+
+      @media screen and (min-width: 821px) {
+        margin-bottom: 0;
+        margin-right: 1rem;
+      }
     }
   }
 
-  h3 {
-    color: #777;
-    flex: 0 0 40%;
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 1.5;
-    margin: .25rem 0 1rem;
-    text-transform: uppercase;
-
-    @media screen and (min-width: 421px) {
-      flex-basis: 8rem;
-    }
+  .plant__item-name {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
 
     @media screen and (min-width: 821px) {
-      display: none;
+      flex-basis: 41%;
+    }
+
+    @media screen and (min-width: 1021px) {
+      flex-basis: 40%;
+    }
+
+    .is-open & {
+      @media screen and (max-width: 821px) {
+        margin-bottom: 1rem;
+      }
     }
   }
 
-  p {
-    flex: 0 0 60%;
-    margin-top: 0;
-    margin-bottom: 1rem;
+  .plant__item-categorie,
+  .plant__item-type {
+    @media screen and (min-width: 821px) {
+      flex: 0 0 16%;
+    }
+
+    @media screen and (min-width: 1021px) {
+      flex-basis: 14%;
+    }
+  }
+
+  .plant__item-hauteur,
+  .plant__item-floraison,
+  .plant__item-color {
+    @media screen and (min-width: 821px) {
+      flex: 0 0 9%;
+    }
+
+    @media screen and (min-width: 1021px) {
+      flex-basis: 8%;
+    }
+  }
+
+  .plant__item.plant__item-actions {
+    display: block;
+    flex: 0 1 0%;
+
+    @media screen and (max-width: 1020px) {
+      bottom: 0;
+      left: 4rem;
+      right: 0;
+      top: 0;
+      position: absolute;
+    }
+
+    @media screen and (min-width: 1021px) {
+      flex: 0 0 8%;
+      margin-top: 0;
+      text-align: right;
+    }
+  }
+
+  .plant__header {
+    padding-left: 15px;
 
     @media screen and (min-width: 821px) {
-      margin-bottom: 0;
       margin-right: 1rem;
     }
   }
-}
 
-.plant__item-name {
-  align-items: center;
-  display: flex;
-  flex-flow: row nowrap;
-
-  @media screen and (min-width: 821px) {
-    flex-basis: 41%;
+  .plant__item-image {
+    position: relative;
+    flex: 0 0 auto;
+    height: 60px;
+    width: 50px;
   }
 
-  @media screen and (min-width: 1021px) {
-    flex-basis: 40%;
+  .plant__thumb {
+    display: block;
+    line-height: 0;
+    border-radius: 4px;
+    overflow: hidden;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      box-shadow: 0 0 0 2px #007aff;
+    }
+
+    img {
+      max-width: 100%;
+    }
   }
 
-  .is-open & {
-    @media screen and (max-width: 821px) {
+  // Needs overcibling
+  // @todo use global disabled class helper
+  button.plants-toggle-disabled {
+    background-color: #dadada;
+    color: #a0a0a0;
+    cursor: default;
+
+    @media screen and (max-width: 1020px) {
+      display: none;
+    }
+  }
+
+  .plants-toggle {
+    @media screen and (max-width: 1020px) {
+      bottom: 0;
+      left: 0;
+      top: 0;
+      width: 100%;
+      opacity: 0;
+      position: absolute;
+    }
+
+    @media screen and (min-width: 1021px) {
+      display: inline-block;
+      width: auto;
+    }
+
+    .is-open & {
+      background: #ececec;
+      box-shadow: inset 1px 1px 1px rgba(#111, .14);
+    }
+  }
+
+  .plant__more-item {
+    margin-bottom: 1rem;
+
+    @media screen and (min-width: 821px) {
+      flex: 1 0 100%;
+      margin-bottom: 0;
+      margin-top: .25rem;
+      padding-top: 1rem;
+      padding-left: 65px;
+    }
+  }
+
+  .plant__more-item {
+    display: flex;
+    align-items: flex-start;
+
+    h3 {
+      color: #777;
+      flex: 0 0 40%;
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 1.5;
+      margin: .25rem 0 1rem;
+      text-transform: uppercase;
+
+      @media screen and (min-width: 421px) {
+        flex-basis: 8rem;
+      }
+    }
+
+    p {
+      flex: 0 0 60%;
+      margin-top: 0;
       margin-bottom: 1rem;
     }
   }
-}
 
-.plant__item-categorie,
-.plant__item-type {
-  @media screen and (min-width: 821px) {
-    flex: 0 0 16%;
-  }
-
-  @media screen and (min-width: 1021px) {
-    flex-basis: 14%;
-  }
-}
-
-.plant__item-hauteur,
-.plant__item-floraison,
-.plant__item-color {
-  @media screen and (min-width: 821px) {
-    flex: 0 0 9%;
-  }
-
-  @media screen and (min-width: 1021px) {
-    flex-basis: 8%;
-  }
-}
-
-.plant__item.plant__item-actions {
-  display: block;
-  flex: 0 1 0%;
-
-  @media screen and (max-width: 1020px) {
-    bottom: 0;
-    left: 4rem;
-    right: 0;
-    top: 0;
-    position: absolute;
-  }
-
-  @media screen and (min-width: 1021px) {
-    flex: 0 0 8%;
-    margin-top: 0;
-    text-align: right;
-  }
-}
-
-.plant__header {
-  padding-left: 15px;
-
-  @media screen and (min-width: 821px) {
-    margin-right: 1rem;
-  }
-}
-
-.plant__item-image {
-  position: relative;
-  flex: 0 0 auto;
-  height: 60px;
-  width: 50px;
-}
-
-.plant__images-count {
-  background: rgba(#111, .5);
-  border-radius: 3px;
-  bottom: 3px;
-  color: rgba(#fefefe, .8);
-  font-size: .875rem;
-  right: 3px;
-  line-height: 1;
-  padding: .1rem .3rem;
-  position: absolute;
-  pointer-events: none;
-  user-select: none;
-}
-
-.plant__thumb {
-  display: block;
-  line-height: 0;
-  border-radius: 4px;
-  overflow: hidden;
-
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    box-shadow: 0 0 0 2px #007aff;
-  }
-
-  img {
-    max-width: 100%;
-  }
-}
-
-.plant__thumb-placeholder {
-  background: #e5e5e5;
-  border-radius: 4px;
-  height: 100%;
-  width: 100%;
-}
-
-// Needs overcibling
-// @todo use global disabled class helper
-button.plants-toggle-disabled {
-  background-color: #dadada;
-  color: #a0a0a0;
-  cursor: default;
-
-  @media screen and (max-width: 1020px) {
-    display: none;
-  }
-}
-
-.plants-toggle {
-  @media screen and (max-width: 1020px) {
-    bottom: 0;
-    left: 0;
-    top: 0;
-    width: 100%;
-    opacity: 0;
-    position: absolute;
-  }
-
-  @media screen and (min-width: 1021px) {
-    display: inline-block;
-    width: auto;
-  }
-
-  .is-open & {
-    background: #ececec;
-    box-shadow: inset 1px 1px 1px rgba(#111, .14);
-  }
-}
-
-.plant__more {
-  margin-bottom: 1rem;
-
-  @media screen and (min-width: 821px) {
-    flex: 1 0 100%;
-    margin-bottom: 0;
-    margin-top: .25rem;
-    // padding: 1rem .5rem 0;
-    padding-top: 1rem;
-    padding-left: 65px;
-  }
-
-  // @todo refine behavior.
-  display: none;
-  .is-open & {
-    display: block;
-  }
-}
-
-.plant__more-item {
-  display: flex;
-  align-items: flex-start;
-
-  h3 {
-    color: #777;
-    flex: 0 0 40%;
-    font-weight: 500;
-    font-size: 10px;
-    line-height: 1.5;
-    margin: .25rem 0 1rem;
-    text-transform: uppercase;
-
-    @media screen and (min-width: 421px) {
-      flex-basis: 8rem;
+  .plant__more-item--remarques,
+  .plant__more-item--comestible,
+  .plant__more-item--medicinale,
+  .plant__more-item--invasive,
+  .plant__more-item--description {
+    @media screen and (max-width: 821px) {
+      display: block;
     }
-  }
-
-  p {
-    flex: 0 0 60%;
-    margin-top: 0;
-    margin-bottom: 1rem;
-  }
-}
-
-.plant__more-item--remarques,
-.plant__more-item--comestible,
-.plant__more-item--medicinale,
-.plant__more-item--invasive,
-.plant__more-item--description {
-  @media screen and (max-width: 821px) {
-    display: block;
   }
 }
 </style>

@@ -237,6 +237,19 @@
   border: $border;
   box-shadow: none;
   appearance: none;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+// Button unchecked
+@mixin button-unchecked($border: none, $background: transparent) {
+  background: $background;
+  color: $gray50;
+  border: $border;
+  box-shadow: none;
+  appearance: none;
 }
 
 // Buttons helper
