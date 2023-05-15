@@ -31,14 +31,17 @@
       </div>
       <div class="plant__header">
         <p class="plant__latin">
-          {{ lead.Nom }}
+          {{ order === 'NomVernaculaire' ? lead.NomVernaculaire : lead.Nom }}
+
           <span v-if="lead.Toxique">☠️</span>
           <span v-if="lead.Invasive">⛔️</span>
           <span v-if="lead.Comestible">😋</span>
           <span v-if="lead.Mellifere">🐝</span>
           <span v-if="lead.Origine === 'Indigène'">🇧🇪</span>
         </p>
-        <p class="plant__vernaculaire">{{ lead.NomVernaculaire }}</p>
+        <p class="plant__vernaculaire">
+          {{ order === 'NomVernaculaire' ? lead.Nom : lead.NomVernaculaire }}
+        </p>
       </div>
     </div>
     <div
@@ -218,10 +221,10 @@
         <p class="plant__comestible">{{ lead.Comestible }}</p>
       </div>
       <div
-        v-if="lead.hasOwnProperty('Medicinale') && lead['Medicinale']"
-        class="plant__more-item plant__more-item--medicinale">
-        <h3>Medicinale</h3>
-        <p class="plant__medicinale">{{ lead.Medicinale }}</p>
+        v-if="lead.hasOwnProperty('Mellifere') && lead['Mellifere']"
+        class="plant__more-item plant__more-item--mellifere">
+        <h3>Mellifere</h3>
+        <p class="plant__mellifere">{{ lead.Mellifere }}</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Invasive') && lead['Invasive']"
@@ -230,16 +233,16 @@
         <p class="plant__invasive">{{ lead.Invasive }}</p>
       </div>
       <div
-        v-if="lead.hasOwnProperty('Mellifere') && lead['Mellifere']"
-        class="plant__more-item plant__more-item--mellifere">
-        <h3>Mellifere</h3>
-        <p class="plant__mellifere">{{ lead.Mellifere }}</p>
-      </div>
-      <div
         v-if="lead.hasOwnProperty('Toxique') && lead['Toxique']"
         class="plant__more-item plant__more-item--toxique">
         <h3>Toxique</h3>
         <p class="plant__toxique">{{ lead.Toxique }}</p>
+      </div>
+      <div
+        v-if="lead.hasOwnProperty('Medicinale') && lead['Medicinale']"
+        class="plant__more-item plant__more-item--medicinale">
+        <h3>Medicinale</h3>
+        <p class="plant__medicinale">{{ lead.Medicinale }}</p>
       </div>
       <div
         v-if="lead.hasOwnProperty('Utilisation') && lead['Utilisation']"
@@ -270,6 +273,11 @@ export default {
       required: true
     }
   },
+  computed: {
+    order () {
+      return this.$store.state.leads.filter.order
+    },
+  },
   methods: {
     toggleMore: function(el) {
       this.$el.closest(".plant").classList.toggle('is-open')
@@ -279,6 +287,10 @@ export default {
 </script>
 
 <style lang="scss">
+//
+// Shared component styles (for grid and table modifiers).
+//
+
 .plant__images-count {
   background: rgba(#111, .5);
   border-radius: 3px;
@@ -309,18 +321,63 @@ export default {
   }
 }
 
+.separator {
+  // Mimic the hr to display it only when necessary.
+  border: none;
+  height: 0;
+  margin: 0;
+
+  & + .plant__more-item {
+    border-top: 1px solid #eaeaea;
+    padding-top: 1rem;
+  }
+}
+
+.plant__more-item {
+  display: flex;
+  align-items: flex-start;
+
+  h3 {
+    color: #777;
+    flex: 0 0 40%;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1.5;
+    margin: .25rem 0 1rem;
+    text-transform: uppercase;
+
+    @media screen and (min-width: 421px) {
+      flex-basis: 8rem;
+    }
+  }
+
+  p {
+    flex: 0 0 60%;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+//
+// Plant grid.
+//
+
 .plant--grid {
   background: $white;
   border-radius: 4px;
   overflow: hidden;
   position: relative;
-  // padding: 0 1rem;
+  padding: 0 1rem .5rem;
+
+  .plant__item-name {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
 
   .plant__item-image {
-    position: relative;
-    // margin: 0 -1rem;
     display: block;
     height: 12rem;
+    position: relative;
     width: 100%;
   }
 
@@ -335,14 +392,13 @@ export default {
     &:hover,
     &:focus {
       cursor: pointer;
-      // box-shadow: 0 0 0 2px #007aff;
     }
-
   }
 
   .plant__header {
-    padding: 0 1rem;
     border-bottom: 1px solid #eaeaea;
+    padding-left: 1rem;
+    padding-right: 1rem;
     margin-bottom: .5rem;
     transition: none;
   }
@@ -365,23 +421,25 @@ export default {
 
   .plant__item {
     &:not(.plant__item-actions):not(.plant__item-name) {
-      display: flex;
-      margin-bottom: .5rem;
-      padding: 0 1rem;
+      display: inline;
 
       &:not(.has-value) {
         display: none;
       }
 
-      h3 {
-        margin-right: .5rem;
+      & + .has-value {
+        &:before {
+          content: "/ "
+        }
       }
 
-      h3, p {
-        font-size: 1rem;
-        line-height: 1.2;
-        margin-bottom: 0;
-        margin-top: 0;
+      h3 {
+        display: none;
+      }
+
+      p {
+        display: inline;
+        font-size: .8rem;
       }
     }
   }
@@ -419,20 +477,34 @@ export default {
   }
 
   .plant__more-item {
-    display: flex;
+    // display: flex;
 
-    h3 {
-      margin-right: .5rem;
-    }
+    // h3 {
+    //   margin-right: .5rem;
+    // }
 
-    h3, p {
-      font-size: 1rem;
-      line-height: 1.2;
-      margin-bottom: 0;
-      margin-top: 0;
-    }
+    // h3, p {
+    //   font-size: 1rem;
+    //   line-height: 1.2;
+    //   margin-bottom: 0;
+    //   margin-top: 0;
+    // }
   }
+
+  .plant__more-item--remarques,
+  .plant__more-item--comestible,
+  .plant__more-item--medicinale,
+  .plant__more-item--invasive,
+  .plant__more-item--utilisation,
+  .plant__more-item--description {
+    display: block;
+  }
+
 }
+
+//
+// Plant table.
+//
 
 .plant--table {
   margin-bottom: 0;
@@ -487,17 +559,6 @@ export default {
       }
     }
 
-    .separator {
-      // Mimic the hr to display it only when necessary.
-      border: none;
-      height: 0;
-      margin: 0;
-
-      & + .plant__more-item {
-        border-top: 1px solid #eaeaea;
-        padding-top: 1rem;
-      }
-    }
   }
 
   .plant__item {
@@ -686,7 +747,7 @@ export default {
     }
   }
 
-  .plant__more-item {
+  .plant__more {
     margin-bottom: 1rem;
 
     @media screen and (min-width: 821px) {
@@ -698,35 +759,11 @@ export default {
     }
   }
 
-  .plant__more-item {
-    display: flex;
-    align-items: flex-start;
-
-    h3 {
-      color: #777;
-      flex: 0 0 40%;
-      font-weight: 500;
-      font-size: 10px;
-      line-height: 1.5;
-      margin: .25rem 0 1rem;
-      text-transform: uppercase;
-
-      @media screen and (min-width: 421px) {
-        flex-basis: 8rem;
-      }
-    }
-
-    p {
-      flex: 0 0 60%;
-      margin-top: 0;
-      margin-bottom: 1rem;
-    }
-  }
-
   .plant__more-item--remarques,
   .plant__more-item--comestible,
   .plant__more-item--medicinale,
   .plant__more-item--invasive,
+  .plant__more-item--utilisation,
   .plant__more-item--description {
     @media screen and (max-width: 821px) {
       display: block;

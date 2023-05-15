@@ -244,12 +244,18 @@
 }
 
 // Button unchecked
-@mixin button-unchecked($border: none, $background: transparent) {
+@mixin button-unchecked($border: 1px solid #dbdbdb, $background: transparent) {
   background: $background;
+  border: 1px solid transparent;
   color: $gray50;
-  border: $border;
   box-shadow: none;
   appearance: none;
+
+  &:hover {
+    box-shadow: none;
+    border: $border;
+    color: $primary-text-color;
+  }
 }
 
 // Buttons helper
