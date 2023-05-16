@@ -18,6 +18,12 @@
           />
         </client-only>
         <picture
+          class="plant__image-sm"
+          @click="index = 0"
+          v-if="lead.small">
+          <img :src="lead.small" alt="">
+        </picture>
+        <picture
           class="plant__thumb"
           @click="index = 0"
           v-if="lead.thumb">
@@ -277,6 +283,9 @@ export default {
     order () {
       return this.$store.state.leads.filter.order
     },
+    layout () {
+      return this.$store.state.leads.layout
+    },
   },
   methods: {
     toggleMore: function(el) {
@@ -382,6 +391,12 @@ export default {
   }
 
   .plant__thumb {
+    display: none;
+  }
+
+  .plant__image-sm {
+    display: inline;
+
     img {
       object-fit: cover;
       object-position: center center;
@@ -695,6 +710,10 @@ export default {
     flex: 0 0 auto;
     height: 60px;
     width: 50px;
+  }
+
+  .plant__image-sm {
+    display: none;
   }
 
   .plant__thumb {

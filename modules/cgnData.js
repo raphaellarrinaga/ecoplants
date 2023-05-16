@@ -136,6 +136,20 @@ module.exports = async function (moduleOptions) {
       }
     }
 
+    function pushSmallImageToArray(arr, name, val) {
+      const found = arr.some(el => el.Nom.includes(name));
+
+      if (!found) {
+        arr.push({
+          Nom: name,
+          small: val
+        })
+      } else {
+        const index = arr.findIndex(el => el.Nom.includes(name));
+        arr[index]["small"] = val;
+      }
+    }
+
     //
     // Get Google Sheet data.
     //
@@ -200,6 +214,9 @@ module.exports = async function (moduleOptions) {
             if (name.includes("-thumb")) {
               const newName = name.substring(0, name.indexOf('-thumb')).replace(/_/g, " ");
               pushThumbToArray(images, newName, sourceUrl);
+            } else if (name.includes("-sm")) {
+              const newName = name.substring(0, name.indexOf('-sm')).replace(/_/g, " ");
+              pushSmallImageToArray(images, newName, sourceUrl);
             } else {
               // Using -0 to filter since we can now have a - in the name.
               // E.g. "Lychnis flos-cuculi"
