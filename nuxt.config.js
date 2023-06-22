@@ -47,6 +47,7 @@ export default {
   plugins: [
     '~/plugins/directives.js',
     '~/plugins/lightGallery.client.js',
+    '~/plugins/gtag.js',
     // @see https://dev.to/alejandroakbal/how-to-detect-and-update-to-the-latest-version-with-nuxt-pwa-1845
     { src: '~/plugins/pwa-update.js', mode: 'client' },
   ],
@@ -58,7 +59,6 @@ export default {
   buildModules: [
     '@nuxtjs/style-resources',
     '@nuxtjs/google-fonts',
-    '@nuxtjs/google-analytics',
     '@nuxt/image',
   ],
 

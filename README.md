@@ -7,11 +7,9 @@ WIP app build with [Nuxt](https://nuxtjs.org/) to browse plants from a belgian n
 - add info page and menu entry
 - change hash depending on the filter
 - add reset filter button
-- add pictures & content
 - check image caching
 - check global sass helpers
 - add grid display
-- add short info x long info display (list/table)
 
 ## SASS
 
