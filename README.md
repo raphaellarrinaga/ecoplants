@@ -4,12 +4,10 @@ WIP app build with [Nuxt](https://nuxtjs.org/) to browse plants from a belgian n
 
 ## Roadmap
 
-- add info page and menu entry
 - change hash depending on the filter
 - add reset filter button
 - check image caching
 - check global sass helpers
-- add grid display
 
 ## SASS
 
