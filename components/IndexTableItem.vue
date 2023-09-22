@@ -209,6 +209,14 @@
       </div>
       <hr class="separator">
       <div
+        v-if="lead.hasOwnProperty('Ecosem') && lead['Ecosem']"
+        class="plant__more-item plant__more-item--database">
+        <h3>Database</h3>
+        <p class="plant__database">
+          <span v-if="lead.hasOwnProperty('Ecosem') && lead['Ecosem']">Ecosem</span><span v-if="lead.hasOwnProperty('Ecoflora') && lead['Ecoflora']">Ecoflora</span><span v-if="lead.hasOwnProperty('ifapme') && lead['ifapme']">IFAPME</span>
+        </p>
+      </div>
+      <div
         v-if="lead.hasOwnProperty('Semis') && lead['Semis']"
         class="plant__more-item plant__more-item--semis">
         <h3>Semis</h3>
@@ -365,6 +373,14 @@ export default {
     margin-top: 0;
     margin-bottom: 1rem;
   }
+
+  span {
+    & + span {
+      &:before {
+        content: ", ";
+      }
+    }
+  }
 }
 
 //
@@ -489,21 +505,6 @@ export default {
     left: 0;
     padding: 1rem;
     overflow: scroll;
-  }
-
-  .plant__more-item {
-    // display: flex;
-
-    // h3 {
-    //   margin-right: .5rem;
-    // }
-
-    // h3, p {
-    //   font-size: 1rem;
-    //   line-height: 1.2;
-    //   margin-bottom: 0;
-    //   margin-top: 0;
-    // }
   }
 
   .plant__more-item--remarques,
