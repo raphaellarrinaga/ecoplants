@@ -8,7 +8,9 @@
             <button class="gallery-nav__button" @click="setBfg">BFG</button>
             <button class="gallery-nav__button" @click="setVivaces">Viv</button>
             <button class="gallery-nav__button" @click="setAromatiques">Aro</button>
-            <button class="gallery-nav__button" @click="setBulbes">Bulbes</button>
+            <button class="gallery-nav__button" @click="setBulbes">Bulb</button>
+            <button class="gallery-nav__button" @click="setAquatiques">Aqua</button>
+            <button class="gallery-nav__button" @click="setArbres">Arb</button>
           </div>
           <MainNavigation/>
         </header>
@@ -92,6 +94,8 @@ export default {
       vivaces: [],
       aromatiques: [],
       bulbes: [],
+      aquatiques: [],
+      arbres: [],
       solutionShown: false,
     }
   },
@@ -101,8 +105,10 @@ export default {
     const vivaces = await axios.get('/quizRenacData-vivaces.json').then(res => res.data)
     const aromatiques = await axios.get('/quizRenacData-aromatiques.json').then(res => res.data)
     const bulbes = await axios.get('/quizRenacData-bulbes.json').then(res => res.data)
+    const aquatiques = await axios.get('/quizRenacData-aquatiques.json').then(res => res.data)
+    const arbres = await axios.get('/quizRenacData-arbres.json').then(res => res.data)
     const plants = allPlants
-    return { plants, bfg, vivaces, aromatiques, bulbes, allPlants }
+    return { plants, bfg, vivaces, aromatiques, bulbes, aquatiques, arbres, allPlants }
   },
   components: {
     agile: VueAgile
@@ -122,6 +128,12 @@ export default {
     },
     setBulbes: function() {
       this.plants = this.bulbes;
+    },
+    setAquatiques: function() {
+      this.plants = this.aquatiques;
+    },
+    setArbres: function() {
+      this.plants = this.arbres;
     },
     randomize: function() {
       return this.plants.sort(function(){return 0.5 - Math.random()});
