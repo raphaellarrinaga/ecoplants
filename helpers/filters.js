@@ -6,7 +6,9 @@ export function filterLeads (filter, leads) {
   // Filter category
   if (filter.category.length !== 0) {
     const filtered = filteredList.filter(str => {
-      return filter.category.some(val => str.Categorie.includes(val));
+      if (str.Categorie !== undefined && str.Categorie !== '') {
+        return filter.category.some(val => str.Categorie.includes(val));
+      }
     });
 
     filteredList = filtered
@@ -15,7 +17,9 @@ export function filterLeads (filter, leads) {
   // Filter type
   if (filter.type.length !== 0) {
     const filtered = filteredList.filter(str => {
-      return filter.type.some(val => str.Type.includes(val));
+      if (str.Type !== undefined && str.Type !== '') {
+        return filter.type.some(val => str.Type.includes(val));
+      }
     });
 
     filteredList = filtered
