@@ -33,14 +33,16 @@
           <li>Savoir à quoi ressemble une plante donnée</li>
           <li>Connaitre la liste des plantes invasives en Belgique</li>
           <li>Etc.</li>
-          <li>Exemples :</li>
-          <ul>
-            <li>Je veux afficher une liste de sujets pour une haie indigène, comestible, de max 2m de haut.</li>
-            <li>Je veux afficher une liste de vivaces aux fleurs bleues ou jaunes qui fleurissent en juin pour composer un massif.</li>
-            <li>Je veux afficher une liste de plantes qui se plaisent à l'ombre, d'une hauteur max de 80cm pour composer un massif.</li>
-            <li>Je veux savoir à quoi ressemblent les feuilles et fleurs de l'Achillée.</li>
-            <li>Je veux en savoir plus sur les caractéristiques d'une plante dont je connais le nom.</li>
-          </ul>
+          <li>
+            Exemples :
+            <ul>
+              <li>Je veux afficher une liste de sujets pour une haie indigène, comestible, de max 2m de haut.</li>
+              <li>Je veux afficher une liste de vivaces aux fleurs bleues ou jaunes qui fleurissent en juin pour composer un massif.</li>
+              <li>Je veux afficher une liste de plantes qui se plaisent à l'ombre, d'une hauteur max de 80cm pour composer un massif.</li>
+              <li>Je veux savoir à quoi ressemblent les feuilles et fleurs de l'Achillée.</li>
+              <li>Je veux en savoir plus sur les caractéristiques d'une plante dont je connais le nom.</li>
+            </ul>
+          </li>
         </ul>
         <h3>But et historique</h3>
         <p>À l'origine, j'ai crée ce projet dans le but de retrouver les informations classiques de plantes herbacées et indigènes que je manipulais durant mon stage en pépinière. Le nom Ecoplants vient de là mais il est temporaire, à la base.</p>
