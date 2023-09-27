@@ -3,7 +3,7 @@
     "botanicalName": "Acer davidii",
     "familiarName": "Érable à peau de serpent",
     "season": "",
-    "type": "Arbre",
+    "type": "Arbre, Ornementale",
     "propagation": "",
     "height": "",
     "ground": "",
@@ -12,7 +12,385 @@
     "density": "",
     "bloom": "",
     "images": [
-      ""
+      "https://www.frankpmatthews.com/app/uploads/2022/07/13037_13870_8824-800x800.jpg?id=933035",
+      "https://static.wixstatic.com/media/25f04e_16997e48456e4a14b376a833748f9a7c~mv2.jpg/v1/fill/w_520,h_514,al_c,lg_1,q_80,enc_auto/acer-davidii-erable-du-pere-david%20(1)_jp.jpg",
+      "https://media.ooreka.fr/public/image/erable_japon_arbre_rouge_feuilles-full-11742483.jpg",
+      "https://www.graines-du-monde.be/530-medium_default/graines-erable-david-acer-davidii.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Acer japonicum",
+    "familiarName": "Érable du Japon",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://www.central-jardin.be/I-Grande-1090-acer-japonicum-aconitifolium-050-060-pot-p19-cm.net.jpg",
+      "https://online.bruns.de/Content/files/914/AJAC_Privatgarten_05_10_10_jh-r3-850x850-proportionalsmallest.jpg",
+      "https://mrmaple.com/cdn/shop/files/IMG_1259_7428fa67-d26e-41c2-b04f-b45fcd7cdfa5_1200x600_crop_center.jpg?v=1687984556",
+      "https://cdn.monstera-app.com/p/f1409de406dc14e5380c28087e602a558db1cdf8a4a1c8371a0b14cecc3ed96e.jpg/feuilles-d-erable-du-japon-qui-virent-du-vert-au-rouge.webp"
+    ]
+  },
+  {
+    "botanicalName": "Acer rubrum",
+    "familiarName": "Érable rouge du Canada, Érable du Canada",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://www.bloemenhuis.be/files/images/webshop/acer-rubrum-1632985674_l.jpg",
+      "https://www.bloemenhuis.be/files/images/webshop/acer-rubrum-1633434352_l.jpg",
+      "https://www.boutique-vegetale.com/wp-content/uploads/2022/05/Acer-rubrum-Jeunes-feuilles-CC-BY-3.0-Dcrjsr-e1651506222150-600x450.jpg",
+      "https://www.udenhout-trees.nl/site/assets/files/1357/acer_rubrum_karpick_blad.800x0.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Acer saccharinum",
+    "familiarName": "Érable argenté",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://online.bruns.de/Content/files/18490/Acer_saccharinum_2008_6180-r2-850x850-proportionalsmallest.jpg",
+      "https://www.thuilleaux.com/upload/j5-acer-sacharrinum-uyfwpq.jpg",
+      "https://www.vdberk.fr/media/6120/acer-saccharinum-asplenifolium.jpg",
+      "https://br-acres.com/cdn/shop/products/Shade-SilverMaple2_large.png?v=1644252259"
+    ]
+  },
+  {
+    "botanicalName": "Amelanchier arborea 'Robin Hill'",
+    "familiarName": "Amelanchier arborea 'Robin Hill'",
+    "season": "",
+    "type": "Arbre, Ornementale, Fruitier",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://www.mailordertrees.co.uk/cdn/shop/products/Amelanchier-Robin-Hill-Berries.jpg?v=1674026595",
+      "https://catalogue.guillot-bourne.com/fichiers/catalogue/65/867_hd.jpg",
+      "https://www.hamblenne.be/store2/images/stories/virtuemart/product/6078-AMELANCHIER-ARBOREA-ROBIN-HILL-by-Axkey.jpg",
+      "https://www.bomen.be/sites/default/files/products/amarhil.ps200_1.jpg",
+      "https://www.marechal.be/wp-content/uploads/2013/11/amarhill-e1481381509326.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Betula pendula",
+    "familiarName": "Bouleau blanc",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://www.vdberk.fr/media/12520/betula-pendula-tristis.jpg",
+      "https://fr-be.bakker.com/cdn/shop/products/RAV_28208_2.jpg?v=1682455410"
+    ]
+  },
+  {
+    "botanicalName": "Cercidiphyllum japonium",
+    "familiarName": "Arbre, Ornementale à caramel",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "httphttps://jardin-florilege.eu/sites/default/files/Cercidiphyllum%20japonicum%20%27Boy%27s%20Dwarf%27.002.JPG",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGkyFxt0oebmU2_zlT6W2oYRhRAdjyP2u3SA&usqp=CAU",
+      "https://www.duchyofcornwallnursery.co.uk/uploads/images/Products/General-Trees/_492x492_crop_center-center_none/Cercidiphyllum-japonicum.jpg",
+      "https://media.gerbeaud.net/2016/01/640/arbre-caramel-cercidiphyllum.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Cercis siliquastrum",
+    "familiarName": "Arbre, Ornementale de Judée",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://www.arbrecaue77.fr/media/cache/caueidf_article_main/uploads/media/caueidf/0001/14/50f0523dbb1fb1ef7b01c35e32dff5c3553d99bb.jpeg",
+      "https://www.bomen.be/sites/default/files/styles/large/public/products/cesiliq_2.jpg?itok=oS31Bd23",
+      "https://www.leaderplant.com/media/contentmanager/content/posts/cercis1_1.JPG"
+    ]
+  },
+  {
+    "botanicalName": "Liquidambar styraciflua",
+    "familiarName": "Copalme d'Amérique",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://www.willemsefrance.fr/cdn/shop/products/RAV_14929_1_f4fb6a32-372d-4da7-ac31-d1864e86581f.jpg?v=1682495252",
+      "https://www.bomen.be/sites/default/files/products/lisgumb.foto_1.jpg",
+      "https://images.immediate.co.uk/production/volatile/sites/10/2021/12/2048x1365-Liquidambar-styraciflua-GettyImages-1282721121-010b7e0.jpeg?resize=768,574",
+      "https://media.s-bol.com/Z54XkE8gwpJ/550x550.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Magnolia kobus",
+    "familiarName": "Magnolia de Kobe",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://jurassicplants.co.uk/cdn/shop/products/image_2_2048x.jpg?v=1628685011",
+      "https://www.ruudvandenberk.nl/wp-content/uploads/2018/03/MeerstammigenMagnolia-kobus-1000.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/a/a6/Magnolia_kobus_borealis1.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Nothofagus antarctica",
+    "familiarName": "Le Hêtre austral, ñire",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://www.nzflora.info/factsheet/images/Image21URlarge.jpg",
+      "https://media.licdn.com/dms/image/C4D12AQHC_xkMawrePA/article-cover_image-shrink_600_2000/0/1520187858086?e=2147483647&v=beta&t=Raxt9lJmRx8loY6D8r-0TCEBy0fhuNH89P6Jx-6MjUw",
+      "https://online.bruns.de/Content/files/15647/Nothofagus_antarctica_1999_1976_q-r2-850x850-proportionalsmallest.jpg",
+      "https://jardinage.lemonde.fr/images/dossiers/2020-01/nothofagus-antarctica-173733.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Parrotia persica",
+    "familiarName": "Parrotie de Perse, arbre, Ornementale de fer",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://www.bomen.be/sites/default/files/products/papersi.foto_1.jpg",
+      "https://canr.udel.edu/udbg/wp-content/uploads/sites/16/2018/02/Parrotia-persica-leaf.jpg",
+      "https://bowerandbranch.com/cdn/shop/products/VanessaPersianParrotiaFallLeaves_1200x630.png?v=1693240370"
+    ]
+  },
+  {
+    "botanicalName": "Paulownia tomentosa",
+    "familiarName": "Paulownia",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://sheffields.com/html/scale/1200//data/6447e32f396c7.jpg.webp",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD9dJ-Ig4lwsZfKNmwRZpvrMpBExuQL4NCEA&usqp=CAU",
+      "https://www.central-jardin.be/I-Grande-15434-paulownia-tomentosa-tige-200-250-pot-c7.net.jpg",
+      "https://bauchery.fr/6448-thickbox_default/paulownia-tomentosa.jpg",
+      "https://www.exotic-plants.de/auktionsbilder/Paulownia_tomentosa1.jpg",
+      "https://paulownia.energy/static-files/img/media-gallery/d1/16/paulownia-france-225940.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Prunus maackii",
+    "familiarName": "Cerisier de Mandchourie",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://landscapeplants.oregonstate.edu/sites/plantid7/files/plantimage/prma973A.jpg",
+      "https://www.passionjardins.com/content/uploads/2022/03/prunus-maackii.jpg",
+      "https://www.jardindupicvert.com/media/catalog/product/cache/9b8db22e5cb5a580d94445e657d02e33/p/r/prunus-maackii14498.jpg",
+      "https://www.ornamental-trees.co.uk/images/prunus-maackii-tree-p814-2203_medium.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Quercus hispanica",
+    "familiarName": "Chêne hybride d’Espagne, Chêne donino",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Quercus_hispanica_Lucombeana_JPG1a.jpg/640px-Quercus_hispanica_Lucombeana_JPG1a.jpg",
+      "https://privacytrees.be/wp-content/uploads/2017/03/quercus_hispanica.jpg",
+      "https://dendroimage.de//2838.jpg",
+      "https://catalogue.guillot-bourne.com/fichiers/catalogue/320/3375_hd.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Quercus palustris",
+    "familiarName": "Chêne des marais",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://newfs.s3.amazonaws.com/taxon-images-1000s1000/Fagaceae/quercus-palustris-fr-atal.jpg",
+      "https://www.jardins-du-monde.be/3287-large_default/chene-des-marais.jpg?v=2",
+      "https://www.thuilleaux.com/upload/quercus-palustris-fgqfre.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Quercus × turneri 'Pseudoturneri'",
+    "familiarName": "Chêne de Turner",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://www.promessedefleurs.com/media/catalog/product/cache/3f062753354220739b6be410e21544c8/Q/u/Quercus-turneri-Pseudoturneri-84251-FE.jpg",
+      "https://www.lve-baumschule.com/media/63/78/4e/1646917233/6901402.JPG",
+      "https://www.righettipiante.com/wp-content/uploads/2021/05/Quercus-Turneri-Pseuoturneri_particolare-2.jpg",
+      "https://online.bruns.de/Content/files/23578/QTPS_Sol_5xv_100-150x300-350_O-224_27_06_16_wr_44560-r2-850x850-proportionalsmallest.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Catalpa bignonioides",
+    "familiarName": "Catalpa boule, Catalpa commun",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://www.pepinieredupenthievre.com/2735/catalpa-bignonioides-catalpa-caroline.jpg",
+      "https://jardinage.lemonde.fr/images/dossiers/historique/catalpa-fleurs-190042.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm1mx74qxc4VKMQBRcmcwB35TyedxOmnq18g&usqp=CAU"
+    ]
+  },
+  {
+    "botanicalName": "Gleditsia triacanthos",
+    "familiarName": "Févier d'Amérique",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Gleditsia_triacanthos_sunburst.jpg/800px-Gleditsia_triacanthos_sunburst.jpg",
+      "https://www.bloemenhuis.be/files/images/webshop/gleditsia-triacanthos-f-inermis-1633443670_l.jpg",
+      "https://media.gerbeaud.net/2020/02/640/gleditsia-triacanthos-feuillage.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Liriodendron tulipifera",
+    "familiarName": "Tulipier de Virginie",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://shop-static.arborday.org/media/0000760_tuliptree_510.jpg",
+      "https://www.lepeupledacote.com/wp-content/uploads/2019/11/Copie-1-de-IMG_7847.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Liriodendron_tulipifera.jpg/800px-Liriodendron_tulipifera.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Magnolia virginiana",
+    "familiarName": "Magnolia de Virginie",
+    "season": "",
+    "type": "Arbre, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Sweetbay_Magnolia_Magnolia_virginiana_Comparison_4400px.jpg/1200px-Sweetbay_Magnolia_Magnolia_virginiana_Comparison_4400px.jpg",
+      "https://monticello-www.s3.amazonaws.com/files/callouts/classic-sml-magnolia-virginiana-2-2.jpg",
+      "https://www.wilsonbrosgardens.com/assets/images/magnolia-virginiana-sweetbay-single-trunk-tree-2.jpg",
+      "https://www.vdberk.fr/media/cache/tree_large/media/61260/magnolia-virginiana.jpg",
+      "https://laurelwoodarboretum.org/wp-content/uploads/2023/02/Magnolia-virginiana.jpg"
     ]
   }
 ]

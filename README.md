@@ -5,6 +5,8 @@ WIP app build with [Nuxt](https://nuxtjs.org/) to browse plants from a belgian n
 ## Roadmap
 
 - change hash depending on the filter
+- add cell formats for some google sheets cells (ex: exposition)
+- add formating/refactoring for Sol (acide/neutre/basique)
 - add reset filter button
 - check image caching
 - check global sass helpers
