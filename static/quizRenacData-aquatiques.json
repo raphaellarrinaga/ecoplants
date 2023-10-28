@@ -1,9 +1,313 @@
 [
   {
     "botanicalName": "Acorus calamus",
-    "familiarName": "Acore odorant - Roseau aromatique",
+    "familiarName": "Acore odorant, Roseau aromatique",
     "season": "",
-    "type": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Calla palustris",
+    "familiarName": "Arum des marais",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "-",
+    "familiarName": "-",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Gunnera manicata, Gunnera brasiliensis",
+    "familiarName": "Gunnera / Rhubarbe géante du brésil",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Iris kaempferi",
+    "familiarName": "Iris de Kaempfer ou du Japon",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Iris pseudo-acorus",
+    "familiarName": "Iris des marais ou flambe d’eau ou glaive",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Lobelia cardinalis",
+    "familiarName": "Lobelie des marais ou Lobelie cardinale",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "-",
+    "familiarName": "-",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "-",
+    "familiarName": "",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Pontédéria cordata",
+    "familiarName": "Pontederie à feuilles en cœur",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Scripus lacustris",
+    "familiarName": "Scirpe ou souchet, jonc des chaisiers",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Aponogeton distachyos",
+    "familiarName": "Aponogéton odorant, Vanille d’eau",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Butomus umbellatus",
+    "familiarName": "Jonc fleuri , butome en ombelle",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Hippuris vulgaris",
+    "familiarName": "Queue de renard, Pesse d’eau",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Nuphar lutea",
+    "familiarName": "Nénuphar jaune, jaunet d’eau",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Nymphea × hybrida",
+    "familiarName": "Nénuphar rustique",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Nymphoides peltata",
+    "familiarName": "Faux-nénuphar, cœur flottant",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Sagittaria sagittifolia",
+    "familiarName": "Flèche d’eau",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Thypha latifolia",
+    "familiarName": "Massette à larges feuilles, roseau",
+    "season": "",
+    "type": "Aquatique, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      ""
+    ]
+  },
+  {
+    "botanicalName": "Stratiotes aloides",
+    "familiarName": "Aloès d’eau",
+    "season": "",
+    "type": "Aquatique, Ornementale",
     "propagation": "",
     "height": "",
     "ground": "",
