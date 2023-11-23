@@ -11,6 +11,7 @@
             <button class="gallery-nav__button" @click="setBulbes">Bulb</button>
             <button class="gallery-nav__button" @click="setAquatiques">Aqua</button>
             <button class="gallery-nav__button" @click="setArbres">Arb</button>
+            <button class="gallery-nav__button" @click="setArbustes">Arst</button>
           </div>
           <MainNavigation/>
         </header>
@@ -96,6 +97,7 @@ export default {
       bulbes: [],
       aquatiques: [],
       arbres: [],
+      arbustes: [],
       solutionShown: false,
     }
   },
@@ -107,8 +109,9 @@ export default {
     const bulbes = await axios.get('/quizRenacData-bulbes.json').then(res => res.data)
     const aquatiques = await axios.get('/quizRenacData-aquatiques.json').then(res => res.data)
     const arbres = await axios.get('/quizRenacData-arbres.json').then(res => res.data)
+    const arbustes = await axios.get('/quizRenacData-arbustes.json').then(res => res.data)
     const plants = allPlants
-    return { plants, bfg, vivaces, aromatiques, bulbes, aquatiques, arbres, allPlants }
+    return { plants, bfg, vivaces, aromatiques, bulbes, aquatiques, arbres, arbustes, allPlants }
   },
   components: {
     agile: VueAgile
@@ -134,6 +137,9 @@ export default {
     },
     setArbres: function() {
       this.plants = this.arbres;
+    },
+    setArbustes: function() {
+      this.plants = this.arbustes;
     },
     randomize: function() {
       return this.plants.sort(function(){return 0.5 - Math.random()});
