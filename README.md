@@ -13,6 +13,8 @@ WIP app build with [Nuxt](https://nuxtjs.org/) to browse plants from a belgian n
 
 ## SASS
 
+@todo
+
 ### Breakpoints
 
 - 0 x 420
