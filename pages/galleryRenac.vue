@@ -45,6 +45,8 @@
                   <span class="gallery-item__label">Saison: </span>{{ item.season }}<span v-if="item.propagation"> ({{ item.propagation }})</span></p>
                 <p class="gallery-item__density">
                   <span class="gallery-item__label">Densité: </span>{{ item.density }}</p>
+                <p class="gallery-item__depth">
+                  <span class="gallery-item__label">Profondeur: </span>{{ item.depth }}</p>
                 <p class="gallery-item__height">
                   <span class="gallery-item__label">Hauteur: </span>{{ item.height }}cm</p>
                 <p class="gallery-item__ground">
