@@ -19,12 +19,12 @@
           <button
             @click="randomize"
             class="random-button">
-            🎁
+            <span>🎁</span>
           </button>
           <button
             @click="toggleNames"
             class="toggle-names-button">
-            👀
+            <span>👀</span>
           </button>
           <div
             v-for="(item, index) in plants"
@@ -33,7 +33,7 @@
             <button
               @click="toggleName"
               class="gallery-item__solution-toggle button-gallery">
-              👀
+              <span>👀</span>
             </button>
             <div class="gallery-item__infos">
               <h1 class="gallery-item__botanical">{{ item.botanicalName }} ({{ index + 1 }}/{{ plants.length }})</h1>
@@ -197,18 +197,11 @@ html {
   background-color: #f8f9fd;
 }
 
-// .page-header {
-//   display: flex;
-//   justify-content: space-between;
-//   margin: 0;
-//   align-items: baseline;
-// }
-
 .toggle-names-button,
 .random-button {
-  background-color: rgba(#f8f9fd, .8);
+  background-color: rgba(#fefefe, .5);
+  border: 1px solid rgba(#fefefe, .35);
   border-radius: 50%;
-  border: none;
   cursor: pointer;
   font-size: 1.8rem;
   padding: 1rem;
@@ -216,7 +209,7 @@ html {
   z-index: 3;
 
   &:hover {
-    background-color: #f8f9fd;
+    background-color: rgba(#fefefe, .85);
   }
 }
 
@@ -227,7 +220,7 @@ html {
 
 .toggle-names-button {
   bottom: 1.5rem;
-  right: 5rem;
+  right: 5.5rem;
 }
 
 .button-gallery {
@@ -250,7 +243,8 @@ html {
 }
 
 .gallery-item__solution-toggle {
-  border: 1px solid #dee1ed;
+  background: rgba(#fefefe, .3);
+  border: 1px solid rgba(#fefefe, .2);
   border-radius: 6px;
   font-size: 1rem;
   right: .2rem;
@@ -258,11 +252,40 @@ html {
   padding: .75rem;
   position: absolute;
   top: .2rem;
-  opacity: .5;
   z-index: 2;
 
+  span {
+    opacity: .5;
+  }
+
+  .is-revealed & {
+    background: rgba(#fefefe, .5);
+    border-color: rgba(#fefefe, .5);
+
+    span {
+      opacity: 1;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-color: rgba(#fefefe, .5);
+    }
+  }
+
   &:hover {
-    opacity: 1;
+    background: rgba(#fefefe, .5);
+    border-color: rgba(#fefefe, .5);
+
+    span {
+      opacity: 1;
+    }
+  }
+
+  &:focus,
+  &:active {
+    background: rgba(#fefefe, .3);
+    border: 1px solid rgba(#fefefe, .2);
   }
 }
 
