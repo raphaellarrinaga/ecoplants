@@ -2843,7 +2843,8 @@
     "exposition": "Soleil, Mi-ombre",
     "usage": "En massif, en arrière plan ou mi-plan. Idéal pour petits jardins. Aussi en haie. Pour sa floraison, en abord de terrasse ou dans les massifs. En isolé ou groupé. En massif arbustif, arrière plan de mixed border, haies libres et fleuries. En gros pots pour balcon/terrasse. Le long de chemin pour son odeur et variations de couleurs toute l'année. Beau toute l'année. Port souple. Abondante floraison, petites fleurs parfumées. Le calice reste en place longtemps après la chute des fleurs et donne une note colorée. Donne une impression de rose soutenu. Plante relativement fragile. Peut être semi-persistant en fonction des températures (n'est pas mauvais signe mais nécéssite un habillage ensuite). Les feuilles cuivrées au débourrage sont très belles. Tiges rouges étonnantes. Un air de photinia. Toutes petites fleurs mais en donne à profusion.",
     "density": "2",
-    "bloom": "Blanc, Rose",
+    "bloom": "7-10",
+    "color": "Blanc, Rose",
     "images": [
       "https://media.gerbeaud.net/2015/01/640/haie-abelia.jpg",
       "https://img.fruugo.com/product/2/84/623383842_max.jpg",
@@ -2861,7 +2862,8 @@
     "exposition": "Soleil, Mi-ombre",
     "usage": "En haies uniformes, libre ou brise-vent, bordure de massif fleuri ou arbustif, plates bandes ou isolé taillé ou en pot. Fleurs parfumées (ressemble à l'oranger quand elles sont jeunes). Croissance moyennement lente. Se taille à la cisaille. Très important de bien arroser à la plantation. Tailler en forme de lozange (peut s'appliquer au hêtre, charme, etc.). Eviter plein soleil, idéalement à la fraiche.",
     "density": "2-4",
-    "bloom": "Blanc, Jaune",
+    "bloom": "4-6",
+    "color": "Blanc, Jaune",
     "images": [
       "https://www.jardinpourvous.be/media/catalog/product/cache/3a7af0a8e0e317723249dc9098669163/f/d/fd19773wh.jpg",
       "https://s1.semencesdupuy.com/12438-large_default/buxus-sempervirens.jpg",
@@ -2879,7 +2881,8 @@
     "exposition": "Soleil, Mi-ombre",
     "usage": "Jardins tempérés et secs. En haie, massif arbustif, bordure, isolé, potée. Lieu où profiter de son parfum. Va en général autour de 3m mai speut aller beaucoup plus haut.",
     "density": "1",
-    "bloom": "Blanc, Jaune",
+    "bloom": "4-6",
+    "color": "Blanc, Jaune",
     "images": [
       "https://www.plantenkweker.be/slir/w800-h600/db_dataverde/CHTERNAT.JPG",
       "https://media.s-bol.com/qXWZMYODg1l2/W454OW/550x550.jpg",
@@ -2898,7 +2901,8 @@
     "exposition": "Soleil, Mi-ombre",
     "usage": "Isolé, haie libre ou défensive. Ilex x altaclerensis intéressant. Très compliqué à la reprise. Peut devenir centenaire. Certains cultivars très beaux (à f. de camelia 'camelifolia') et autofertile. Parfumée. Fruits rouges femelle toxique et attirent les oiseaux. A l'abri des vents froids. Supporte bien la pollution athmosphérique. Peut se rabattre au printemps même sévèrement, de préférence fin de l'été.",
     "density": "0,25-0,3-1",
-    "bloom": "Blanc",
+    "bloom": "5-6",
+    "color": "Blanc",
     "images": [
       "https://static.wixstatic.com/media/781656_e0b6e43f9def46fc92e0cb630bf389dd~mv2.jpg/v1/fill/w_640,h_460,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/781656_e0b6e43f9def46fc92e0cb630bf389dd~mv2.jpg",
       "https://www.plantesdehaies-heijnen.be/public/data/image/article/587/4002/large/hulst-ilex-aquifolium-80-100cm.jpg",
@@ -2917,7 +2921,8 @@
     "exposition": "Soleil, Mi-ombre",
     "usage": "Haie, massif, bonzaï. Pleine terre ou pot. Association avec d'autres arbres japonais. Croissance lente. Souvent taillé en nuage. très beau en boule. Formes vertes préfèrent la mi-ombre, les dorées le soleil. Système racinaire peu important. Entre le houx et le buis. Fruits noir brillants sur plants femelle de septembre à mars. Plante très fragile. Pas mal de variétés ('Golden gem')",
     "density": "",
-    "bloom": "Blanc, Vert",
+    "bloom": "4-9",
+    "color": "Blanc, Vert",
     "images": [
       "https://media.gerbeaud.net/2016/09/640/ilex-crenata-feuille.jpg",
       "https://www.plantesdehaies-heijnen.be/public/data/image/article/511/3855/large/japanse-hulst-ilex-crenata-green-hedge-40-60cm.jpg",
@@ -2936,7 +2941,8 @@
     "exposition": "Soleil, Mi-ombre",
     "usage": "Isolé, massif arbustif, rocaille, haie basse, potée. Fruits portés par les pieds femelle toxique. Croissance lente. La plupart des cultivars reprennent difficilement. Choc de plantation, perd 30% du feuillage",
     "density": "",
-    "bloom": "Blanc",
+    "bloom": "5-6",
+    "color": "Blanc",
     "images": [
       "https://www.garmundo.be/media/catalog/product/cache/ef4f9e0a2113c8f6b0dca5163ff3c479/i/l/ilex_meservae_blue_maid_fruchte.jpg",
       "https://www.bomen.be/sites/default/files/products/ilmbmai_1.jpg",
@@ -2955,7 +2961,8 @@
     "exposition": "Soleil, Mi-ombre, Ombre",
     "usage": "Haie basse, massif arbustif, isolé ou près de cheminements pour profiter du parfum. Très à la mode, en haie on perd la floraison. Sent très fort, même à 20m. Assez bien attaqué par les cochenilles. Floraison de longue durée, très parfumée rappelant celle du jasmin, en première moitié de printemps. Petites fleurs tubulaires à corolle. Osmanthus fragans (fleurs orange). ",
     "density": "1",
-    "bloom": "Blanc",
+    "bloom": "4-5",
+    "color": "Blanc",
     "images": [
       "https://privacytrees.be/wp-content/uploads/2017/04/osmanthus-burkwoodii-1.jpg",
       "https://www.jardins-du-monde.be/4202-large_default/osmanthe-de-burkwood.jpg?v=2",
@@ -2974,7 +2981,8 @@
     "exposition": "Soleil, Mi-ombre, Ombre",
     "usage": "Idéal en haie de haute taille Floraison en tirses, epis dressés blancs. Se méfier des températures froides. Conseillé de ne pas replanter de prunus sur un sol contaminé d'une maladie de prunus. ",
     "density": "",
-    "bloom": "Blanc",
+    "bloom": "5-6",
+    "color": "Blanc",
     "images": [
       "https://www.jardins-du-monde.be/3382-large_default/laurier-cerise-caucasica.jpg?v=2",
       "https://www.pepinieres-minier.fr/sites/default/files/produits/450-620/778-01.jpg",
@@ -2994,7 +3002,8 @@
     "exposition": "Soleil",
     "usage": "Isolé, massif arbustif, haie, topiaire. Fleurs parfumées en longues grappes ±20cm. Croissance très lente. Fruits en petites cerises non compestibles consommées par les pies et étourneaux. ",
     "density": "",
-    "bloom": "Blanc, Orange",
+    "bloom": "5-6",
+    "color": "Blanc, Orange",
     "images": [
       "https://www.ebben.nl/files/treeEbb/images/852x480/prunus-lusitanica-angustifolia-high-stem-1_1.jpg",
       "https://media.plantesdehaies.be/media/catalog/product/cache/99f846729f81700ae5aa516d5d59f6ba/1/9/19KP63BV_1614.jpg",
@@ -3013,7 +3022,8 @@
     "exposition": "Mi-ombre, Ombre",
     "usage": "En bordure, le long d'allées, plate)bandes, arrière plan dans les mixed borders, couvre-sol en massif arbustif, en sous bois sur les talus, en rocailles, dans la composition de haies ou potées. Rhodo classique par excellence. Réputé pour sa rusticité. Voir les jaunes pâles 'Rothenburg'. Retirer les fleurs fânées pour qu'il soit compact. On le plante minimum la moitié de la motte hors sol. On fait un tuteurage de 50-60cm. En triangle à l'extérieur. Adore la brumisation, 'bassinage' (pas en journée). Les fruits n'ont pas d'intérêt, à enlever de préférence. Fleurs blanc pur, griffées de pourpre à brun pourpre vers la base, anthères jaune foncé. Connu pour être un des meilleurs porte-greffe. Fleurs blanches jaunissent au soleil comme l'hortensia. Ne jamais sarcler les rhodos. Peut être rabattu à 40cm, revient à sa taille en 2 ans. Possible remontée fin d'été.",
     "density": "0,5",
-    "bloom": "Blanc",
+    "bloom": "5-6",
+    "color": "Blanc",
     "images": [
       "https://d147a5vd7kzml6.cloudfront.net/img/appeltern_nl/152564/388x517/resize:fixed/rhododendron_cunninghams_white_rododendron.jpg",
       "https://www.stervinou.fr/images/boutique/453-1-rhododendron_cunningham_s_white.jpg?1464859919",
@@ -3031,7 +3041,8 @@
     "exposition": "Ombre",
     "usage": "Bordure, massif arbustif, bonzaï Fleur blanches virant au rose avec le temps. Mi-ombre lumineuse ou soleil léger. Très florifère mais planter en 100-120cm, obligé à l'ombre. Croissance très lente.",
     "density": "",
-    "bloom": "Blanc, Rose",
+    "bloom": "5-6",
+    "color": "Blanc, Rose",
     "images": [
       "https://www.havlis.cz/img/3421_2.jpeg",
       "https://www.monjardin.fr/sites/default/files/styles/inline_scaled_s/public/yakushimanum-rhododendron-bourgeon-1654190-dam-msg.jpg?itok=lRAjWPr5",
@@ -3049,7 +3060,8 @@
     "exposition": "Mi-ombre, Ombre",
     "usage": "Isolé, massif. Très commune, résistante, très florifère, se taille super bien, peut être rabattu à 50-60cm. En 4 mois il repart. Facile à cultiver. Tend à être invasif dans certains milieux. En combre complète le feuillage est beaucoup moins dense.",
     "density": "",
-    "bloom": "Mauve",
+    "bloom": "5-6",
+    "color": "Mauve",
     "images": [
       "https://files.boomkwekerijpeers.be/cache/products/images/1200x600/c9aeaa5b7a1966c49552ae17151e258434d43471_7f996bd8469d554e824448ea20fb785ccc701bb8.jpg",
       "https://www.plantenkweker.be/slir/w800-h600/db_dataverde/RHPONTIC.JPG",
@@ -3067,7 +3079,8 @@
     "exposition": "Mi-ombre, Ombre",
     "usage": "Massif, isolé, bac. Pour son odeur thé au jasmin. Pétales forment un tapis coloré. Jolie silhouette un peu irrégulière, branches souples, prend parfois un petit air japonais.  Ne supporte pas l'atmosphère sèche. Parfumée. Longue floraison, les boutons s'ouvrent les uns après les autres. Pétales tombent un par un et les étamines plus tard. Croissance très lente. Une ombre totale inhibe la floraison, éviter le plein soleil.",
     "density": "0,33",
-    "bloom": "Blanc, Rose, Rouge",
+    "bloom": "9-2",
+    "color": "Blanc, Rose, Rouge",
     "images": [
       "https://www.bomen.be/sites/default/files/products/casasan_1.jpg",
       "https://media.gerbeaud.net/2013/11/640/camellia-sasanqua.jpg",
@@ -3085,7 +3098,8 @@
     "exposition": "Soleil, Mi-ombre",
     "usage": "Haie libre (bien lui laisser la place pour son épanouissement), topiaire. Pour jardins en bord de mer. Jardins secs en isolé, massifs arbustif. Plante d'avenir selon l'évolution des étés, encouragée à être utilisée. Très solide, très simple. Très parfumée. Supporte les vents salins (ok dans les dunes etc). Fixateur d'azote. Croissance rapide. Fleurs en forme de clochette, 4 pétales.",
     "density": "2",
-    "bloom": "Blanc, Jaune",
+    "bloom": "9-12",
+    "color": "Blanc, Jaune",
     "images": [
       "https://www.andre-briant.fr/media/elaeagnus_ebbingei__055604100_1359_18122016.jpg",
       "https://www.le-chatel-des-vivaces.com/8862-large_default/elaeagnus-ebbingei.jpg",
@@ -3104,7 +3118,8 @@
     "exposition": "Mi-ombre, Ombre",
     "usage": "En jardin asiatique, jardins épurés et modernes. Pour son feuillage exceptionnel. Aussi en grandes potées. Ramure sombre avec une note exotique et parfumée de mimosa, graphisme léger d'une fougère. Feuillage très doux. Fruits noirs aux reflets d'argent longtemps décoratifs (consommés par les oiseaux). Exige pour s’épanouir l’ombre profonde, ou mi-ombre. Ne supporte pas les situations très chaudes. La taille n'est pas nécéssaire.",
     "density": "1",
-    "bloom": "Jaune",
+    "bloom": "9-11",
+    "color": "Jaune",
     "images": [
       "https://cdn3.central-jardin.be/I-Autre-15802_459x459-.net.jpg",
       "https://www.thompson-morgan.com/product_images/100/optimised/MAHO-T46090-B_h.jpg",
@@ -3122,7 +3137,8 @@
     "exposition": "Soleil, Mi-ombre",
     "usage": "Floraison tardive, en haie, massif arbustif C'est l'osmanthe d'automne. 'Heterophyllus' : 2 types de feuilles. Odeur rappelle le jasmin. A l'abri des vents froids pour protéger la floraison, éviter les courants d'air. Cultivar 'Myrtifolius' au feuillage dense assez joli.",
     "density": "",
-    "bloom": "Blanc",
+    "bloom": "8-9",
+    "color": "Blanc",
     "images": [
       "https://media.plantesdehaies.be/media/catalog/product/cache/99f846729f81700ae5aa516d5d59f6ba/C/1/C127.01_daf6.jpg",
       "https://cdn4.central-jardin.be/I-Autre-6698_459x459-.net.jpg",
@@ -3141,7 +3157,8 @@
     "exposition": "Mi-ombre, Ombre",
     "usage": "Isolé, en pot. Fleur rouge à l'état naturel. Adore l'humidité permanente (beaucoup sur la façade atlantique). N'aime pas les atmosphères sèches. Supprimer les fleurs fânées. Rempotage tous les deux ans. Le choisir quand il est en fleurs pour être sur de la couleur. Très longue liste de cultivars.",
     "density": "",
-    "bloom": "Rouge, Rose, Blanc",
+    "bloom": "3-4",
+    "color": "Rouge, Rose, Blanc",
     "images": [
       "https://www.matelma.com/img/tuinadvies/uploads/1613138647-508036-600.jpg",
       "https://media.s-bol.com/J1Nk2JgBlL7l/67qpLV/550x550.jpg",
@@ -3160,7 +3177,8 @@
     "exposition": "Mi-ombre, Ombre",
     "usage": "Pour animer en hivers les massifs, bordure de jardin frais et ombragé. Pour sa fructification. Parfum rappellant l'oranger, légèrement vanillé. Fleurs plus spéctaculères chez les mâles. Croissance lente. Résistante, à mettre sous les rhodos, camélias (theme de noel), privilégier fructification. Très gourmand en terre de potasse (pour l'enracinement, active la fructification). Ok en soleil léger. Arroser car résiste mal à la sécheresse. Résistante à la pollution atmosphérique. Cultivars souvent en plantes d'appartements.",
     "density": "",
-    "bloom": "Rouge, Blanc",
+    "bloom": "12-3",
+    "color": "Rouge, Blanc",
     "images": [
       "https://jardinage.lemonde.fr/images/dossiers/2016-10/skimmia-japonica-181756.jpg",
       "https://www.central-jardin.be/I-Grande-36-skimmia-japonica-rubella-pot-p31-plante-xxl-de-60-fleurs.net.jpg",
@@ -3178,7 +3196,8 @@
     "exposition": "Mi-ombre, Ombre",
     "usage": "En haie basse, bordure de jardin de plante aromatique. En arbuste avec une floraison naturelle. Fleurs à l'aisselle des feuilles, fleurs mâle plus petites. Croissance lente. A l'abri des vents froids pour protéger la floraison hivernale. Faire attention au soleil. Entretien sans exigence. Sarcococca ruscifolia, beaucoup plus bas. Sarcococca hookeriana, plus connu. La plupart des variétés sont asiatiques, certaines compliquées à trouver.",
     "density": "",
-    "bloom": "Blanc",
+    "bloom": "12-2",
+    "color": "Blanc",
     "images": [
       "https://www.promessedefleurs.com/media/catalog/product/cache/3f062753354220739b6be410e21544c8/S/a/Sarcococca-ruscifolia-82224-P.jpg",
       "https://caraghnurseries.co.uk/wp-content/uploads/2021/05/SARCOCOCCA-RUSCIFOLIA-600x400.jpeg",
@@ -3197,12 +3216,359 @@
     "exposition": "Soleil, Mi-ombre, Ombre",
     "usage": "Pour les petits jardins et terrasses. Utilisé pour occulter. En haie libre associé à d'autres persistants. En pot pour sa forme arrondie et dense. C'est le classique. Variété intéressante pour ses fleurs en ombelle blanc rosé qui dure tout l'hivers et une partie du printemps. Fleurs pas très visibles mais sent assez bon quand c'est effleuré. Très florifère. Très facile de culture. Résistant. Taille conseillée. Très facile de culture. Tailler si besoin après floraison.",
     "density": "1",
-    "bloom": "Blanc, Rose",
+    "bloom": "1-4",
+    "color": "Blanc, Rose",
     "images": [
       "https://www.puurvantveld.eu//Files/10/162000/162389/ProductPhotos/Large/1717059597.jpg",
       "https://www.willaert.be/websites/1/uploads/image/PRODUCTIMAGES/VITEPRIC_4341_10877_15022019124645.jpg",
       "https://cdn.plantbezorgd.nl/wp-content/uploads/2023/06/Viburnum-tinus-Eve-Price-Sneeuwbal.jpg?strip=all&lossy=1&ssl=1",
       "https://shop.barnsdalegardens.co.uk/cdn/shop/products/viburnum-tinus-eve-price-01_f6c386e3-d04a-4bcc-b98c-c4e8bc964897.jpg?v=1669733587&width=416"
+    ]
+  },
+  {
+    "botanicalName": "Amelanchier canadensis",
+    "familiarName": "Amélanchier du Canada",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/1_HdBLeW2UMs.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/3_R833M20_Hv.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/5_ADJCnNf3B.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/7_uCbU7bqgT.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Aronia melanocarpa",
+    "familiarName": "Aronie",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/9_s2fIpSaBp.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/11_YTsR8Vr7FD.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/13_3feSFoswc.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/15_O6r2DzSDU.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Hydrangea arborescens 'Annabelle'",
+    "familiarName": "Hortensia de Virginie",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/17_Av7LmHH6P.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/19_eACfSORES.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/21_HKST5FcTy.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/23_uNmqH-BT2.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Myrica pensylvanica",
+    "familiarName": "Arbre à cire, Myrica cirier, Myrique de Pennsylvanie",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/25_-lhHq4r0b.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/27_z7GBjO03p.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/29_SWpjqiKB2.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/31_vqDl6-JGM.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Neilia affinis",
+    "familiarName": "Neillia fausse spirée",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/33_tcd8iOUSZY.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/35_rTGSCuFVHe.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/37_xDa92Rs563.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/39_bL6NSyKaqD.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/41_7bA-OAt5s.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Viburnum plicatum 'Watanabe'",
+    "familiarName": "Viorne",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/43_bY89l5FIn.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/45_CbuhtmGmr.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/47_3q8QCxTTC.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/49_rDp_yFY9N.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/51_vNrXvDL00e.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Rosa rubrifolia",
+    "familiarName": "Rosier à feuilles rouges",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/53_scmD97JaE.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/55_5apZ5veP0.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/57_VCGIt69mY5.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/59_u_RjZVKc4x.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Hydrangea aspera",
+    "familiarName": "Hortensia rugueux",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/61_6VbOHoMkS.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/63_0TdXmpwY2.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/65_trcCe-9fo.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/67_FT0blflHA.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Hydrangea macrophylla",
+    "familiarName": "Hortensia",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/69_JcHWfXOCc.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/71_eHyYrKeC6.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/73_63ud0tKzN.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/75_sUzmeg2K4V.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Hydrangea paniculata",
+    "familiarName": "Hortensia paniculé",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/77_CMx2nkIs9p.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/79_9n6PcHQfHX.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/80_P2Z_z1nL6.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/82_A0dAcgTVB.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Hydrangea quercifolia",
+    "familiarName": "Hortensia à feuilles de chêne",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/84_gnTdxUteO.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/86_pcl5igoLM.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/88_lHx5b2juA.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/90_8nllLZ3nR.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Hydrangea serrata",
+    "familiarName": "Hortensia japonais",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/92_HNmsGGE4c.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/94_Oj1R3mcJW.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Ilex verticillata",
+    "familiarName": "Houx verticillé",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/3_Iy3m4FPwn.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/1_nNWZ7-jGL6.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/5__r4AQJDk9S.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/7_sE3P46Kzq.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Calycanthus floridus",
+    "familiarName": "L'Arbre aux anémones, Arbre Pompadour",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/11_BMT4KwxFw.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/13_i5XGPvgRb.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/16_8Cv7uIykmK.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/9_xmTCh1ylw.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/15_8I_ZX514D.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Colutea arborescens",
+    "familiarName": "Baguenaudier, Arbre à vessies",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/18_gHe5ERWuo.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/19_b-moUMNJW.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/21_XThV99sbm.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/23_CYnJbSx2c.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Rosa rugosa",
+    "familiarName": "Rosier rugueux",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/25_IFBFaqCXs.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/27_aLIekNrTD.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/29_xu9ltSwVq.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/30_vElezsxxi.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Viburnum lentago",
+    "familiarName": "Viorne lentago, Viorne flexible",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/32_PkGvu-TXQ.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/34_vDZlRexeW.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/36_OcOeJPZoJ.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/38_jjizFcc1p.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/40_peEC9_hJQ.jpg"
+    ]
+  },
+  {
+    "botanicalName": "Hamamelis mollis",
+    "familiarName": "Hamamélis de Chine",
+    "season": "",
+    "type": "Arbuste, Ornementale",
+    "propagation": "",
+    "height": "",
+    "ground": "",
+    "exposition": "",
+    "usage": "",
+    "density": "",
+    "bloom": "",
+    "images": [
+      "https://ik.imagekit.io/mmj8qcw1h/42_pCZi9G2tN.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/44_dGKattP8a.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/46_oKURtz7sb.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/48_6vyTA2-sS.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/50_ujGht6qVT.jpg",
+      "https://ik.imagekit.io/mmj8qcw1h/52_4LTQRqB2C.jpg"
     ]
   }
 ]
